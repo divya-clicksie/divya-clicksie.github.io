@@ -1,0 +1,152 @@
+---
+const currentYear = new Date().getFullYear();
+const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
+const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
+const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo" aria-label="Nubo Baby Tracker Home">
+          <img src="/images/nubo-logo.svg" alt="nubo" width="80" height="24" />
+        </a>
+        <p class="footer-tagline">Care with Confidence</p>
+      </div>
+
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h3>Product</h3>
+          <ul>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Get Nubo</h3>
+          <ul>
+            <li><a href={amazonURL} target="_blank" rel="noopener noreferrer">Buy on Amazon</a></li>
+            <li><a href={appStoreURL} target="_blank" rel="noopener noreferrer">App Store (Free)</a></li>
+            <li><a href={playStoreURL} target="_blank" rel="noopener noreferrer">Google Play (Free)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="/faq/">FAQ</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">
+        Nubo is not a medical device and is not intended to diagnose, treat, cure, or prevent medical conditions.
+      </p>
+      <p class="footer-legal">
+        Designed by Clicksie in USA &middot; &copy; {currentYear} Clicksie LLC
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: #fafafa;
+    padding: 4rem 0 2.5rem;
+    border-top: 1px solid #eee;
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+    padding-bottom: 3rem;
+  }
+
+  .footer-brand {
+    flex-shrink: 0;
+  }
+
+  .footer-logo {
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-logo img {
+    height: 22px;
+    width: auto;
+  }
+
+  .footer-tagline {
+    font-size: 0.875rem;
+    color: #888;
+  }
+
+  .footer-columns {
+    display: flex;
+    gap: 4rem;
+  }
+
+  .footer-col h3 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #999;
+    margin-bottom: 1rem;
+  }
+
+  .footer-col ul {
+    list-style: none;
+  }
+
+  .footer-col li + li {
+    margin-top: 0.6rem;
+  }
+
+  .footer-col a {
+    font-size: 0.875rem;
+    color: #555;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover {
+    color: #13BCC3;
+  }
+
+  .footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+    text-align: center;
+  }
+
+  .footer-disclaimer {
+    font-size: 0.75rem;
+    color: #bbb;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-legal {
+    font-size: 0.75rem;
+    color: #999;
+  }
+
+  @media (max-width: 768px) {
+    .footer-top {
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .footer-columns {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+</style>

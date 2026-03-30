@@ -1,0 +1,1263 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Nubo | One-Touch Baby Activity Tracker | Track Feedings, Sleep & Diapers';
+const description = 'Nubo is the fastest baby tracker. One tap to log feedings, sleep, and diapers without reaching for your phone. Syncs to a free app with Nubo Premium included for every caregiver.';
+
+const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
+const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
+const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Nubo Baby Activity Tracker",
+  "description": "One-touch baby activity tracker and companion app for logging feedings, sleep, and diapers.",
+  "image": "https://www.nubotracker.com/images/hero.webp",
+  "brand": { "@type": "Brand", "name": "nubo" },
+  "offers": {
+    "@type": "Offer",
+    "url": amazonURL,
+    "priceCurrency": "USD",
+    "price": "89.99",
+    "availability": "https://schema.org/InStock"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.2",
+    "reviewCount": "32"
+  }
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+  <main>
+
+    <!-- ════════════════════════════════════════════
+         HERO
+    ════════════════════════════════════════════ -->
+    <section class="hero">
+      <div class="hero-bg">
+        <div class="hero-glow"></div>
+      </div>
+      <div class="container hero-inner">
+        <div class="hero-content reveal">
+          <h1>
+            Care for your baby
+            <span class="hero-accent">with&nbsp;confidence.</span>
+          </h1>
+          <p class="hero-sub">
+            One tap to log feedings, sleep, and diapers. No phone needed.
+            Nubo syncs to a free app and shares with every caregiver, instantly.
+          </p>
+          <div class="hero-actions">
+            <a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">
+              Buy on Amazon · $89.99
+            </a>
+            <a href="#how-it-works" class="btn-ghost">See how it works</a>
+          </div>
+          <div class="hero-trust">
+            <span class="trust-stars" aria-label="4.2 out of 5 stars">★★★★☆</span>
+            <span>4.2 on Amazon</span>
+            <span class="trust-sep">&middot;</span>
+            <span>Free app</span>
+            <span class="trust-sep">&middot;</span>
+            <span>Nubo Premium included</span>
+          </div>
+        </div>
+        <div class="hero-image reveal reveal-delay-2">
+          <img
+            src="/images/hero.webp"
+            alt="A mother tenderly holding her newborn, with Nubo baby tracker in the foreground"
+            width="760"
+            height="862"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+         MEET NUBO
+    ════════════════════════════════════════════ -->
+    <section class="meet-nubo" id="meet-nubo">
+      <div class="container meet-inner">
+        <div class="meet-image reveal">
+          <img
+            src="/images/nubo-frontal.webp"
+            alt="Nubo baby tracker, white device with teal edges showing feeding, sleep, and diaper buttons"
+            width="380"
+            height="800"
+          />
+        </div>
+        <div class="meet-text reveal reveal-delay-1">
+          <p class="overline">Meet Nubo</p>
+          <h2>
+            The fastest way to track<br/>
+            your baby's day.
+          </h2>
+          <p class="meet-description">
+            Nubo is a physical tracker designed for the chaos of newborn life.
+            Clear buttons for every activity. No screens, no apps, no fumbling.
+            Just one tap. Even at 3&nbsp;AM, even with one hand, even when your brain is mush.
+          </p>
+          <p class="meet-description">
+            <strong>It just works.</strong> Like a light switch for baby tracking.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+         HOW IT WORKS
+    ════════════════════════════════════════════ -->
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="section-intro reveal">
+          <p class="overline">How It Works</p>
+          <h2>Set up in 2 minutes.<br/>Use for months.</h2>
+        </div>
+
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step-num">1</div>
+            <h3>Pair with your phone</h3>
+            <p>Download the free Nubo app, connect via Bluetooth, and invite caregivers. That's the only time you need your phone.</p>
+          </div>
+          <div class="step reveal reveal-delay-1">
+            <div class="step-num">2</div>
+            <h3>Tap to log activities</h3>
+            <p>Feeding, sleep, diaper. Press the button on Nubo. One touch. The device stores everything and syncs when your phone is nearby.</p>
+          </div>
+          <div class="step reveal reveal-delay-2">
+            <div class="step-num">3</div>
+            <h3>See patterns in the app</h3>
+            <p>Feeding trends, sleep duration, AI-powered insights. Walk into the pediatrician's office prepared instead of guessing.</p>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+         ONE TOUCH
+    ════════════════════════════════════════════ -->
+    <section class="one-touch" id="features">
+      <div class="container">
+        <div class="section-intro reveal">
+          <p class="overline">One Touch Logging</p>
+          <h2>Log activities<br/>without reaching<br/>for your phone.</h2>
+        </div>
+        <div class="one-touch-image reveal">
+          <img
+            src="/images/nubo-oneclick.webp"
+            alt="Close-up of a finger pressing the sleep button on Nubo for one touch logging"
+            width="740"
+            height="554"
+          />
+        </div>
+        <p class="one-touch-caption reveal">
+          Clear, intuitive buttons for feeding, sleeping, pee, and poop.
+          Press once. Nubo confirms with a gentle light. Done. Get back to your baby.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+         FEATURES
+    ════════════════════════════════════════════ -->
+    <section class="features-section">
+      <div class="container">
+        <div class="section-intro reveal">
+          <p class="overline">Thoughtfully Designed</p>
+          <h2>Built for real life<br/>with a newborn.</h2>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card feature-wide reveal">
+            <div class="feature-card-image">
+              <img src="/images/feature-magnetic.webp" alt="Nubo magnetically docked to a refrigerator" width="740" height="554" />
+            </div>
+            <div class="feature-card-text">
+              <h3>Magnetic docking</h3>
+              <p>Snap Nubo to your fridge, clip it to the crib, or toss it in the diaper bag. Magnetic stickers included. It goes wherever your baby goes.</p>
+            </div>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-card-image">
+              <img src="/images/feature-water.webp" alt="Nubo covered in water droplets, water resistant" width="740" height="554" />
+            </div>
+            <div class="feature-card-text">
+              <h3>Water &amp; spill resistant</h3>
+              <p>Life with a baby is messy. Nubo can handle it. Just wipe clean and keep going.</p>
+            </div>
+          </div>
+
+          <div class="feature-card reveal reveal-delay-1">
+            <div class="feature-card-image">
+              <img src="/images/feature-battery.webp" alt="Calendars showing months of battery life" width="740" height="554" />
+            </div>
+            <div class="feature-card-text">
+              <h3>Months of battery</h3>
+              <p>Coin cell battery. No charging cables. An extra battery in the box eliminates anxiety.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+         CAREGIVERS
+    ════════════════════════════════════════════ -->
+    <section class="caregivers" id="caregivers">
+      <div class="container">
+        <div class="section-intro reveal">
+          <p class="overline">Nubo for Everyone</p>
+          <h2>Every caregiver.<br/>One page. Always.</h2>
+          <p class="section-sub">Mom, dad, grandparents, nanny. Everyone sees the same data. No more &ldquo;did you feed the baby?&rdquo; texts.</p>
+        </div>
+
+        <div class="caregivers-grid">
+          <div class="caregiver-card reveal">
+            <div class="caregiver-img">
+              <img src="/images/audience-parents.png" alt="Parents viewing their Nubo app to understand their newborn's routine" width="600" height="432" />
+            </div>
+            <div class="caregiver-text">
+              <h3>For parents</h3>
+              <p>Understand your newborn's routine. See patterns in feeding, sleep, and diapers to plan your day with confidence.</p>
+            </div>
+          </div>
+
+          <div class="caregiver-card reveal reveal-delay-1">
+            <div class="caregiver-img">
+              <img src="/images/audience-grandparents.png" alt="Grandparents holding their grandchild with the Nubo collaboration screen on phone" width="600" height="432" />
+            </div>
+            <div class="caregiver-text">
+              <h3>For grandparents &amp; nannies</h3>
+              <p>No apps to learn. No logins to remember. Just press the button when something happens. The parents see it instantly.</p>
+            </div>
+          </div>
+
+          <div class="caregiver-card reveal reveal-delay-2">
+            <div class="caregiver-img">
+              <img src="/images/audience-doctors.png" alt="Pediatrician reviewing baby's feeding and sleep data on phone during a checkup" width="600" height="432" />
+            </div>
+            <div class="caregiver-text">
+              <h3>For pediatricians</h3>
+              <p>Parents arrive with accurate, timestamped data. Feeding volumes, sleep duration, output. No more guesswork.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+         REVIEWS
+    ════════════════════════════════════════════ -->
+    <section class="reviews" id="reviews">
+      <div class="container">
+        <div class="section-intro reveal">
+          <p class="overline">Real Reviews</p>
+          <h2>Parents who've<br/>been there.</h2>
+        </div>
+
+        <div class="reviews-grid">
+          <blockquote class="review reveal">
+            <div class="review-stars">★★★★★</div>
+            <p>&ldquo;I tried three baby-tracker apps before this. All felt like spreadsheets with pastel icons. <strong>Nubo is the first one I can use half-asleep.</strong>&rdquo;</p>
+            <footer><strong>Kiran K.</strong> &middot; Verified Purchase</footer>
+          </blockquote>
+
+          <blockquote class="review reveal reveal-delay-1">
+            <div class="review-stars">★★★★☆</div>
+            <p>&ldquo;Our nanny often missed logging activities on time. We mounted Nubo next to the nursery doorway. <strong>It's been a game-changer.</strong>&rdquo;</p>
+            <footer><strong>HB</strong> &middot; Verified Purchase</footer>
+          </blockquote>
+
+          <blockquote class="review reveal reveal-delay-2">
+            <div class="review-stars">★★★★★</div>
+            <p>&ldquo;So much easier to tag team with our baby. If one of us has been out, the other can just <strong>glance at the app and see what's been going on.</strong>&rdquo;</p>
+            <footer><strong>Devi</strong> &middot; Verified Purchase</footer>
+          </blockquote>
+
+          <blockquote class="review reveal reveal-delay-3">
+            <div class="review-stars">★★★★★</div>
+            <p>&ldquo;You can log sleep, diapers, and feeding within a second. <strong>A luxury product that feels premium</strong> in both design and function.&rdquo;</p>
+            <footer><strong>Ilya K.</strong> &middot; Verified Purchase</footer>
+          </blockquote>
+        </div>
+
+        <div class="reviews-link reveal">
+          <a href="https://www.amazon.com/product-reviews/B0CJLNBG4P" target="_blank" rel="noopener noreferrer">
+            Read all 32 reviews on Amazon &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+         PRIVACY
+    ════════════════════════════════════════════ -->
+    <section class="privacy" id="privacy">
+      <div class="container privacy-inner">
+        <div class="privacy-text reveal">
+          <p class="overline">Privacy by Design</p>
+          <h2>Your baby's data<br/>stays yours.</h2>
+          <ul class="privacy-list">
+            <li>No account required to use device or app</li>
+            <li>Data stays on your phone, not our servers</li>
+            <li>End-to-end encrypted sharing</li>
+            <li>Backup to your own iCloud or Google Drive</li>
+            <li>We never sell or share your information</li>
+          </ul>
+          <a href="/privacy-policy/" class="text-link">Read our privacy policy &rarr;</a>
+        </div>
+        <div class="privacy-visual reveal reveal-delay-1">
+          <img src="/images/privacy-shield.png" alt="Nubo app interface showing privacy-first data widgets and encrypted sharing" width="600" height="405" />
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+         GIFT
+    ════════════════════════════════════════════ -->
+    <section class="gift" id="gift">
+      <div class="container gift-inner">
+        <div class="gift-image reveal">
+          <img
+            src="/images/nubo-gift.webp"
+            alt="Nubo beautifully packaged as a gift in a premium white box with the device inside"
+            width="600"
+            height="480"
+          />
+        </div>
+        <div class="gift-text reveal reveal-delay-1">
+          <p class="overline">Baby Shower Favorite</p>
+          <h2>The gift every new parent actually uses.</h2>
+          <p class="gift-desc">
+            Skip the onesies. Give the gift of time, sanity, and confidence.
+            Nubo comes beautifully packaged and ready to use from day&nbsp;one.
+          </p>
+          <div class="gift-box">
+            <h3>What's in the box</h3>
+            <ul>
+              <li>Nubo device (with battery)</li>
+              <li>Milk volume sticker</li>
+              <li>Magnetic mount sticker</li>
+              <li>Extra battery</li>
+              <li>Lanyard</li>
+              <li>Setup &amp; user guides</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+         FOUNDER
+    ════════════════════════════════════════════ -->
+    <section class="founder">
+      <div class="container">
+        <div class="founder-inner reveal">
+          <p class="overline">Created by Parents, for Parents</p>
+          <blockquote>
+            <p>&ldquo;Nubo was born from the chaos of early motherhood. I created it to help mothers feel more confident, supported, and present. Because parenting is hard, but the moments that matter shouldn't be&nbsp;lost.&rdquo;</p>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+         FINAL CTA
+    ════════════════════════════════════════════ -->
+    <section class="final-cta" id="buy">
+      <div class="container final-cta-inner reveal">
+        <h2>Ready to track<br/>smarter?</h2>
+        <p class="final-sub">$89.99 on Amazon &middot; Free companion app &middot; Free shipping with Prime</p>
+
+        <a href={amazonURL} class="btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+          Buy on Amazon
+        </a>
+
+        <div class="store-badges">
+          <p class="store-label">Download the free companion app</p>
+          <div class="store-links">
+            <a href={appStoreURL} target="_blank" rel="noopener noreferrer">
+              <img src="/images/appstore-badge.png" alt="Download on the App Store" width="160" height="56" />
+            </a>
+            <a href={playStoreURL} target="_blank" rel="noopener noreferrer">
+              <img src="/images/playstore-badge.png" alt="Get it on Google Play" width="160" height="56" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</BaseLayout>
+
+
+<style>
+  /* ═══════════════════════════════════════════
+     DESIGN TOKENS
+  ═══════════════════════════════════════════ */
+  :root {
+    --color-brand: #13BCC3;
+    --color-brand-dark: #0ea5ab;
+    --color-brand-light: #e6f9fa;
+    --color-text: #1d1d1f;
+    --color-text-secondary: #6e6e73;
+    --color-bg-warm: #faf8f5;
+    --color-bg-soft: #f5f5f7;
+    --radius-xl: 24px;
+    --radius-2xl: 32px;
+  }
+
+
+  /* ═══════════════════════════════════════════
+     SHARED ELEMENTS
+  ═══════════════════════════════════════════ */
+  .overline {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-brand);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-intro {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-intro h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+  }
+
+  .section-sub {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 540px;
+    margin: 1rem auto 0;
+    line-height: 1.6;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: var(--color-brand);
+    border-radius: 100px;
+    border: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    letter-spacing: -0.01em;
+  }
+
+  .btn-primary:hover {
+    background: var(--color-brand-dark);
+    transform: scale(1.04);
+    box-shadow: 0 8px 30px rgba(19, 188, 195, 0.3);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-brand);
+    background: transparent;
+    border: 2px solid var(--color-brand);
+    border-radius: 100px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-ghost:hover {
+    background: var(--color-brand-light);
+  }
+
+  .btn-lg {
+    padding: 1.125rem 3rem;
+    font-size: 1.125rem;
+  }
+
+  .text-link {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-brand);
+    transition: color 0.2s;
+  }
+
+  .text-link:hover {
+    color: var(--color-brand-dark);
+  }
+
+
+  /* ═══════════════════════════════════════════
+     HERO
+  ═══════════════════════════════════════════ */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(170deg, #f0fafa 0%, #fff 40%, var(--color-bg-warm) 100%);
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 70%;
+    height: 80%;
+    background: radial-gradient(ellipse, rgba(19, 188, 195, 0.08) 0%, transparent 70%);
+    filter: blur(60px);
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 72px;
+    min-height: 100vh;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2.5rem, 5.5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+  }
+
+  .hero-accent {
+    color: var(--color-brand);
+  }
+
+  .hero-sub {
+    margin-top: 1.5rem;
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    max-width: 460px;
+  }
+
+  .hero-actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-trust {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    flex-wrap: wrap;
+  }
+
+  .trust-stars {
+    color: #F5A623;
+    font-size: 0.875rem;
+    letter-spacing: 1px;
+  }
+
+  .trust-sep {
+    color: #ccc;
+  }
+
+  .hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-image img {
+    max-height: 85vh;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 60px rgba(19, 188, 195, 0.12));
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: auto;
+      padding: 0;
+    }
+    .hero-inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+      padding-top: 100px;
+      padding-bottom: 3rem;
+      min-height: auto;
+    }
+    .hero-sub { margin: 1rem auto 0; }
+    .hero-actions { justify-content: center; }
+    .hero-trust { justify-content: center; }
+    .hero-image { order: -1; }
+    .hero-image img { max-height: 50vh; }
+  }
+
+
+  /* ═══════════════════════════════════════════
+     MEET NUBO
+  ═══════════════════════════════════════════ */
+  .meet-nubo {
+    padding: 8rem 0;
+    background: var(--color-bg-soft);
+  }
+
+  .meet-inner {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .meet-image img {
+    height: 520px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 30px 80px rgba(0, 0, 0, 0.08));
+  }
+
+  .meet-text .overline { }
+
+  .meet-text h2 {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+  }
+
+  .meet-description {
+    font-size: 1.0625rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    max-width: 480px;
+  }
+
+  .meet-description + .meet-description {
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .meet-nubo { padding: 5rem 0; }
+    .meet-inner {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      text-align: center;
+    }
+    .meet-image { display: flex; justify-content: center; }
+    .meet-image img { height: 360px; }
+    .meet-description { margin-left: auto; margin-right: auto; }
+  }
+
+
+  /* ═══════════════════════════════════════════
+     HOW IT WORKS
+  ═══════════════════════════════════════════ */
+  .how-it-works {
+    padding: 8rem 0;
+    background: #fff;
+  }
+
+  .how-it-works h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
+
+  .step {
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--color-brand);
+    color: #fff;
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+  }
+
+  .step h3 {
+    font-size: 1.1875rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .step p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+  }
+
+  .how-visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .how-visual img {
+    max-width: 100%;
+    border-radius: var(--radius-2xl);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+  }
+
+  @media (max-width: 768px) {
+    .how-it-works { padding: 5rem 0; }
+    .steps { grid-template-columns: 1fr; gap: 1rem; }
+  }
+
+
+  /* ═══════════════════════════════════════════
+     ONE TOUCH
+  ═══════════════════════════════════════════ */
+  .one-touch {
+    padding: 8rem 0;
+    background: var(--color-bg-warm);
+  }
+
+  .one-touch h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .one-touch-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .one-touch-image img {
+    max-width: 640px;
+    width: 100%;
+    border-radius: var(--radius-2xl);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.06);
+  }
+
+  .one-touch-caption {
+    text-align: center;
+    font-size: 1.0625rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+
+  /* ═══════════════════════════════════════════
+     FEATURES
+  ═══════════════════════════════════════════ */
+  .features-section {
+    padding: 8rem 0;
+    background: #fff;
+  }
+
+  .features-section h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .feature-card {
+    background: var(--color-bg-soft);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .feature-wide {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+  }
+
+  .feature-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .feature-card-text {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .feature-card-text h3 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .feature-card-text p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+  }
+
+  .feature-card:not(.feature-wide) .feature-card-image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .feature-card:not(.feature-wide) .feature-card-image img {
+    height: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .features-section { padding: 5rem 0; }
+    .feature-grid { grid-template-columns: 1fr; }
+    .feature-wide { grid-template-columns: 1fr; }
+    .feature-card-text { padding: 1.75rem; }
+  }
+
+
+  /* ═══════════════════════════════════════════
+     CAREGIVERS
+  ═══════════════════════════════════════════ */
+  .caregivers {
+    padding: 8rem 0;
+    background: var(--color-bg-warm);
+  }
+
+  .caregivers h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .caregivers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .caregiver-card {
+    background: #fff;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .caregiver-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .caregiver-img img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .caregiver-text {
+    padding: 1.75rem;
+  }
+
+  .caregiver-text h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .caregiver-text p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .caregivers { padding: 5rem 0; }
+    .caregivers-grid { grid-template-columns: 1fr; }
+  }
+
+
+  /* ═══════════════════════════════════════════
+     REVIEWS
+  ═══════════════════════════════════════════ */
+  .reviews {
+    padding: 8rem 0;
+    background: #fff;
+  }
+
+  .reviews h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .review {
+    background: var(--color-bg-soft);
+    border-radius: var(--radius-xl);
+    padding: 2.25rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .review-stars {
+    color: #F5A623;
+    font-size: 0.875rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .review p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.7;
+    flex: 1;
+    font-style: italic;
+  }
+
+  .review footer {
+    margin-top: 1.25rem;
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    font-style: normal;
+  }
+
+  .reviews-link {
+    text-align: center;
+    margin-top: 2.5rem;
+  }
+
+  .reviews-link a {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-brand);
+    transition: color 0.2s;
+  }
+
+  .reviews-link a:hover {
+    color: var(--color-brand-dark);
+  }
+
+  @media (max-width: 768px) {
+    .reviews { padding: 5rem 0; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .review { padding: 1.75rem; }
+  }
+
+
+  /* ═══════════════════════════════════════════
+     PRIVACY
+  ═══════════════════════════════════════════ */
+  .privacy {
+    padding: 8rem 0;
+    background: var(--color-bg-soft);
+  }
+
+  .privacy-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .privacy-text h2 {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+  }
+
+  .privacy-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .privacy-list li {
+    font-size: 0.9375rem;
+    color: #444;
+    padding-left: 2rem;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .privacy-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-brand);
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .privacy-visual img {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    display: block;
+    border-radius: var(--radius-xl);
+  }
+
+  @media (max-width: 768px) {
+    .privacy { padding: 5rem 0; }
+    .privacy-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .privacy-visual { order: -1; }
+  }
+
+
+  /* ═══════════════════════════════════════════
+     GIFT
+  ═══════════════════════════════════════════ */
+  .gift {
+    padding: 8rem 0;
+    background: #fff;
+  }
+
+  .gift-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .gift-image img {
+    width: 100%;
+    border-radius: var(--radius-2xl);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+  }
+
+  .gift-text h2 {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .gift-desc {
+    font-size: 1.0625rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .gift-box {
+    margin-top: 2rem;
+    padding: 1.5rem 2rem;
+    background: var(--color-brand-light);
+    border-radius: 16px;
+  }
+
+  .gift-box h3 {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  .gift-box ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem 2rem;
+  }
+
+  .gift-box li {
+    font-size: 0.8125rem;
+    color: #555;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .gift-box li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--color-brand);
+    font-weight: 900;
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  @media (max-width: 768px) {
+    .gift { padding: 5rem 0; }
+    .gift-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+
+
+  /* ═══════════════════════════════════════════
+     FOUNDER
+  ═══════════════════════════════════════════ */
+  .founder {
+    padding: 6rem 0;
+    background: var(--color-bg-warm);
+  }
+
+  .founder-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .founder blockquote p {
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    font-style: italic;
+    color: #444;
+    line-height: 1.75;
+    margin-top: 1rem;
+  }
+
+
+  /* ═══════════════════════════════════════════
+     FINAL CTA
+  ═══════════════════════════════════════════ */
+  .final-cta {
+    padding: 8rem 0;
+    background: var(--color-bg-warm);
+    text-align: center;
+  }
+
+  .final-cta-inner h2 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .final-sub {
+    font-size: 1.0625rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 2.5rem;
+  }
+
+  .final-cta .btn-primary {
+    background: var(--color-brand);
+    color: #fff;
+    font-size: 1.125rem;
+    padding: 1.125rem 3rem;
+  }
+
+  .final-cta .btn-primary:hover {
+    background: var(--color-brand-dark);
+    transform: scale(1.04);
+    box-shadow: 0 8px 30px rgba(19, 188, 195, 0.3);
+  }
+
+  .store-badges {
+    margin-top: 3rem;
+  }
+
+  .store-label {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .store-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .store-links a {
+    display: block;
+    transition: transform 0.2s;
+  }
+
+  .store-links a:hover {
+    transform: scale(1.05);
+  }
+
+  .store-links img {
+    height: 56px;
+    width: auto;
+  }
+</style>
+
+
+<!-- Scroll reveal observer -->
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>

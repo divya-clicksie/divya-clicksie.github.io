@@ -1,0 +1,114 @@
+---
+const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
+---
+
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo" aria-label="Nubo Baby Tracker Home">
+      <img src="/images/nubo-logo.svg" alt="nubo" width="90" height="28" />
+    </a>
+
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#how-it-works">How It Works</a>
+      <a href="#features">Features</a>
+      <a href="#reviews">Reviews</a>
+      <a href="/faq/">FAQ</a>
+    </nav>
+
+    <a href={amazonURL} class="header-cta" target="_blank" rel="noopener noreferrer">
+      Buy on Amazon
+    </a>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: transparent;
+    backdrop-filter: blur(0);
+    -webkit-backdrop-filter: blur(0);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .site-header.scrolled {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    gap: 2rem;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .logo img {
+    height: 26px;
+    width: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.25rem;
+  }
+
+  .nav-links a {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #555;
+    transition: color 0.2s;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-links a:hover {
+    color: #13BCC3;
+  }
+
+  .header-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #fff;
+    background: #13BCC3;
+    border-radius: 100px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .header-cta:hover {
+    background: #0ea5ab;
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(19, 188, 195, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .header-inner { height: 60px; }
+    .logo img { height: 22px; }
+  }
+</style>
+
+<script>
+  const header = document.getElementById('site-header');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+  }
+</script>
