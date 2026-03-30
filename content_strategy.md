@@ -727,8 +727,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-004 · Baby sleep regression complete guide
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Sleep
 **Tier:** Full (2,000-2,500 words)
 **URL slug:** `/blog/sleep/baby-sleep-regressions-every-age`
@@ -1513,6 +1513,8 @@ status: "draft | review | published"
 
 [2026-03-30] POST-003 — DONE — Why track baby sleep, feeds, diapers. ~1,480 words. Filed as src/content/blog/why-track-baby-sleep-feeds-diapers.mdx. Citations: AAP Bright Futures Guidelines (HealthyChildren.org). Three-ways angle: Heavy (full H2 section with comparison table). Nubo mentions: 2 (app list, soft CTA). Internal links: POST-001 (wake windows), POST-002 (feeding schedule). Build: pass.
 
+[2026-03-30] POST-004 — DONE — Baby sleep regressions at every age. ~2,450 words. Filed as src/content/blog/baby-sleep-regressions-every-age.mdx. Citations: Henderson et al. (Pediatrics, 2010; PMID 20974775), Galland et al. (Sleep Medicine Reviews, 2012; PMID 21784676), Mindell & Owens (A Clinical Guide to Pediatric Sleep, 3rd ed., 2015). Three-ways angle: Light (one sentence in tracking section). Nubo mentions: 1 (physical tracker in tracking data section). Internal links: POST-001 (wake windows), POST-003 (why track). Build: pass.
+
 ---
 
 ## Summary Tracker
@@ -1522,7 +1524,7 @@ status: "draft | review | published"
 | POST-001 | Newborn wake windows guide | 1 | Full | 1,500-1,800 | `DONE` | 2026-03-30 |
 | POST-002 | Newborn feeding schedule | 1 | Full | 1,500-1,800 | `DONE` | 2026-03-30 |
 | POST-003 | Why track baby | 1 | Full | 1,200-1,500 | `DONE` | 2026-03-30 |
-| POST-004 | Sleep regression guide | 1 | Full | 2,000-2,500 | `PENDING` | — |
+| POST-004 | Sleep regression guide | 1 | Full | 2,000-2,500 | `DONE` | 2026-03-30 |
 | POST-005 | Cluster feeding | 1 | Full | 1,300-1,600 | `PENDING` | — |
 | POST-006 | Nanny tracking | 1 | Full | 1,200-1,500 | `PENDING` | — |
 | POST-007 | Newborn sleep hours | 1 | Medium | 900-1,100 | `PENDING` | — |
