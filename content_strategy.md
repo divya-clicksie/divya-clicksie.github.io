@@ -633,8 +633,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-001 · Newborn wake windows guide
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Sleep
 **Tier:** Full (1,500-1,800 words)
 **URL slug:** `/blog/sleep/newborn-wake-windows-by-age`
@@ -665,8 +665,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-002 · Newborn feeding schedule guide
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Feeding
 **Tier:** Full (1,500-1,800 words)
 **URL slug:** `/blog/feeding/newborn-feeding-schedule`
@@ -697,8 +697,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-003 · Why track baby sleep feeds diapers
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Tracking
 **Tier:** Full (1,200-1,500 words)
 **URL slug:** `/blog/tracking/why-track-baby-sleep-feeds-diapers`
@@ -1507,15 +1507,21 @@ status: "draft | review | published"
 
 *(No entries yet. Claude Code: add your first entry when POST-001 is complete.)*
 
+[2026-03-30] POST-001 — DONE — Newborn wake windows guide. 1,520 words. Filed as src/content/blog/newborn-wake-windows-by-age.mdx. Citations: Mindell et al. (J Sleep Res, 2016; PMID 27252030), National Sleep Foundation (2015). Three-ways angle: Light (one sentence). App feature weave: Midnight Ember. Build: pass.
+
+[2026-03-30] POST-002 — DONE — Newborn feeding schedule guide. 1,593 words. Filed as src/content/blog/newborn-feeding-schedule.mdx. Citations: WHO Infant and Young Child Feeding fact sheet, Kent et al. (Pediatrics, 2006; PMID 16510619). Three-ways angle: Medium (full paragraph comparing paper/app/device for feeding logging). App feature weave: Smart Averages + Auto-Reminders. Internal link: POST-001 (wake windows). Build: pass.
+
+[2026-03-30] POST-003 — DONE — Why track baby sleep, feeds, diapers. ~1,480 words. Filed as src/content/blog/why-track-baby-sleep-feeds-diapers.mdx. Citations: AAP Bright Futures Guidelines (HealthyChildren.org). Three-ways angle: Heavy (full H2 section with comparison table). Nubo mentions: 2 (app list, soft CTA). Internal links: POST-001 (wake windows), POST-002 (feeding schedule). Build: pass.
+
 ---
 
 ## Summary Tracker
 
 | Post | Title | Phase | Tier | Words | Status | Completed |
 |------|-------|-------|------|-------|--------|-----------|
-| POST-001 | Newborn wake windows guide | 1 | Full | 1,500-1,800 | `PENDING` | — |
-| POST-002 | Newborn feeding schedule | 1 | Full | 1,500-1,800 | `PENDING` | — |
-| POST-003 | Why track baby | 1 | Full | 1,200-1,500 | `PENDING` | — |
+| POST-001 | Newborn wake windows guide | 1 | Full | 1,500-1,800 | `DONE` | 2026-03-30 |
+| POST-002 | Newborn feeding schedule | 1 | Full | 1,500-1,800 | `DONE` | 2026-03-30 |
+| POST-003 | Why track baby | 1 | Full | 1,200-1,500 | `DONE` | 2026-03-30 |
 | POST-004 | Sleep regression guide | 1 | Full | 2,000-2,500 | `PENDING` | — |
 | POST-005 | Cluster feeding | 1 | Full | 1,300-1,600 | `PENDING` | — |
 | POST-006 | Nanny tracking | 1 | Full | 1,200-1,500 | `PENDING` | — |
