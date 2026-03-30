@@ -756,8 +756,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-005 · Cluster feeding guide
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Feeding
 **Tier:** Full (1,300-1,600 words)
 **URL slug:** `/blog/feeding/cluster-feeding-what-it-is`
@@ -1515,6 +1515,8 @@ status: "draft | review | published"
 
 [2026-03-30] POST-004 — DONE — Baby sleep regressions at every age. ~2,450 words. Filed as src/content/blog/baby-sleep-regressions-every-age.mdx. Citations: Henderson et al. (Pediatrics, 2010; PMID 20974775), Galland et al. (Sleep Medicine Reviews, 2012; PMID 21784676), Mindell & Owens (A Clinical Guide to Pediatric Sleep, 3rd ed., 2015). Three-ways angle: Light (one sentence in tracking section). Nubo mentions: 1 (physical tracker in tracking data section). Internal links: POST-001 (wake windows), POST-003 (why track). Build: pass.
 
+[2026-03-30] POST-005 — DONE — Cluster feeding guide. ~1,450 words. Filed as src/content/blog/cluster-feeding-what-it-is.mdx. Citations: Kent et al. (Pediatrics, 2006; PMID 16510619), Academy of Breastfeeding Medicine Clinical Protocols. Three-ways angle: Medium (full paragraph comparing paper/app/device in pinned-to-couch scenario). App feature weave: Alexa voice logging. Nubo mentions: 2 (tracking section, soft CTA). Internal links: POST-002 (feeding schedule), POST-003 (why track). Build: pass.
+
 ---
 
 ## Summary Tracker
@@ -1525,7 +1527,7 @@ status: "draft | review | published"
 | POST-002 | Newborn feeding schedule | 1 | Full | 1,500-1,800 | `DONE` | 2026-03-30 |
 | POST-003 | Why track baby | 1 | Full | 1,200-1,500 | `DONE` | 2026-03-30 |
 | POST-004 | Sleep regression guide | 1 | Full | 2,000-2,500 | `DONE` | 2026-03-30 |
-| POST-005 | Cluster feeding | 1 | Full | 1,300-1,600 | `PENDING` | — |
+| POST-005 | Cluster feeding | 1 | Full | 1,300-1,600 | `DONE` | 2026-03-30 |
 | POST-006 | Nanny tracking | 1 | Full | 1,200-1,500 | `PENDING` | — |
 | POST-007 | Newborn sleep hours | 1 | Medium | 900-1,100 | `PENDING` | — |
 | POST-008 | Track breastfeeding | 1 | Full | 1,200-1,500 | `PENDING` | — |
