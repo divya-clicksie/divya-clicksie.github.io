@@ -10,9 +10,31 @@ const description = 'Practical guides for new parents on baby tracking, feeding,
 const guides = (await getCollection('guides')).sort(
   (a, b) => new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime()
 );
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: title,
+  description,
+  url: 'https://www.nubotracker.com/guides/',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Nubo',
+    url: 'https://www.nubotracker.com/',
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: guides.map((guide, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `https://www.nubotracker.com/guides/${guide.slug}/`,
+      name: guide.data.title,
+    })),
+  },
+};
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <Header />
   <main>
     <section class="page-hero">
