@@ -786,8 +786,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-006 · Sharing baby tracking with your nanny
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Caregiver
 **Tier:** Full (1,200-1,500 words)
 **URL slug:** `/blog/caregiver/how-to-share-baby-tracking-with-nanny`
@@ -1252,8 +1252,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-021 · Why your baby tracker's night mode is ruining your sleep
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Product
 **Tier:** Mini (600-800 words)
 **URL slug:** `/blog/product/midnight-ember-night-mode`
@@ -1282,8 +1282,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-022 · Fenton charts: why your preemie's growth can't be measured on a standard curve
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Product
 **Tier:** Full (1,400-1,700 words)
 **URL slug:** `/blog/product/fenton-preemie-growth-charts`
@@ -1517,6 +1517,12 @@ status: "draft | review | published"
 
 [2026-03-30] POST-005 — DONE — Cluster feeding guide. ~1,450 words. Filed as src/content/blog/cluster-feeding-what-it-is.mdx. Citations: Kent et al. (Pediatrics, 2006; PMID 16510619), Academy of Breastfeeding Medicine Clinical Protocols. Three-ways angle: Medium (full paragraph comparing paper/app/device in pinned-to-couch scenario). App feature weave: Alexa voice logging. Nubo mentions: 2 (tracking section, soft CTA). Internal links: POST-002 (feeding schedule), POST-003 (why track). Build: pass.
 
+[2026-03-30] POST-006 — DONE — Sharing baby tracking with your nanny. 1,499 words. Filed as src/content/blog/how-to-share-baby-tracking-with-nanny.mdx. Citations: none (no clinical claims). Three-ways angle: Heavy (full H2 section with three H3s structured from nanny's perspective, comparison table). App feature weave: Alexa voice logging + QR-code caregiver invitations. Nubo mentions: 2 (physical tracker section, soft CTA). Internal links: POST-003 (why track), POST-002 (feeding schedule). Build: pass.
+
+[2026-03-30] POST-021 — DONE — Midnight Ember night mode. 766 words. Filed as src/content/blog/midnight-ember-night-mode.mdx. Citations: Lockley et al. (Sleep, 2006; PMID 16494083), Burkhart & Phelps (Chronobiol Int, 2009; PMID 20030543), Shechter et al. (J Psychiatr Res, 2018; PMID 29101797). Three-ways angle: Light (one sentence covering device/Alexa/app as zero-photon surfaces). Nubo mentions: 2 (Midnight Ember technical details, soft closing). No internal links (Phase 4 standalone). Build: pass.
+
+[2026-03-30] POST-022 — DONE — Fenton preemie growth charts. ~1,670 words. Filed as src/content/blog/fenton-preemie-growth-charts.mdx. Citations: Fenton & Kim (BMC Pediatrics, 2013; PMID 23601190), WHO Multicentre Growth Reference Study Group (2006). Three-ways angle: Light (brief mention of device/Alexa for daily events, app for clinical data). Nubo mentions: 2 (corrected-age charting feature, soft CTA). Internal links: POST-003 (why track). Build: pass.
+
 ---
 
 ## Summary Tracker
@@ -1528,7 +1534,7 @@ status: "draft | review | published"
 | POST-003 | Why track baby | 1 | Full | 1,200-1,500 | `DONE` | 2026-03-30 |
 | POST-004 | Sleep regression guide | 1 | Full | 2,000-2,500 | `DONE` | 2026-03-30 |
 | POST-005 | Cluster feeding | 1 | Full | 1,300-1,600 | `DONE` | 2026-03-30 |
-| POST-006 | Nanny tracking | 1 | Full | 1,200-1,500 | `PENDING` | — |
+| POST-006 | Nanny tracking | 1 | Full | 1,200-1,500 | `DONE` | 2026-03-30 |
 | POST-007 | Newborn sleep hours | 1 | Medium | 900-1,100 | `PENDING` | — |
 | POST-008 | Track breastfeeding | 1 | Full | 1,200-1,500 | `PENDING` | — |
 | POST-009 | Physical tracker vs app | 2 | Full | 1,400-1,700 | `PENDING` | — |
@@ -1543,8 +1549,8 @@ status: "draft | review | published"
 | POST-018 | Return to work handoff | 3 | Medium | 900-1,100 | `PENDING` | — |
 | POST-019 | Contact napping | 3 | Mini | 600-800 | `PENDING` | — |
 | POST-020 | Baby tracker comparison | 3 | Full | 1,500-1,800 | `PENDING` | — |
-| POST-021 | Midnight Ember night mode | 4 | Mini | 600-800 | `PENDING` | — |
-| POST-022 | Fenton preemie growth charts | 4 | Full | 1,400-1,700 | `PENDING` | — |
+| POST-021 | Midnight Ember night mode | 4 | Mini | 600-800 | `DONE` | 2026-03-30 |
+| POST-022 | Fenton preemie growth charts | 4 | Full | 1,400-1,700 | `DONE` | 2026-03-30 |
 | POST-023 | Smart Averages | 4 | Mini | 600-800 | `PENDING` | — |
 | POST-024 | Phone Hand mode UX | 4 | Mini | 500-700 | `PENDING` | — |
 | POST-025 | Vaccine tracker | 4 | Mini | 600-800 | `PENDING` | — |
