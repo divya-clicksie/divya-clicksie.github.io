@@ -224,7 +224,7 @@ Every specific paper, author name, journal, and year listed below has been verif
 | **POST-017** Diaper output | Normal diaper counts, stool patterns | Fontana M et al., "Bowel frequency in healthy children" (Acta Paediatrica Scandinavica, 1989; PMID 2688353). AAP HealthyChildren.org diaper output guidelines. |
 | **POST-019** Contact napping | Safe sleep, biological basis of contact sleep | Ball HL, "Breastfeeding, bed-sharing, and infant sleep" (Birth, 2003; PMID 12911801). Moon RY et al., AAP Task Force on SIDS, "Sleep-Related Infant Deaths: Updated 2022 Recommendations" (Pediatrics, 2022; PMID 35726558). |
 | **POST-021** Midnight Ember | Blue light and melatonin suppression | Shechter A et al., "Blocking nocturnal blue light for insomnia: A randomized controlled trial" (J Psychiatr Res, 2018; PMID 29101797). Burkhart K & Phelps JR, "Amber lenses to block blue light and improve sleep: a randomized trial" (Chronobiol Int, 2009; PMID 20030543). Lockley SW et al., "Short-wavelength sensitivity for the direct effects of light on alertness, vigilance, and the waking electroencephalogram in humans" (Sleep, 2006; PMID 16494083). |
-| **POST-022** Fenton charts | Preemie growth methodology | Fenton TR & Kim JH, "A systematic review and meta-analysis to revise the Fenton growth chart for preterm infants" (BMC Pediatrics, 2013; PMID 23601190). WHO Multicentre Growth Reference Study Group, "WHO Child Growth Standards" (2006). |
+| **POST-022** Fenton charts | Preemie growth methodology | Fenton TR & Kim JH, "A systematic review and meta-analysis to revise the Fenton growth chart for preterm infants" (BMC Pediatrics, 2013; PMID 23601190). Fenton TR, Elmrayed S & Alshaikh BN, "Fenton Third-Generation Growth Charts of Preterm Infants Without Abnormal Fetal Growth" (Paediatr Perinat Epidemiol, 2025; PMID 40534585). WHO Multicentre Growth Reference Study Group, "WHO Child Growth Standards" (2006). |
 | **POST-025** Vaccine tracker | Immunization schedule complexity | CDC "Recommended Child and Adolescent Immunization Schedule." WHO vaccine position papers. |
 | **POST-026** Privacy architecture | Health data sensitivity, encryption standards | HIPAA Security Rule (45 CFR 164) as a benchmark. Huckvale K et al. (BMC Medicine, 2015; PMID 26404673) for health app privacy context. *(Writer should verify any specific NIST or OWASP references before citing.)* |
 
@@ -846,8 +846,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-008 · How to track breastfeeding without your phone
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Feeding
 **Tier:** Full (1,200-1,500 words)
 **URL slug:** `/blog/feeding/how-to-track-breastfeeding-without-phone`
@@ -886,8 +886,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-009 · Physical baby tracker vs app comparison
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Tracking
 **Tier:** Full (1,400-1,700 words)
 **URL slug:** `/blog/tracking/physical-baby-tracker-vs-app`
@@ -916,8 +916,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-010 · Co-parenting newborn tracking
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Caregiver
 **Tier:** Medium (900-1,100 words)
 **URL slug:** `/blog/caregiver/co-parenting-newborn-tracking`
@@ -1306,7 +1306,7 @@ These links are the most valuable for SEO because they connect different content
 6. The parent angle: "Seeing your baby at the 3rd percentile when they're actually 50th for corrected age is a gut punch you shouldn't have to experience."
 7. **Three ways angle (Light):** Brief mention that growth measurements are entered in the app (this is a detailed-input scenario, not a one-tap device scenario). The device and Alexa handle daily events; the app handles clinical data like growth and vaccines.
 8. Tone: empathetic and precise. Preemie parents want accuracy and respect, not simplification.
-9. **Citations (critical for this post):** Reference Fenton TR & Kim JH (BMC Pediatrics, 2013; PMID 23601190) for the Fenton chart methodology and WHO Multicentre Growth Reference Study Group (2006) for the standard charts Fenton improves upon. This audience expects precision. See Academic Citation Guide.
+9. **Citations (critical for this post):** Reference Fenton TR & Kim JH (BMC Pediatrics, 2013; PMID 23601190) for the second-generation chart, Fenton TR, Elmrayed S & Alshaikh BN (Paediatr Perinat Epidemiol, 2025; PMID 40534585) for the third-generation chart excluding growth-restricted infants, and WHO Multicentre Growth Reference Study Group (2006) for the standard charts Fenton improves upon. This audience expects precision. See Academic Citation Guide.
 
 **Output file:** `post-022-fenton-charts.md`
 
@@ -1521,7 +1521,13 @@ status: "draft | review | published"
 
 [2026-03-30] POST-021 — DONE — Midnight Ember night mode. 766 words. Filed as src/content/blog/midnight-ember-night-mode.mdx. Citations: Lockley et al. (Sleep, 2006; PMID 16494083), Burkhart & Phelps (Chronobiol Int, 2009; PMID 20030543), Shechter et al. (J Psychiatr Res, 2018; PMID 29101797). Three-ways angle: Light (one sentence covering device/Alexa/app as zero-photon surfaces). Nubo mentions: 2 (Midnight Ember technical details, soft closing). No internal links (Phase 4 standalone). Build: pass.
 
-[2026-03-30] POST-022 — DONE — Fenton preemie growth charts. ~1,670 words. Filed as src/content/blog/fenton-preemie-growth-charts.mdx. Citations: Fenton & Kim (BMC Pediatrics, 2013; PMID 23601190), WHO Multicentre Growth Reference Study Group (2006). Three-ways angle: Light (brief mention of device/Alexa for daily events, app for clinical data). Nubo mentions: 2 (corrected-age charting feature, soft CTA). Internal links: POST-003 (why track). Build: pass.
+[2026-03-30] POST-022 — DONE — Fenton preemie growth charts. ~1,670 words. Filed as src/content/blog/fenton-preemie-growth-charts.mdx. Citations: Fenton & Kim (BMC Pediatrics, 2013; PMID 23601190), Fenton, Elmrayed & Alshaikh (Paediatr Perinat Epidemiol, 2025; PMID 40534585), WHO Multicentre Growth Reference Study Group (2006). Three-ways angle: Light (brief mention of device/Alexa for daily events, app for clinical data). Nubo mentions: 2 (corrected-age charting feature, soft CTA). Internal links: POST-003 (why track). Build: pass.
+
+[2026-03-30] POST-009 — DONE — Physical baby tracker vs app comparison. ~1,650 words. Filed as src/content/blog/physical-baby-tracker-vs-app.mdx. Citations: none (no clinical claims). Three-ways angle: Heavy (entire post structured as three-way comparison with paper/app/device sections and full 10-row comparison table). Nubo mentions: 2 (apps list, device recommendation). Internal links: POST-003 (why track, x2), POST-006 (nanny tracking, x2), POST-021 (midnight ember). Build: pass.
+
+[2026-03-30] POST-010 — DONE — Co-parenting newborn tracking. ~1,098 words. Filed as src/content/blog/co-parenting-newborn-tracking.mdx. Citations: none (no clinical claims). Three-ways angle: Light (one paragraph comparing paper/app/device for partner sync). App feature weave: Alexa voice logging + QR-code caregiver invitations. Nubo mentions: 2 (caregiver sync in habit section, soft CTA). Internal links: POST-003 (why track). Build: pass.
+
+[2026-03-30] POST-008 — DONE — How to track breastfeeding without your phone. ~1,496 words. Filed as src/content/blog/how-to-track-breastfeeding-without-phone.mdx. Citations: none (no clinical claims). Three-ways angle: Heavy (structural backbone with three H3s for paper/app/device, synthesis paragraph, comparison table). App feature weave: Live Activities + Phone Hand mode + Midnight Ember. Nubo mentions: 2 (app H3 features, soft CTA). Internal links: POST-003 (why track), POST-005 (cluster feeding), POST-021 (Midnight Ember). Build: pass.
 
 ---
 
@@ -1536,9 +1542,9 @@ status: "draft | review | published"
 | POST-005 | Cluster feeding | 1 | Full | 1,300-1,600 | `DONE` | 2026-03-30 |
 | POST-006 | Nanny tracking | 1 | Full | 1,200-1,500 | `DONE` | 2026-03-30 |
 | POST-007 | Newborn sleep hours | 1 | Medium | 900-1,100 | `PENDING` | — |
-| POST-008 | Track breastfeeding | 1 | Full | 1,200-1,500 | `PENDING` | — |
-| POST-009 | Physical tracker vs app | 2 | Full | 1,400-1,700 | `PENDING` | — |
-| POST-010 | Co-parenting tracking | 2 | Medium | 900-1,100 | `PENDING` | — |
+| POST-008 | Track breastfeeding | 1 | Full | 1,200-1,500 | `DONE` | 2026-03-30 |
+| POST-009 | Physical tracker vs app | 2 | Full | 1,400-1,700 | `DONE` | 2026-03-30 |
+| POST-010 | Co-parenting tracking | 2 | Medium | 900-1,100 | `DONE` | 2026-03-30 |
 | POST-011 | Baby app privacy | 2 | Full | 1,400-1,700 | `PENDING` | — |
 | POST-012 | Eat play sleep | 2 | Full | 1,400-1,600 | `PENDING` | — |
 | POST-013 | Pediatrician visit | 2 | Full | 1,200-1,400 | `PENDING` | — |
