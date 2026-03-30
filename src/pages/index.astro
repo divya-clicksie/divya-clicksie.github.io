@@ -46,11 +46,12 @@ const jsonLd = {
       <div class="container hero-inner">
         <div class="hero-content reveal">
           <h1>
-            Care for your baby
-            <span class="hero-accent">with&nbsp;confidence.</span>
+            One hand on baby.
+            <span class="hero-accent">One tap on Nubo. Done.</span>
           </h1>
+          <p class="hero-kicker">No phone needed.</p>
           <p class="hero-sub">
-            One tap to log feedings, sleep, and diapers. No phone needed.
+            Log feedings, sleep, and diapers with a single button press.
             Nubo syncs to a free app and shares with every caregiver, instantly.
           </p>
           <div class="hero-actions">
@@ -61,7 +62,7 @@ const jsonLd = {
           </div>
           <div class="hero-trust">
             <span class="trust-stars" aria-label="4.2 out of 5 stars">★★★★☆</span>
-            <span>4.2 on Amazon</span>
+            <span>4.2 stars on Amazon</span>
             <span class="trust-sep">&middot;</span>
             <span>Free app</span>
             <span class="trust-sep">&middot;</span>
@@ -77,6 +78,36 @@ const jsonLd = {
             loading="eager"
           />
         </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+         PAIN POINT
+    ════════════════════════════════════════════ -->
+    <section class="pain-point">
+      <div class="container">
+        <div class="pain-inner reveal">
+          <p class="overline">Sound familiar?</p>
+          <p class="pain-text">
+            You're breastfeeding in the dark. The baby finally latched. You need to log it.
+            But your phone is across the room. Or dead. Or you'd have to unlock it, open the app,
+            find the right screen... so you just don't.
+          </p>
+          <p class="pain-relief">Nubo fixes that. One tap. Eyes on baby. Done.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+         LIGHT SWITCH CALLOUT
+    ════════════════════════════════════════════ -->
+    <section class="light-switch">
+      <div class="container">
+        <p class="light-switch-text reveal">
+          Like a <strong>light&nbsp;switch</strong> for baby tracking.
+        </p>
       </div>
     </section>
 
@@ -104,9 +135,6 @@ const jsonLd = {
             Nubo is a physical tracker designed for the chaos of newborn life.
             Clear buttons for every activity. No screens, no apps, no fumbling.
             Just one tap. Even at 3&nbsp;AM, even with one hand, even when your brain is mush.
-          </p>
-          <p class="meet-description">
-            <strong>It just works.</strong> Like a light switch for baby tracking.
           </p>
         </div>
       </div>
@@ -272,6 +300,11 @@ const jsonLd = {
           <h2>Parents who've<br/>been there.</h2>
         </div>
 
+        <div class="reviews-aggregate reveal">
+          <span class="agg-stars" aria-label="4.2 out of 5 stars">★★★★☆</span>
+          <span class="agg-text">4.2 stars on Amazon</span>
+        </div>
+
         <div class="reviews-grid">
           <blockquote class="review reveal">
             <div class="review-stars">★★★★★</div>
@@ -300,7 +333,7 @@ const jsonLd = {
 
         <div class="reviews-link reveal">
           <a href="https://www.amazon.com/product-reviews/B0CJLNBG4P" target="_blank" rel="noopener noreferrer">
-            Read all 32 reviews on Amazon &rarr;
+            Read all reviews on Amazon &rarr;
           </a>
         </div>
       </div>
@@ -349,8 +382,11 @@ const jsonLd = {
           <h2>The gift every new parent actually uses.</h2>
           <p class="gift-desc">
             Skip the onesies. Give the gift of time, sanity, and confidence.
-            Nubo comes beautifully packaged and ready to use from day&nbsp;one.
+            Nubo comes beautifully packaged and ready to unwrap. No wrapping needed.
           </p>
+          <a href={amazonURL} class="btn-primary gift-cta" target="_blank" rel="noopener noreferrer">
+            Gift it on Amazon
+          </a>
           <div class="gift-box">
             <h3>What's in the box</h3>
             <ul>
@@ -368,15 +404,80 @@ const jsonLd = {
 
 
     <!-- ════════════════════════════════════════════
+         COMPARE
+    ════════════════════════════════════════════ -->
+    <section class="compare">
+      <div class="container">
+        <div class="section-intro reveal">
+          <p class="overline">Why Nubo?</p>
+          <h2>Nubo vs. the alternatives.</h2>
+        </div>
+        <div class="compare-table-wrap reveal">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th class="compare-highlight">Nubo</th>
+                <th>Phone Apps</th>
+                <th>Pen &amp; Paper</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Log an activity</td>
+                <td class="compare-highlight">1 second</td>
+                <td>30+ seconds</td>
+                <td>15+ seconds</td>
+              </tr>
+              <tr>
+                <td>Hands-free logging</td>
+                <td class="compare-highlight">✓</td>
+                <td>✗</td>
+                <td>✗</td>
+              </tr>
+              <tr>
+                <td>Works at 3 AM in the dark</td>
+                <td class="compare-highlight">✓</td>
+                <td>Bright screen</td>
+                <td>✗</td>
+              </tr>
+              <tr>
+                <td>Caregiver sync</td>
+                <td class="compare-highlight">Automatic</td>
+                <td>Manual sharing</td>
+                <td>✗</td>
+              </tr>
+              <tr>
+                <td>Battery anxiety</td>
+                <td class="compare-highlight">Months</td>
+                <td>Daily charge</td>
+                <td>N/A</td>
+              </tr>
+              <tr>
+                <td>Insights &amp; patterns</td>
+                <td class="compare-highlight">✓</td>
+                <td>✓</td>
+                <td>✗</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
          FOUNDER
     ════════════════════════════════════════════ -->
     <section class="founder">
       <div class="container">
         <div class="founder-inner reveal">
-          <p class="overline">Created by Parents, for Parents</p>
+          <p class="overline">Created by a Mom, for Parents</p>
           <blockquote>
-            <p>&ldquo;Nubo was born from the chaos of early motherhood. I created it to help mothers feel more confident, supported, and present. Because parenting is hard, but the moments that matter shouldn't be&nbsp;lost.&rdquo;</p>
+            <p>&ldquo;Nubo was born from the chaos of early motherhood. I was exhausted, overwhelmed, and constantly dropping the ball on tracking feeds and diapers. So I built what I wished existed: something so simple you could use it with your eyes closed. Because parenting is hard, but the moments that matter shouldn't be&nbsp;lost.&rdquo;</p>
           </blockquote>
+          <p class="founder-name">Divya, Founder of Nubo</p>
+          <p class="founder-sub">Mom. Engineer. Sleep-deprived inventor.</p>
         </div>
       </div>
     </section>
@@ -388,11 +489,29 @@ const jsonLd = {
     <section class="final-cta" id="buy">
       <div class="container final-cta-inner reveal">
         <h2>Ready to track<br/>smarter?</h2>
+        <p class="final-price-frame">Less than $1 a day for the first 3 months.</p>
         <p class="final-sub">$89.99 on Amazon &middot; Free companion app &middot; Free shipping with Prime</p>
 
         <a href={amazonURL} class="btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
           Buy on Amazon
         </a>
+
+        <div class="final-trust-badges">
+          <span class="trust-badge">
+            <span class="trust-badge-icon">✓</span>
+            Private by design
+          </span>
+          <span class="trust-badge">
+            <span class="trust-badge-icon">★</span>
+            4.2 stars on Amazon
+          </span>
+          <span class="trust-badge">
+            <span class="trust-badge-icon">✓</span>
+            Free shipping with Prime
+          </span>
+        </div>
+
+        <p class="final-urgency">Most parents buy in the third trimester. Don't wait until the chaos starts.</p>
 
         <div class="store-badges">
           <p class="store-label">Download the free companion app</p>
@@ -571,6 +690,14 @@ const jsonLd = {
     color: var(--color-brand);
   }
 
+  .hero-kicker {
+    margin-top: 1.25rem;
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 700;
+    color: var(--color-brand);
+    letter-spacing: -0.01em;
+  }
+
   .hero-sub {
     margin-top: 1.5rem;
     font-size: 1.125rem;
@@ -632,6 +759,7 @@ const jsonLd = {
       min-height: auto;
     }
     .hero-sub { margin: 1rem auto 0; }
+    .hero-kicker { text-align: center; }
     .hero-actions { justify-content: center; }
     .hero-trust { justify-content: center; }
     .hero-image { order: -1; }
@@ -693,6 +821,59 @@ const jsonLd = {
     .meet-image { display: flex; justify-content: center; }
     .meet-image img { height: 360px; }
     .meet-description { margin-left: auto; margin-right: auto; }
+  }
+
+
+  /* ═══════════════════════════════════════════
+     PAIN POINT
+  ═══════════════════════════════════════════ */
+  .pain-point {
+    padding: 5rem 0;
+    background: #fff;
+  }
+
+  .pain-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .pain-text {
+    font-size: clamp(1.0625rem, 2.5vw, 1.25rem);
+    color: #444;
+    line-height: 1.8;
+    font-style: italic;
+    margin-top: 1rem;
+  }
+
+  .pain-relief {
+    margin-top: 1.5rem;
+    font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+    font-weight: 700;
+    color: var(--color-brand);
+  }
+
+
+  /* ═══════════════════════════════════════════
+     LIGHT SWITCH CALLOUT
+  ═══════════════════════════════════════════ */
+  .light-switch {
+    padding: 4rem 0;
+    background: var(--color-bg-warm);
+  }
+
+  .light-switch-text {
+    text-align: center;
+    font-size: clamp(1.75rem, 5vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--color-text-secondary);
+  }
+
+  .light-switch-text strong {
+    color: var(--color-text);
+    font-weight: 700;
   }
 
 
@@ -1001,6 +1182,33 @@ const jsonLd = {
     color: var(--color-brand-dark);
   }
 
+  .reviews-aggregate {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 1.5rem 2rem;
+    background: var(--color-brand-light);
+    border-radius: 100px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .agg-stars {
+    color: #F5A623;
+    font-size: 1.125rem;
+    letter-spacing: 2px;
+  }
+
+  .agg-text {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
   @media (max-width: 768px) {
     .reviews { padding: 5rem 0; }
     .reviews-grid { grid-template-columns: 1fr; }
@@ -1108,6 +1316,11 @@ const jsonLd = {
     line-height: 1.7;
   }
 
+  .gift-cta {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
   .gift-box {
     margin-top: 2rem;
     padding: 1.5rem 2rem;
@@ -1154,6 +1367,75 @@ const jsonLd = {
 
 
   /* ═══════════════════════════════════════════
+     COMPARE
+  ═══════════════════════════════════════════ */
+  .compare {
+    padding: 8rem 0;
+    background: var(--color-bg-soft);
+  }
+
+  .compare h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .compare-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 0.9375rem;
+  }
+
+  .compare-table th,
+  .compare-table td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .compare-table th {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--color-text);
+    padding-bottom: 1.25rem;
+  }
+
+  .compare-table td:first-child {
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .compare-table td {
+    color: var(--color-text-secondary);
+  }
+
+  .compare-highlight {
+    background: var(--color-brand-light);
+    color: var(--color-brand-dark) !important;
+    font-weight: 700;
+  }
+
+  .compare-table thead .compare-highlight {
+    border-radius: 12px 12px 0 0;
+  }
+
+  .compare-table tbody tr:last-child .compare-highlight {
+    border-radius: 0 0 12px 12px;
+  }
+
+  @media (max-width: 768px) {
+    .compare { padding: 5rem 0; }
+    .compare-table { font-size: 0.8125rem; min-width: 520px; }
+    .compare-table th,
+    .compare-table td { padding: 0.75rem 0.75rem; }
+  }
+
+
+  /* ═══════════════════════════════════════════
      FOUNDER
   ═══════════════════════════════════════════ */
   .founder {
@@ -1173,6 +1455,19 @@ const jsonLd = {
     color: #444;
     line-height: 1.75;
     margin-top: 1rem;
+  }
+
+  .founder-name {
+    margin-top: 1.5rem;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .founder-sub {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 0.25rem;
   }
 
 
@@ -1198,6 +1493,45 @@ const jsonLd = {
     font-size: 1.0625rem;
     color: var(--color-text-secondary);
     margin-bottom: 2.5rem;
+  }
+
+  .final-price-frame {
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+    color: var(--color-brand);
+    margin-bottom: 0.5rem;
+  }
+
+  .final-trust-badges {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .trust-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    background: var(--color-bg-soft);
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+  }
+
+  .trust-badge-icon {
+    color: var(--color-brand);
+    font-size: 0.875rem;
+  }
+
+  .final-urgency {
+    margin-top: 2rem;
+    font-size: 0.9375rem;
+    font-style: italic;
+    color: var(--color-text-secondary);
   }
 
   .final-cta .btn-primary {

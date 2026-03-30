@@ -1,0 +1,332 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Privacy Policy | Nubo Baby Tracker';
+const description = 'Nubo is privacy-first. Your baby\'s data stays on your phone, not our servers. No account required. No data sold. Read our full privacy policy.';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Privacy Policy",
+  "description": description,
+  "url": "https://www.nubotracker.com/privacy-policy/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Clicksie LLC",
+    "url": "https://www.nubotracker.com"
+  }
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="overline">Privacy by Design</p>
+        <h1>Privacy Policy</h1>
+        <p class="page-hero-sub">
+          Nubo is built by parents, for parents. Your baby's data is yours, not ours.
+          Here's exactly how we handle it.
+        </p>
+      </div>
+    </section>
+
+    <section class="policy-content">
+      <div class="container policy-inner">
+        <p class="policy-updated">Last updated: March 30, 2026</p>
+
+        <div class="policy-summary">
+          <h2>The short version</h2>
+          <ul class="summary-list">
+            <li>No account is required to use the Nubo device or app</li>
+            <li>Activity data (feedings, sleep, diapers) is stored locally on your phone</li>
+            <li>We do not have access to your baby's tracking data</li>
+            <li>Caregiver sharing uses end-to-end encryption</li>
+            <li>Backups go to your own iCloud or Google Drive, not our servers</li>
+            <li>We never sell, rent, or share your personal information</li>
+            <li>No third-party advertising or tracking SDKs in the app</li>
+          </ul>
+        </div>
+
+        <article class="policy-body">
+          <h2>1. What data does the Nubo device collect?</h2>
+          <p>
+            The Nubo device records button presses (feeding, sleep, diaper events) with timestamps.
+            This data is stored on the device until it syncs to the Nubo companion app via Bluetooth.
+            The device does not connect to the internet and does not transmit data to any server.
+          </p>
+
+          <h2>2. What data does the Nubo app collect?</h2>
+          <p>
+            The Nubo app stores your baby's activity logs locally on your phone. If you choose to
+            create an optional account for caregiver sharing, we store only the minimum information
+            needed to enable collaboration:
+          </p>
+          <ul>
+            <li>Email address (for account identification)</li>
+            <li>Display name (shown to other caregivers)</li>
+            <li>Encrypted activity data (shared between linked caregivers)</li>
+          </ul>
+          <p>
+            We do not collect your location, contacts, photos, or any other personal data beyond
+            what is listed above.
+          </p>
+
+          <h2>3. Where is data stored?</h2>
+          <p>
+            Activity data is stored locally on your device by default. If you enable caregiver
+            sharing, encrypted data is temporarily relayed through our servers to sync between
+            devices. We cannot read this data because it is end-to-end encrypted.
+          </p>
+          <p>
+            Optional backups are stored in your personal iCloud or Google Drive account, not on
+            Nubo servers.
+          </p>
+
+          <h2>4. Caregiver sharing and encryption</h2>
+          <p>
+            When you invite a caregiver, a secure sharing link is generated. Activity data shared
+            between caregivers is encrypted end-to-end. Nubo servers act only as a relay and
+            cannot decrypt or access the content of shared data.
+          </p>
+
+          <h2>5. Analytics and tracking</h2>
+          <p>
+            The Nubo app does not include third-party advertising SDKs. We may collect anonymous,
+            aggregated usage statistics (such as which features are used most often) to improve
+            the app experience. These statistics cannot be linked to individual users or babies.
+          </p>
+          <p>
+            This website uses Plausible Analytics, a privacy-friendly analytics tool that does
+            not use cookies and does not collect personal data.
+          </p>
+
+          <h2>6. Data retention and deletion</h2>
+          <p>
+            You can delete all your data at any time from within the Nubo app. If you delete your
+            account, all associated data is permanently removed from our systems within 30 days.
+            Local data on your phone can be removed by deleting the app.
+          </p>
+
+          <h2>7. Children's privacy</h2>
+          <p>
+            Nubo is a tool for parents and caregivers. We do not knowingly collect personal
+            information from children. The app is intended for use by adults to track their
+            baby's activities.
+          </p>
+
+          <h2>8. Third-party services</h2>
+          <p>
+            Nubo integrates with the following third-party services only when you choose to use them:
+          </p>
+          <ul>
+            <li><strong>Apple iCloud / Google Drive</strong> for optional backup</li>
+            <li><strong>Apple HealthKit</strong> for optional feeding data export (iOS only)</li>
+          </ul>
+          <p>
+            Each of these services is governed by its own privacy policy. Nubo does not share your
+            data with any other third parties.
+          </p>
+
+          <h2>9. Changes to this policy</h2>
+          <p>
+            We may update this privacy policy from time to time. Significant changes will be
+            communicated through the app or on this page. The "Last updated" date at the top
+            reflects the most recent revision.
+          </p>
+
+          <h2>10. Contact</h2>
+          <p>
+            If you have questions about this privacy policy or how Nubo handles your data,
+            please reach out at
+            <a href="mailto:support@clicksie.io">support@clicksie.io</a>.
+          </p>
+
+          <div class="policy-company">
+            <p>
+              <strong>Clicksie LLC</strong><br />
+              Nubo Baby Tracker<br />
+              <a href="https://www.nubotracker.com">www.nubotracker.com</a>
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+
+<style>
+  :root {
+    --color-brand: #13BCC3;
+    --color-brand-dark: #0ea5ab;
+    --color-brand-light: #e6f9fa;
+    --color-text: #1d1d1f;
+    --color-text-secondary: #6e6e73;
+    --color-bg-warm: #faf8f5;
+    --color-bg-soft: #f5f5f7;
+    --radius-xl: 24px;
+  }
+
+  .overline {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-brand);
+    margin-bottom: 0.75rem;
+  }
+
+  .page-hero {
+    padding: 10rem 0 4rem;
+    background: linear-gradient(170deg, #f0fafa 0%, #fff 60%);
+    text-align: center;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+  }
+
+  .page-hero-sub {
+    margin-top: 1rem;
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .policy-content {
+    padding: 4rem 0 6rem;
+  }
+
+  .policy-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .policy-updated {
+    font-size: 0.8125rem;
+    color: #999;
+    margin-bottom: 2.5rem;
+  }
+
+  .policy-summary {
+    background: var(--color-bg-soft);
+    border-radius: var(--radius-xl);
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .policy-summary h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .summary-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .summary-list li {
+    font-size: 0.9375rem;
+    color: #444;
+    padding-left: 2rem;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .summary-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-brand);
+    font-weight: 700;
+  }
+
+  .policy-body h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .policy-body p {
+    font-size: 0.9375rem;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .policy-body ul {
+    list-style: none;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .policy-body ul li {
+    font-size: 0.9375rem;
+    color: #444;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.7;
+  }
+
+  .policy-body ul li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--color-brand);
+    font-weight: 900;
+    font-size: 1.25rem;
+    line-height: 1;
+    top: 4px;
+  }
+
+  .policy-body a {
+    color: var(--color-brand);
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+
+  .policy-body a:hover {
+    color: var(--color-brand-dark);
+  }
+
+  .policy-company {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .policy-company a {
+    color: var(--color-brand);
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .page-hero { padding: 8rem 0 3rem; }
+    .policy-summary { padding: 1.75rem; }
+  }
+</style>
