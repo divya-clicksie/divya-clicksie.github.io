@@ -1,6 +1,6 @@
 # Nubo Content Strategy — Claude Code Execution Tracker
 
-> **For Claude Code:** This document is the single source of truth for Nubo's content strategy. Read the full file before starting any task. Update task statuses and log entries as you complete work. Never delete historical log entries. Follow the instructions in each task block exactly.
+> **IMPORTANT:** This document is the single source of truth for Nubo's content strategy. Read the full file before starting any task. Update task statuses and log entries as you complete work. Never delete historical log entries. Follow the instructions in each task block exactly.
 
 ---
 

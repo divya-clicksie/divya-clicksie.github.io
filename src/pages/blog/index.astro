@@ -1,0 +1,176 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = 'Blog | Nubo Baby Tracker';
+const description = 'Practical advice on baby sleep, feeding schedules, newborn tracking, and parenting from the Nubo team.';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime()
+);
+
+const categoryLabels: Record<string, string> = {
+  sleep: 'Sleep',
+  feeding: 'Feeding',
+  tracking: 'Tracking',
+  caregiver: 'Caregiver',
+  privacy: 'Privacy',
+  product: 'Product',
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: title,
+  description,
+  url: 'https://www.nubotracker.com/blog/',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Nubo',
+    url: 'https://www.nubotracker.com/',
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: posts.map((post, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `https://www.nubotracker.com/blog/${post.data.category}/${post.slug}/`,
+      name: post.data.title,
+    })),
+  },
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="overline">Blog</p>
+        <h1>Nubo Blog</h1>
+        <p class="page-hero-sub">
+          Practical advice on baby tracking, newborn sleep, feeding, and the stuff nobody tells you before the first week home.
+        </p>
+      </div>
+    </section>
+
+    <section class="blog-list">
+      <div class="container blog-inner">
+        {posts.length === 0 && (
+          <p class="blog-empty">Posts coming soon. Check back shortly.</p>
+        )}
+        {posts.map((post) => (
+          <a href={`/blog/${post.data.category}/${post.slug}/`} class="blog-card">
+            {post.data.heroImage && (
+              <div class="blog-card-image">
+                <img src={post.data.heroImage} alt={post.data.title} width="600" height="300" loading="lazy" />
+              </div>
+            )}
+            <div class="blog-card-text">
+              <span class="blog-card-category">{categoryLabels[post.data.category] || post.data.category}</span>
+              <h2>{post.data.title}</h2>
+              <p>{post.data.excerpt || post.data.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding: 10rem 0 3rem;
+    background: linear-gradient(170deg, #f0fafa 0%, #fff 60%);
+    text-align: center;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+  }
+
+  .page-hero-sub {
+    margin-top: 1rem;
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .blog-list {
+    padding: 4rem 0 6rem;
+  }
+
+  .blog-inner {
+    display: grid;
+    gap: 2rem;
+    max-width: 840px;
+    margin: 0 auto;
+  }
+
+  .blog-card {
+    display: block;
+    background: #fff;
+    border-radius: var(--radius-xl);
+    border: 1px solid #eee;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  .blog-card-image img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .blog-card-text {
+    padding: 1.5rem 2rem 2rem;
+  }
+
+  .blog-card-category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-brand);
+  }
+
+  .blog-card-text h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-top: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .blog-card-text p {
+    margin-top: 0.5rem;
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .blog-empty {
+    text-align: center;
+    color: var(--color-text-secondary);
+    padding: 4rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .page-hero { padding: 8rem 0 2.5rem; }
+    .blog-card-text { padding: 1.25rem 1.5rem 1.75rem; }
+  }
+</style>
