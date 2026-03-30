@@ -124,4 +124,138 @@ const siteName = 'Nubo Baby Tracker';
   .reveal-delay-1 { transition-delay: 0.1s; }
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ── Design tokens ─────────────────── */
+  :root {
+    --color-brand: #13BCC3;
+    --color-brand-dark: #0ea5ab;
+    --color-brand-light: #e6f9fa;
+    --color-text: #1d1d1f;
+    --color-text-secondary: #6e6e73;
+    --color-bg-warm: #faf8f5;
+    --color-bg-soft: #f5f5f7;
+    --radius-xl: 24px;
+    --radius-2xl: 32px;
+  }
+
+  /* ── Shared UI classes ─────────────── */
+  .overline {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-brand);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-intro {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-intro h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+  }
+
+  .section-sub {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 540px;
+    margin: 1rem auto 0;
+    line-height: 1.6;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: var(--color-brand);
+    border-radius: 100px;
+    border: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    letter-spacing: -0.01em;
+  }
+
+  .btn-primary:hover {
+    background: var(--color-brand-dark);
+    transform: scale(1.04);
+    box-shadow: 0 8px 30px rgba(19, 188, 195, 0.3);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-brand);
+    background: transparent;
+    border: 2px solid var(--color-brand);
+    border-radius: 100px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-ghost:hover {
+    background: var(--color-brand-light);
+  }
+
+  .btn-lg {
+    padding: 1.125rem 3rem;
+    font-size: 1.125rem;
+  }
+
+  .text-link {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-brand);
+    transition: color 0.2s;
+  }
+
+  .text-link:hover {
+    color: var(--color-brand-dark);
+  }
+
+  /* ── Page hero (shared by inner pages) ── */
+  .page-hero {
+    padding: 10rem 0 4rem;
+    background: linear-gradient(170deg, #f0fafa 0%, #fff 60%);
+    text-align: center;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+  }
+
+  .page-hero-sub {
+    margin-top: 1rem;
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .hero-link {
+    color: var(--color-brand);
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+
+  .hero-link:hover {
+    color: var(--color-brand-dark);
+  }
 </style>

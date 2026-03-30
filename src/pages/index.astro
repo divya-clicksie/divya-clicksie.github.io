@@ -46,27 +46,24 @@ const jsonLd = {
       <div class="container hero-inner">
         <div class="hero-content reveal">
           <h1>
-            One hand on baby.
-            <span class="hero-accent">One tap on Nubo. Done.</span>
+            Nobody remembers at 3&nbsp;a.m.
+            <span class="hero-accent">Nubo does.</span>
           </h1>
-          <p class="hero-kicker">No phone needed.</p>
           <p class="hero-sub">
-            Log feedings, sleep, and diapers with a single button press.
-            Nubo syncs to a free app and shares with every caregiver, instantly.
+            Track feeds, sleep, and diapers with one tap, and keep every caregiver instantly in sync.
           </p>
           <div class="hero-actions">
             <a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">
-              Buy on Amazon · $89.99
+              Buy on Amazon
             </a>
             <a href="#how-it-works" class="btn-ghost">See how it works</a>
           </div>
           <div class="hero-trust">
-            <span class="trust-stars" aria-label="4.2 out of 5 stars">★★★★☆</span>
-            <span>4.2 stars on Amazon</span>
+            <span>No phone needed</span>
             <span class="trust-sep">&middot;</span>
             <span>Free app</span>
             <span class="trust-sep">&middot;</span>
-            <span>Nubo Premium included</span>
+            <span>Premium included</span>
           </div>
         </div>
         <div class="hero-image reveal reveal-delay-2">
@@ -534,116 +531,10 @@ const jsonLd = {
 
 <style>
   /* ═══════════════════════════════════════════
-     DESIGN TOKENS
-  ═══════════════════════════════════════════ */
-  :root {
-    --color-brand: #13BCC3;
-    --color-brand-dark: #0ea5ab;
-    --color-brand-light: #e6f9fa;
-    --color-text: #1d1d1f;
-    --color-text-secondary: #6e6e73;
-    --color-bg-warm: #faf8f5;
-    --color-bg-soft: #f5f5f7;
-    --radius-xl: 24px;
-    --radius-2xl: 32px;
-  }
-
-
-  /* ═══════════════════════════════════════════
-     SHARED ELEMENTS
-  ═══════════════════════════════════════════ */
-  .overline {
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--color-brand);
-    margin-bottom: 0.75rem;
-  }
-
-  .section-intro {
-    text-align: center;
-    margin-bottom: 4rem;
-  }
-
-  .section-intro h2 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    color: var(--color-text);
-  }
-
-  .section-sub {
-    font-size: 1.125rem;
-    color: var(--color-text-secondary);
-    max-width: 540px;
-    margin: 1rem auto 0;
-    line-height: 1.6;
-  }
-
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem 2.25rem;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #fff;
-    background: var(--color-brand);
-    border-radius: 100px;
-    border: none;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    letter-spacing: -0.01em;
-  }
-
-  .btn-primary:hover {
-    background: var(--color-brand-dark);
-    transform: scale(1.04);
-    box-shadow: 0 8px 30px rgba(19, 188, 195, 0.3);
-  }
-
-  .btn-ghost {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem 2.25rem;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--color-brand);
-    background: transparent;
-    border: 2px solid var(--color-brand);
-    border-radius: 100px;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .btn-ghost:hover {
-    background: var(--color-brand-light);
-  }
-
-  .btn-lg {
-    padding: 1.125rem 3rem;
-    font-size: 1.125rem;
-  }
-
-  .text-link {
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--color-brand);
-    transition: color 0.2s;
-  }
-
-  .text-link:hover {
-    color: var(--color-brand-dark);
-  }
-
-
-  /* ═══════════════════════════════════════════
      HERO
   ═══════════════════════════════════════════ */
   .hero {
     position: relative;
-    min-height: 100vh;
     display: flex;
     align-items: center;
     padding: 0;
@@ -671,31 +562,23 @@ const jsonLd = {
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.2fr 0.8fr;
     align-items: center;
     gap: 2rem;
-    padding-top: 72px;
-    min-height: 100vh;
+    padding-top: calc(72px + 3rem);
+    padding-bottom: 3rem;
   }
 
   .hero-content h1 {
-    font-size: clamp(2.5rem, 5.5vw, 4rem);
+    font-size: clamp(2.25rem, 4.5vw, 3.25rem);
     font-weight: 700;
-    line-height: 1.08;
+    line-height: 1.12;
     letter-spacing: -0.02em;
     color: var(--color-text);
   }
 
   .hero-accent {
     color: var(--color-brand);
-  }
-
-  .hero-kicker {
-    margin-top: 1.25rem;
-    font-size: clamp(1.25rem, 3vw, 1.75rem);
-    font-weight: 700;
-    color: var(--color-brand);
-    letter-spacing: -0.01em;
   }
 
   .hero-sub {
@@ -723,12 +606,6 @@ const jsonLd = {
     flex-wrap: wrap;
   }
 
-  .trust-stars {
-    color: #F5A623;
-    font-size: 0.875rem;
-    letter-spacing: 1px;
-  }
-
   .trust-sep {
     color: #ccc;
   }
@@ -740,7 +617,7 @@ const jsonLd = {
   }
 
   .hero-image img {
-    max-height: 85vh;
+    max-height: min(85vh, 600px);
     width: auto;
     object-fit: contain;
     filter: drop-shadow(0 20px 60px rgba(19, 188, 195, 0.12));
@@ -758,8 +635,8 @@ const jsonLd = {
       padding-bottom: 3rem;
       min-height: auto;
     }
+    .hero-accent { display: block; }
     .hero-sub { margin: 1rem auto 0; }
-    .hero-kicker { text-align: center; }
     .hero-actions { justify-content: center; }
     .hero-trust { justify-content: center; }
     .hero-image { order: -1; }

@@ -50,7 +50,8 @@ These WordPress URLs must be preserved exactly (they are indexed by search engin
 
 These must redirect via meta-refresh pages:
 - `/support/` → `/contact/`
-- `/shop/` `/cart/` `/checkout/` `/wishlist/` → `/buy/`
+
+There are no `/buy/`, `/shop/`, `/cart/`, `/checkout/`, or `/wishlist/` pages. All purchase CTAs link directly to Amazon.
 
 ## Build & Dev
 

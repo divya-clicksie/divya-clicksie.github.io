@@ -1,0 +1,135 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = 'Guides | Nubo Baby Tracker';
+const description = 'Practical guides for new parents on baby tracking, feeding, sleep, diapers, caregiver sharing, and more.';
+
+const guides = (await getCollection('guides')).sort(
+  (a, b) => new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime()
+);
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="overline">Resources</p>
+        <h1>Guides for New Parents</h1>
+        <p class="page-hero-sub">
+          Practical advice on baby tracking, newborn routines, and getting the most out of Nubo.
+        </p>
+      </div>
+    </section>
+
+    <section class="guides-list">
+      <div class="container guides-inner">
+        {guides.length === 0 && (
+          <p class="guides-empty">Guides coming soon. Check back shortly.</p>
+        )}
+        {guides.map((guide) => (
+          <a href={`/guides/${guide.slug}/`} class="guide-card">
+            {guide.data.heroImage && (
+              <div class="guide-card-image">
+                <img src={guide.data.heroImage} alt={guide.data.title} width="600" height="300" loading="lazy" />
+              </div>
+            )}
+            <div class="guide-card-text">
+              <h2>{guide.data.title}</h2>
+              <p>{guide.data.excerpt || guide.data.description}</p>
+              <span class="guide-card-meta">
+                {new Date(guide.data.datePublished).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .guides-list {
+    padding: 4rem 0 6rem;
+  }
+
+  .guides-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .guides-empty {
+    text-align: center;
+    font-size: 1.0625rem;
+    color: var(--color-text-secondary);
+    padding: 4rem 0;
+  }
+
+  .guide-card {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 2rem;
+    background: var(--color-bg-soft);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+  }
+
+  .guide-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  }
+
+  .guide-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .guide-card-text {
+    padding: 2rem 2rem 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .guide-card-text h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .guide-card-text p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+  }
+
+  .guide-card-meta {
+    font-size: 0.8125rem;
+    color: #999;
+  }
+
+  @media (max-width: 768px) {
+    .guide-card {
+      grid-template-columns: 1fr;
+    }
+    .guide-card-image img {
+      aspect-ratio: 16 / 9;
+    }
+    .guide-card-text {
+      padding: 1.5rem;
+    }
+  }
+</style>
