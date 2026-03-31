@@ -1004,8 +1004,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-013 · What to bring to newborn pediatrician visit
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Tracking
 **Tier:** Full (1,200-1,400 words)
 **URL slug:** `/blog/tracking/what-to-bring-newborn-pediatrician-visit`
@@ -1433,8 +1433,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-027 · The invisible tracker: how Nubo works when you're not looking
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Product
 **Tier:** Full (1,400-1,700 words)
 **URL slug:** `/blog/product/nubo-ecosystem-how-it-works`
@@ -1555,6 +1555,10 @@ status: "draft | review | published"
 
 [2026-03-30] POST-007 — DONE — How many hours should a newborn sleep. ~1,100 words. Filed as src/content/blog/how-many-hours-should-newborn-sleep.mdx. Citations: Hirshkowitz et al. (Sleep Health, 2015; PMID 29073412) for NSF recommendations, Paruthi et al. (JCSM, 2016; PMID 27250809) for AASM pediatric sleep consensus. Three-ways angle: Light (one passage comparing paper/app/device for daily totaling). App feature weave: Live Activities (lock screen sleep timer) + Midnight Ember (amber screen at 3am), linked POST-021. Nubo mentions: 2 (nighttime logging section, three-ways totaling paragraph). Internal links: POST-001 (wake windows), POST-003 (why track), POST-021 (Midnight Ember). FAQ: 3 questions. Build: pass.
 
+[2026-03-30] POST-027 — DONE — The invisible tracker (ecosystem). 1,700 words. Filed as src/content/blog/nubo-ecosystem-how-it-works.mdx. Citations: none (no clinical claims). Three-ways angle: Heavy (full day-in-the-life section showing device/app/Alexa flow through morning, daytime with nanny, dinner, and nighttime). App feature weave: Device (BLE auto-reconnect, OTA firmware, event queuing), Live Activities (sleep/nursing timers on lock screen, L/R side switch), Auto-Reminders (rule-based, self-rescheduling, quiet hours), Alexa voice logging (natural language, relative/absolute times), Multi-caregiver sync (QR code, real-time, offline sync-on-reconnect). Nubo mentions: throughout (ecosystem post, architectural not promotional). Internal links: POST-026 (privacy architecture x2), POST-021 (Midnight Ember x2), POST-023 (Smart Averages x2), POST-014 (grandparent tracking). Build: pass.
+
+[2026-03-30] POST-013 — DONE — What to bring to newborn pediatrician visit. ~1,312 words. Filed as src/content/blog/what-to-bring-newborn-pediatrician-visit.mdx. Citations: AAP Bright Futures/HealthyChildren.org (well-child visit schedule). Three-ways angle: Medium (full section comparing paper/app/device performance in the waiting room). App feature weave: Smart Averages (feeding data accuracy), Fenton charts (preemie corrected-age percentiles), vaccine tracker (searchable immunization history), CSV export (specialist referrals). Nubo mentions: 2 (Smart Averages in feeding section, daily summary in closing). Internal links: POST-023 (Smart Averages), POST-022 (Fenton charts), POST-025 (vaccine tracker), POST-005 (cluster feeding). Build: pass.
+
 ---
 
 ## Summary Tracker
@@ -1573,7 +1577,7 @@ status: "draft | review | published"
 | POST-010 | Co-parenting tracking | 2 | Medium | 900-1,100 | `DONE` | 2026-03-30 |
 | POST-011 | Baby app privacy | 2 | Full | 1,400-1,700 | `DONE` | 2026-03-30 |
 | POST-012 | Eat play sleep | 2 | Full | 1,400-1,600 | `DONE` | 2026-03-30 |
-| POST-013 | Pediatrician visit | 2 | Full | 1,200-1,400 | `PENDING` | — |
+| POST-013 | Pediatrician visit | 2 | Full | 1,200-1,400 | `DONE` | 2026-03-30 |
 | POST-014 | Grandparent tracking | 2 | Mini | 600-800 | `DONE` | 2026-03-30 |
 | POST-015 | Is newborn eating enough | 2 | Full | 1,300-1,600 | `DONE` | 2026-03-30 |
 | POST-016 | Baby shower gifts | 3 | Full | 1,500-1,800 | `DONE` | 2026-03-30 |
@@ -1587,7 +1591,7 @@ status: "draft | review | published"
 | POST-024 | Phone Hand mode UX | 4 | Mini | 500-700 | `DONE` | 2026-03-30 |
 | POST-025 | Vaccine tracker | 4 | Mini | 600-800 | `DONE` | 2026-03-30 |
 | POST-026 | Privacy architecture | 4 | Full | 1,500-1,800 | `DONE` | 2026-03-30 |
-| POST-027 | The invisible tracker (ecosystem) | 4 | Full | 1,400-1,700 | `PENDING` | — |
+| POST-027 | The invisible tracker (ecosystem) | 4 | Full | 1,400-1,700 | `DONE` | 2026-03-30 |
 
 *POST-017: Phase 3 label retained, but publish early in Phase 2 cadence (high-volume, easy win).
 
