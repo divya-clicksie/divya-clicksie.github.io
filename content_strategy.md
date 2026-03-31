@@ -816,8 +816,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-007 · How many hours should a newborn sleep
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Sleep
 **Tier:** Medium (900-1,100 words)
 **URL slug:** `/blog/sleep/how-many-hours-should-newborn-sleep`
@@ -1064,8 +1064,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-015 · Is my newborn eating enough
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Feeding
 **Tier:** Full (1,300-1,600 words)
 **URL slug:** `/blog/feeding/is-my-newborn-eating-enough`
@@ -1101,8 +1101,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-016 · Best baby shower gifts guide
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Privacy *(gift/conversion)*
 **Tier:** Full (1,500-1,800 words)
 **URL slug:** `/blog/gifts/best-baby-shower-gifts-for-new-parents`
@@ -1129,8 +1129,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-017 · Baby diaper output guide
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Tracking
 **Tier:** Mini (700-900 words)
 **Publish priority:** Move to early Phase 2 cadence (high-volume query, pure reference piece, easy win)
@@ -1159,8 +1159,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-018 · Returning to work baby handoff
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Caregiver
 **Tier:** Medium (900-1,100 words)
 **URL slug:** `/blog/caregiver/returning-to-work-baby-caregiver-handoff`
@@ -1186,8 +1186,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-019 · Contact napping guide
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Sleep
 **Tier:** Mini (600-800 words)
 **URL slug:** `/blog/sleep/contact-napping-newborn`
@@ -1341,8 +1341,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-024 · One-handed at 3am: how phone hand mode rethinks baby tracker UX
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Product
 **Tier:** Mini (500-700 words)
 **URL slug:** `/blog/product/phone-hand-mode-one-handed`
@@ -1370,8 +1370,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-025 · 88 vaccines, zero guesswork: building a complete immunization record
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Product
 **Tier:** Mini (600-800 words)
 **URL slug:** `/blog/product/vaccine-tracker-immunization-record`
@@ -1539,6 +1539,22 @@ status: "draft | review | published"
 
 [2026-03-30] POST-012 — DONE — Eat play sleep routine for newborns. ~1,619 words. Filed as src/content/blog/eat-play-sleep-routine-newborns.mdx. Citations: Rivkees SA (Pediatrics, 2003; PMID 12897290) on infant circadian rhythm development. Three-ways angle: Light (one sentence acknowledging paper/app/device, emphasis on consistency over tool). App feature weave: Auto-Reminders (reschedule from last event). Nubo mentions: 2 (physical tracker tap in tracking section, auto-reminders). Internal links: POST-001 (wake windows x3), POST-002 (feeding schedule), POST-003 (why track), POST-005 (cluster feeding). Build: pass.
 
+[2026-03-30] POST-015 — DONE — Is my newborn eating enough. ~1,600 words. Filed as src/content/blog/is-my-newborn-eating-enough.mdx. Citations: Flaherman et al. (Pediatrics, 2015; PMID 25554815) on newborn weight loss nomograms, WHO Multicentre Growth Reference Study Group (2006) for growth standards. Three-ways angle: Light (one paragraph in wet diaper section acknowledging paper/app/device). App feature weave: Smart Averages (one sentence, linked to POST-023). Nubo mentions: 2 (diaper logging tap, soft CTA). Internal links: POST-002 (feeding schedule), POST-005 (cluster feeding), POST-003 (why track), POST-023 (Smart Averages). FAQ schema: 3 questions. Build: pass.
+
+[2026-03-30] POST-016 — DONE — Best baby shower gifts for new parents. ~1,740 words. Filed as src/content/blog/best-baby-shower-gifts-for-new-parents.mdx. Citations: none (no clinical claims). Three-ways angle: Light (paper-to-app-to-device evolution in Tracking category). Nubo mentions: 1 (tracking system gift, naturally positioned among 11 other gifts). Internal links: POST-003 (why track, pediatrician visit context). Added "gifts" category to blog collection schema. Build: pass.
+
+[2026-03-30] POST-017 — DONE — Newborn diaper output guide. ~830 words. Filed as src/content/blog/newborn-diaper-output-normal.mdx. Citations: Fontana et al. (Acta Paediatrica Scandinavica, 1989; PMID 2688353), AAP HealthyChildren.org. Three-ways angle: SKIP (per spec, clinical reference post). Nubo mentions: 1 (closing paragraph, diaper logging). No internal links. Build: pass.
+
+[2026-03-30] POST-018 — DONE — Returning to work baby caregiver handoff. ~1,030 words. Filed as src/content/blog/returning-to-work-baby-caregiver-handoff.mdx. Citations: none (no clinical claims). Three-ways angle: Light (one three-sentence passage comparing paper/app/device for real-time visibility). App feature weave: Caregiver sync + QR-code invitations. Nubo mentions: 1 (caregiver sync in real-time section). Internal links: POST-006 (nanny tracking). Build: pass.
+
+[2026-03-30] POST-024 — DONE — Phone Hand mode UX. ~580 words. Filed as src/content/blog/phone-hand-mode-one-handed.mdx. Citations: none (no clinical claims). Three-ways angle: Light (one paragraph covering device/Alexa/Phone Hand mode as three solutions to one-handed logging). App feature weave: Phone Hand mode (L/R toggle), quick action cards (44pt tap targets, context-aware). Nubo mentions: 2 (Phone Hand mode feature, closing line). Internal links: POST-009 (physical tracker vs app). Build: pass.
+
+[2026-03-30] POST-025 — DONE — Vaccine tracker immunization record. ~798 words. Filed as src/content/blog/vaccine-tracker-immunization-record.mdx. Citations: CDC Immunization Schedule, WHO Vaccine Position Papers. Three-ways angle: Light (one paragraph noting vaccines are app territory, device/Alexa handle daily events). Nubo mentions: 2 (WHO glossary with 88 vaccines + caregiver sync, soft closing). No internal links (POST-013 not yet published). Build: pass.
+
+[2026-03-30] POST-019 — DONE — Contact napping guide. ~750 words. Filed as src/content/blog/contact-napping-newborn.mdx. Citations: Moon RY et al. (Pediatrics, 2022; PMID 35726558) for AAP safe sleep guidelines, Ball HL (Birth, 2003; PMID 12911801) for biological basis of contact sleep. Three-ways angle: Light (one sentence on physical tracker vs paper/phone when pinned). App feature weave: Live Activities (lock screen sleep timer) + Midnight Ember (amber screen). Nubo mentions: 2 (device on armrest scenario, app features). Internal links: POST-021 (Midnight Ember). Build: pass.
+
+[2026-03-30] POST-007 — DONE — How many hours should a newborn sleep. ~1,100 words. Filed as src/content/blog/how-many-hours-should-newborn-sleep.mdx. Citations: Hirshkowitz et al. (Sleep Health, 2015; PMID 29073412) for NSF recommendations, Paruthi et al. (JCSM, 2016; PMID 27250809) for AASM pediatric sleep consensus. Three-ways angle: Light (one passage comparing paper/app/device for daily totaling). App feature weave: Live Activities (lock screen sleep timer) + Midnight Ember (amber screen at 3am), linked POST-021. Nubo mentions: 2 (nighttime logging section, three-ways totaling paragraph). Internal links: POST-001 (wake windows), POST-003 (why track), POST-021 (Midnight Ember). FAQ: 3 questions. Build: pass.
+
 ---
 
 ## Summary Tracker
@@ -1551,7 +1567,7 @@ status: "draft | review | published"
 | POST-004 | Sleep regression guide | 1 | Full | 2,000-2,500 | `DONE` | 2026-03-30 |
 | POST-005 | Cluster feeding | 1 | Full | 1,300-1,600 | `DONE` | 2026-03-30 |
 | POST-006 | Nanny tracking | 1 | Full | 1,200-1,500 | `DONE` | 2026-03-30 |
-| POST-007 | Newborn sleep hours | 1 | Medium | 900-1,100 | `PENDING` | — |
+| POST-007 | Newborn sleep hours | 1 | Medium | 900-1,100 | `DONE` | 2026-03-30 |
 | POST-008 | Track breastfeeding | 1 | Full | 1,200-1,500 | `DONE` | 2026-03-30 |
 | POST-009 | Physical tracker vs app | 2 | Full | 1,400-1,700 | `DONE` | 2026-03-30 |
 | POST-010 | Co-parenting tracking | 2 | Medium | 900-1,100 | `DONE` | 2026-03-30 |
@@ -1559,17 +1575,17 @@ status: "draft | review | published"
 | POST-012 | Eat play sleep | 2 | Full | 1,400-1,600 | `DONE` | 2026-03-30 |
 | POST-013 | Pediatrician visit | 2 | Full | 1,200-1,400 | `PENDING` | — |
 | POST-014 | Grandparent tracking | 2 | Mini | 600-800 | `DONE` | 2026-03-30 |
-| POST-015 | Is newborn eating enough | 2 | Full | 1,300-1,600 | `PENDING` | — |
-| POST-016 | Baby shower gifts | 3 | Full | 1,500-1,800 | `PENDING` | — |
-| POST-017 | Diaper output | 3* | Mini | 700-900 | `PENDING` | — |
-| POST-018 | Return to work handoff | 3 | Medium | 900-1,100 | `PENDING` | — |
-| POST-019 | Contact napping | 3 | Mini | 600-800 | `PENDING` | — |
+| POST-015 | Is newborn eating enough | 2 | Full | 1,300-1,600 | `DONE` | 2026-03-30 |
+| POST-016 | Baby shower gifts | 3 | Full | 1,500-1,800 | `DONE` | 2026-03-30 |
+| POST-017 | Diaper output | 3* | Mini | 700-900 | `DONE` | 2026-03-30 |
+| POST-018 | Return to work handoff | 3 | Medium | 900-1,100 | `DONE` | 2026-03-30 |
+| POST-019 | Contact napping | 3 | Mini | 600-800 | `DONE` | 2026-03-30 |
 | POST-020 | Baby tracker comparison | 3 | Full | 1,500-1,800 | `PENDING` | — |
 | POST-021 | Midnight Ember night mode | 4 | Mini | 600-800 | `DONE` | 2026-03-30 |
 | POST-022 | Fenton preemie growth charts | 4 | Full | 1,400-1,700 | `DONE` | 2026-03-30 |
 | POST-023 | Smart Averages | 4 | Mini | 600-800 | `DONE` | 2026-03-30 |
-| POST-024 | Phone Hand mode UX | 4 | Mini | 500-700 | `PENDING` | — |
-| POST-025 | Vaccine tracker | 4 | Mini | 600-800 | `PENDING` | — |
+| POST-024 | Phone Hand mode UX | 4 | Mini | 500-700 | `DONE` | 2026-03-30 |
+| POST-025 | Vaccine tracker | 4 | Mini | 600-800 | `DONE` | 2026-03-30 |
 | POST-026 | Privacy architecture | 4 | Full | 1,500-1,800 | `DONE` | 2026-03-30 |
 | POST-027 | The invisible tracker (ecosystem) | 4 | Full | 1,400-1,700 | `PENDING` | — |
 

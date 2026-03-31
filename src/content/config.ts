@@ -23,7 +23,7 @@ const blog = defineCollection({
     datePublished: z.string(),
     dateModified: z.string(),
     author: z.string().default('Nubo Team'),
-    category: z.enum(['sleep', 'feeding', 'tracking', 'caregiver', 'privacy', 'product']),
+    category: z.enum(['sleep', 'feeding', 'tracking', 'caregiver', 'privacy', 'product', 'gifts']),
     primaryKeyword: z.string(),
     heroImage: z.string().optional(),
     ogImage: z.string().optional(),

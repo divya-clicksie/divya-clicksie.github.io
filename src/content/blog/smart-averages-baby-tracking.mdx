@@ -10,27 +10,23 @@ excerpt: "One missed logging day can wreck your baby's feeding average. Smart Av
 tags: ["baby feeding average per day", "baby tracker daily average", "how much baby eats per day", "baby bottle daily average", "Smart Averages"]
 ---
 
-You tracked six bottles on Monday. Five on Tuesday. Wednesday, grandma was babysitting and nobody opened the app. Thursday you were back on it with six again. Friday, five. Saturday, four logged but you know she had at least two more while you were napping. Sunday, six.
+You tracked six bottles on Monday. Five on Tuesday. Wednesday, grandma was babysitting and nobody opened the app. Thursday you remembered two feeds but missed the rest. Friday, three logged before you gave up. Saturday you were back on it with five. Sunday, four, but you know she had at least two more while you were napping.
 
-Your baby tracker adds it all up and shows a baby feeding average per day of 5.4 bottles. Divide 38 by seven. Simple math. Except the number is wrong.
+Your baby tracker adds it all up and shows a baby feeding average per day of 3.6 bottles. Divide 25 by seven. Simple math. Except it is completely wrong, and it paints a picture of a baby who is not eating enough.
 
-That number is wrong. And if you bring it to your pediatrician, it could lead to a conversation about insufficient intake that your baby does not actually have.
+If you bring that number to your pediatrician, it could lead to a conversation about insufficient intake that your baby does not actually have.
 
 ## Why simple averages lie
 
 The math behind most baby tracker averages is basic: total events divided by total days. It treats every day equally, whether you logged every feed or missed half of them.
 
-The problem is obvious once you see it. Wednesday's zero bottles and Saturday's four logged bottles are pulling the average down, but your baby did not actually eat less on those days. You just did not track it. The data has gaps, and a simple average treats a gap like a fact.
+The problem is obvious once you see it. Wednesday's zero, Thursday's two, and Friday's three are pulling the average down, but your baby did not actually eat less on those days. You just did not track it. The data has gaps, and a simple average treats a gap like a fact.
 
-This matters most for feeding. Your pediatrician wants to know how much your baby eats per day. If the number on your screen is dragged down by a chaotic Saturday when the app stayed in your pocket, it stops being useful. Worse, it becomes misleading.
+This matters most for feeding. Your pediatrician wants to know how much your baby eats per day. If the number on your screen is dragged down by three chaotic days when the app stayed in your pocket, it stops being useful. Worse, it becomes misleading.
 
 ## How Smart Averages fix the math
 
-Smart Averages work by identifying which days have complete (or nearly complete) data and which do not. Here is the logic:
-
-1. **Find your peak day.** Look at the last seven days and find the day with the highest logged count. That is your best-tracked day and becomes the reference point.
-2. **Set a threshold.** Any day with fewer than 80% of the peak day's count gets flagged as incomplete.
-3. **Average only the robust days.** The incomplete days are excluded from the calculation entirely.
+Smart Averages look at your recent logging history and determine which days have reliable, complete data and which ones have gaps. Days that look incomplete get set aside. The average is then calculated using only the days where you actually tracked consistently.
 
 The result is an average built from the days you actually tracked, not the days you forgot.
 
@@ -43,17 +39,17 @@ Here is what this looks like with real numbers:
 | Monday | 6 | Complete |
 | Tuesday | 5 | Complete |
 | Wednesday | 0 | Incomplete |
-| Thursday | 6 | Complete |
-| Friday | 5 | Complete |
-| Saturday | 4 | Incomplete |
-| Sunday | 6 | Complete |
+| Thursday | 2 | Incomplete |
+| Friday | 3 | Incomplete |
+| Saturday | 5 | Complete |
+| Sunday | 4 | Incomplete |
 
-The peak day is 6 bottles. The 80% threshold is 4.8, so any day with fewer than 5 logged bottles gets flagged. Wednesday (0) and Saturday (4) are excluded.
+Smart Averages identify Wednesday, Thursday, Friday, and Sunday as incomplete. Only Monday, Tuesday, and Saturday have reliable data.
 
-**Simple average:** 38 / 7 = **5.4 bottles/day**
-**Smart Average:** 28 / 5 = **5.6 bottles/day**
+**Simple average:** 25 / 7 = **3.6 bottles/day**
+**Smart Average:** 16 / 3 = **5.3 bottles/day**
 
-That 0.2-bottle difference does not look dramatic in a table. But scale it over a month with several incomplete days, and the gap widens. A naive average might show 4.8 bottles when the real number is 5.5. That is the difference between "looks fine" and "let's talk about supplementing."
+That is not a rounding error. The simple average says your baby is eating nearly half of what she actually consumes. A pediatrician seeing 3.6 bottles per day would have questions. A pediatrician seeing 5.3 would not.
 
 ## The real number matters at the pediatrician
 
