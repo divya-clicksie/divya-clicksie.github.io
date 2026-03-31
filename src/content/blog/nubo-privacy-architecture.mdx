@@ -1,0 +1,125 @@
+---
+title: "Your Data Stays Yours: How Nubo's Privacy Architecture Works"
+description: "Baby tracker privacy and data security explained. How Nubo's local-first design, E2E encryption, and zero-knowledge server keep your child's data yours."
+datePublished: "2026-03-30"
+dateModified: "2026-03-30"
+author: "Nubo Team"
+category: "privacy"
+primaryKeyword: "baby tracker privacy data security"
+excerpt: "Most baby apps upload your child's data the moment you create an account. Nubo stores everything locally, encrypts before syncing, and runs a server that cannot read what it relays."
+tags: ["baby tracker privacy data security", "baby app data encryption", "local first baby tracker", "baby data privacy app", "baby tracker encryption"]
+---
+
+Most baby tracking apps ask you to create an account and immediately start uploading your child's data to their servers. Where it goes from there is anyone's guess. You agree to a privacy policy written in legal boilerplate and move on because the baby needs feeding and you do not have 20 minutes to read 4,000 words of legalese.
+
+Baby tracker privacy and data security deserve more scrutiny than most parents have time to give. This post explains how Nubo handles your child's information at every layer: on the device, on your phone, during caregiver sync, and in backup. No marketing abstractions. Just the architecture.
+
+## Why baby data is uniquely sensitive
+
+Your baby's tracking data is not a fitness log. It contains biometric measurements (weight, length, head circumference), medical records (vaccinations, medications), behavioral patterns (sleep cycles, feeding volumes, diaper output), and developmental milestones. Taken together, this is a detailed health profile of a person who cannot consent to its collection, storage, or sharing.
+
+The [HIPAA Security Rule (45 CFR 164)](https://www.hhs.gov/hipaa/for-professionals/security/index.html) sets the standard for protecting health information in clinical settings. Your pediatrician's office is legally required to encrypt records, control access, and audit who sees what. Your baby tracker should have equivalent respect for your child's data, even if it is not legally required to.
+
+A 2015 systematic assessment of 79 health apps accredited by the UK NHS found that 89% transmitted data to online services, 66% of those sending identifying information did not use encryption, and 78% of apps with a privacy policy failed to describe what personal data their transmissions included ([Huckvale et al., BMC Medicine, 2015](https://pubmed.ncbi.nlm.nih.gov/26404673/)). These were certified, accredited apps. The uncertified landscape is worse.
+
+## The three methods through a privacy lens
+
+Before diving into Nubo's architecture, it helps to see how each tracking method handles your data.
+
+**Paper logs** are fully private. No data leaves your notebook. No company has access, no server stores it, no breach can expose it. The trade-off: no backup. If the notebook is lost, the data is gone. No analytics, no sharing with a partner at work, no export for the pediatrician. Paper is the gold standard for privacy and the worst option for everything else.
+
+**Phone apps** span a wide privacy spectrum. Some paid apps store data locally and encrypt it responsibly. Many free apps monetize through advertising partnerships, analytics SDKs, and data brokers. The business model matters: if you did not pay for the app, something else is funding it, and that something is often your data. For a broader look at what baby tracking apps typically collect, see our [guide to baby app data privacy](/blog/privacy/what-data-does-baby-tracking-app-collect/).
+
+**The Nubo ecosystem** takes a different approach at every layer. The physical device communicates only with your phone over Bluetooth. It has no Wi-Fi radio, no internet connection, and no way to send data anywhere except the paired phone sitting next to it. The app stores all events in a local database on your phone. When you share data with a caregiver, the app encrypts everything before it leaves your device. The server relays encrypted blobs it cannot read. At no point does Nubo see your baby's data on the server side.
+
+That is the summary. Here is how each layer actually works.
+
+## Layer 1: local-first storage
+
+Every event you log, whether it is a feed, a diaper, a nap, or a growth measurement, is stored in a local SQLite database on your iPhone. The app works fully offline. You can track for weeks without an internet connection and lose nothing.
+
+Events are created with a sync flag set to false. They exist only on your phone until a sync cycle runs. The sync process batches up to 50 events at a time and sends them to the server, but only after encrypting them (more on that in the next section). If the network is unavailable, events stay local and sync later.
+
+A typical cloud-first app sends every event to a remote server immediately. Your data lives on their infrastructure, subject to their security practices, their retention policies, and their business decisions. If they get acquired, your baby's feeding history is part of the deal. With Nubo, your phone is the source of truth. The server is a relay, not a repository.
+
+## Layer 2: end-to-end encrypted caregiver sync
+
+When you invite a caregiver (partner, nanny, grandparent) to share your baby's data, the app uses a unique symmetric encryption key for that child. This key never leaves the devices that need it.
+
+Here is the flow:
+
+1. **Key generation.** When you create a child profile, the app generates a per-child AES symmetric key and stores it in the iOS Keychain, the hardware-backed secure enclave on your iPhone.
+
+2. **Invitation.** The app creates a QR code containing the encrypted child profile and symmetric key. The caregiver scans the code with their phone. The key transfers directly between devices, never through the server.
+
+3. **Event encryption.** Every synced event is encrypted with the child's key using AES/CBC before it leaves your phone. The server receives an encrypted blob, stores it, and relays it. It cannot read the contents.
+
+4. **Decryption.** The caregiver's phone holds the same key (received via QR code). It downloads the blob and decrypts locally.
+
+If the server were compromised, an attacker would get encrypted blobs with no way to read them. That is what "end-to-end encryption" means in practice: data is readable only on devices that hold the key.
+
+## Layer 3: encrypted backup
+
+Backups protect against the main risk of local-first storage: losing your phone. Nubo encrypts backups using the same per-child AES keys, with SHA-256 checksums verifying data integrity. Only children you own (not shared children) are included, keeping each family's backup self-contained.
+
+Backup runs at three tiers:
+
+- **Manual.** Trigger from app settings anytime.
+- **Foreground.** Automatic every two hours while the app is active.
+- **Scheduled.** A background task runs at approximately 2am via iOS BGTaskScheduler, backing up while you sleep.
+
+The encrypted package is stored in your personal iCloud account via CloudKit, which adds Apple's own encryption layer. The result: your backup is encrypted by Nubo's per-child key, then encrypted again by iCloud. Nubo cannot read your backup. Apple cannot read the inner layer.
+
+## Layer 4: conflict resolution without server access
+
+When two caregivers log events on different devices and sync, conflicts are inevitable. Maybe both parents logged the same diaper change. Maybe events arrived out of order because one phone was offline.
+
+Nubo resolves conflicts using a Last-Write-Wins strategy, but the important part is where it happens: on the client side. The server does not inspect event data to resolve conflicts because it cannot read the events. Each device deduplicates and resolves ordering locally after decryption. This keeps the server completely out of the data path.
+
+## The Nubo device: Bluetooth only
+
+The physical Nubo device communicates with your phone over Bluetooth Low Energy (BLE). It has no Wi-Fi chip, no cellular radio, and no way to connect to the internet.
+
+When you tap the device, the event transmits over BLE to the paired phone and enters the same local SQLite database as app-logged events. From there, it follows the same encrypted sync pipeline.
+
+The device adds a hardware input surface without adding a network attack surface. No firmware calling home, no cloud dependency, no possibility of the device transmitting data to an external server.
+
+## The Alexa skill: voice in, encrypted pipeline out
+
+When you use the Nubo Alexa skill to log an event by voice ("Alexa, tell Newborn Tracker she had 4 ounces"), the voice command is processed by Amazon's Alexa service, which routes the structured event to Nubo's backend. From there, the event enters the same encrypted sync pipeline: encrypted with the child's key before being relayed to caregiver devices. Voice adds an input surface without changing the data architecture.
+
+## What Nubo does not do
+
+Transparency means stating what you do not do as clearly as what you do.
+
+- **No account required for basic use.** You can track your baby locally without creating an account. An account is only needed for caregiver sync and backup.
+- **No server-side data access.** The server relays encrypted blobs. It does not decrypt, index, search, or analyze your data.
+- **No advertising SDKs.** No third-party analytics that profile your behavior. No ad networks.
+- **No data sales.** Your baby's health data is not a revenue stream.
+- **No training data.** Your child's feeding patterns, sleep logs, and growth measurements are not used to train machine learning models.
+
+## The encryption standard
+
+Nubo uses AES (Advanced Encryption Standard) as specified in [NIST FIPS 197](https://csrc.nist.gov/pubs/fips/197/final), the same standard used by financial institutions and the U.S. government for classified information. AES is peer-reviewed, publicly auditable, and backed by decades of cryptanalysis. CBC (Cipher Block Chaining) mode ensures that identical events produce different ciphertext, preventing pattern analysis. Per-child keys mean that even within a family with multiple children, each child's data is encrypted independently.
+
+## Asking the right questions
+
+When evaluating any baby tracking app, the relevant questions are not "does it have a privacy policy?" or "does it use encryption?" The relevant questions are:
+
+1. **Where is my data stored?** On my device, or on their server?
+2. **Who can read it?** Just me and my invited caregivers, or also the company?
+3. **What happens if the company is sold?** Does my data transfer to the new owner?
+4. **What is the business model?** If the app is free, what funds it?
+5. **Can I export and delete my data?** Completely, with verification?
+
+Nubo's answers: stored on your device, readable only by your devices, not transferable because the server cannot read it, funded by device and app sales (not data), and yes to export and deletion.
+
+For a broader comparison of how different tracking methods handle your information, the [physical tracker vs. app comparison](/blog/tracking/physical-baby-tracker-vs-app/) covers the practical trade-offs. If you want to understand what typical baby apps collect and why, start with [what data baby tracking apps actually gather](/blog/privacy/what-data-does-baby-tracking-app-collect/).
+
+## Your baby's data should be boring
+
+The best outcome for your child's health data is that it is useful to you, accessible to your caregivers, available for your pediatrician, and completely uninteresting to everyone else. No company should profit from it. No breach should expose it. No acquisition should redistribute it.
+
+That is the design goal behind every architectural decision described above. Local-first storage because your phone is the safest place for your data. End-to-end encryption because sharing should not mean surrendering. Encrypted backup because local-only is not safe enough. A zero-knowledge server because the easiest data to protect is data you never had.
+
+You can read the full [Nubo privacy policy](/privacy-policy/) for the legal specifics. This post is the technical companion: how the policy is enforced in code.

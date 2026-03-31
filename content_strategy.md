@@ -943,8 +943,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-011 · Baby app data privacy guide
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Privacy
 **Tier:** Full (1,400-1,700 words)
 **URL slug:** `/blog/privacy/what-data-does-baby-tracking-app-collect`
@@ -974,8 +974,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-012 · Eat play sleep routine for newborns
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Sleep
 **Tier:** Full (1,400-1,600 words)
 **URL slug:** `/blog/sleep/eat-play-sleep-routine-newborns`
@@ -1035,8 +1035,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-014 · Grandparent-friendly baby tracking
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Caregiver
 **Tier:** Mini (600-800 words)
 **URL slug:** `/blog/caregiver/baby-tracking-for-grandparents`
@@ -1313,8 +1313,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-023 · Your baby tracker is only as good as its worst day (how smart averages work)
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Product
 **Tier:** Mini (600-800 words)
 **URL slug:** `/blog/product/smart-averages-baby-tracking`
@@ -1399,8 +1399,8 @@ These links are the most valuable for SEO because they connect different content
 ---
 
 ### POST-026 · Your data stays yours: how Nubo's privacy architecture actually works
-**Status:** `[ ] PENDING`
-**Completed:** —
+**Status:** `[x] DONE`
+**Completed:** 2026-03-30
 **Pillar:** Privacy
 **Tier:** Full (1,500-1,800 words)
 **URL slug:** `/blog/privacy/nubo-privacy-architecture`
@@ -1529,6 +1529,16 @@ status: "draft | review | published"
 
 [2026-03-30] POST-008 — DONE — How to track breastfeeding without your phone. ~1,496 words. Filed as src/content/blog/how-to-track-breastfeeding-without-phone.mdx. Citations: none (no clinical claims). Three-ways angle: Heavy (structural backbone with three H3s for paper/app/device, synthesis paragraph, comparison table). App feature weave: Live Activities + Phone Hand mode + Midnight Ember. Nubo mentions: 2 (app H3 features, soft CTA). Internal links: POST-003 (why track), POST-005 (cluster feeding), POST-021 (Midnight Ember). Build: pass.
 
+[2026-03-30] POST-014 — DONE — Grandparent-friendly baby tracking. ~730 words. Filed as src/content/blog/baby-tracking-for-grandparents.mdx. Citations: none (no clinical claims). Three-ways angle: Light (one sentence acknowledging paper/apps/device). App feature weave: Alexa voice logging. Nubo mentions: 2 (device on counter scenario, gift angle). Internal links: POST-006 (nanny tracking), POST-003 (why track). Build: pass.
+
+[2026-03-30] POST-023 — DONE — Smart Averages. ~650 words. Filed as src/content/blog/smart-averages-baby-tracking.mdx. Citations: none (no clinical claims). Three-ways angle: Light (one sentence on device tap vs multi-step app interaction). Nubo mentions: 1 (Smart Averages feature, implicit throughout). No internal links (Phase 4 standalone). Build: pass.
+
+[2026-03-30] POST-011 — DONE — Baby app data privacy guide. ~1,550 words. Filed as src/content/blog/what-data-does-baby-tracking-app-collect.mdx. Citations: Grundy et al. (BMJ, 2019; PMID 30894349), Huckvale et al. (BMC Medicine, 2015; PMID 26404673), COPPA/FTC. Three-ways angle: Medium (dedicated paragraph section examining paper/apps/device through privacy lens). App feature weave: Privacy architecture (local-first SQLite, E2E encrypted AES/CBC caregiver sync, encrypted iCloud backup, BLE-only device). Nubo mentions: 2 (privacy lens section, What Nubo does differently section). Internal links: POST-003 (why track), privacy policy page. Build: pass.
+
+[2026-03-30] POST-026 — DONE — Privacy architecture deep-dive. ~1,808 words. Filed as src/content/blog/nubo-privacy-architecture.mdx. Citations: Huckvale et al. (BMC Medicine, 2015; PMID 26404673), HIPAA Security Rule (45 CFR 164), NIST FIPS 197 (AES). Three-ways angle: Medium (dedicated section examining paper/apps/Nubo ecosystem through privacy lens). Architecture layers: local-first SQLite, E2E encrypted caregiver sync (per-child AES/CBC, QR key exchange), encrypted iCloud backup (SHA-256 checksums, BGTaskScheduler), client-side LWW conflict resolution, BLE-only device, Alexa pipeline. Nubo mentions: throughout (architectural, not promotional). Internal links: POST-011 (baby app privacy), POST-009 (physical vs app), privacy policy page. Build: pass.
+
+[2026-03-30] POST-012 — DONE — Eat play sleep routine for newborns. ~1,619 words. Filed as src/content/blog/eat-play-sleep-routine-newborns.mdx. Citations: Rivkees SA (Pediatrics, 2003; PMID 12897290) on infant circadian rhythm development. Three-ways angle: Light (one sentence acknowledging paper/app/device, emphasis on consistency over tool). App feature weave: Auto-Reminders (reschedule from last event). Nubo mentions: 2 (physical tracker tap in tracking section, auto-reminders). Internal links: POST-001 (wake windows x3), POST-002 (feeding schedule), POST-003 (why track), POST-005 (cluster feeding). Build: pass.
+
 ---
 
 ## Summary Tracker
@@ -1545,10 +1555,10 @@ status: "draft | review | published"
 | POST-008 | Track breastfeeding | 1 | Full | 1,200-1,500 | `DONE` | 2026-03-30 |
 | POST-009 | Physical tracker vs app | 2 | Full | 1,400-1,700 | `DONE` | 2026-03-30 |
 | POST-010 | Co-parenting tracking | 2 | Medium | 900-1,100 | `DONE` | 2026-03-30 |
-| POST-011 | Baby app privacy | 2 | Full | 1,400-1,700 | `PENDING` | — |
-| POST-012 | Eat play sleep | 2 | Full | 1,400-1,600 | `PENDING` | — |
+| POST-011 | Baby app privacy | 2 | Full | 1,400-1,700 | `DONE` | 2026-03-30 |
+| POST-012 | Eat play sleep | 2 | Full | 1,400-1,600 | `DONE` | 2026-03-30 |
 | POST-013 | Pediatrician visit | 2 | Full | 1,200-1,400 | `PENDING` | — |
-| POST-014 | Grandparent tracking | 2 | Mini | 600-800 | `PENDING` | — |
+| POST-014 | Grandparent tracking | 2 | Mini | 600-800 | `DONE` | 2026-03-30 |
 | POST-015 | Is newborn eating enough | 2 | Full | 1,300-1,600 | `PENDING` | — |
 | POST-016 | Baby shower gifts | 3 | Full | 1,500-1,800 | `PENDING` | — |
 | POST-017 | Diaper output | 3* | Mini | 700-900 | `PENDING` | — |
@@ -1557,10 +1567,10 @@ status: "draft | review | published"
 | POST-020 | Baby tracker comparison | 3 | Full | 1,500-1,800 | `PENDING` | — |
 | POST-021 | Midnight Ember night mode | 4 | Mini | 600-800 | `DONE` | 2026-03-30 |
 | POST-022 | Fenton preemie growth charts | 4 | Full | 1,400-1,700 | `DONE` | 2026-03-30 |
-| POST-023 | Smart Averages | 4 | Mini | 600-800 | `PENDING` | — |
+| POST-023 | Smart Averages | 4 | Mini | 600-800 | `DONE` | 2026-03-30 |
 | POST-024 | Phone Hand mode UX | 4 | Mini | 500-700 | `PENDING` | — |
 | POST-025 | Vaccine tracker | 4 | Mini | 600-800 | `PENDING` | — |
-| POST-026 | Privacy architecture | 4 | Full | 1,500-1,800 | `PENDING` | — |
+| POST-026 | Privacy architecture | 4 | Full | 1,500-1,800 | `DONE` | 2026-03-30 |
 | POST-027 | The invisible tracker (ecosystem) | 4 | Full | 1,400-1,700 | `PENDING` | — |
 
 *POST-017: Phase 3 label retained, but publish early in Phase 2 cadence (high-volume, easy win).
