@@ -4,6 +4,8 @@ const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp
 const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
 const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
 const alexaURL = 'https://www.amazon.com/Clicksie-LLC-Nubo-Baby-Tracker/dp/B0FJ2N8XKB';
+const instagramURL = 'https://www.instagram.com/nubo_baby_tracker';
+const youtubeURL = 'https://www.youtube.com/@NuboBabyTracker';
 ---
 
 <footer class="site-footer">
@@ -44,6 +46,27 @@ const alexaURL = 'https://www.amazon.com/Clicksie-LLC-Nubo-Baby-Tracker/dp/B0FJ2
             <li><a href="/blog/">Blog</a></li>
             <li><a href="/privacy-policy/">Privacy Policy</a></li>
           </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Follow Us</h3>
+          <div class="footer-social">
+            <a href={instagramURL} target="_blank" rel="noopener noreferrer" aria-label="Follow Nubo on Instagram" class="social-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+              <span>Instagram</span>
+            </a>
+            <a href={youtubeURL} target="_blank" rel="noopener noreferrer" aria-label="Follow Nubo on YouTube" class="social-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"></path>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+              </svg>
+              <span>YouTube</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -122,6 +145,29 @@ const alexaURL = 'https://www.amazon.com/Clicksie-LLC-Nubo-Baby-Tracker/dp/B0FJ2
 
   .footer-col a:hover {
     color: #13BCC3;
+  }
+
+  .footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: #555;
+    transition: color 0.2s;
+  }
+
+  .social-link:hover {
+    color: #13BCC3;
+  }
+
+  .social-link svg {
+    flex-shrink: 0;
   }
 
   .footer-bottom {
