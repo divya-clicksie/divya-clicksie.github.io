@@ -170,14 +170,14 @@ const jsonLd = {
     <!-- ════════════════════════════════════════════
          MEET NUBO (DEVICE)
     ════════════════════════════════════════════ -->
-    <section class="meet-nubo" id="meet-nubo">
+    <section class="meet-nubo" id="features">
       <div class="container meet-inner">
         <div class="meet-image reveal">
           <img
-            src="/images/nubo-frontal.webp"
-            alt="Nubo baby tracker, white device with teal edges showing feeding, sleep, and diaper buttons"
-            width="380"
-            height="800"
+            src="/images/nubo-oneclick.webp"
+            alt="Close-up of a finger pressing the sleep button on Nubo for one touch logging"
+            width="740"
+            height="554"
           />
         </div>
         <div class="meet-text reveal reveal-delay-1">
@@ -186,13 +186,16 @@ const jsonLd = {
             Like a light switch<br/>
             for baby tracking.
           </h2>
+          <p class="meet-description meet-description-lead">
+            One tap. A gentle light. Done.
+          </p>
           <p class="meet-description">
-            Nubo is a simple physical tracker built for newborn life.
-            Tap to log feeds, sleep, pee, and poop in the moment. It stores everything
+            Nubo is a physical tracker built for the moments your phone can't reach.
+            Press a button to log feeds, sleep, pee, and poop. It stores everything
             and syncs to the app when your phone is nearby.
           </p>
           <p class="meet-description">
-            Use it one-handed, half-asleep, and in the dark.
+            Use it one-handed, half-asleep, in the dark. Get back to your baby.
           </p>
         </div>
       </div>
@@ -232,29 +235,7 @@ const jsonLd = {
     </section>
 
 
-    <!-- ════════════════════════════════════════════
-         ONE TOUCH
-    ════════════════════════════════════════════ -->
-    <section class="one-touch" id="features">
-      <div class="container">
-        <div class="section-intro reveal">
-          <p class="overline">The Device</p>
-          <h2>Log activities<br/>without reaching<br/>for your phone.</h2>
-        </div>
-        <div class="one-touch-image reveal">
-          <img
-            src="/images/nubo-oneclick.webp"
-            alt="Close-up of a finger pressing the sleep button on Nubo for one touch logging"
-            width="740"
-            height="554"
-          />
-        </div>
-        <p class="one-touch-caption reveal">
-          Clear, intuitive buttons for feeding, sleeping, pee, and poop.
-          Press once. Nubo confirms with a gentle light. Done. Get back to your baby.
-        </p>
-      </div>
-    </section>
+
 
 
     <!-- ════════════════════════════════════════════
@@ -262,37 +243,53 @@ const jsonLd = {
     ════════════════════════════════════════════ -->
     <section class="alexa-section">
       <div class="container alexa-inner">
-        <div class="alexa-text reveal">
-          <p class="overline">Works with Alexa</p>
-          <h2>Hands full?<br/>Just say the word.</h2>
-          <p class="alexa-description">
-            Nubo for Alexa makes logging your newborn's routine effortless, hands-free and secure.
-            Simply ask Alexa to record sleep, feeding or diaper changes. Use natural language or quick commands.
-          </p>
-          <div class="alexa-examples">
-            <p class="alexa-examples-label">Sleep</p>
-            <div class="alexa-example">&ldquo;My baby started napping at 2 PM.&rdquo;</div>
-            <div class="alexa-example">&ldquo;Baby woke up.&rdquo;</div>
-            <div class="alexa-example">&ldquo;Baby slept from 3 to 6 in the evening.&rdquo;</div>
-            <p class="alexa-examples-label">Nursing</p>
-            <div class="alexa-example">&ldquo;Log a nursing session, left side, 15 minutes.&rdquo;</div>
-            <div class="alexa-example">&ldquo;I breast fed baby for half an hour.&rdquo;</div>
-            <p class="alexa-examples-label">Bottle</p>
-            <div class="alexa-example">&ldquo;Record 4 ounces of milk. 10 minutes ago.&rdquo;</div>
-            <div class="alexa-example">&ldquo;Formula. 1 ounce. Just now.&rdquo;</div>
-            <div class="alexa-example">&ldquo;Log 2 ounces of formula and 1 ounce of milk a few minutes ago.&rdquo;</div>
-            <p class="alexa-examples-label">Diaper changes</p>
-            <div class="alexa-example">&ldquo;I changed baby's diaper just a while back. It was wet and dirty.&rdquo;</div>
-            <div class="alexa-example">&ldquo;Diaper change. Wet.&rdquo;</div>
+        <div class="alexa-top">
+          <div class="alexa-text reveal">
+            <p class="overline">Works with Alexa</p>
+            <h2>Hands full?<br/>Just say the word.</h2>
+            <p class="alexa-description">
+              Nubo for Alexa makes logging your newborn's routine effortless, hands-free and secure.
+              Simply ask Alexa to record sleep, feeding or diaper changes. Use natural language or quick commands.
+            </p>
+            <p class="alexa-invoke-hint">Say: &ldquo;Alexa, open Newborn tracker&rdquo; or &ldquo;Alexa, tell Newborn tracker to ...&rdquo;</p>
           </div>
-          <p class="alexa-invoke-hint">Say: &ldquo;Alexa, open Newborn tracker&rdquo; or &ldquo;Alexa, tell Newborn tracker to ...&rdquo;</p>
-          <p class="alexa-echo-show-note">On Echo Show and other screen devices, you see the latest entries for each activity at a glance.</p>
-          <a href={alexaURL} target="_blank" rel="noopener noreferrer" class="alexa-badge-link">
-            <img src="/images/just-ask-alexa-badge.png" alt="Just Ask Alexa" width="250" height="122" />
-          </a>
+          <div class="alexa-visual reveal reveal-delay-1">
+            <a href={alexaURL} target="_blank" rel="noopener noreferrer" class="alexa-badge-link">
+              <img src="/images/nubo-alexa-echo-show.png" alt="Nubo baby tracker dashboard on Amazon Echo Show displaying sleep, feeding, and diaper status at a glance" class="alexa-show-img" width="640" height="400" loading="lazy"/>
+            </a>
+          </div>
         </div>
-        <div class="alexa-visual reveal reveal-delay-1">
-          <img src="/images/nubo-alexa-echo-show.png" alt="Nubo baby tracker dashboard on Amazon Echo Show displaying sleep, feeding, and diaper status at a glance" class="alexa-show-img" width="640" height="400" loading="lazy"/>
+        <div class="alexa-examples reveal">
+          <div class="alexa-example-group">
+            <p class="alexa-examples-label">Sleep</p>
+            <div class="alexa-pills">
+              <span class="alexa-pill">&ldquo;My baby started napping at 2 PM.&rdquo;</span>
+              <span class="alexa-pill">&ldquo;Baby woke up.&rdquo;</span>
+              <span class="alexa-pill">&ldquo;Baby slept from 3 to 6 in the evening.&rdquo;</span>
+            </div>
+          </div>
+          <div class="alexa-example-group">
+            <p class="alexa-examples-label">Nursing</p>
+            <div class="alexa-pills">
+              <span class="alexa-pill">&ldquo;Log a nursing session, left side, 15 minutes.&rdquo;</span>
+              <span class="alexa-pill">&ldquo;I breast fed baby for half an hour.&rdquo;</span>
+            </div>
+          </div>
+          <div class="alexa-example-group">
+            <p class="alexa-examples-label">Bottle</p>
+            <div class="alexa-pills">
+              <span class="alexa-pill">&ldquo;Record 4 ounces of milk. 10 minutes ago.&rdquo;</span>
+              <span class="alexa-pill">&ldquo;Formula. 1 ounce. Just now.&rdquo;</span>
+              <span class="alexa-pill">&ldquo;Log 2 ounces of formula and 1 ounce of milk.&rdquo;</span>
+            </div>
+          </div>
+          <div class="alexa-example-group">
+            <p class="alexa-examples-label">Diapers</p>
+            <div class="alexa-pills">
+              <span class="alexa-pill">&ldquo;Diaper change. Wet.&rdquo;</span>
+              <span class="alexa-pill">&ldquo;I changed baby's diaper. It was wet and dirty.&rdquo;</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -614,15 +611,16 @@ const jsonLd = {
             <ul class="pricing-features">
               <li>Sleep, feeding &amp; diaper tracking</li>
               <li>Notes, charts &amp; manual alarms</li>
-              <li>Vaccine tracking (88 WHO + custom)</li>
-              <li>WHO growth charts</li>
               <li>Fenton preemie growth tracking</li>
+              <li>WHO growth charts</li>
+              <li>Vaccine tracking (88 WHO + custom)</li>
               <li>Health measurements &amp; medications</li>
               <li>Activity tracking (tummy time, bath, more)</li>
               <li>CDC Milestone tracking</li>
+              <li>One touch quick logging</li>
               <li>Unlimited child profiles</li>
               <li>Unlimited caregivers &amp; sync</li>
-              <li>Cloud backup &amp; restore</li>
+              <li>Unlimited cloud backup &amp; restore</li>
               <li>Offline mode, full functionality</li>
               <li>End-to-end encryption &amp; privacy first</li>
               <li>No ads. Ever.</li>
@@ -641,21 +639,22 @@ const jsonLd = {
             <div class="pricing-card-header">
               <h3>Premium</h3>
               <div class="pricing-price">
-                <span class="pricing-amount">$29.99</span>
+                <span class="pricing-amount">$39.99</span>
                 <span class="pricing-period">/year</span>
               </div>
-              <p class="pricing-tagline">Just $2.50/mo. Or $8.99 month-to-month.</p>
+              <p class="pricing-tagline">Just $3.33/mo. Or $8.99 month-to-month.</p>
             </div>
             <ul class="pricing-features">
               <li class="pricing-inherit">Everything in Free, plus:</li>
+              <li>Premium for all family members</li>
               <li>Auto Reminders based on your baby's schedule</li>
-              <li>Live Activities on your lock screen</li>
-              <li>Amazon Alexa voice logging</li>
-              <li>In-App Voice Commands</li>
-              <li>Advanced Growth Metrics &amp; Z-scores</li>
-              <li>CSV Export for your pediatrician</li>
               <li>Doctor Visit Cheat Sheet</li>
               <li>Smart Averages on charts</li>
+              <li>Amazon Alexa voice logging</li>
+              <li>In-App Voice Commands</li>
+              <li>Live Activities on your lock screen</li>
+              <li>Advanced Growth Metrics &amp; Z-scores</li>
+              <li>CSV Data Export</li>
               <li>Dark Mode &amp; Midnight Ember theme</li>
               <li>Colorful Mode &amp; Mini Timeline</li>
               <li>Phone Hand one-handed mode</li>
@@ -895,16 +894,24 @@ const jsonLd = {
 
   .meet-inner {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 6rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
     align-items: center;
   }
 
   .meet-image img {
-    height: 520px;
-    width: auto;
+    width: 100%;
+    max-width: 640px;
+    height: auto;
     object-fit: contain;
-    filter: drop-shadow(0 30px 80px rgba(0, 0, 0, 0.08));
+    border-radius: var(--radius-2xl);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.06);
+  }
+
+  .meet-description-lead {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
   }
 
   .meet-text .overline { }
@@ -936,8 +943,8 @@ const jsonLd = {
       gap: 3rem;
       text-align: center;
     }
-    .meet-image { display: flex; justify-content: center; }
-    .meet-image img { height: 360px; }
+    .meet-image { display: flex; justify-content: center; order: -1; }
+    .meet-image img { max-width: 100%; }
     .meet-description { margin-left: auto; margin-right: auto; }
   }
 
@@ -1087,6 +1094,12 @@ const jsonLd = {
   }
 
   .alexa-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .alexa-top {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
     gap: 4rem;
@@ -1121,11 +1134,15 @@ const jsonLd = {
   }
 
   .alexa-examples {
-    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .alexa-example-group {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    margin-bottom: 2rem;
   }
 
   .alexa-examples-label {
@@ -1134,32 +1151,31 @@ const jsonLd = {
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--color-brand-dark);
-    margin-top: 0.5rem;
   }
 
-  .alexa-examples-label:first-child {
-    margin-top: 0;
+  .alexa-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
 
-  .alexa-example {
+  .alexa-pill {
     font-size: 0.875rem;
     color: var(--color-text-secondary);
     padding: 0.5rem 1rem;
     background: var(--color-brand-light);
     border-radius: 100px;
-    display: inline-block;
-    width: fit-content;
     font-style: italic;
+    white-space: nowrap;
   }
 
   .alexa-invoke-hint {
     font-size: 0.8125rem;
     color: var(--color-text-secondary);
     margin-bottom: 2rem;
+    margin-top: 1rem;
     font-style: italic;
   }
-
-
 
   .alexa-visual {
     display: flex;
@@ -1198,9 +1214,10 @@ const jsonLd = {
 
   @media (max-width: 768px) {
     .alexa-section { padding: 5rem 0; }
-    .alexa-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .alexa-top { grid-template-columns: 1fr; gap: 2rem; }
     .alexa-visual { order: -1; }
     .alexa-show-img { max-width: 100%; }
+    .alexa-pill { white-space: normal; }
   }
 
 
@@ -1273,39 +1290,7 @@ const jsonLd = {
   }
 
 
-  /* ═══════════════════════════════════════════
-     ONE TOUCH
-  ═══════════════════════════════════════════ */
-  .one-touch {
-    padding: 8rem 0;
-    background: var(--color-bg-warm);
-  }
 
-  .one-touch h2 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-  }
-
-  .one-touch-image {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-  }
-
-  .one-touch-image img {
-    max-width: 640px;
-    width: 100%;
-    border-radius: var(--radius-2xl);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.06);
-  }
-
-  .one-touch-caption {
-    text-align: center;
-    font-size: 1.0625rem;
-    color: var(--color-text-secondary);
-    line-height: 1.7;
-    max-width: 540px;
-    margin: 0 auto;
-  }
 
 
   /* ═══════════════════════════════════════════
