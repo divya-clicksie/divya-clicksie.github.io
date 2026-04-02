@@ -126,7 +126,7 @@ Not every post needs to be big. Some topics have a sharp, single insight that ge
 
 | Tier | Posts |
 |------|-------|
-| **Full** | 001, 002, 003, 004, 005, 006, 008, 009, 011, 012, 013, 015, 016, 020, 022, 026, 027 |
+| **Full** | 001, 002, 003, 004, 005, 006, 008, 009, 011, 012, 013, 015, 016, 020, 022, 026, 027, 028 |
 | **Medium** | 007, 010, 018 |
 | **Mini** | 014, 017, 019, 021, 023, 024, 025 |
 
@@ -148,6 +148,7 @@ Create these once and reuse across multiple posts:
 | **Midnight Ember screenshot** | Full app in night mode, amber/red palette | POST-001, 007, 008, 021 |
 | **Shared caregiver timeline** | App timeline showing events from different caregivers | POST-006, 010, 014 |
 | **Smart Averages daily view** | Feeding summary with accurate daily totals | POST-002, 013, 023 |
+| **Allergen Tracker screenshot** | Allergen checklist screen showing 9 allergens with progress bar and wait-window status | POST-028 |
 
 ---
 
@@ -164,6 +165,7 @@ The Nubo App is a full-featured baby tracker on its own, not merely a device com
 | **Fenton preterm charts** | Fenton 2013 growth charts (22.5-50 weeks PMA) with LMS z-score calculation and automatic corrected-age adjustment. Seamless transition to WHO at 50 weeks. | Preemie parents see falsely alarming percentiles on standard charts. Fenton charts show the real picture. | POST-013, POST-022 |
 | **Phone Hand mode** | Quick-action buttons flip to match your dominant hand. Right-hand default, left-hand toggle. | You're holding a baby in one arm. The tap target should be where your thumb already is. | POST-004 (phone Hand), POST-008, POST-024 |
 | **Vaccine tracker** | 88 WHO standard vaccines + custom entries. Timeline history, per-vaccine notes, caregiver sync. | No more losing the paper immunization card. Searchable, shareable, always with you. | POST-013, POST-025 |
+| **Allergen Tracker** | FALCPA Top 9 allergen introduction checklist. Wait-window countdown (configurable 1-5 days). Reaction logging (None/Mild/Moderate/Severe/Unsure). Progress tracking (X/9 introduced). Auto-reminders when wait window clears. | The 3-day gap between new allergens is the #1 thing parents lose track of. A live countdown is real-time state a notebook can't provide. Multi-caregiver visibility avoids "did you already give him peanut butter?" confusion. | POST-013, POST-028 |
 | **Live Activities** | Sleep and nursing timers on the lock screen and Dynamic Island. One-tap side switch (L/R) for nursing. Stop button without unlocking. | You start a sleep timer and walk away. The elapsed time is always visible without opening the app. | POST-007, POST-008, POST-019, POST-027 |
 | **Auto-Reminders** | Rule-based reminders that reschedule from the last event. Auto-cancel on early events. Quiet hours. | "Remind me 3 hours after the last bottle" works even when the schedule shifts. | POST-002, POST-012, POST-027 |
 | **Alexa voice logging** | Natural language: "Alexa, tell Newborn Tracker that Emma had 4 ounces 20 minutes ago." Relative and absolute times. | Both hands occupied, phone across the room. Voice is the only option. | POST-005, POST-006, POST-010, POST-014, POST-027 |
@@ -226,6 +228,7 @@ Every specific paper, author name, journal, and year listed below has been verif
 | **POST-021** Midnight Ember | Blue light and melatonin suppression | Shechter A et al., "Blocking nocturnal blue light for insomnia: A randomized controlled trial" (J Psychiatr Res, 2018; PMID 29101797). Burkhart K & Phelps JR, "Amber lenses to block blue light and improve sleep: a randomized trial" (Chronobiol Int, 2009; PMID 20030543). Lockley SW et al., "Short-wavelength sensitivity for the direct effects of light on alertness, vigilance, and the waking electroencephalogram in humans" (Sleep, 2006; PMID 16494083). |
 | **POST-022** Fenton charts | Preemie growth methodology | Fenton TR & Kim JH, "A systematic review and meta-analysis to revise the Fenton growth chart for preterm infants" (BMC Pediatrics, 2013; PMID 23601190). Fenton TR, Elmrayed S & Alshaikh BN, "Fenton Third-Generation Growth Charts of Preterm Infants Without Abnormal Fetal Growth" (Paediatr Perinat Epidemiol, 2025; PMID 40534585). WHO Multicentre Growth Reference Study Group, "WHO Child Growth Standards" (2006). |
 | **POST-025** Vaccine tracker | Immunization schedule complexity | CDC "Recommended Child and Adolescent Immunization Schedule." WHO vaccine position papers. |
+| **POST-028** Allergen introduction | Early allergen introduction guidelines, FALCPA Top 9, wait windows | Du Toit G et al., "Randomized trial of peanut consumption in infants at risk for peanut allergy" (LEAP study, NEJM, 2015; PMID 25705822). Perkin MR et al., "Randomized trial of introduction of allergenic foods in breast-fed infants" (EAT study, NEJM, 2016; PMID 26942922). ASCIA Guidelines for infant feeding and allergy prevention. AAP "Introduction of Allergenic Foods" clinical guidance. |
 | **POST-026** Privacy architecture | Health data sensitivity, encryption standards | HIPAA Security Rule (45 CFR 164) as a benchmark. Huckvale K et al. (BMC Medicine, 2015; PMID 26404673) for health app privacy context. *(Writer should verify any specific NIST or OWASP references before citing.)* |
 
 ---
@@ -284,6 +287,7 @@ Each post lists its outbound links (posts it should link TO) and the context whe
 | POST-008 | "If logging feeds feels hard at 2am, [here are three ways to track breastfeeding] without your phone." |
 | POST-013 | "Your pediatrician will ask about feeds at every visit. [What to bring and what data to have ready.]" |
 | POST-015 | "Worried your baby isn't eating enough? [Here's how to tell.]" |
+| POST-028 | "When solids start, allergen introductions add a new layer of tracking. [How to manage all 9.]" |
 
 ---
 
@@ -403,6 +407,7 @@ Each post lists its outbound links (posts it should link TO) and the context whe
 | POST-007 | "They'll ask about sleep totals. [Here's what's normal.]" |
 | POST-015 | "The 'is my baby eating enough?' question often comes up at visits. [How to answer it before you arrive.]" |
 | POST-017 | "Diaper counts are one of the first things the pediatrician checks. [Normal diaper output by age.]" |
+| POST-028 | "Allergen history is another data point the pediatrician will ask about. [How to track introductions.]" |
 
 ---
 
@@ -559,6 +564,18 @@ Each post lists its outbound links (posts it should link TO) and the context whe
 | POST-024 | "Phone Hand mode: one-handed app interaction. [The UX design story.]" |
 | POST-025 | "88 vaccines in the tracker. [The immunization record deep-dive.]" |
 | POST-026 | "Privacy architecture: E2E encryption explained. [The full technical story.]" |
+| POST-028 | "Allergen introductions are the next tracking challenge after feeds and sleep. [How to track all 9.]" |
+
+---
+
+**POST-028 · Allergen introduction tracker** (Feeding)
+| Link to | Anchor context |
+|---------|----------------|
+| POST-002 | "Allergen introduction starts during the transition from milk to solids. [The feeding schedule for the first year.]" |
+| POST-003 | "Tracking allergens is tracking. The same case for logging feeds applies here. [Why tracking matters.]" |
+| POST-013 | "A structured allergen history is one of the most useful things you can bring to a well-child visit. [What to prepare.]" |
+| POST-025 | "Allergen records sit alongside vaccine records as health milestones the app manages. [The vaccine tracker.]" |
+| POST-006 | "When the nanny introduces an allergen, you need to know. [Setting up shared tracking.]" |
 
 ---
 
@@ -567,7 +584,7 @@ Each post lists its outbound links (posts it should link TO) and the context whe
 | Post | Outbound | Inbound | Role |
 |------|----------|---------|------|
 | POST-001 | 4 | 6 | Sleep anchor |
-| POST-002 | 5 | 9 | Feeding anchor |
+| POST-002 | 6 | 9 | Feeding anchor |
 | POST-003 | 5 | **17** | **Primary hub** |
 | POST-004 | 5 | 4 | Sleep deep-dive |
 | POST-005 | 4 | 3 | Feeding deep-dive |
@@ -578,7 +595,7 @@ Each post lists its outbound links (posts it should link TO) and the context whe
 | POST-010 | 4 | 4 | Caregiver mid-tier |
 | POST-011 | 3 | 5 | Privacy standalone |
 | POST-012 | 5 | 5 | Sleep routine |
-| POST-013 | 5 | **8** | **Data payoff hub** |
+| POST-013 | 5 | **9** | **Data payoff hub** |
 | POST-014 | 5 | 5 | Caregiver + gift |
 | POST-015 | 5 | 5 | Feeding anxiety relief |
 | POST-016 | 3 | 2 | Gift/conversion |
@@ -593,6 +610,7 @@ Each post lists its outbound links (posts it should link TO) and the context whe
 | POST-025 | 4 | 4 | Vaccine tracker |
 | POST-026 | 5 | 4 | Privacy deep-dive |
 | POST-027 | 8 | **11** | **Product hub** |
+| POST-028 | 5 | 3 | Allergen + feeding bridge |
 
 ### Cross-pillar bridges
 
@@ -615,6 +633,8 @@ These links are the most valuable for SEO because they connect different content
 | Product → Caregiver | POST-027 → POST-006 | Multi-caregiver sync ties to nanny tracking | Feature → use case |
 | Product → Tracking | POST-022 → POST-013 | Fenton charts tie to pediatrician visit | Clinical feature → clinical scenario |
 | Product → Product | POST-027 → POST-021..026 | Ecosystem hub links to all feature deep-dives | Internal product mesh |
+| Feeding → Product | POST-028 → POST-025 | Allergen tracker ties to vaccine tracker as health records | Clinical milestones bridge |
+| Feeding → Caregiver | POST-028 → POST-006 | Allergen introduction needs multi-caregiver visibility | Safety-critical sync |
 
 ### Implementation rules
 
@@ -1245,7 +1265,7 @@ These links are the most valuable for SEO because they connect different content
 
 ---
 
-## Phase 4 — Feature Deep-Dives & Ecosystem (Posts 21–27)
+## Phase 4 — Feature Deep-Dives & Ecosystem (Posts 21–28)
 **Goal:** Showcase Nubo App features that differentiate it from competitors. Establish the Nubo ecosystem (Device + App + Alexa) as a category of its own. These posts serve double duty: SEO for feature-specific searches and internal link targets from Phases 1-3.
 **Start when:** At least 8 posts from Phases 1-2 are `[x] DONE`. Phase 4 posts can interleave with Phase 3.
 
@@ -1466,6 +1486,42 @@ These links are the most valuable for SEO because they connect different content
 
 ---
 
+### POST-028 · How to introduce allergens to your baby (and actually keep track)
+**Status:** `[x] DONE`
+**Completed:** 2026-04-02
+**Pillar:** Feeding
+**Tier:** Full (1,200-1,500 words)
+**URL slug:** `/blog/feeding/baby-allergen-introduction-tracker`
+**Primary keyword:** `baby allergen introduction schedule`
+**Secondary keywords:** `when to introduce allergens to baby`, `baby food allergy tracker`, `top 9 allergens baby`, `allergen wait window baby`
+**Search volume:** High (seasonal peak at 4-8 month age bracket)
+**Search intent:** Informational + high anxiety + product discovery
+
+**Images:**
+- Reuse: Allergen Tracker screenshot (9-allergen checklist with progress bar and wait-window status)
+- "Top 9 allergens" reference graphic (emoji grid: milk, eggs, fish, shellfish, tree nuts, peanuts, wheat, soy, sesame)
+- Wait-window countdown example screenshot (showing "Safe to try next allergen" vs "Wait 2 more days")
+- Optional: reaction severity scale graphic (None/Mild/Moderate/Severe/Unsure color spectrum)
+
+**Instructions for Claude Code:**
+1. Write a 1,200-1,500 word post. This targets parents in the 4-8 month bracket who are starting solids and terrified of allergic reactions. Real guidelines, real structure, real tool.
+2. Hook: "Your pediatrician said to start introducing allergens. They did not say how to keep track of which ones, when, or what happened. That part is on you."
+3. Open with the current science: early introduction (4-6 months) reduces allergy risk. Reference the LEAP and EAT studies. This is counter to the old "delay until age 1" advice that many grandparents still believe. Acknowledge the anxiety directly.
+4. Cover the FALCPA Top 9 allergens (Milk, Eggs, Fish, Shellfish, Tree Nuts, Peanuts, Wheat, Soybeans, Sesame). Include a reference table with each allergen, common first-food forms (e.g., "thinned peanut butter" not "whole peanuts"), and typical introduction age range.
+5. Explain the wait-window rule: introduce one new allergen, wait 3-5 days, watch for reactions, then move to the next. This is the core tracking problem. With 9 allergens and a 3-day wait, the process spans 4-6 weeks minimum. Add maintenance exposures (offer each introduced allergen weekly) and the tracking burden multiplies.
+6. Cover what to track per introduction: which allergen, what food form, date/time, and reaction (none, mild, moderate, severe, unsure). Explain why "unsure" is a valid option. Parents may not know if a rash is from the peanut butter or the new detergent.
+7. **Three ways angle (Medium):** Dedicated paragraph comparing methods for allergen tracking specifically. Paper: a fridge chart works for the first 2-3, but by allergen #6 with overlapping maintenance windows, it's a mess. App: most baby trackers don't have a dedicated allergen feature, so parents hack it with notes fields or separate apps. Physical device: daily feeds and diapers, not allergen-specific. Then the Nubo reveal: a dedicated allergen tracker with a 9-allergen checklist, wait-window countdown, reaction logging, and auto-reminders when the wait clears. Multi-caregiver sync means the nanny or grandparent sees exactly which allergens have been introduced and which are still waiting.
+8. The pediatrician payoff: at the 6-month or 9-month visit, having a structured allergen history (which 9 allergens, dates introduced, any reactions with severity) is far more useful than "I think we did peanut butter a few weeks ago." Link to POST-013.
+9. Nubo mentions: 2 (allergen tracker feature in the three-ways section, soft CTA). The feature is genuinely useful here. The wait-window countdown and multi-caregiver visibility are things no other baby tracker offers.
+10. Tone: empathetic, science-backed, practical. This is a high-anxiety topic. Validate the fear, then give structure.
+11. **Citations (critical for this post):** Reference Du Toit et al. (LEAP study, NEJM, 2015; PMID 25705822) for early peanut introduction evidence. Reference Perkin et al. (EAT study, NEJM, 2016; PMID 26942922) for broader early allergen introduction. Reference ASCIA guidelines for practical introduction recommendations. AAP clinical guidance on allergenic food introduction. This post's credibility depends on the science being current and correct. See Academic Citation Guide.
+12. Include a disclaimer note: "This post is for informational purposes. Consult your pediatrician before introducing allergens, especially if your baby has eczema or a family history of food allergies."
+13. FAQ section (3 questions for schema markup): "What are the top 9 baby allergens?" / "How long should I wait between introducing new allergens?" / "What counts as a mild allergic reaction in a baby?"
+
+**Output file:** `post-028-allergen-introduction-tracker.md`
+
+---
+
 ### Bonus shorter posts (Phase 4 backlog, not numbered yet)
 
 These are natural minis (500-700 words). Interleave between full posts for publishing cadence:
@@ -1559,6 +1615,8 @@ status: "draft | review | published"
 
 [2026-03-30] POST-013 — DONE — What to bring to newborn pediatrician visit. ~1,312 words. Filed as src/content/blog/what-to-bring-newborn-pediatrician-visit.mdx. Citations: AAP Bright Futures/HealthyChildren.org (well-child visit schedule). Three-ways angle: Medium (full section comparing paper/app/device performance in the waiting room). App feature weave: Smart Averages (feeding data accuracy), Fenton charts (preemie corrected-age percentiles), vaccine tracker (searchable immunization history), CSV export (specialist referrals). Nubo mentions: 2 (Smart Averages in feeding section, daily summary in closing). Internal links: POST-023 (Smart Averages), POST-022 (Fenton charts), POST-025 (vaccine tracker), POST-005 (cluster feeding). Build: pass.
 
+[2026-04-02] POST-028 — DONE — Allergen introduction tracker. ~1,283 words. Filed as src/content/blog/baby-allergen-introduction-tracker.mdx. Citations: Du Toit et al. (LEAP study, NEJM, 2015; PMID 25705822), Perkin et al. (EAT study, NEJM, 2016; PMID 26942922), AAP HealthyChildren.org, ASCIA guidelines. Three-ways angle: Medium (dedicated section comparing paper/apps/Nubo allergen tracker for the multi-week introduction workflow). Nubo mentions: 2 (allergen tracker feature in three-ways section, soft CTA in closing). Internal links: POST-013 (pediatrician visit). FAQ schema: 3 questions. Disclaimer included. Build: pass.
+
 ---
 
 ## Summary Tracker
@@ -1592,6 +1650,7 @@ status: "draft | review | published"
 | POST-025 | Vaccine tracker | 4 | Mini | 600-800 | `DONE` | 2026-03-30 |
 | POST-026 | Privacy architecture | 4 | Full | 1,500-1,800 | `DONE` | 2026-03-30 |
 | POST-027 | The invisible tracker (ecosystem) | 4 | Full | 1,400-1,700 | `DONE` | 2026-03-30 |
+| POST-028 | Allergen introduction tracker | 4 | Full | 1,200-1,500 | `DONE` | 2026-04-02 |
 
 *POST-017: Phase 3 label retained, but publish early in Phase 2 cadence (high-volume, easy win).
 
