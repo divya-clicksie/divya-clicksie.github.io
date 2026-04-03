@@ -104,7 +104,7 @@ Once the reader understands the category comparison, the Nubo ecosystem is the p
 | Reading level | Grade 8. No jargon unless defined. |
 | Perspective | Always validate the parent's exhaustion first, then offer practical help. |
 | Three ways thread | Every post acknowledges that parents track with paper, apps, or a physical device. Be honest about all three. Nubo is the third option the reader may not know about yet. See each post's `Three ways angle` for dosage. |
-| Nubo mentions | Include 1-2 natural product mentions per post. Never promotional. Always in context of solving a real problem. Nubo appears as the "third way" reveal, not the only way. When mentioning the app, highlight a specific feature advantage (not generic praise). When the scenario fits, mention the Alexa skill as a bonus input surface. |
+| Nubo mentions | Include 1-2 natural product mentions per post. Never promotional. Always in context of solving a real problem. Nubo appears as the "third way" reveal, not the only way. When mentioning the app, highlight a specific feature advantage (not generic praise). When the scenario fits, mention the Alexa skill as a bonus input surface. Do not mention free/premium tiers, subscriptions, or pricing access in blog posts. |
 | CTA style | Soft, at the end. E.g. "If you want to remove one more thing from your mental load at 3am, Nubo was built exactly for this." |
 | Avoid | Scare tactics, guilt, prescriptive "you must" language, excessive hedging, dismissing paper or app methods |
 | Headings | H2 for main sections, H3 for sub-sections. All sentence case. |
@@ -1531,7 +1531,7 @@ These are natural minis (500-700 words). Interleave between full posts for publi
 - **Color-coded profiles for multi-child tracking** — 11 system colors, entire UI shifts on child switch. Pillar: Product. Best for: parents with multiples or Irish twins. Images: side-by-side screenshots of two child profiles with different color schemes.
 - **CSV export: because sometimes you need a spreadsheet** — For data-driven parents bringing logs to specialists. Pillar: Product. Links to: POST-013. Images: CSV export flow screenshot, sample spreadsheet.
 - **What CDC milestones actually mean (and how to track them without anxiety)** — 4 developmental categories, 12 age groups, radial progress rings. Pillar: Tracking. Links to: POST-013. Images: radial progress rings screenshot.
-- **What To Expect: age-specific guidance that comes to you** - Feature spotlight on Nubo's in-app guidance layer. Show why a parent of a 5-day-old needs different reassurance than a parent of a 6-week-old, then use day-5 and week-6 examples to make the narrow relevance window feel concrete. Pillar: Product. Links to: POST-002, POST-007, POST-015, POST-017, POST-027. Images: day-5 guidance card, week-6 guidance card, unlock reminder card. Sources: AAP, WHO, La Leche League. Angle: free for every parent, no subscription required.
+- **What To Expect: age-specific guidance that comes to you** - Feature spotlight on Nubo's in-app guidance layer. Show why a parent of a 5-day-old needs different reassurance than a parent of a 6-week-old, then use day-5 and week-6 examples to make the narrow relevance window feel concrete. Pillar: Product. Links to: POST-002, POST-007, POST-015, POST-017, POST-027. Images: day-5 guidance card, week-6 guidance card, unlock reminder card. Sources: AAP, WHO, La Leche League. Angle: Nubo as a logging tool plus age-specific guidance companion.
 - **The quick action card: designed for the 4-second interaction** — Deep-dive into the home screen: taps-to-log, live timers, contextual summaries. Pillar: Product. Links to: POST-024. Images: quick action card screenshot with annotation overlays.
 
 ---
@@ -1661,4 +1661,4 @@ status: "draft | review | published"
 
 ---
 
-*Document version: 3.2 · Updated: 2026-04-03 · Added What To Expect strategy guidance and drafted the bonus feature spotlight post.*
+*Document version: 3.3 · Updated: 2026-04-03 · Added What To Expect strategy guidance, drafted the bonus feature spotlight post, and codified the no free/premium tier language rule for blog posts.*
