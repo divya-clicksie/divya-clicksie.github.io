@@ -590,10 +590,10 @@ const jsonLd = {
                 <span class="pricing-period">/year</span>
               </div>
               <p class="pricing-tagline">Just 77¢/week, billed annually.</p>
+              <p class="pricing-value-callout">Premium for all family members</p>
             </div>
             <ul class="pricing-features">
               <li class="pricing-inherit">Everything in Free, plus:</li>
-              <li>Premium for all family members</li>
               <li>Auto Reminders based on your baby's schedule</li>
               <li>Allergen SafeStart</li> 
               <li>Doctor Visit Cheat Sheet</li>
@@ -625,12 +625,12 @@ const jsonLd = {
               <div class="pricing-price">
                 <span class="pricing-amount">$89.99</span>
               </div>
-              <p class="pricing-tagline">One-time purchase. Premium included for life.</p>
+              <p class="pricing-tagline">One-time purchase. No subscription.</p>
+              <p class="pricing-value-callout pricing-value-callout-device">Premium for all caregivers</p>
             </div>
             <ul class="pricing-features">
               <li class="pricing-inherit">Everything in Premium, plus:</li>
               <li>Physical one-touch logging device</li>
-              <li>Lifetime Nubo Premium for all caregivers</li>
               <li>Log feeds, sleep &amp; diapers in 1 second</li>
               <li>Works in the dark, one-handed</li>
               <li>Magnetic docking, water resistant</li>
@@ -1810,6 +1810,25 @@ const jsonLd = {
     line-height: 1.5;
   }
 
+  .pricing-value-callout {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 0.625rem 1rem;
+    border-radius: 999px;
+    background: var(--color-brand-light);
+    color: var(--color-brand-dark);
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .pricing-value-callout-device {
+    background: #f2f3f5;
+    color: #1d1d1f;
+  }
+
   .pricing-features {
     list-style: none;
     padding: 0 2rem 1.5rem;
@@ -1881,7 +1900,6 @@ const jsonLd = {
 
   @media (max-width: 900px) {
     .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
-    .pricing-card-featured { order: -1; }
   }
 
   @media (max-width: 768px) {
