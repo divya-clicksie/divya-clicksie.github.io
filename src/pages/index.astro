@@ -3,8 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const title = 'Nubo Baby Tracker | Easy Feeding, Sleep & Diaper Tracking';
-const description = 'Nubo helps you track your baby with the method that fits the moment. Start with the device, Alexa, or the app. Every log lands in one timeline. Every caregiver stays in sync.';
+const title = 'Nubo Baby Tracker | Voice, Tap & App. One Timeline.';
+const description = 'Log feeds, sleep, and diapers the way that fits the moment. Speak in the app, tap the device, ask Alexa, or fill in the details. Every log lands in one timeline. Every caregiver stays in sync.';
 
 const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
 const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
@@ -15,7 +15,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "Nubo Baby Activity Tracker",
-  "description": "Baby tracking ecosystem with a physical device, Alexa skill, and companion app for logging feedings, sleep, and diapers.",
+  "description": "Baby tracking ecosystem with a physical device, in-app voice logging, an Alexa skill, and a companion app for logging feedings, sleep, and diapers.",
   "image": "https://www.nubotracker.com/images/hero.webp",
   "brand": {
     "@type": "Brand",
@@ -60,7 +60,7 @@ const jsonLd = {
           </h1>
           <p class="hero-sub">
             Use whatever is easiest in the moment.
-            Tap the device, ask Alexa, or log in the app. Every feeding, nap, and diaper lands in one place, so every caregiver stays in sync.
+            Tap the device, speak in the app, ask Alexa, or fill in the details. Every feeding, nap, and diaper lands in one place, so every caregiver stays in sync.
           </p>
           <div class="hero-actions">
             <a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">
@@ -102,7 +102,7 @@ const jsonLd = {
             You just changed a diaper and the baby's already crying again.
             Logging it shouldn't be one more thing to forget.
           </p>
-          <p class="pain-relief">That's why Nubo lets you log the way that fits the moment. Use what is easiest, and everything stays in sync.</p>
+          <p class="pain-relief">That's why Nubo lets you tap, speak, or type. Whatever is easiest in that moment. Everything stays in sync.</p>
         </div>
       </div>
     </section>
@@ -133,11 +133,22 @@ const jsonLd = {
 
           <div class="way-card reveal reveal-delay-1">
             <div class="way-card-image">
+              <img src="/images/nubo-app-screens.png" alt="Nubo app open with a microphone prompt ready to capture a spoken log" width="640" height="400" loading="lazy"/>
+            </div>
+            <div class="way-card-body">
+              <h3>Speak in the app</h3>
+              <p>&ldquo;Sophie had 4 ounces at 3pm, right side.&rdquo; One sentence becomes a full log. Faster than any form, runs on your phone, free and unlimited.</p>
+              <span class="way-best">Best for: long entries, voice notes, when typing is too slow</span>
+            </div>
+          </div>
+
+          <div class="way-card reveal reveal-delay-2">
+            <div class="way-card-image">
               <img src="/images/nubo-alexa-echo-show.png" alt="Nubo baby tracker dashboard displayed on an Amazon Echo Show" width="640" height="400" loading="lazy"/>
             </div>
             <div class="way-card-body">
               <h3>Ask Alexa</h3>
-              <p>&ldquo;Alexa, tell Newborn tracker I breast fed baby for half an hour.&rdquo; Natural language logging when your hands are full.</p>
+              <p>&ldquo;Alexa, tell Newborn tracker I breast fed baby for half an hour.&rdquo; Natural language logging from across the room when your hands are full.</p>
               <span class="way-best">Best for: bottle prep, hands full, multitasking</span>
             </div>
           </div>
@@ -147,7 +158,7 @@ const jsonLd = {
               <img src="/images/nubo-app-screens.png" alt="Nubo baby tracker app showing dashboard, activity log, and feeding charts" width="640" height="400" loading="lazy"/>
             </div>
             <div class="way-card-body">
-              <h3>Use the app</h3>
+              <h3>Open the app</h3>
               <p>Full control when you have a free moment. View trends, add details, export data for the pediatrician, and share with every caregiver.</p>
               <span class="way-best">Best for: reviewing patterns, adding notes, doctor visits</span>
               <div class="way-store-links">
@@ -421,6 +432,7 @@ const jsonLd = {
           <h2>Your baby's data<br/>stays yours.</h2>
           <ul class="privacy-list">
             <li>No account required to use device or app</li>
+            <li>In-app voice logging runs on your phone. Audio stays local</li>
             <li>Data stays on your phone, not our servers</li>
             <li>End-to-end encrypted sharing</li>
             <li>Backup to your own iCloud or Google Drive</li>
@@ -566,6 +578,8 @@ const jsonLd = {
               <li>CDC Milestone tracking</li>
               <li>What To Expect age-specific guidance</li>
               <li>One touch quick logging</li>
+              <li>Unlimited in-app voice logging</li>
+              <li>Unlimited event logs</li>
               <li>Unlimited child profiles</li>
               <li>Unlimited caregivers &amp; sync</li>
               <li>Unlimited cloud backup &amp; restore</li>
@@ -599,7 +613,7 @@ const jsonLd = {
               <li>Doctor Visit Cheat Sheet</li>
               <li>Smart Averages on charts</li>
               <li>Amazon Alexa voice logging</li>
-              <li>In-App Voice Commands</li>
+              <li>Siri logging</li>
               <li>Apple Watch support</li>
               <li>Live Activities on your lock screen</li>
               <li>Advanced Growth Metrics &amp; Z-scores</li>
@@ -943,8 +957,8 @@ const jsonLd = {
 
   .ways-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
   }
 
   .way-card {
@@ -1027,6 +1041,10 @@ const jsonLd = {
     font-size: 1.0625rem;
     font-weight: 600;
     color: var(--color-text);
+  }
+
+  @media (max-width: 1080px) {
+    .ways-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 768px) {
