@@ -223,8 +223,19 @@ const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp
 <script>
   const header = document.getElementById('site-header');
   if (header) {
+    let ticking = false;
+    let lastScrolled = false;
     window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 40);
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const scrolled = window.scrollY > 40;
+        if (scrolled !== lastScrolled) {
+          header.classList.toggle('scrolled', scrolled);
+          lastScrolled = scrolled;
+        }
+        ticking = false;
+      });
     }, { passive: true });
   }
 

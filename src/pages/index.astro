@@ -52,7 +52,7 @@ const jsonLd = {
         <div class="hero-glow"></div>
       </div>
       <div class="container hero-inner">
-        <div class="hero-content reveal">
+        <div class="hero-content">
           <p class="overline">The fastest way to track your baby.</p>
           <h1>
             Nobody remembers at 3&nbsp;a.m.
@@ -76,13 +76,15 @@ const jsonLd = {
             <span>Private by design</span>
           </div>
         </div>
-        <div class="hero-image reveal reveal-delay-2">
+        <div class="hero-image">
           <img
             src="/images/hero.webp"
             alt="A mother tenderly holding her newborn, with Nubo baby tracker in the foreground"
             width="760"
             height="862"
             loading="eager"
+            fetchpriority="high"
+            decoding="async"
           />
         </div>
       </div>
@@ -122,7 +124,7 @@ const jsonLd = {
         <div class="ways-grid">
           <div class="way-card reveal">
             <div class="way-card-image">
-              <img src="/images/nubo-device-hand.png" alt="Hand pressing a button on the Nubo baby tracker device" width="640" height="400" loading="lazy"/>
+              <img src="/images/nubo-device-hand.webp" srcset="/images/nubo-device-hand-720.webp 720w, /images/nubo-device-hand.webp 1280w" sizes="(max-width: 720px) 92vw, (max-width: 1120px) 32vw, 360px" alt="Hand pressing a button on the Nubo baby tracker device" width="640" height="400" loading="lazy" decoding="async"/>
             </div>
             <div class="way-card-body">
               <h3>Tap the device</h3>
@@ -133,7 +135,7 @@ const jsonLd = {
 
           <div class="way-card reveal reveal-delay-1">
             <div class="way-card-image">
-              <img src="/images/nubo-app-screens.png" alt="Nubo app open with a microphone prompt ready to capture a spoken log" width="640" height="400" loading="lazy"/>
+              <img src="/images/nubo-app-screens.webp" srcset="/images/nubo-app-screens-720.webp 720w, /images/nubo-app-screens.webp 1280w" sizes="(max-width: 720px) 92vw, (max-width: 1120px) 32vw, 360px" alt="Nubo app open with a microphone prompt ready to capture a spoken log" width="640" height="400" loading="lazy" decoding="async"/>
             </div>
             <div class="way-card-body">
               <h3>Speak in the app</h3>
@@ -144,7 +146,7 @@ const jsonLd = {
 
           <div class="way-card reveal reveal-delay-2">
             <div class="way-card-image">
-              <img src="/images/nubo-alexa-echo-show.png" alt="Nubo baby tracker dashboard displayed on an Amazon Echo Show" width="640" height="400" loading="lazy"/>
+              <img src="/images/nubo-alexa-echo-show.webp" srcset="/images/nubo-alexa-echo-show-720.webp 720w, /images/nubo-alexa-echo-show.webp 1280w" sizes="(max-width: 720px) 92vw, (max-width: 1120px) 32vw, 360px" alt="Nubo baby tracker dashboard displayed on an Amazon Echo Show" width="640" height="400" loading="lazy" decoding="async"/>
             </div>
             <div class="way-card-body">
               <h3>Ask Alexa</h3>
@@ -155,7 +157,7 @@ const jsonLd = {
 
           <div class="way-card reveal reveal-delay-2">
             <div class="way-card-image">
-              <img src="/images/nubo-app-screens.png" alt="Nubo baby tracker app showing dashboard, activity log, and feeding charts" width="640" height="400" loading="lazy"/>
+              <img src="/images/nubo-app-screens.webp" srcset="/images/nubo-app-screens-720.webp 720w, /images/nubo-app-screens.webp 1280w" sizes="(max-width: 720px) 92vw, (max-width: 1120px) 32vw, 360px" alt="Nubo baby tracker app showing dashboard, activity log, and feeding charts" width="640" height="400" loading="lazy" decoding="async"/>
             </div>
             <div class="way-card-body">
               <h3>Open the app</h3>
@@ -284,7 +286,7 @@ const jsonLd = {
           </div>
           <div class="alexa-visual reveal reveal-delay-1">
             <a href={alexaURL} target="_blank" rel="noopener noreferrer" class="alexa-badge-link">
-              <img src="/images/nubo-alexa-echo-show.png" alt="Nubo baby tracker dashboard on Amazon Echo Show displaying sleep, feeding, and diaper status at a glance" class="alexa-show-img" width="640" height="400" loading="lazy"/>
+              <img src="/images/nubo-alexa-echo-show.webp" srcset="/images/nubo-alexa-echo-show-720.webp 720w, /images/nubo-alexa-echo-show.webp 1280w" sizes="(max-width: 720px) 92vw, 50vw" alt="Nubo baby tracker dashboard on Amazon Echo Show displaying sleep, feeding, and diaper status at a glance" class="alexa-show-img" width="640" height="400" loading="lazy" decoding="async"/>
             </a>
           </div>
         </div>
@@ -340,7 +342,7 @@ const jsonLd = {
         <div class="caregivers-grid">
           <div class="caregiver-card reveal">
             <div class="caregiver-img">
-              <img src="/images/audience-parents.png" alt="Parents viewing their Nubo app to understand their newborn's routine" width="600" height="432" />
+              <img src="/images/audience-parents.webp" srcset="/images/audience-parents-720.webp 720w, /images/audience-parents.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1120px) 32vw, 360px" alt="Parents viewing their Nubo app to understand their newborn's routine" width="600" height="432" loading="lazy" decoding="async"/>
             </div>
             <div class="caregiver-text">
               <h3>For parents</h3>
@@ -350,7 +352,7 @@ const jsonLd = {
 
           <div class="caregiver-card reveal reveal-delay-1">
             <div class="caregiver-img">
-              <img src="/images/audience-grandparents.png" alt="Grandparents holding their grandchild with the Nubo collaboration screen on phone" width="600" height="432" />
+              <img src="/images/audience-grandparents.webp" srcset="/images/audience-grandparents-720.webp 720w, /images/audience-grandparents.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1120px) 32vw, 360px" alt="Grandparents holding their grandchild with the Nubo collaboration screen on phone" width="600" height="432" loading="lazy" decoding="async"/>
             </div>
             <div class="caregiver-text">
               <h3>For grandparents &amp; nannies</h3>
@@ -360,7 +362,7 @@ const jsonLd = {
 
           <div class="caregiver-card reveal reveal-delay-2">
             <div class="caregiver-img">
-              <img src="/images/audience-doctors.png" alt="Pediatrician reviewing baby's feeding and sleep data on phone during a checkup" width="600" height="432" />
+              <img src="/images/audience-doctors.webp" srcset="/images/audience-doctors-720.webp 720w, /images/audience-doctors.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1120px) 32vw, 360px" alt="Pediatrician reviewing baby's feeding and sleep data on phone during a checkup" width="600" height="432" loading="lazy" decoding="async"/>
             </div>
             <div class="caregiver-text">
               <h3>For pediatricians</h3>
@@ -441,7 +443,7 @@ const jsonLd = {
           <a href="/privacy-policy/" class="text-link">Read our privacy policy &rarr;</a>
         </div>
         <div class="privacy-visual reveal reveal-delay-1">
-          <img src="/images/privacy-shield.png" alt="Nubo app interface showing privacy-first data widgets and encrypted sharing" width="600" height="405" />
+          <img src="/images/privacy-shield.webp" alt="Nubo app interface showing privacy-first data widgets and encrypted sharing" width="600" height="405" />
         </div>
       </div>
     </section>
@@ -1033,6 +1035,8 @@ const jsonLd = {
     display: block;
     height: 36px;
     width: auto;
+    max-width: none;
+    aspect-ratio: 120 / 42;
   }
 
   .ways-convergence {
@@ -2065,13 +2069,8 @@ const jsonLd = {
   .store-links img {
     height: 56px;
     width: auto;
+    max-width: none;
+    aspect-ratio: 160 / 56;
   }
 </style>
 
-
-<!-- Hero load animation -->
-<script>
-  document.querySelectorAll('.hero .reveal').forEach((el) => {
-    requestAnimationFrame(() => el.classList.add('visible'));
-  });
-</script>
