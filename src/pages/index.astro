@@ -262,29 +262,74 @@ const jsonLd = {
     <section class="feature-strip">
       <div class="feature-strip-track">
         <div class="fs-card reveal">
-          <div class="fs-icon">🏥</div>
-          <h3>Ready for the hospital</h3>
-          <p>Set up Nubo before baby arrives, lock it, and pack it in your hospital bag. When it's time, just unlock and start tracking.</p>
+          <img
+            class="fs-media"
+            src="/images/ready-for-hospital.webp"
+            alt="Nubo packed into a hospital bag"
+            width="300"
+            height="300"
+            loading="lazy"
+          />
+          <div class="fs-copy">
+            <h3>Ready for the hospital</h3>
+            <p>Set up Nubo before baby arrives, lock it, and pack it in your hospital bag. When it's time, just unlock and start tracking.</p>
+          </div>
         </div>
         <div class="fs-card reveal reveal-delay-1">
-          <div class="fs-icon">📡</div>
-          <h3>Works wherever baby goes</h3>
-          <p>Home, park, or daycare. Nubo sends logs to every caregiver's phone in real time. Always in sync.</p>
+          <img
+            class="fs-media"
+            src="/images/works-anywhere.webp"
+            alt="A parent pushing a stroller outdoors"
+            width="300"
+            height="300"
+            loading="lazy"
+          />
+          <div class="fs-copy">
+            <h3>Works wherever baby goes</h3>
+            <p>Home, park, or daycare. Nubo sends logs to every caregiver's phone in real time. Always in sync.</p>
+          </div>
         </div>
         <div class="fs-card reveal reveal-delay-2">
-          <div class="fs-icon">💧</div>
-          <h3>Built for real life</h3>
-          <p>Spills happen. Nubo can handle them. Just wipe it clean and keep going. No stress, no mess.</p>
+          <img
+            class="fs-media"
+            src="/images/spill-resistant.webp"
+            alt="Nubo with water droplets on the surface"
+            width="300"
+            height="300"
+            loading="lazy"
+          />
+          <div class="fs-copy">
+            <h3>Built for real life</h3>
+            <p>Spills happen. Nubo can handle them. Just wipe it clean and keep going. No stress, no mess.</p>
+          </div>
         </div>
         <div class="fs-card reveal">
-          <div class="fs-icon">🔋</div>
-          <h3>Battery that lasts</h3>
-          <p>No charging, no downtime. Runs for months on a coin cell and comes with a spare. Always ready.</p>
+          <img
+            class="fs-media"
+            src="/images/long-battery.webp"
+            alt="Calendar pages representing months of battery life"
+            width="300"
+            height="300"
+            loading="lazy"
+          />
+          <div class="fs-copy">
+            <h3>Battery that lasts</h3>
+            <p>No charging, no downtime. Runs for months on a coin cell and comes with a spare. Always ready.</p>
+          </div>
         </div>
         <div class="fs-card reveal reveal-delay-1">
-          <div class="fs-icon">🧲</div>
-          <h3>Always within reach</h3>
-          <p>Stick Nubo on your fridge, crib, or wall. Magnetic mount and sticker included. Grab it fast. Log it fast.</p>
+          <img
+            class="fs-media"
+            src="/images/magnetic-sticker.webp"
+            alt="Nubo mounted beside a crib mobile"
+            width="300"
+            height="300"
+            loading="lazy"
+          />
+          <div class="fs-copy">
+            <h3>Always within reach</h3>
+            <p>Stick Nubo on your fridge, crib, or wall. Magnetic mount and sticker included. Grab it fast. Log it fast.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -1400,10 +1445,11 @@ const jsonLd = {
   .fs-card {
     flex: 0 0 220px;
     scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
     background: var(--color-bg-soft);
     border-radius: var(--radius-xl);
-    padding: 1.75rem 1.5rem;
-    text-align: center;
+    overflow: hidden;
     transition: transform 0.3s ease;
   }
 
@@ -1411,16 +1457,24 @@ const jsonLd = {
     transform: translateY(-3px);
   }
 
-  .fs-icon {
-    font-size: 1.75rem;
-    margin-bottom: 0.75rem;
+  .fs-media {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+    background: #f4f1ec;
+  }
+
+  .fs-copy {
+    padding: 1.25rem 1.25rem 1.5rem;
+    text-align: center;
   }
 
   .fs-card h3 {
     font-size: 0.9375rem;
     font-weight: 700;
     color: var(--color-text);
-    margin-bottom: 0.5rem;
+    margin: 0 0 0.5rem;
     letter-spacing: -0.01em;
   }
 
@@ -1428,6 +1482,7 @@ const jsonLd = {
     font-size: 0.8125rem;
     color: var(--color-text-secondary);
     line-height: 1.6;
+    margin: 0;
   }
 
   @media (min-width: 769px) {
