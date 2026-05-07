@@ -1,0 +1,300 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Terms of Use | Nubo Baby Tracker';
+const description = 'Terms of Use for the Nubo Baby Tracker app and device. Learn about your rights, subscriptions, acceptable use, and how we protect your data.';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Terms of Use",
+  "description": description,
+  "url": "https://www.nubotracker.com/terms-of-use/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Clicksie LLC",
+    "url": "https://www.nubotracker.com"
+  }
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="overline">Legal</p>
+        <h1>Terms of Use</h1>
+        <p class="page-hero-sub">
+          These terms apply to the Nubo Baby Tracker app, device, and related services
+          developed by Clicksie LLC.
+        </p>
+      </div>
+    </section>
+
+    <section class="policy-content">
+      <div class="container policy-inner">
+        <p class="policy-updated">Effective Jan 1, 2026</p>
+
+        <div class="policy-summary">
+          <p class="policy-notice">
+            Nubo helps families track baby care routines. Nubo is not a medical device and is not
+            intended to diagnose, treat, cure, or prevent any medical condition or illness.
+          </p>
+        </div>
+
+        <article class="policy-body">
+
+          <h2>1. Your Account and Use of Nubo</h2>
+          <p>
+            You can use core Nubo features without creating an account. Some features, including
+            caregiver collaboration and backup and restore, may require sign-in through Apple,
+            Google, or another supported provider. You agree to provide accurate information when
+            you create or update a profile or account. You are responsible for keeping access to
+            your device and account secure and for the activity that occurs through your account.
+          </p>
+
+          <h2>2. Baby Profiles, Logs, and Caregiver Sharing</h2>
+          <p>
+            Nubo lets you create baby profiles and log care events such as feeding, sleep, diapers,
+            health notes, milestones, and reminders. If you invite caregivers, you choose to share
+            the selected baby profile and related logs with those caregivers. Invited caregivers can
+            view the shared baby profile and logs, create logs, and edit or delete logs. Only invite
+            people you trust and remove access when it is no longer needed.
+          </p>
+
+          <h2>3. Subscriptions and Premium Features</h2>
+          <p>
+            Nubo may offer optional premium features. On iOS, Nubo may offer auto-renewable
+            subscriptions through the Apple App Store. Subscription options shown in the app
+            include the subscription title, duration, price, and any free trial terms available
+            at the time of purchase.
+          </p>
+          <ul>
+            <li>Payment is charged to your Apple ID account at confirmation of purchase.</li>
+            <li>Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current period.</li>
+            <li>Your account may be charged for renewal within 24 hours before the end of the current period.</li>
+            <li>You can manage or cancel Apple subscriptions at <a href="https://apps.apple.com/account/subscriptions">Apple subscription settings</a>.</li>
+            <li>If a free trial is offered and you purchase a subscription, any unused portion of the free trial may be forfeited where permitted by platform rules.</li>
+          </ul>
+
+          <h2>4. App Store License Terms</h2>
+          <p>
+            Nubo is distributed through third-party app stores and platforms, including the Apple
+            App Store and Google Play. Your use of Nubo may also be subject to the terms and
+            policies of the platform where you downloaded the app.
+          </p>
+          <p>
+            For the iOS app, Nubo uses Apple's standard Licensed Application End User License
+            Agreement unless a separate custom EULA is provided in App Store Connect. You can
+            review Apple's standard terms at
+            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple Standard EULA</a>.
+          </p>
+
+          <h2>5. Device-Based and Promotional Premium Access</h2>
+          <p>
+            Nubo may grant premium access through an active subscription, a connected Nubo device,
+            a promotional trial, or another eligibility rule described in the app. These access
+            methods may have different durations and may change over time. If premium access ends,
+            premium features may become unavailable unless you start or restore an eligible
+            subscription.
+          </p>
+
+          <h2>6. Acceptable Use</h2>
+          <p>
+            You agree not to misuse Nubo, interfere with its operation, attempt to access systems
+            without permission, reverse engineer the app except where permitted by law, or use
+            Nubo in a way that violates applicable law or the rights of others.
+          </p>
+
+          <h2>7. Voice and AI-Assisted Features</h2>
+          <p>
+            Nubo may include voice logging, text parsing, or AI-assisted features that help turn
+            your input into structured baby care logs. These features are provided to make tracking
+            easier, but you are responsible for reviewing entries for accuracy before relying on
+            them or sharing them with caregivers.
+          </p>
+
+          <h2>8. Privacy and Third-Party Services</h2>
+          <p>
+            Your use of Nubo is also governed by our
+            <a href="/privacy-policy/">Privacy Policy</a>, which explains what information is
+            stored on your device, what information may be processed when you use collaboration
+            or backup features, and how to contact us with privacy questions.
+          </p>
+          <p>
+            Nubo may rely on services from Apple, Google, Firebase, app stores, cloud providers,
+            analytics providers, or other third parties. For example, Nubo may use platform
+            sign-in services, encrypted cloud backup storage such as iCloud or Google Drive,
+            Apple Push Notification Service and Firebase Cloud Messaging for push notifications,
+            or diagnostics services that help us maintain app reliability. Those services are
+            governed by their own terms and policies. We are not responsible for third-party
+            services that we do not control.
+          </p>
+
+          <h2>9. No Medical Advice</h2>
+          <p>
+            Nubo is a tracking and organization tool. Nubo does not provide medical advice,
+            diagnosis, treatment, or emergency services. Information in Nubo, including baby care
+            logs, reminders, charts, notes, summaries, and AI-assisted outputs, is for
+            informational purposes only and is not a substitute for advice from a qualified
+            healthcare professional. Always contact a healthcare professional with questions about
+            your baby's health or medical care.
+          </p>
+
+          <h2>10. Changes to Nubo or These Terms</h2>
+          <p>
+            We may update Nubo, add or remove features, change premium offerings, or update these
+            Terms of Use from time to time. If changes are material, we will take reasonable steps
+            to notify you. Continued use of Nubo after changes become effective means you accept
+            the updated terms.
+          </p>
+
+          <h2>11. Account Deletion and Termination</h2>
+          <p>
+            You may stop using Nubo at any time. You may delete baby profiles, logs, and
+            account-related data through the app where those controls are available, or contact
+            us for help. We may suspend or terminate access to Nubo if we believe these terms
+            have been violated, if required by law, or if continued access would create risk for
+            Nubo, other users, or our services.
+          </p>
+
+          <h2>12. Intellectual Property and User Content</h2>
+          <p>
+            Nubo, including its design, software, features, trademarks, and content, is owned by
+            Clicksie LLC or its licensors and is protected by intellectual property laws. You may
+            use Nubo only for your personal, non-commercial family care tracking.
+          </p>
+          <p>
+            You retain ownership of the baby profile information, logs, notes, photos, and other
+            content you enter into Nubo. You grant Clicksie LLC permission to store, process,
+            display, transmit, and sync that content as needed to provide Nubo features such as
+            local tracking, caregiver collaboration, backup and restore, notifications, and support.
+          </p>
+
+          <h2>13. Disclaimers and Limitation of Liability</h2>
+          <p>
+            Nubo is provided on an "as is" and "as available" basis. To the maximum extent
+            permitted by law, Clicksie LLC disclaims warranties of merchantability, fitness for a
+            particular purpose, and non-infringement. To the maximum extent permitted by law,
+            Clicksie LLC is not liable for indirect, incidental, special, consequential, or
+            punitive damages arising from your use of Nubo.
+          </p>
+
+          <h2>14. Contact</h2>
+          <p>
+            If you have questions about these Terms of Use, contact us at
+            <a href="mailto:support@clicksie.io">support@clicksie.io</a>.
+          </p>
+
+          <div class="policy-company">
+            <p>
+              Nubo Baby Activity Tracker<br />
+              <strong>Clicksie LLC</strong><br />
+              Copyright &copy; 2026 Clicksie LLC. All Rights Reserved.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+
+<style>
+  .policy-content {
+    padding: 4rem 0 6rem;
+  }
+
+  .policy-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .policy-updated {
+    font-size: 0.8125rem;
+    color: #999;
+    margin-bottom: 2.5rem;
+  }
+
+  .policy-summary {
+    background: var(--color-bg-soft);
+    border-radius: var(--radius-xl);
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .policy-notice {
+    font-size: 0.9375rem;
+    color: #444;
+    line-height: 1.8;
+    margin: 0;
+    font-style: italic;
+  }
+
+  .policy-body h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .policy-body p {
+    font-size: 0.9375rem;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .policy-body ul {
+    list-style: none;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .policy-body ul li {
+    font-size: 0.9375rem;
+    color: #444;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.7;
+  }
+
+  .policy-body ul li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--color-brand);
+    font-weight: 700;
+    font-size: 1.2em;
+  }
+
+  .policy-body a {
+    color: var(--color-brand);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .policy-body a:hover {
+    opacity: 0.8;
+  }
+
+  .policy-company {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border, #e5e5e5);
+  }
+
+  .policy-company p {
+    font-size: 0.875rem;
+    color: #666;
+    line-height: 2;
+  }
+</style>
