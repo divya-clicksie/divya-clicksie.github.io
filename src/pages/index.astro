@@ -11,6 +11,54 @@ const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id166746115
 const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
 const alexaURL = 'https://www.amazon.com/Clicksie-LLC-Nubo-Baby-Tracker/dp/B0FJ2N8XKB';
 
+const appScreens = [
+  {
+    webp: '/images/appscreens/01_onetouch.webp',
+    png: '/images/appscreens/01_onetouch.png',
+    alt: 'Nubo app one-touch tracking screen with quick logging cards for baby activities'
+  },
+  {
+    webp: '/images/appscreens/02_voicelogging.webp',
+    png: '/images/appscreens/02_voicelogging.png',
+    alt: 'Nubo app voice logging screen for adding baby activity updates by speaking'
+  },
+  {
+    webp: '/images/appscreens/03_collaboration.webp',
+    png: '/images/appscreens/03_collaboration.png',
+    alt: 'Nubo app collaboration screen for sharing baby tracking with caregivers'
+  },
+  {
+    webp: '/images/appscreens/04_liveactivities.webp',
+    png: '/images/appscreens/04_liveactivities.png',
+    alt: 'Nubo app Live Activities screen showing baby tracking status on the lock screen'
+  },
+  {
+    webp: '/images/appscreens/05_growth.webp',
+    png: '/images/appscreens/05_growth.png',
+    alt: 'Nubo app growth chart screen for tracking baby measurements over time'
+  },
+  {
+    webp: '/images/appscreens/06_midnightember.webp',
+    png: '/images/appscreens/06_midnightember.png',
+    alt: 'Nubo app Midnight Ember night mode screen for low-light baby logging'
+  },
+  {
+    webp: '/images/appscreens/07_privacy.webp',
+    png: '/images/appscreens/07_privacy.png',
+    alt: 'Nubo app privacy screen explaining private baby tracking data controls'
+  },
+  {
+    webp: '/images/appscreens/08_voicenotes.webp',
+    png: '/images/appscreens/08_voicenotes.png',
+    alt: 'Nubo app voice notes screen for recording and organizing baby care notes'
+  },
+  {
+    webp: '/images/appscreens/09_allergensafestart.webp',
+    png: '/images/appscreens/09_allergensafestart.png',
+    alt: 'Nubo app Allergen SafeStart screen for tracking first foods and reactions'
+  }
+];
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -259,7 +307,7 @@ const jsonLd = {
     <!-- ════════════════════════════════════════════
          BUILT FOR REAL LIFE (feature strip)
     ════════════════════════════════════════════ -->
-    <section class="feature-strip">
+    <section class="feature-strip" data-feature-strip>
       <div class="feature-strip-track">
         <div class="fs-card reveal">
           <img
@@ -332,6 +380,23 @@ const jsonLd = {
           </div>
         </div>
       </div>
+      <div class="feature-strip-dots" aria-label="Built for real life carousel position">
+        <button class="feature-strip-dot is-active" type="button" data-feature-dot="0" aria-label="Show feature 1 of 5" aria-current="true">
+          <span class="sr-only">Feature 1</span>
+        </button>
+        <button class="feature-strip-dot" type="button" data-feature-dot="1" aria-label="Show feature 2 of 5" aria-current="false">
+          <span class="sr-only">Feature 2</span>
+        </button>
+        <button class="feature-strip-dot" type="button" data-feature-dot="2" aria-label="Show feature 3 of 5" aria-current="false">
+          <span class="sr-only">Feature 3</span>
+        </button>
+        <button class="feature-strip-dot" type="button" data-feature-dot="3" aria-label="Show feature 4 of 5" aria-current="false">
+          <span class="sr-only">Feature 4</span>
+        </button>
+        <button class="feature-strip-dot" type="button" data-feature-dot="4" aria-label="Show feature 5 of 5" aria-current="false">
+          <span class="sr-only">Feature 5</span>
+        </button>
+      </div>
     </section>
 
 
@@ -346,46 +411,51 @@ const jsonLd = {
           <p class="section-sub">Nubo grows with your baby. From the first feed to the first solid food, every routine, milestone, and measurement lives in one app.</p>
         </div>
 
-        <div class="breadth-grid">
-          <div class="breadth-card reveal">
-            <div class="breadth-icon">📈</div>
-            <h3>WHO &amp; Fenton growth charts</h3>
-            <p>Medical-grade percentile curves from birth to 5 years, plus Fenton charts for preemies. Trusted by NICU families.</p>
+        <div class="app-screens-showcase reveal" data-app-screens aria-label="Nubo app screenshots">
+          <div class="app-screen-track" role="list">
+            {appScreens.map((screen) => (
+              <figure class="app-screen-slide" role="listitem">
+                <picture>
+                  <source srcset={screen.webp} type="image/webp" />
+                  <img
+                    src={screen.png}
+                    alt={screen.alt}
+                    width="642"
+                    height="1389"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+              </figure>
+            ))}
+            {appScreens.map((screen) => (
+              <figure class="app-screen-slide app-screen-slide-clone" aria-hidden="true">
+                <picture>
+                  <source srcset={screen.webp} type="image/webp" />
+                  <img
+                    src={screen.png}
+                    alt=""
+                    width="642"
+                    height="1389"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+              </figure>
+            ))}
           </div>
-          <div class="breadth-card reveal">
-            <div class="breadth-icon">💉</div>
-            <h3>Vaccines &amp; immunizations</h3>
-            <p>Record every shot, track the schedule, never miss a dose. Built-in CDC schedule.</p>
-          </div>
-          <div class="breadth-card reveal">
-            <div class="breadth-icon">🥑</div>
-            <h3>Allergen SafeStart</h3>
-            <p>A guided journal for introducing the top allergens safely. Track every new food and every reaction.</p>
-          </div>
-          <div class="breadth-card reveal">
-            <div class="breadth-icon">🎤</div>
-            <h3>Voice notes, auto-organized</h3>
-            <p>Speak free-form notes pinned to any moment. Nubo writes the title and tags for you.</p>
-          </div>
-          <div class="breadth-card reveal">
-            <div class="breadth-icon">⏱️</div>
-            <h3>Live Activities</h3>
-            <p>Nursing side and elapsed timer right on your Lock Screen and Dynamic Island. Glance, don't unlock.</p>
-          </div>
-          <div class="breadth-card reveal">
-            <div class="breadth-icon">🌙</div>
-            <h3>Midnight Ember</h3>
-            <p>A red-shifted night theme designed for the 3 a.m. feed. Log without waking the baby, or yourself.</p>
-          </div>
-          <div class="breadth-card reveal">
-            <div class="breadth-icon">🏆</div>
-            <h3>Milestones &amp; tummy time</h3>
-            <p>CDC milestones with photos, plus tummy time, bath, and activity tracking from day one.</p>
-          </div>
-          <div class="breadth-card reveal">
-            <div class="breadth-icon">📊</div>
-            <h3>Charts &amp; insights</h3>
-            <p>30-day patterns at a glance. See trends in feeding, sleep, and diapers, not just entries.</p>
+          <div class="app-screen-dots" aria-label="App screenshot carousel position">
+            {appScreens.map((screen, index) => (
+              <button
+                class:list={["app-screen-dot", { "is-active": index === 0 }]}
+                type="button"
+                data-screen-dot={index}
+                aria-label={`Show app screenshot ${index + 1} of ${appScreens.length}`}
+                aria-current={index === 0 ? 'true' : 'false'}
+              >
+                <span class="sr-only">Screenshot {index + 1}</span>
+              </button>
+            ))}
           </div>
         </div>
       </div>
@@ -862,6 +932,149 @@ const jsonLd = {
   </main>
   <Footer />
 </BaseLayout>
+
+<script>
+  const setupAppScreenDots = () => {
+    const carousel = document.querySelector<HTMLElement>('[data-app-screens]');
+    const track = carousel?.querySelector<HTMLElement>('.app-screen-track');
+    const slides = carousel ? Array.from(carousel.querySelectorAll<HTMLElement>('.app-screen-slide:not(.app-screen-slide-clone)')) : [];
+    const dots = carousel ? Array.from(carousel.querySelectorAll<HTMLButtonElement>('.app-screen-dot')) : [];
+    const phoneQuery = window.matchMedia('(max-width: 560px)');
+
+    if (!carousel || !track || slides.length === 0 || dots.length === 0) return;
+
+    const setActiveDot = (activeIndex: number) => {
+      dots.forEach((dot, index) => {
+        const isActive = index === activeIndex;
+        dot.classList.toggle('is-active', isActive);
+        dot.setAttribute('aria-current', isActive ? 'true' : 'false');
+      });
+    };
+
+    const updateActiveDot = () => {
+      if (!phoneQuery.matches) return;
+
+      const trackCenter = track.scrollLeft + track.clientWidth / 2;
+      let activeIndex = 0;
+      let activeDistance = Number.POSITIVE_INFINITY;
+
+      slides.forEach((slide, index) => {
+        const slideCenter = slide.offsetLeft + slide.clientWidth / 2;
+        const distance = Math.abs(trackCenter - slideCenter);
+
+        if (distance < activeDistance) {
+          activeIndex = index;
+          activeDistance = distance;
+        }
+      });
+
+      setActiveDot(activeIndex);
+    };
+
+    let ticking = false;
+
+    track.addEventListener('scroll', () => {
+      if (!phoneQuery.matches || ticking) return;
+
+      ticking = true;
+      requestAnimationFrame(() => {
+        updateActiveDot();
+        ticking = false;
+      });
+    }, { passive: true });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        if (!phoneQuery.matches) return;
+
+        slides[index]?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center'
+        });
+      });
+    });
+
+    phoneQuery.addEventListener('change', updateActiveDot);
+    updateActiveDot();
+  };
+
+  const setupFeatureStripDots = () => {
+    const carousel = document.querySelector<HTMLElement>('[data-feature-strip]');
+    const track = carousel?.querySelector<HTMLElement>('.feature-strip-track');
+    const slides = carousel ? Array.from(carousel.querySelectorAll<HTMLElement>('.fs-card')) : [];
+    const dots = carousel ? Array.from(carousel.querySelectorAll<HTMLButtonElement>('.feature-strip-dot')) : [];
+    const phoneQuery = window.matchMedia('(max-width: 560px)');
+
+    if (!carousel || !track || slides.length === 0 || dots.length === 0) return;
+
+    const setActiveDot = (activeIndex: number) => {
+      dots.forEach((dot, index) => {
+        const isActive = index === activeIndex;
+        dot.classList.toggle('is-active', isActive);
+        dot.setAttribute('aria-current', isActive ? 'true' : 'false');
+      });
+    };
+
+    const updateActiveDot = () => {
+      if (!phoneQuery.matches) return;
+
+      const trackCenter = track.scrollLeft + track.clientWidth / 2;
+      let activeIndex = 0;
+      let activeDistance = Number.POSITIVE_INFINITY;
+
+      slides.forEach((slide, index) => {
+        const slideCenter = slide.offsetLeft + slide.clientWidth / 2;
+        const distance = Math.abs(trackCenter - slideCenter);
+
+        if (distance < activeDistance) {
+          activeIndex = index;
+          activeDistance = distance;
+        }
+      });
+
+      setActiveDot(activeIndex);
+    };
+
+    let ticking = false;
+
+    track.addEventListener('scroll', () => {
+      if (!phoneQuery.matches || ticking) return;
+
+      ticking = true;
+      requestAnimationFrame(() => {
+        updateActiveDot();
+        ticking = false;
+      });
+    }, { passive: true });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        if (!phoneQuery.matches) return;
+
+        slides[index]?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center'
+        });
+      });
+    });
+
+    phoneQuery.addEventListener('change', updateActiveDot);
+    updateActiveDot();
+  };
+
+  const setupMobileCarouselDots = () => {
+    setupAppScreenDots();
+    setupFeatureStripDots();
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupMobileCarouselDots, { once: true });
+  } else {
+    setupMobileCarouselDots();
+  }
+</script>
 
 
 <style>
@@ -1485,6 +1698,26 @@ const jsonLd = {
     margin: 0;
   }
 
+  .feature-strip-dots {
+    display: none;
+  }
+
+  .feature-strip-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    padding: 0;
+    appearance: none;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(29, 29, 31, 0.22);
+    transition: background 0.2s ease, transform 0.2s ease, width 0.2s ease;
+  }
+
+  .feature-strip-dot.is-active {
+    width: 1.25rem;
+    background: var(--color-brand);
+  }
+
   @media (min-width: 769px) {
     .feature-strip-track {
       justify-content: center;
@@ -1499,6 +1732,27 @@ const jsonLd = {
   @media (max-width: 768px) {
     .feature-strip { padding: 3rem 0; }
     .fs-card { flex: 0 0 200px; }
+  }
+
+  @media (max-width: 560px) {
+    .feature-strip-track {
+      gap: 0;
+      padding: 0.25rem 2rem 1.25rem;
+      scroll-padding-inline: 2rem;
+    }
+    .fs-card {
+      flex: 0 0 100%;
+      max-width: none;
+      margin-right: 0;
+      scroll-snap-align: center;
+    }
+    .feature-strip-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.25rem 2rem 0;
+    }
   }
 
 
@@ -1551,6 +1805,80 @@ const jsonLd = {
     line-height: 1.6;
   }
 
+  .app-screens-showcase {
+    margin-top: 4.5rem;
+    overflow: hidden;
+  }
+
+  .app-screen-track {
+    display: flex;
+    width: max-content;
+    padding: 0.25rem 0 1.5rem;
+    animation: app-screen-pan 42s linear infinite;
+    scrollbar-width: none;
+  }
+
+  .app-screens-showcase:hover .app-screen-track {
+    animation-play-state: paused;
+  }
+
+  .app-screen-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .app-screen-slide {
+    flex: 0 0 clamp(176px, 19vw, 228px);
+    margin-right: 1rem;
+    scroll-snap-align: start;
+  }
+
+  .app-screen-slide picture {
+    display: block;
+  }
+
+  .app-screen-slide img {
+    width: 100%;
+    height: auto;
+    background: #fff;
+    border-radius: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+  }
+
+  .app-screen-dots {
+    display: none;
+  }
+
+  .app-screen-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    padding: 0;
+    appearance: none;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(29, 29, 31, 0.22);
+    transition: background 0.2s ease, transform 0.2s ease, width 0.2s ease;
+  }
+
+  .app-screen-dot.is-active {
+    width: 1.25rem;
+    background: var(--color-brand);
+  }
+
+  @keyframes app-screen-pan {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .app-screen-track {
+      width: 100%;
+      animation: none;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
   @media (max-width: 1080px) {
     .breadth-grid { grid-template-columns: repeat(2, 1fr); }
   }
@@ -1558,6 +1886,38 @@ const jsonLd = {
   @media (max-width: 560px) {
     .breadth { padding: 5rem 0; }
     .breadth-grid { grid-template-columns: 1fr; }
+    .app-screens-showcase {
+      margin: 3rem -2rem 0;
+    }
+    .app-screen-track {
+      width: 100%;
+      padding: 0.25rem 2rem 1.5rem;
+      overflow-x: auto;
+      animation: none;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: 2rem;
+      -webkit-overflow-scrolling: touch;
+    }
+    .app-screen-slide {
+      flex: 0 0 100%;
+      display: flex;
+      justify-content: center;
+      margin-right: 0;
+      scroll-snap-align: center;
+    }
+    .app-screen-slide-clone {
+      display: none;
+    }
+    .app-screen-slide picture {
+      width: min(78vw, 320px);
+    }
+    .app-screen-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.25rem 2rem 0;
+    }
   }
 
 
