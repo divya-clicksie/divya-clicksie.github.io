@@ -524,36 +524,8 @@ const jsonLd = {
           <p class="section-sub">Mom, dad, grandparents, nanny. Invite anyone with a QR code. Everyone sees the same timeline in real time. No per-seat fees, no &ldquo;did you feed the baby?&rdquo; texts.</p>
         </div>
 
-        <div class="caregivers-grid">
-          <div class="caregiver-card reveal">
-            <div class="caregiver-img">
-              <img src="/images/audience-parents.webp" srcset="/images/audience-parents-720.webp 720w, /images/audience-parents.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1120px) 32vw, 360px" alt="Parents viewing their Nubo app to understand their newborn's routine" width="600" height="432" loading="lazy" decoding="async"/>
-            </div>
-            <div class="caregiver-text">
-              <h3>For parents</h3>
-              <p>Understand your newborn's routine. See patterns in feeding, sleep, and diapers to plan your day with confidence.</p>
-            </div>
-          </div>
-
-          <div class="caregiver-card reveal reveal-delay-1">
-            <div class="caregiver-img">
-              <img src="/images/audience-grandparents.webp" srcset="/images/audience-grandparents-720.webp 720w, /images/audience-grandparents.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1120px) 32vw, 360px" alt="Grandparents holding their grandchild with the Nubo collaboration screen on phone" width="600" height="432" loading="lazy" decoding="async"/>
-            </div>
-            <div class="caregiver-text">
-              <h3>For grandparents &amp; nannies</h3>
-              <p>No complicated tracking flow to learn. Just tap when something happens, and parents can review the timeline in the app.</p>
-            </div>
-          </div>
-
-          <div class="caregiver-card reveal reveal-delay-2">
-            <div class="caregiver-img">
-              <img src="/images/audience-doctors.webp" srcset="/images/audience-doctors-720.webp 720w, /images/audience-doctors.webp 1200w" sizes="(max-width: 720px) 92vw, (max-width: 1120px) 32vw, 360px" alt="Pediatrician reviewing baby's feeding and sleep data on phone during a checkup" width="600" height="432" loading="lazy" decoding="async"/>
-            </div>
-            <div class="caregiver-text">
-              <h3>For pediatricians</h3>
-              <p>Parents arrive with accurate, timestamped data. Feeding volumes, sleep duration, output. No more guesswork.</p>
-            </div>
-          </div>
+        <div class="caregivers-banner reveal">
+          <img src="/images/care_with_confidence.webp" srcset="/images/care_with_confidence-768.webp 768w, /images/care_with_confidence.webp 1536w" sizes="(max-width: 768px) 92vw, 1120px" alt="A parent using Nubo on her phone, the Nubo device, and grandparents holding a baby" width="1536" height="651" loading="lazy" decoding="async"/>
         </div>
       </div>
     </section>
@@ -1940,50 +1912,21 @@ const jsonLd = {
     font-size: clamp(2rem, 5vw, 3.5rem);
   }
 
-  .caregivers-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-
-  .caregiver-card {
+  .caregivers-banner {
     background: #fff;
     border-radius: var(--radius-xl);
     overflow: hidden;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.06);
   }
 
-  .caregiver-card:hover {
-    transform: translateY(-4px);
-  }
-
-  .caregiver-img img {
+  .caregivers-banner img {
     width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-  }
-
-  .caregiver-text {
-    padding: 1.75rem;
-  }
-
-  .caregiver-text h3 {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--color-text);
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.02em;
-  }
-
-  .caregiver-text p {
-    font-size: 0.9375rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
+    height: auto;
+    display: block;
   }
 
   @media (max-width: 768px) {
     .caregivers { padding: 5rem 0; }
-    .caregivers-grid { grid-template-columns: 1fr; }
   }
 
 
