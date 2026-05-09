@@ -1,0 +1,111 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Resources | Nubo Baby Tracker Guides and Articles';
+const description = 'Start here for baby tracking guides on feeding, sleep, diapers, caregivers, privacy, and choosing the right Nubo setup.';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime())
+  .slice(0, 9);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: title,
+  description,
+  url: 'https://www.nubotracker.com/resources/',
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: posts.map((post, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `https://www.nubotracker.com/blog/${post.data.category}/${post.slug}/`,
+      name: post.data.title,
+    })),
+  },
+};
+
+const categoryCopy = [
+  ['Sleep', 'Wake windows, regressions, night tracking, and the logs that make patterns visible.', '/blog/sleep/'],
+  ['Feeding', 'Breastfeeding, bottles, pumping, allergens, and pediatrician-ready intake notes.', '/blog/feeding/'],
+  ['Caregivers', 'Handoffs for partners, grandparents, nannies, and returning to work.', '/blog/caregiver/'],
+  ['Privacy', 'Plain-English guidance on baby data, backups, sharing, and voice logging.', '/blog/privacy/']
+];
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="overline">Resources</p>
+        <h1>Baby tracking help that routes back to real life.</h1>
+        <p class="page-hero-sub">Start with the first 12 weeks, then explore sleep, feeding, caregiver handoffs, privacy, and product decisions.</p>
+      </div>
+    </section>
+
+    <section class="start-section">
+      <div class="container start-inner">
+        <div>
+          <p class="overline">Start here</p>
+          <h2>Track feeding, sleep, and diapers through the first 12 weeks.</h2>
+          <p>A practical guide for the stretch when nobody remembers exactly when the last feed, nap, or diaper happened.</p>
+          <a href="/guides/track-feeding-sleep-diapers-first-12-weeks/" class="btn-primary">Read the guide</a>
+        </div>
+        <img src="/images/hero.webp" alt="Parent holding a newborn with Nubo baby tracker nearby" width="760" height="862" />
+      </div>
+    </section>
+
+    <section class="category-section">
+      <div class="container">
+        <div class="section-intro"><p class="overline">Browse by need</p><h2>Find the moment you are in.</h2></div>
+        <div class="category-grid">
+          {categoryCopy.map(([label, copy, href]) => (
+            <a href={href} class="category-card"><h3>{label}</h3><p>{copy}</p></a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="latest-section">
+      <div class="container">
+        <div class="section-intro"><p class="overline">Latest articles</p><h2>Guides for tired families and the people helping them.</h2></div>
+        <div class="post-grid">
+          {posts.map((post) => (
+            <article>
+              <p class="post-category">{post.data.category}</p>
+              <h3><a href={`/blog/${post.data.category}/${post.slug}/`}>{post.data.title}</a></h3>
+              <p>{post.data.excerpt ?? post.data.description}</p>
+            </article>
+          ))}
+        </div>
+        <div class="all-posts"><a href="/blog/" class="btn-ghost">View all articles</a></div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .start-section, .category-section, .latest-section { padding: 6rem 0; }
+  .start-section, .latest-section { background: #fff; }
+  .category-section { background: var(--color-bg-soft); }
+  .start-inner { display: grid; grid-template-columns: 1fr 0.65fr; gap: 4rem; align-items: center; }
+  .start-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; margin-bottom: 1rem; }
+  .start-inner p, .category-card p, .post-grid p { color: var(--color-text-secondary); line-height: 1.7; }
+  .start-inner .btn-primary { margin-top: 1.5rem; }
+  .start-inner img { max-height: 520px; width: auto; justify-self: center; border-radius: var(--radius-xl); }
+  .category-grid, .post-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .post-grid { grid-template-columns: repeat(3, 1fr); }
+  .category-card, .post-grid article { background: #fff; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); padding: 1.75rem; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .category-card:hover, .post-grid article:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06); }
+  .category-card h3, .post-grid h3 { font-size: 1.125rem; line-height: 1.3; margin-bottom: 0.625rem; }
+  .post-category { color: var(--color-brand-dark) !important; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .post-grid h3 a:hover { color: var(--color-brand-dark); }
+  .all-posts { margin-top: 2.5rem; text-align: center; }
+  @media (max-width: 980px) { .start-inner { grid-template-columns: 1fr; } .category-grid, .post-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .start-section, .category-section, .latest-section { padding: 4rem 0; } .category-grid, .post-grid { grid-template-columns: 1fr; } .start-inner img { max-height: 420px; } }
+</style>

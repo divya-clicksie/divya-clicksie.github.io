@@ -1,0 +1,96 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+const categoryLabels: Record<string, string> = {
+  sleep: 'Sleep',
+  feeding: 'Feeding',
+  tracking: 'Tracking',
+  caregiver: 'Caregiver',
+  privacy: 'Privacy',
+  product: 'Product',
+  gifts: 'Gifts',
+};
+
+const categoryDescriptions: Record<string, string> = {
+  sleep: 'Guides for newborn sleep, wake windows, regressions, and nighttime tracking routines.',
+  feeding: 'Feeding guides for breastfeeding, bottles, pumping, allergens, and intake notes.',
+  tracking: 'Practical advice for logging feeds, sleep, diapers, growth, vaccines, and patterns.',
+  caregiver: 'Caregiver handoff guides for partners, grandparents, nannies, and returning to work.',
+  privacy: 'Plain-English guidance on baby data, voice logging, backups, and sharing.',
+  product: 'Nubo product guides, setup help, features, and workflow ideas.',
+  gifts: 'Gift guides and practical baby shower ideas for new parents.',
+};
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  const categories = [...new Set(posts.map((post) => post.data.category))];
+  return categories.map((category) => ({ params: { category }, props: { category, posts } }));
+}
+
+const { category, posts } = Astro.props;
+const categoryPosts = posts
+  .filter((post) => post.data.category === category)
+  .sort((a, b) => new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime());
+const label = categoryLabels[category] || category;
+const description = categoryDescriptions[category] || `Nubo ${label.toLowerCase()} articles and guides.`;
+const title = `${label} Baby Tracking Guides | Nubo Resources`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: title,
+  description,
+  url: `https://www.nubotracker.com/blog/${category}/`,
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="overline">Resources</p>
+        <h1>{label} guides</h1>
+        <p class="page-hero-sub">{description}</p>
+      </div>
+    </section>
+
+    <section class="category-list">
+      <div class="container">
+        <div class="category-actions">
+          <a href="/resources/" class="text-link">Resources hub</a>
+          <a href="/blog/" class="text-link">All articles</a>
+        </div>
+        <div class="post-grid">
+          {categoryPosts.map((post) => (
+            <a href={`/blog/${post.data.category}/${post.slug}/`} class="post-card">
+              {post.data.heroImage && <img src={post.data.heroImage} alt={post.data.title} width="600" height="300" loading="lazy" />}
+              <div>
+                <p>{label}</p>
+                <h2>{post.data.title}</h2>
+                <span>{post.data.excerpt || post.data.description}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .category-list { padding: 4rem 0 6rem; background: #fff; }
+  .category-actions { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2.5rem; }
+  .post-grid { display: grid; gap: 2rem; max-width: 840px; margin: 0 auto; }
+  .post-card { display: grid; grid-template-columns: 220px 1fr; gap: 1.5rem; align-items: center; border: 1px solid #eee; border-radius: var(--radius-xl); padding: 1rem; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .post-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06); }
+  .post-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 18px; }
+  .post-card p { color: var(--color-brand-dark); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .post-card h2 { font-size: 1.25rem; line-height: 1.3; margin-bottom: 0.5rem; }
+  .post-card span { color: var(--color-text-secondary); line-height: 1.7; }
+  @media (max-width: 680px) { .post-card { grid-template-columns: 1fr; } .category-actions { flex-direction: column; align-items: center; gap: 0.75rem; } }
+</style>

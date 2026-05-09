@@ -22,29 +22,44 @@ const youtubeURL = 'https://www.youtube.com/@NuboBabyTracker';
         <div class="footer-col">
           <h3>Product</h3>
           <ul>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="/device/">Device</a></li>
+            <li><a href="/app/">App</a></li>
+            <li><a href="/how-it-works/">How It Works</a></li>
+            <li><a href="/pricing/">Pricing</a></li>
+            <li><a href="/compare/">Compare</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h3>Get Nubo</h3>
+          <h3>Trust</h3>
           <ul>
-            <li><a href={amazonURL} target="_blank" rel="noopener noreferrer">Buy on Amazon</a></li>
-            <li><a href={appStoreURL} target="_blank" rel="noopener noreferrer">App Store (Free)</a></li>
-            <li><a href={playStoreURL} target="_blank" rel="noopener noreferrer">Google Play (Free)</a></li>
-            <li><a href={alexaURL} target="_blank" rel="noopener noreferrer">Alexa Skill</a></li>
+            <li><a href="/#caregivers">Caregivers</a></li>
+            <li><a href="/privacy-policy/">Privacy</a></li>
+            <li><a href="/#reviews">Reviews</a></li>
+            <li><a href="/#founder">About</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h3>Support</h3>
+          <h3>Resources</h3>
           <ul>
+            <li><a href="/resources/">Resources hub</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/guides/">Guides</a></li>
             <li><a href="/faq/">FAQ</a></li>
             <li><a href="/contact/">Contact</a></li>
-            <li><a href="/blog/">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Legal</h3>
+          <ul>
             <li><a href="/privacy-policy/">Privacy Policy</a></li>
             <li><a href="/terms-of-use/">Terms of Use</a></li>
+            <li><a href={amazonURL} target="_blank" rel="noopener noreferrer">Buy on Amazon</a></li>
+            <li><a href={appStoreURL} target="_blank" rel="noopener noreferrer">App Store</a></li>
+            <li><a href={playStoreURL} target="_blank" rel="noopener noreferrer">Google Play</a></li>
+            <li><a href={alexaURL} target="_blank" rel="noopener noreferrer">Alexa Skill</a></li>
           </ul>
         </div>
 
@@ -120,7 +135,8 @@ const youtubeURL = 'https://www.youtube.com/@NuboBabyTracker';
 
   .footer-columns {
     display: flex;
-    gap: 4rem;
+    gap: 2.5rem;
+    flex-wrap: wrap;
   }
 
   .footer-col h3 {

@@ -1,0 +1,83 @@
+---
+const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
+---
+
+<a href={amazonURL} class="mobile-sticky-cta" data-mobile-sticky-cta target="_blank" rel="noopener noreferrer" aria-label="Buy Nubo on Amazon for $89.99 with Premium for every caregiver included">
+  <span>Buy on Amazon</span>
+  <strong>$89.99</strong>
+  <span>Premium for every caregiver</span>
+</a>
+
+<script>
+  const setupMobileStickyCTA = () => {
+    const stickyCTA = document.querySelector<HTMLElement>('[data-mobile-sticky-cta]');
+    if (!stickyCTA) return;
+
+    const updateVisibility = () => {
+      stickyCTA.classList.toggle('is-visible', window.scrollY > 520);
+    };
+
+    updateVisibility();
+    window.addEventListener('scroll', updateVisibility, { passive: true });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupMobileStickyCTA, { once: true });
+  } else {
+    setupMobileStickyCTA();
+  }
+</script>
+
+<style is:global>
+  .mobile-sticky-cta {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    body {
+      padding-bottom: 76px;
+    }
+
+    .mobile-sticky-cta {
+      position: fixed;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 120;
+      display: grid;
+      grid-template-columns: auto auto 1fr;
+      align-items: center;
+      gap: 0.5rem;
+      min-height: 56px;
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      background: #1d1d1f;
+      color: #fff;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(24px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      font-size: 0.8125rem;
+      line-height: 1.2;
+    }
+
+    .mobile-sticky-cta.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .mobile-sticky-cta strong {
+      color: #77f0f4;
+      white-space: nowrap;
+    }
+
+    .mobile-sticky-cta span:last-child {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+</style>

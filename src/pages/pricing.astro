@@ -1,0 +1,232 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Pricing | Nubo Baby Tracker | Free App, Premium, and Device';
+const description = 'Compare Nubo Free, Premium, and the Nubo device. See which setup fits your family, including the device value for multi-caregiver households.';
+
+const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
+const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
+const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Nubo Baby Tracker',
+  description,
+  brand: { '@type': 'Brand', name: 'nubo' },
+  offers: [
+    { '@type': 'Offer', name: 'Nubo app Free', price: '0', priceCurrency: 'USD', url: appStoreURL },
+    { '@type': 'Offer', name: 'Nubo Premium', price: '39.99', priceCurrency: 'USD', url: appStoreURL },
+    { '@type': 'Offer', name: 'Nubo Device', price: '89.99', priceCurrency: 'USD', url: amazonURL }
+  ]
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+  <main>
+    <section class="page-hero pricing-hero">
+      <div class="container">
+        <p class="overline">Pricing</p>
+        <h1>Start free. Upgrade when it pays back.</h1>
+        <p class="page-hero-sub">Use the free app as long as you want. Add Premium for app-only extras, or choose the device when multiple caregivers and hands-full moments make one button worth it.</p>
+        <div class="hero-actions-inline">
+          <a href={appStoreURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">Download free</a>
+          <a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="decision-section">
+      <div class="container">
+        <div class="section-intro">
+          <p class="overline">Choose your setup</p>
+          <h2>Match the plan to the way your family actually tracks.</h2>
+        </div>
+        <div class="decision-grid">
+          <article class="decision-card">
+            <h3>Solo tracker with phone nearby</h3>
+            <p>The free app is likely enough. You get routine logs, voice catch-up, caregiver sharing, backups, and privacy controls without a paywall.</p>
+            <a href={appStoreURL} target="_blank" rel="noopener noreferrer">Download the app</a>
+          </article>
+          <article class="decision-card">
+            <h3>App-only family wanting reminders and exports</h3>
+            <p>Premium adds schedule-aware reminders, Alexa, Live Activities, exports, growth metrics, and advanced modes for one caregiver.</p>
+            <a href={appStoreURL} target="_blank" rel="noopener noreferrer">Try Premium</a>
+          </article>
+          <article class="decision-card decision-card-featured">
+            <h3>Two or more caregivers</h3>
+            <p>The device is the best value. It includes Premium for every caregiver, plus the physical button for the moments your phone is not open.</p>
+            <a href={amazonURL} target="_blank" rel="noopener noreferrer">Buy the device</a>
+          </article>
+          <article class="decision-card">
+            <h3>Pregnant and planning ahead</h3>
+            <p>Set up Nubo before baby arrives, pack it in the hospital bag, and start with a system your partner can use immediately.</p>
+            <a href="/device/">See the device</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="plans-section" id="plans">
+      <div class="container">
+        <div class="trust-strip" aria-label="Nubo purchase reassurance">
+          <span>4.2 stars on Amazon</span>
+          <span>No subscription required</span>
+          <span>Private by design</span>
+          <span>Free shipping with Prime</span>
+          <span>30-day returns through Amazon</span>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="pricing-card">
+            <h3>Free</h3>
+            <p class="price">$0</p>
+            <p class="tagline">For solo trackers who already have their phone in hand.</p>
+            <ul>
+              <li>Sleep, feeding, diaper, growth, vaccine, and milestone tracking</li>
+              <li>Unlimited caregivers, child profiles, cloud backup, and event logs</li>
+              <li>Unlimited in-app voice logging and one-touch app cards</li>
+              <li>Offline mode and privacy-first local storage</li>
+            </ul>
+            <a href={appStoreURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">Download free</a>
+          </article>
+
+          <article class="pricing-card pricing-card-featured">
+            <div class="badge">App upgrade</div>
+            <h3>Premium</h3>
+            <p class="price">$39.99<span>/year</span></p>
+            <p class="tagline">For one app-only caregiver who wants reminders, Alexa, exports, and advanced insights.</p>
+            <ul>
+              <li>Everything in Free</li>
+              <li>Auto Reminders, Alexa logging, Live Activities, and CSV export</li>
+              <li>Advanced growth metrics, Allergen SafeStart, and Premium themes</li>
+              <li>Premium is per caregiver. Each additional caregiver subscribes separately.</li>
+            </ul>
+            <a href={appStoreURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Download and try Premium</a>
+          </article>
+
+          <article class="pricing-card pricing-card-device">
+            <div class="badge badge-dark">Best value for families</div>
+            <h3>Nubo Device</h3>
+            <p class="price">$89.99</p>
+            <p class="tagline">One-time purchase. Includes Premium for every caregiver.</p>
+            <ul>
+              <li>Everything in Premium for partner, grandparents, nanny, and other caregivers</li>
+              <li>Physical one-touch logging for feeds, sleep, pee, and poop</li>
+              <li>Bluetooth sync, magnetic mount, lanyard, and months of battery life</li>
+              <li>No subscription required. The device keeps working with the free app.</li>
+            </ul>
+            <a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="math-section">
+      <div class="container math-inner">
+        <div>
+          <p class="overline">The family math</p>
+          <h2>The device gets stronger as more caregivers help.</h2>
+          <p>Premium is priced per caregiver. The device is a one-time purchase and includes Premium for every caregiver in the family, so it can be the lower-cost path once more than one adult is tracking.</p>
+        </div>
+        <div class="math-table-wrap">
+          <table class="math-table">
+            <thead>
+              <tr><th>Scenario</th><th>Year 1 Premium</th><th>2-year Premium</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Mom + Dad</td><td>$79.98</td><td>$159.96</td></tr>
+              <tr><td>Mom + Dad + nanny</td><td>$119.97</td><td>$239.94</td></tr>
+              <tr><td>Mom + Dad + 2 grandparents</td><td>$159.96</td><td>$319.92</td></tr>
+            </tbody>
+          </table>
+          <p class="math-note">The Nubo device is $89.99 once and includes Premium for every caregiver.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="expecting-section">
+      <div class="container expecting-inner">
+        <div>
+          <p class="overline">Planning ahead</p>
+          <h2>Due soon? Get the hospital-bag setup checklist.</h2>
+          <p>Tell us your due month and we will help you get Nubo ready before the first sleep-deprived night.</p>
+        </div>
+        <form class="expecting-form" action="mailto:support@clicksie.io" method="post" enctype="text/plain">
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" required />
+          </label>
+          <label>
+            <span>Due month</span>
+            <input type="month" name="due-month" required />
+          </label>
+          <button type="submit" class="btn-primary">Send me the checklist</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="faq-band">
+      <div class="container">
+        <div class="section-intro">
+          <p class="overline">Questions that block purchase</p>
+          <h2>Clear answers before you choose.</h2>
+        </div>
+        <div class="faq-grid">
+          <article><h3>Does the device require Premium?</h3><p>No. The device keeps working with the free app. Premium features are included for every caregiver after device purchase.</p></article>
+          <article><h3>Can my partner share the app for free?</h3><p>Yes. The free tier includes unlimited caregivers and sync. Premium adds paid extras for app-only caregivers.</p></article>
+          <article><h3>What happens if I cancel Premium?</h3><p>Your data stays on your phone and the free tier keeps working. You do not lose your baby history.</p></article>
+          <article><h3>Can I return the device?</h3><p>Nubo is sold through Amazon, so returns follow Amazon's standard return policy.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .pricing-hero .hero-actions-inline { margin-top: 2rem; }
+  .hero-actions-inline { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+  .decision-section, .plans-section, .math-section, .expecting-section, .faq-band { padding: 6rem 0; }
+  .decision-section { background: #fff; }
+  .plans-section { background: var(--color-bg-soft); }
+  .math-section, .faq-band { background: #fff; }
+  .expecting-section { background: var(--color-bg-warm); }
+  .decision-grid, .pricing-grid, .faq-grid { display: grid; gap: 1.5rem; }
+  .decision-grid { grid-template-columns: repeat(4, 1fr); }
+  .pricing-grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+  .faq-grid { grid-template-columns: repeat(2, 1fr); }
+  .decision-card, .pricing-card, .faq-grid article { background: #fff; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); padding: 2rem; }
+  .decision-card-featured, .pricing-card-featured { border: 2px solid var(--color-brand); box-shadow: 0 12px 36px rgba(19, 188, 195, 0.12); }
+  .pricing-card-device { border: 2px solid #1d1d1f; }
+  .decision-card h3, .pricing-card h3, .faq-grid h3 { font-size: 1.125rem; line-height: 1.25; margin-bottom: 0.75rem; }
+  .decision-card p, .pricing-card li, .faq-grid p, .math-inner p, .expecting-inner p { color: var(--color-text-secondary); line-height: 1.7; }
+  .decision-card a { display: inline-flex; margin-top: 1rem; color: var(--color-brand-dark); font-weight: 700; }
+  .trust-strip { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-bottom: 2rem; }
+  .trust-strip span { background: #fff; color: var(--color-text); border-radius: 999px; padding: 0.625rem 1rem; font-size: 0.875rem; font-weight: 700; }
+  .pricing-card { position: relative; display: flex; flex-direction: column; }
+  .pricing-card .badge { position: absolute; top: 0; right: 1.5rem; background: var(--color-brand); color: #fff; border-radius: 0 0 10px 10px; padding: 0.375rem 0.875rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+  .pricing-card .badge-dark { background: #1d1d1f; }
+  .price { font-size: 2.75rem; font-weight: 700; line-height: 1; margin: 0.5rem 0; }
+  .price span { font-size: 1rem; color: var(--color-text-secondary); }
+  .tagline { color: var(--color-text-secondary); line-height: 1.6; min-height: 5rem; }
+  .pricing-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin: 1.5rem 0; flex: 1; }
+  .pricing-card li { position: relative; padding-left: 1.5rem; }
+  .pricing-card li::before { content: '✓'; position: absolute; left: 0; color: var(--color-brand); font-weight: 700; }
+  .pricing-card .btn-primary, .pricing-card .btn-ghost { width: 100%; }
+  .math-inner, .expecting-inner { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 3rem; align-items: center; }
+  .math-inner h2, .expecting-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; margin-bottom: 1rem; }
+  .math-table-wrap { overflow-x: auto; }
+  .math-table { width: 100%; border-collapse: collapse; background: var(--color-bg-soft); border-radius: var(--radius-xl); overflow: hidden; }
+  .math-table th, .math-table td { padding: 1rem; text-align: left; border-bottom: 1px solid #e1e1e1; }
+  .math-table th { font-size: 0.8125rem; text-transform: uppercase; color: var(--color-text-secondary); }
+  .math-note { margin-top: 1rem; font-weight: 700; color: var(--color-brand-dark) !important; }
+  .expecting-form { display: grid; grid-template-columns: 1fr 1fr auto; gap: 1rem; align-items: end; background: #fff; border-radius: var(--radius-xl); padding: 1.5rem; }
+  .expecting-form label { display: flex; flex-direction: column; gap: 0.375rem; font-weight: 700; color: var(--color-text); }
+  .expecting-form input { min-height: 48px; border: 1px solid #ddd; border-radius: 12px; padding: 0 0.875rem; font: inherit; }
+  @media (max-width: 980px) { .decision-grid, .pricing-grid { grid-template-columns: 1fr 1fr; } .math-inner, .expecting-inner { grid-template-columns: 1fr; } .expecting-form { grid-template-columns: 1fr; } }
+  @media (max-width: 680px) { .decision-section, .plans-section, .math-section, .expecting-section, .faq-band { padding: 4rem 0; } .decision-grid, .pricing-grid, .faq-grid { grid-template-columns: 1fr; } .tagline { min-height: 0; } }
+</style>

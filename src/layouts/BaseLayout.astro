@@ -8,6 +8,8 @@ interface Props {
   jsonLd?: Record<string, unknown>;
 }
 
+import MobileStickyCTA from '../components/MobileStickyCTA.astro';
+
 const {
   title,
   description,
@@ -69,6 +71,7 @@ const siteName = 'Nubo Baby Tracker';
   </head>
   <body>
     <slot />
+    <MobileStickyCTA />
     <script>
       if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';

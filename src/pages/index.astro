@@ -129,8 +129,8 @@ const jsonLd = {
             Tap the device, even half-asleep. Or recap the night by voice in the morning. Every feed, nap, and diaper lands in one timeline.
           </p>
           <div class="hero-actions">
-            <a href={appStoreURL} class="btn-primary" target="_blank" rel="noopener noreferrer">
-              Get the free app
+            <a href="/pricing/" class="btn-primary">
+              Choose your setup
             </a>
             <a href={amazonURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">
               Buy the device
@@ -201,7 +201,7 @@ const jsonLd = {
 
           <div class="way-card reveal reveal-delay-1">
             <div class="way-card-image">
-              <img src="/images/nubo-app-screens.webp" srcset="/images/nubo-app-screens-720.webp 720w, /images/nubo-app-screens.webp 1280w" sizes="(max-width: 720px) 92vw, (max-width: 1120px) 32vw, 360px" alt="Nubo app voice input capturing a spoken catch-up log with the resulting event card" width="640" height="400" loading="lazy" decoding="async"/>
+              <img src="/images/appscreens/02_voicelogging.webp" alt="Nubo app voice logging screen for adding baby activity updates by speaking" width="642" height="1389" loading="lazy" decoding="async"/>
             </div>
             <div class="way-card-body">
               <h3>Say it on your phone</h3>
@@ -373,20 +373,20 @@ const jsonLd = {
         </div>
       </div>
       <div class="feature-strip-dots" aria-label="Built for real life carousel position">
-        <button class="feature-strip-dot is-active" type="button" data-feature-dot="0" aria-label="Show feature 1 of 5" aria-current="true">
-          <span class="sr-only">Feature 1</span>
+        <button class="feature-strip-dot is-active" type="button" data-feature-dot="0" aria-label="Show ready for the hospital feature" aria-current="true">
+          <span class="sr-only">Ready for the hospital</span>
         </button>
-        <button class="feature-strip-dot" type="button" data-feature-dot="1" aria-label="Show feature 2 of 5" aria-current="false">
-          <span class="sr-only">Feature 2</span>
+        <button class="feature-strip-dot" type="button" data-feature-dot="1" aria-label="Show works wherever baby goes feature" aria-current="false">
+          <span class="sr-only">Works wherever baby goes</span>
         </button>
-        <button class="feature-strip-dot" type="button" data-feature-dot="2" aria-label="Show feature 3 of 5" aria-current="false">
-          <span class="sr-only">Feature 3</span>
+        <button class="feature-strip-dot" type="button" data-feature-dot="2" aria-label="Show built for real life feature" aria-current="false">
+          <span class="sr-only">Built for real life</span>
         </button>
-        <button class="feature-strip-dot" type="button" data-feature-dot="3" aria-label="Show feature 4 of 5" aria-current="false">
-          <span class="sr-only">Feature 4</span>
+        <button class="feature-strip-dot" type="button" data-feature-dot="3" aria-label="Show battery that lasts feature" aria-current="false">
+          <span class="sr-only">Battery that lasts</span>
         </button>
-        <button class="feature-strip-dot" type="button" data-feature-dot="4" aria-label="Show feature 5 of 5" aria-current="false">
-          <span class="sr-only">Feature 5</span>
+        <button class="feature-strip-dot" type="button" data-feature-dot="4" aria-label="Show always within reach feature" aria-current="false">
+          <span class="sr-only">Always within reach</span>
         </button>
       </div>
     </section>
@@ -442,10 +442,10 @@ const jsonLd = {
                 class:list={["app-screen-dot", { "is-active": index === 0 }]}
                 type="button"
                 data-screen-dot={index}
-                aria-label={`Show app screenshot ${index + 1} of ${appScreens.length}`}
+                aria-label={`Show ${screen.alt}`}
                 aria-current={index === 0 ? 'true' : 'false'}
               >
-                <span class="sr-only">Screenshot {index + 1}</span>
+                <span class="sr-only">{screen.alt}</span>
               </button>
             ))}
           </div>
@@ -643,7 +643,7 @@ const jsonLd = {
     <!-- ════════════════════════════════════════════
          COMPARE
     ════════════════════════════════════════════ -->
-    <!-- COMPARE section hidden — promoting blog post instead
+    <!-- COMPARE section hidden. Promoting blog post instead.
     <section class="compare">
       <div class="container">
         <div class="section-intro reveal">
@@ -719,7 +719,15 @@ const jsonLd = {
         <div class="section-intro reveal">
           <p class="overline">Pricing</p>
           <h2>Simple pricing.<br/>Start free.</h2>
-          <p class="section-sub">Core baby tracking is free forever. No ads, no time limits, no credit card.</p>
+          <p class="section-sub">Core baby tracking is free forever. Two caregivers considering Premium? The device pays for itself in about 13 months.</p>
+        </div>
+
+        <div class="pricing-trust-strip reveal" aria-label="Nubo purchase reassurance">
+          <span>4.2 stars on Amazon</span>
+          <span>No subscription required</span>
+          <span>Private by design</span>
+          <span>Free shipping with Prime</span>
+          <span>30-day returns through Amazon</span>
         </div>
 
         <div class="pricing-grid">
@@ -769,8 +777,8 @@ const jsonLd = {
                 <span class="pricing-amount">$39.99</span>
                 <span class="pricing-period">/year</span>
               </div>
-              <p class="pricing-tagline">Just 77¢/week, billed annually.</p>
-              <p class="pricing-value-callout">Premium for all family members</p>
+              <p class="pricing-tagline">Just 77¢/week, billed annually. Premium is per caregiver.</p>
+              <p class="pricing-value-callout">For one app-only caregiver</p>
             </div>
             <ul class="pricing-features">
               <li class="pricing-inherit">Everything in Free, plus:</li>
@@ -789,6 +797,7 @@ const jsonLd = {
               <li>Mini Timeline for quick glance</li>
               <li>Phone Hand one-handed mode</li>
               <li>No ads. Ever.</li>
+              <li class="pricing-gift">Each additional caregiver subscribes separately</li>
             </ul>
             <div class="pricing-card-footer">
               <a href={appStoreURL} class="btn-primary" target="_blank" rel="noopener noreferrer">
@@ -805,8 +814,8 @@ const jsonLd = {
               <div class="pricing-price">
                 <span class="pricing-amount">$89.99</span>
               </div>
-              <p class="pricing-tagline">One-time purchase. No subscription.</p>
-              <p class="pricing-value-callout pricing-value-callout-device">Premium for all caregivers</p>
+              <p class="pricing-tagline">One-time purchase. No subscription required.</p>
+              <p class="pricing-value-callout pricing-value-callout-device">Premium for every caregiver included</p>
             </div>
             <ul class="pricing-features">
               <li class="pricing-inherit">Everything in Premium, plus:</li>
@@ -816,6 +825,7 @@ const jsonLd = {
               <li>Magnetic docking, water resistant</li>
               <li>Months of battery life</li>
               <li>Syncs automatically to the app</li>
+              <li class="pricing-gift">Partner, grandparents, nanny, all included</li>
             </ul>
             <div class="pricing-card-footer">
               <a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">
@@ -826,6 +836,8 @@ const jsonLd = {
 
         </div>
 
+        <p class="pricing-note reveal">Free shipping with Prime and 30-day returns through Amazon. The free app stays free, even if you cancel Premium.</p>
+
       </div>
     </section>
 
@@ -833,7 +845,7 @@ const jsonLd = {
     <!-- ════════════════════════════════════════════
          FOUNDER
     ════════════════════════════════════════════ -->
-    <section class="founder">
+    <section class="founder" id="founder">
       <div class="container">
         <div class="founder-inner reveal">
           <p class="overline">Created by a Mom, for Parents</p>
@@ -856,8 +868,8 @@ const jsonLd = {
         <p class="final-price-frame">Less than $1 a day for the first 3 months.</p>
         <p class="final-sub">$89.99 on Amazon &middot; Free Alexa skill &middot; Free app &middot; Free shipping with Prime</p>
 
-        <a href={amazonURL} class="btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
-          Buy on Amazon
+        <a href="/pricing/" class="btn-primary btn-lg">
+          Choose your setup
         </a>
 
         <div class="final-trust-badges">
@@ -1301,9 +1313,10 @@ const jsonLd = {
 
   .way-card-image img {
     width: 100%;
-    height: auto;
+    height: 220px;
     display: block;
     object-fit: cover;
+    object-position: top center;
   }
 
   .way-card-body {
@@ -2276,6 +2289,25 @@ const jsonLd = {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     align-items: start;
+  }
+
+  .pricing-trust-strip {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: -1rem 0 2.5rem;
+  }
+
+  .pricing-trust-strip span {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.625rem 1rem;
+    border-radius: 999px;
+    background: var(--color-brand-light);
+    color: var(--color-brand-dark);
+    font-size: 0.8125rem;
+    font-weight: 700;
   }
 
   .pricing-card {

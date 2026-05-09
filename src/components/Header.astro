@@ -1,7 +1,3 @@
----
-const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
----
-
 <header class="site-header" id="site-header">
   <div class="container header-inner">
     <a href="/" class="logo" aria-label="Nubo Baby Tracker Home">
@@ -9,14 +5,16 @@ const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp
     </a>
 
     <nav class="nav-links" aria-label="Main navigation">
-      <a href="/#features">Features</a>
-      <a href="/#reviews">Reviews</a>
+      <a href="/how-it-works/">How it works</a>
+      <a href="/device/">Device</a>
+      <a href="/app/">App</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/resources/">Resources</a>
       <a href="/faq/">FAQ</a>
-      <a href="/blog/">Blog</a>
     </nav>
 
-    <a href={amazonURL} class="header-cta" target="_blank" rel="noopener noreferrer">
-      Buy on Amazon
+    <a href="/pricing/" class="header-cta">
+      Choose your setup
     </a>
 
     <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
@@ -28,12 +26,15 @@ const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp
 
   <div class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
     <nav class="mobile-nav-links">
-      <a href="/#features">Features</a>
-      <a href="/#reviews">Reviews</a>
+      <a href="/how-it-works/">How it works</a>
+      <a href="/device/">Device</a>
+      <a href="/app/">App</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/resources/">Resources</a>
       <a href="/faq/">FAQ</a>
-      <a href="/blog/">Blog</a>
-      <a href={amazonURL} class="mobile-nav-cta" target="_blank" rel="noopener noreferrer">
-        Buy on Amazon
+      <a href="/compare/">Compare</a>
+      <a href="/pricing/" class="mobile-nav-cta">
+        Choose your setup
       </a>
     </nav>
   </div>
@@ -80,7 +81,7 @@ const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp
 
   .nav-links {
     display: flex;
-    gap: 2.25rem;
+    gap: 1.5rem;
   }
 
   .nav-links a {
@@ -98,7 +99,7 @@ const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp
   .header-cta {
     display: inline-flex;
     align-items: center;
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 1.25rem;
     font-size: 0.8125rem;
     font-weight: 600;
     color: #fff;
