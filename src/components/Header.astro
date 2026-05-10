@@ -222,27 +222,36 @@
 </style>
 
 <script>
-  const header = document.getElementById('site-header');
-  if (header) {
+  const setupHeaderScroll = () => {
+    const header = document.getElementById('site-header');
+    if (!header) return;
+
     let ticking = false;
     let lastScrolled = false;
+    const updateHeaderState = () => {
+      const scrolled = window.scrollY > 40;
+      if (scrolled !== lastScrolled) {
+        header.classList.toggle('scrolled', scrolled);
+        lastScrolled = scrolled;
+      }
+    };
+
+    updateHeaderState();
     window.addEventListener('scroll', () => {
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(() => {
-        const scrolled = window.scrollY > 40;
-        if (scrolled !== lastScrolled) {
-          header.classList.toggle('scrolled', scrolled);
-          lastScrolled = scrolled;
-        }
+        updateHeaderState();
         ticking = false;
       });
     }, { passive: true });
-  }
+  };
 
-  const menuBtn = document.getElementById('mobile-menu-btn');
-  const mobileNav = document.getElementById('mobile-nav');
-  if (menuBtn && mobileNav) {
+  const setupMobileMenu = () => {
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (!menuBtn || !mobileNav) return;
+
     menuBtn.addEventListener('click', () => {
       const isOpen = menuBtn.classList.toggle('open');
       mobileNav.classList.toggle('open');
@@ -258,5 +267,13 @@
         menuBtn.setAttribute('aria-label', 'Open menu');
       });
     });
+  };
+
+  setupMobileMenu();
+
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(setupHeaderScroll, { timeout: 1000 });
+  } else {
+    window.addEventListener('load', setupHeaderScroll, { once: true });
   }
 </script>

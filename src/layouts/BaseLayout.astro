@@ -39,7 +39,7 @@ const stickyCtaVariant = Astro.url.pathname === '/app/' ? 'app' : 'device';
 
     <!-- Preload LCP image on the home page -->
     {Astro.url.pathname === '/' && (
-      <link rel="preload" as="image" href="/images/nubo-instant-tracker-900.webp" imagesrcset="/images/nubo-instant-tracker-900.webp 900w, /images/nubo-instant-tracker-1400.webp 1400w" imagesizes="(max-width: 768px) 72vw, (max-width: 900px) 88vw, 48vw" fetchpriority="high" />
+      <link rel="preload" as="image" href="/images/nubo-instant-tracker-640.webp" imagesrcset="/images/nubo-instant-tracker-640.webp 640w, /images/nubo-instant-tracker-900.webp 900w, /images/nubo-instant-tracker-1400.webp 1400w" imagesizes="(max-width: 768px) 72vw, (max-width: 900px) 88vw, 48vw" fetchpriority="high" />
     )}
 
     <!-- Open Graph -->

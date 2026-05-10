@@ -32,6 +32,8 @@ const cta = variant === 'app'
 
 <script>
   const setupMobileStickyCTA = () => {
+    if (!window.matchMedia('(max-width: 768px)').matches) return;
+
     const stickyCTA = document.querySelector<HTMLElement>('[data-mobile-sticky-cta]');
     if (!stickyCTA) return;
 
@@ -54,11 +56,21 @@ const cta = variant === 'app'
     window.addEventListener('scroll', updateVisibility, { passive: true });
   };
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupMobileStickyCTA, { once: true });
-  } else {
-    setupMobileStickyCTA();
-  }
+  const scheduleMobileStickyCTA = () => {
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(setupMobileStickyCTA, { timeout: 1200 });
+      return;
+    }
+
+    if (document.readyState === 'complete') {
+      setupMobileStickyCTA();
+      return;
+    }
+
+    window.addEventListener('load', setupMobileStickyCTA, { once: true });
+  };
+
+  scheduleMobileStickyCTA();
 </script>
 
 <style is:global>
