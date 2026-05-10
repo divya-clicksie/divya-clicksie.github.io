@@ -1,0 +1,50 @@
+---
+interface Props {
+  showImage?: boolean;
+}
+
+const { showImage = true } = Astro.props;
+---
+
+<section class="premium-device-section">
+  <div class="container premium-device-inner">
+    {showImage && (
+      <img src="/images/caregiver-hub.webp" alt="Nubo device syncing baby tracking data with multiple caregiver phones" width="970" height="600" loading="lazy" decoding="async" />
+    )}
+    <div>
+      <p class="overline">Premium follows the device</p>
+      <h2>One device. Premium for every caregiver who uses it.</h2>
+      <p>Any caregiver phone that connects to your Nubo gets 30 days of Premium, even when that caregiver uses a separate App Store or Google Play account. Active caregivers stay on Premium continuously. Occasional caregivers reactivate the moment they sync again.</p>
+      <div class="premium-timeline" aria-label="Premium refresh example">
+        <div>
+          <span>Caregiver A</span>
+          <i style="--start: 0%; --width: 86%;"></i>
+          <small>Syncs often. Premium stays active.</small>
+        </div>
+        <div>
+          <span>Caregiver B</span>
+          <i style="--start: 0%; --width: 46%;"></i>
+          <i style="--start: 62%; --width: 34%;"></i>
+          <small>Syncs occasionally. Premium reactivates on next sync.</small>
+        </div>
+      </div>
+      <p class="premium-caption">Every sync extends Premium 30 days. Premium follows the use, not the store-account boundary.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .premium-device-section { padding: 6rem 0; background: var(--color-bg-soft); }
+  .premium-device-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .premium-device-inner img { width: 100%; height: auto; border-radius: var(--radius-xl); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08); }
+  .premium-device-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; margin-bottom: 1rem; }
+  .premium-device-inner p { color: var(--color-text-secondary); line-height: 1.7; }
+  .premium-timeline { display: grid; gap: 1rem; margin: 1.75rem 0 1rem; }
+  .premium-timeline div { position: relative; min-height: 76px; padding: 1rem; background: #fff; border: 1px solid #e8e8e8; border-radius: 16px; overflow: hidden; }
+  .premium-timeline span { display: block; font-weight: 700; margin-bottom: 0.625rem; }
+  .premium-timeline i { position: absolute; left: var(--start); right: auto; bottom: 2.25rem; width: var(--width); height: 12px; background: var(--color-brand); border-radius: 999px; }
+  .premium-timeline small { display: block; color: var(--color-text-secondary); font-size: 0.8125rem; margin-top: 1.25rem; }
+  .premium-caption { font-size: 0.875rem; font-weight: 700; color: var(--color-brand-dark) !important; }
+  @media (max-width: 900px) { .premium-device-inner { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { .premium-device-section { padding: 4rem 0; } }
+</style>

@@ -37,6 +37,60 @@ const categoryLabels: Record<string, string> = {
   gifts: 'Gifts',
 };
 
+const categoryNextSteps: Record<string, { eyebrow: string; title: string; copy: string; href: string; cta: string }> = {
+  sleep: {
+    eyebrow: 'Track sleep without the scramble',
+    title: 'See how Nubo keeps nights simple.',
+    copy: 'Tap the device at the crib, catch up by voice later, and keep every caregiver on the same timeline.',
+    href: '/device/',
+    cta: 'View the device',
+  },
+  feeding: {
+    eyebrow: 'For feeds, pumping, and bottles',
+    title: 'Start with the free app.',
+    copy: 'Log nursing, bottles, pumping, diapers, growth, allergens, and notes without ads or a credit card.',
+    href: '/app/',
+    cta: 'Explore the app',
+  },
+  tracking: {
+    eyebrow: 'Make the routine easier',
+    title: 'Choose the setup that fits your household.',
+    copy: 'Compare the free app, Premium, and the Nubo device by speed, privacy, and caregiver needs.',
+    href: '/pricing/',
+    cta: 'See pricing',
+  },
+  caregiver: {
+    eyebrow: 'Shared care, one timeline',
+    title: 'Coordinate with partners, grandparents, nannies, and daycare.',
+    copy: 'Nubo keeps handoffs clear, and the device grants Premium to each phone that connects.',
+    href: '/caregivers/',
+    cta: 'See caregiver sync',
+  },
+  privacy: {
+    eyebrow: 'Private by design',
+    title: 'Read the plain-English privacy promise.',
+    copy: 'Voice runs on your phone, backups use your iCloud or Google Drive, and there are no ads or tracking scripts on the site.',
+    href: '/privacy/',
+    cta: 'Read privacy overview',
+  },
+  product: {
+    eyebrow: 'How Nubo works',
+    title: 'One baby timeline, several ways to log.',
+    copy: 'Use the device, voice catch-up, Quick Log, and caregiver sync together without rebuilding your routine.',
+    href: '/how-it-works/',
+    cta: 'See how it works',
+  },
+  gifts: {
+    eyebrow: 'A practical baby gift',
+    title: 'Give the button parents actually use.',
+    copy: 'The Nubo device is useful before the hospital bag, during newborn nights, and across the next baby too.',
+    href: '/gift/',
+    cta: 'See the gift page',
+  },
+};
+
+const nextStep = categoryNextSteps[category] || categoryNextSteps.tracking;
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -57,7 +111,7 @@ const jsonLd = {
 <BaseLayout
   title={`${title} | Nubo Baby Tracker`}
   description={description}
-  ogImage={ogImage || heroImage || '/images/og-default.jpg'}
+  ogImage={ogImage || heroImage || '/images/nubo-instant-tracker.webp'}
   ogType="article"
   jsonLd={jsonLd}
 >
@@ -84,6 +138,12 @@ const jsonLd = {
         <div class="prose">
           <slot />
         </div>
+        <aside class="article-next-step" aria-label="Recommended next step">
+          <p class="article-next-step-eyebrow">{nextStep.eyebrow}</p>
+          <h2>{nextStep.title}</h2>
+          <p>{nextStep.copy}</p>
+          <a href={nextStep.href}>{nextStep.cta}</a>
+        </aside>
       </div>
     </article>
   </main>
@@ -101,7 +161,7 @@ const jsonLd = {
     font-size: clamp(2rem, 4.5vw, 3.25rem);
     font-weight: 700;
     line-height: 1.15;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
     color: var(--color-text);
     max-width: 720px;
     margin: 0 auto;
@@ -150,7 +210,7 @@ const jsonLd = {
     color: var(--color-text);
     margin-top: 2.5rem;
     margin-bottom: 0.75rem;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
   }
 
   .prose :global(h3) {
@@ -159,7 +219,7 @@ const jsonLd = {
     color: var(--color-text);
     margin-top: 2rem;
     margin-bottom: 0.5rem;
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
   }
 
   .prose :global(p) {
@@ -243,9 +303,63 @@ const jsonLd = {
     border-bottom: none;
   }
 
+  .article-next-step {
+    max-width: 720px;
+    margin: 3rem auto 0;
+    padding: 2rem;
+    border: 1px solid rgba(61, 179, 173, 0.22);
+    border-radius: var(--radius-xl);
+    background: linear-gradient(150deg, #f0fafa 0%, #fff 74%);
+  }
+
+  .article-next-step-eyebrow {
+    margin-bottom: 0.65rem;
+    color: var(--color-brand-dark);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .article-next-step h2 {
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    line-height: 1.15;
+    letter-spacing: 0;
+    color: var(--color-text);
+  }
+
+  .article-next-step p:not(.article-next-step-eyebrow) {
+    margin-top: 0.8rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .article-next-step a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.15rem;
+    min-height: 44px;
+    padding: 0.75rem 1.1rem;
+    border-radius: 999px;
+    background: var(--color-brand);
+    color: #fff;
+    font-weight: 800;
+  }
+
+  .article-next-step a:hover {
+    background: var(--color-brand-dark);
+  }
+
   @media (max-width: 768px) {
     .blog-hero { padding: 8rem 0 2.5rem; }
     .blog-hero-image img { border-radius: 16px; }
+
+    .article-next-step {
+      margin-top: 2.25rem;
+      padding: 1.5rem;
+      border-radius: 18px;
+    }
 
     .prose :global(table) {
       display: block;

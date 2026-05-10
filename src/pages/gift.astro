@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Baby Shower Gift for New Parents | Nubo Baby Tracker';
+const description = 'Give new parents a practical baby shower gift they can use from the first week: one-button tracking for feeds, sleep, and diapers, with caregiver sync in the free Nubo app.';
+const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Nubo Baby Tracker Gift',
+  description,
+  image: 'https://www.nubotracker.com/images/nubo-instant-tracker.webp',
+  brand: { '@type': 'Brand', name: 'nubo' },
+  offers: {
+    '@type': 'Offer',
+    price: '89.99',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock',
+    url: amazonURL
+  }
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+  <main>
+    <section class="gift-hero">
+      <div class="container gift-hero-inner">
+        <div>
+          <p class="overline">Baby shower gift</p>
+          <h1>A practical gift new parents can use before the first week is over.</h1>
+          <p class="hero-sub">Nubo is a one-button baby tracker for feeds, sleep, pee, and poop. It is easy to understand at the shower, useful in the hospital bag, and still helpful when grandparents or a nanny join the routine.</p>
+          <div class="hero-actions-inline">
+            <a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
+            <a href="/blog/gifts/best-baby-shower-gifts-for-new-parents/" class="btn-ghost">Read the gift guide</a>
+          </div>
+          <div class="gift-trust" aria-label="Gift purchase reassurance"><span>$89.99</span><span>Free shipping with Prime</span><span>30-day returns through Amazon</span></div>
+        </div>
+        <img src="/images/nubo-instant-tracker-1400.webp" srcset="/images/nubo-instant-tracker-900.webp 900w, /images/nubo-instant-tracker-1400.webp 1400w" sizes="(max-width: 900px) 92vw, 44vw" alt="Hand pressing the Nubo instant tracker beside a sleeping baby" width="1400" height="1400" loading="eager" decoding="async" />
+      </div>
+    </section>
+
+    <section class="why-section">
+      <div class="container">
+        <div class="section-intro"><p class="overline">Why it works as a gift</p><h2>It solves a real newborn problem without adding setup pressure.</h2></div>
+        <div class="why-grid">
+          <article><h3>Obvious in seconds</h3><p>One button for the events parents are asked to track most: feeds, sleep, pee, and poop.</p></article>
+          <article><h3>No subscription surprise</h3><p>The device works with the free app and grants Premium to phones that connect to it.</p></article>
+          <article><h3>Useful for helpers</h3><p>Partners, grandparents, nannies, and babysitters can press the same physical button.</p></article>
+          <article><h3>Keeps working later</h3><p>The device can keep helping through future caregivers, second babies, and changing routines.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="recipient-section">
+      <div class="container recipient-inner">
+        <img src="/images/caregiver-hub.webp" alt="Nubo device syncing baby tracking data with multiple caregiver phones" width="970" height="600" loading="lazy" decoding="async" />
+        <div>
+          <p class="overline">What they receive</p>
+          <h2>A device for the hard moments, plus the free app for the record.</h2>
+          <ul>
+            <li>One-button logging for high-frequency newborn events.</li>
+            <li>Free app timeline for review, patterns, and caregiver sharing, with Premium export when families need it.</li>
+            <li>Premium access for active phones that connect to the device.</li>
+            <li>Magnetic mount, lanyard, and extra battery in the box.</li>
+          </ul>
+          <div class="hero-actions-inline"><a href="/device/" class="btn-primary">See device details</a><a href="/app/" class="btn-ghost">Explore the app</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="timing-section">
+      <div class="container timing-inner">
+        <div>
+          <p class="overline">Gift timing</p>
+          <h2>Best before the baby arrives. Still useful after.</h2>
+          <p>Some gifts are adorable at the shower and forgotten by week two. Nubo is for the ordinary questions that start immediately: when did the baby eat, how long was the nap, and was the last diaper wet or dirty?</p>
+        </div>
+        <div class="timing-list">
+          <article><span>Before birth</span><p>Parents can install the app, pair the device, and place it near the crib or changing table.</p></article>
+          <article><span>First week</span><p>Tap through feeds and diapers while everyone is still too tired to remember the last time.</p></article>
+          <article><span>When help arrives</span><p>Grandparents, a nanny, or another caregiver can log without learning a complex app first.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="gift-faq-section">
+      <div class="container">
+        <div class="section-intro"><p class="overline">Gift buyer FAQ</p><h2>Before you wrap it.</h2></div>
+        <div class="gift-faq-grid">
+          <article><h3>Is it useful if the parents already have a baby app?</h3><p>Yes. The device is for the moments when opening a phone is the problem. It syncs into the Nubo app for review later.</p></article>
+          <article><h3>Does the recipient need to pay right away?</h3><p>No. Nubo works with the free app. Premium and app subscriptions are optional paths for families who want more.</p></article>
+          <article><h3>Is it good for grandparents to give?</h3><p>Yes. It is simple to explain and useful when grandparents also help with care.</p></article>
+          <article><h3>Where should I buy it?</h3><p>Nubo is sold on Amazon, so purchase, shipping, and returns happen there.</p></article>
+        </div>
+        <p class="final-cta"><a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a></p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .gift-hero { padding: 9rem 0 5rem; background: linear-gradient(170deg, #fff8ef 0%, #fff 62%); }
+  .gift-hero-inner, .recipient-inner, .timing-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .gift-hero h1 { font-size: clamp(2.35rem, 5vw, 4.25rem); line-height: 1.05; margin-bottom: 1rem; }
+  .hero-sub, .why-grid p, .recipient-inner li, .timing-inner p, .timing-list p, .gift-faq-grid p { color: var(--color-text-secondary); line-height: 1.7; }
+  .hero-actions-inline { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+  .gift-trust { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+  .gift-trust span { background: #fff; border-radius: 999px; padding: 0.625rem 0.875rem; font-size: 0.8125rem; font-weight: 800; color: var(--color-text); }
+  .gift-hero img, .recipient-inner img { width: 100%; height: auto; border-radius: var(--radius-xl); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.1); }
+  .why-section, .recipient-section, .timing-section, .gift-faq-section { padding: 6rem 0; }
+  .why-section, .timing-section { background: #fff; }
+  .recipient-section, .gift-faq-section { background: var(--color-bg-soft); }
+  .why-grid, .gift-faq-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .why-grid article, .gift-faq-grid article, .timing-list article { background: #fff; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); padding: 1.5rem; }
+  .why-section .why-grid article { background: var(--color-bg-soft); }
+  .why-grid h3, .gift-faq-grid h3 { font-size: 1.125rem; margin-bottom: 0.6rem; }
+  .recipient-inner h2, .timing-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; margin-bottom: 1rem; }
+  .recipient-inner ul { display: grid; gap: 0.75rem; padding-left: 1.25rem; }
+  .timing-list { display: grid; gap: 1rem; }
+  .timing-list span { display: block; color: var(--color-brand-dark); font-weight: 800; margin-bottom: 0.35rem; }
+  .final-cta { margin-top: 2rem; text-align: center; }
+  @media (max-width: 980px) { .gift-hero-inner, .recipient-inner, .timing-inner { grid-template-columns: 1fr; } .why-grid, .gift-faq-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .gift-hero { padding: 8rem 0 4rem; } .why-section, .recipient-section, .timing-section, .gift-faq-section { padding: 4rem 0; } .why-grid, .gift-faq-grid { grid-template-columns: 1fr; } }
+</style>

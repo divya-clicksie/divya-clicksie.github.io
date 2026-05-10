@@ -2,9 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import SpeedComparison from '../components/SpeedComparison.astro';
 
 const title = 'Compare Baby Trackers | Nubo vs Apps, Paper, and Notes';
 const description = 'Compare Nubo with paper logs, shared notes, free baby tracker apps, and sleep-focused baby apps. See when a physical button is worth it.';
+const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -19,43 +21,58 @@ const jsonLd = {
 <BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <Header />
   <main>
-    <section class="page-hero">
+    <section class="page-hero compare-hero">
       <div class="container">
         <p class="overline">Compare</p>
-        <h1>When is Nubo the better baby tracker?</h1>
-        <p class="page-hero-sub">If you have your phone in hand all day and one caregiver, a free app can be enough. Nubo wins when tracking has to survive dark rooms, full hands, and multiple caregivers.</p>
+        <h1>The fastest way to log a feed. By the numbers.</h1>
+        <p class="page-hero-sub">Nubo is not trying to be every baby app. It is built for the moments when tracking needs to be fast, shared, and less phone-heavy.</p>
+        <div class="hero-actions-inline"><a href="/pricing/" class="btn-primary">See pricing</a><a href={amazonURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">Buy on Amazon</a></div>
       </div>
     </section>
 
-    <section class="compare-main">
-      <div class="container">
-        <div class="comparison-grid">
-          <article><h2>Nubo vs paper notebook</h2><p>Paper can be fast in the moment, but it cannot sync to another caregiver, show patterns, export data, or carry logs to the pediatrician without retyping.</p></article>
-          <article><h2>Nubo vs Apple Notes</h2><p>A shared note is flexible, but baby tracking needs timestamps, totals, charts, exports, reminders, and a way to log when nobody wants to type.</p></article>
-          <article><h2>Nubo vs free tracker apps</h2><p>Free apps can be enough for one phone-first caregiver. Nubo adds a physical button and multi-caregiver Premium value when the household gets more complicated.</p></article>
-          <article><h2>Nubo vs sleep coaching apps</h2><p>Sleep coaching apps are strongest when sleep prediction is the main goal. Nubo is for whole-day tracking with a device that makes logging easier.</p></article>
-        </div>
+    <SpeedComparison expanded compact />
 
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Need</th><th>Free app</th><th>Paper or notes</th><th>Nubo</th></tr></thead>
-            <tbody>
-              <tr><td>Fast phone-in-hand logging</td><td>Strong</td><td>Good</td><td>Strong</td></tr>
-              <tr><td>Hands-full logging</td><td>Weak</td><td>Weak</td><td>Strong</td></tr>
-              <tr><td>Multiple caregivers</td><td>Varies</td><td>Weak</td><td>Strong</td></tr>
-              <tr><td>Pediatrician exports</td><td>Varies</td><td>Weak</td><td>Strong</td></tr>
-              <tr><td>No hardware purchase</td><td>Strong</td><td>Strong</td><td>Use the free Nubo app</td></tr>
-              <tr><td>Giftable setup</td><td>Weak</td><td>Weak</td><td>Strong</td></tr>
-            </tbody>
-          </table>
+    <section class="use-case-section">
+      <div class="container">
+        <div class="section-intro"><p class="overline">Compare by use case</p><h2>Honest answers for the tracker you already know.</h2></div>
+        <div class="comparison-grid">
+          <article><h2>Vs. paper diary</h2><p>Paper is fine for quiet, undistracted moments. It loses when you need charts, exports, caregiver sync, or a record that travels to appointments.</p></article>
+          <article><h2>Vs. Apple Notes</h2><p>A shared note is flexible, but baby tracking needs timestamps, totals, growth, exports, and a way to log without typing.</p></article>
+          <article><h2>Vs. free tracker apps</h2><p>Free apps can be enough for one phone-first caregiver. Nubo adds a physical button and stronger caregiver economics when the household gets more complex.</p></article>
+          <article><h2>Vs. Huckleberry</h2><p>Huckleberry is sleep-coaching software with a tracker. Nubo is tracking software with a device. They are adjacent, not identical.</p></article>
+          <article><h2>Vs. hospital paper logs</h2><p>Paper logs help in the hospital. Nubo helps keep the same discipline at home, then turns that history into pediatrician-ready data.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fit-section">
+      <div class="container fit-grid">
+        <div>
+          <p class="overline">When the device is optional</p>
+          <h2>Start with the free Nubo app.</h2>
+          <ul>
+            <li>One caregiver, phone always in hand, the free Nubo app is probably enough.</li>
+            <li>No interest in advanced charts, exports, or Premium tools? The free Nubo app still covers everyday tracking.</li>
+            <li>If tracking itself creates stress, keep it light and only log what helps.</li>
+          </ul>
+        </div>
+        <div>
+          <p class="overline">When the device wins clearly</p>
+          <h2>The messy real-life cases.</h2>
+          <ul>
+            <li>Multiple caregivers, especially nanny, grandparents, doulas, or daycare.</li>
+            <li>Nighttime feeds, hands-full changes, and phone-across-the-room moments.</li>
+            <li>Privacy-conscious families who want local-first data and no ads.</li>
+            <li>Families planning for another baby, where the device keeps working.</li>
+          </ul>
         </div>
       </div>
     </section>
 
     <section class="truth-band">
       <div class="container truth-inner">
-        <div><p class="overline">The honest answer</p><h2>Nubo is not for every family. It is for the moments apps miss.</h2></div>
-        <div><p>Choose the free app if you want the lowest-friction start today. Choose the device if your partner, parents, nanny, or nighttime routine makes logging unreliable. Choose Premium if you love the app and want the advanced features without hardware.</p><a href="/pricing/" class="btn-primary">Choose your setup</a></div>
+        <div><p class="overline">The honest answer</p><h2>Choose the simplest tracker that your household will actually use.</h2></div>
+        <div><p>Choose the free app if you want the lowest-friction start today. Choose the device if your partner, parents, nanny, or nighttime routine makes logging unreliable. Choose Premium if you love the app and want advanced tools without hardware.</p><a href="/pricing/" class="btn-primary">Choose your setup</a></div>
       </div>
     </section>
   </main>
@@ -63,21 +80,23 @@ const jsonLd = {
 </BaseLayout>
 
 <style>
-  .compare-main, .truth-band { padding: 6rem 0; }
-  .compare-main { background: #fff; }
+  .compare-hero .hero-actions-inline { justify-content: center; }
+  .hero-actions-inline { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+  .use-case-section, .fit-section, .truth-band { padding: 6rem 0; }
+  .use-case-section { background: #fff; }
+  .fit-section { background: var(--color-bg-soft); }
   .truth-band { background: var(--color-bg-warm); }
-  .comparison-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
-  .comparison-grid article { background: var(--color-bg-soft); border-radius: var(--radius-xl); padding: 1.75rem; }
+  .comparison-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+  .comparison-grid article, .fit-grid > div { background: #fff; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); padding: 1.75rem; }
   .comparison-grid h2 { font-size: 1.125rem; margin-bottom: 0.75rem; }
-  .comparison-grid p, .truth-inner p { color: var(--color-text-secondary); line-height: 1.7; }
-  .table-wrap { overflow-x: auto; }
-  table { width: 100%; min-width: 680px; border-collapse: collapse; background: #fff; border: 1px solid #eee; border-radius: var(--radius-xl); overflow: hidden; }
-  th, td { padding: 1rem; text-align: left; border-bottom: 1px solid #eee; }
-  th { color: var(--color-text-secondary); font-size: 0.8125rem; text-transform: uppercase; }
-  td:last-child { color: var(--color-brand-dark); font-weight: 700; }
-  .truth-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-  .truth-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; }
+  .comparison-grid p, .truth-inner p, .fit-grid li { color: var(--color-text-secondary); line-height: 1.7; }
+  .fit-grid, .truth-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .fit-grid h2, .truth-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; margin-bottom: 1rem; }
+  .fit-grid ul { padding-left: 1.25rem; }
+  .fit-grid li + li { margin-top: 0.75rem; }
+  .truth-inner { align-items: center; }
   .truth-inner .btn-primary { margin-top: 1.5rem; }
-  @media (max-width: 980px) { .comparison-grid { grid-template-columns: 1fr 1fr; } .truth-inner { grid-template-columns: 1fr; gap: 2rem; } }
-  @media (max-width: 640px) { .compare-main, .truth-band { padding: 4rem 0; } .comparison-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 1120px) { .comparison-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 900px) { .fit-grid, .truth-inner { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { .use-case-section, .fit-section, .truth-band { padding: 4rem 0; } .comparison-grid { grid-template-columns: 1fr; } }
 </style>

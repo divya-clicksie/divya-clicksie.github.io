@@ -2,20 +2,23 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import SpeedComparison from '../components/SpeedComparison.astro';
+import CaregiverEconomics from '../components/CaregiverEconomics.astro';
+import PremiumFollowsDevice from '../components/PremiumFollowsDevice.astro';
 
-const title = 'Nubo Device | One-Touch Baby Tracking Button';
-const description = 'Meet the Nubo baby tracker device. Log feeds, sleep, pee, and poop with one button, then sync everything to the free Nubo app.';
+const title = 'Nubo Device | One-Button Baby Tracker for Feeds, Sleep, and Diapers';
+const description = 'Log feeds, sleep, pee, and poop with a one-second button press. The Nubo device syncs to the free app and gives Premium to every caregiver who uses it.';
+
 const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Product',
   name: 'Nubo Baby Tracker Device',
+  image: 'https://www.nubotracker.com/images/nubo-instant-tracker.webp',
   description,
-  image: 'https://www.nubotracker.com/images/nubo-oneclick.webp',
   brand: { '@type': 'Brand', name: 'nubo' },
-  offers: { '@type': 'Offer', price: '89.99', priceCurrency: 'USD', url: amazonURL, availability: 'https://schema.org/InStock' },
-  aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.2', reviewCount: '32' }
+  offers: { '@type': 'Offer', price: '89.99', priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: amazonURL }
 };
 ---
 
@@ -23,85 +26,108 @@ const jsonLd = {
   <Header />
   <main>
     <section class="device-hero">
-      <div class="container device-hero-inner">
+      <div class="container device-hero-grid">
         <div>
           <p class="overline">Nubo Device</p>
-          <h1>A button beats an app when your phone is not open.</h1>
-          <p>Press one button for feeds, sleep, pee, or poop. Nubo stores the log and syncs it to the app when your phone is nearby.</p>
-          <div class="hero-actions-inline">
-            <a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
-            <a href="/pricing/" class="btn-ghost">See pricing</a>
-          </div>
-          <div class="hero-trust"><span>$89.99 one-time</span><span>Premium for every caregiver</span><span>30-day returns through Amazon</span></div>
+          <h1>One-second baby logging, even when your phone is nowhere near you.</h1>
+          <p class="hero-sub">Press once for feeding, sleep, pee, or poop. Nubo remembers the exact time, then syncs with the free app and keeps every active caregiver on Premium.</p>
+          <div class="hero-actions-inline"><a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon · $89.99</a><a href="/app/" class="btn-ghost">Use the free app first</a></div>
+          <div class="trust-strip" aria-label="Nubo purchase reassurance"><span>4.2 stars on Amazon</span><span>No subscription required</span><span>Free shipping with Prime</span><span>30-day returns through Amazon</span></div>
         </div>
-        <img src="/images/nubo-oneclick.webp" alt="Finger pressing the sleep button on the Nubo baby tracker device" width="740" height="554" />
+        <img src="/images/nubo-instant-tracker-1400.webp" srcset="/images/nubo-instant-tracker-900.webp 900w, /images/nubo-instant-tracker-1400.webp 1400w" sizes="(max-width: 900px) 92vw, 48vw" alt="Hand pressing the Nubo instant tracker beside a sleeping baby" width="1400" height="1400" loading="eager" decoding="async" />
+      </div>
+    </section>
+
+    <SpeedComparison expanded />
+
+    <section class="three-speeds-section">
+      <div class="container">
+        <div class="section-intro"><p class="overline">Three ways to log</p><h2>Use the fastest input that fits the moment.</h2></div>
+        <div class="speed-card-grid">
+          <article><span>1 sec</span><h3>Device press</h3><p>Best for nighttime feeds, diaper changes, and any moment where unlocking your phone would pull attention away.</p></article>
+          <article><span>4 sec</span><h3>Quick Log</h3><p>Best when your phone is already open and you want a fast tap-based entry.</p></article>
+          <article><span>8 sec</span><h3>Voice logging</h3><p>Best for catch-up logging after a feed, pump, medicine dose, or caregiver handoff.</p></article>
+        </div>
       </div>
     </section>
 
     <section class="moments-section">
       <div class="container">
-        <div class="section-intro"><p class="overline">Built for real moments</p><h2>Fast when tracking usually falls apart.</h2></div>
+        <div class="section-intro"><p class="overline">Real life moments</p><h2>Built for the moments apps make harder.</h2></div>
         <div class="moment-grid">
-          <article><img src="/images/nubo-device-hand.webp" alt="Hand pressing the Nubo tracker button" width="640" height="400" /><h3>3 a.m. feeds</h3><p>Half asleep, eyes barely open, one press is enough.</p></article>
-          <article><img src="/images/magnetic-sticker.webp" alt="Nubo mounted near a crib mobile" width="300" height="300" /><h3>Hands-full changes</h3><p>Press before picking baby back up. No unlocking, scrolling, or catching up later.</p></article>
-          <article><img src="/images/care_with_confidence.webp" alt="Caregivers using Nubo across the family" width="1536" height="651" /><h3>Caregiver handoffs</h3><p>Show the button once. Everyone logs the same way, and the timeline stays in sync.</p></article>
+          <article><h3>Night feeds</h3><p>Tap the button without bright screens, app navigation, or a phone search in the dark.</p></article>
+          <article><h3>Hands-full diaper changes</h3><p>Mark pee or poop while the change is happening, then add notes later if you need them.</p></article>
+          <article><h3>Caregiver handoff</h3><p>Nanny or grandparent logs from the device, then their phone syncs when it is nearby.</p></article>
+          <article><h3>Pediatrician prep</h3><p>Keep a more complete history for questions about intake, output, sleep, medicine, and growth.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="compare-section">
-      <div class="container compare-inner">
+    <section class="mechanics-section">
+      <div class="container mechanics-grid">
         <div>
-          <p class="overline">App-only vs device</p>
-          <h2>The difference is the moment you need to log.</h2>
-          <p>If your phone is already open, the app is fast. If your phone is across the room, locked, or buried under a blanket, the device wins.</p>
+          <p class="overline">How the device works</p>
+          <h2>A button simple enough for 3 a.m.</h2>
+          <ol>
+            <li><strong>Press:</strong> Log feeding, sleep, pee, or poop with a physical button.</li>
+            <li><strong>Store:</strong> The device keeps the timestamp even before a phone connects.</li>
+            <li><strong>Sync:</strong> Bluetooth sends logs to the app when a caregiver phone is nearby.</li>
+            <li><strong>Review:</strong> The app shows history, charts, exports, reminders, and caregiver notes.</li>
+          </ol>
         </div>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Moment</th><th>App-only tracker</th><th>Nubo device</th></tr></thead>
-            <tbody>
-              <tr><td>3 a.m. feed</td><td>Unlock phone, open app, tap card</td><td>Press one button</td></tr>
-              <tr><td>Bottle warming</td><td>Log later and hope you remember</td><td>Press the fridge-mounted button</td></tr>
-              <tr><td>Grandparent helping</td><td>Teach app onboarding</td><td>Show one labeled button</td></tr>
-              <tr><td>Forgot a nap</td><td>Edit the timestamp manually</td><td>Use voice catch-up in the app</td></tr>
-            </tbody>
-          </table>
+        <div class="spec-card">
+          <h3>Included in the box</h3>
+          <ul>
+            <li>Nubo physical tracker</li>
+            <li>Magnetic mount</li>
+            <li>Lanyard</li>
+            <li>Battery designed for months of everyday use</li>
+            <li>Setup with the free Nubo app</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="logs-section">
-      <div class="container logs-inner">
-        <img src="/images/ready-for-hospital.webp" alt="Nubo packed in a hospital bag" width="300" height="300" />
+    <PremiumFollowsDevice />
+    <CaregiverEconomics />
+
+    <section class="gift-section">
+      <div class="container gift-grid">
         <div>
-          <p class="overline">What it logs</p>
-          <h2>Feeds, sleep, pee, and poop. The essentials in one second.</h2>
-          <p>Nubo uses Bluetooth Low Energy to sync with your phone. No Wi-Fi, hub, or charging routine. The box includes the device, battery, spare CR2032 battery, magnetic mount sticker, milk volume sticker, lanyard, and guides.</p>
-          <div class="feature-pills"><span>Months of battery</span><span>Spill resistant</span><span>Magnetic mount</span><span>Lanyard included</span></div>
+          <p class="overline">Baby shower and second baby</p>
+          <h2>A practical gift that keeps working.</h2>
+          <p>The device is a simple gift because it does not ask new parents to choose a subscription on day one. It also keeps working for a second baby, future caregiver routines, and the next phase of family life.</p>
+          <div class="hero-actions-inline"><a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a><a href="/gift/" class="btn-ghost">Gift guide</a></div>
         </div>
+        <img src="/images/caregiver-hub.webp" alt="Nubo baby tracker shared across caregiver phones" width="970" height="600" loading="lazy" decoding="async" />
       </div>
     </section>
 
-    <section class="value-section">
-      <div class="container value-inner">
+    <section class="second-baby-section">
+      <div class="container second-baby-inner">
         <div>
-          <p class="overline">Best value for families</p>
-          <h2>Two caregivers on Premium cost about $80 per year. The device is $89.99 once.</h2>
-          <p>Because the device includes Premium for every caregiver, it is the clearest choice for partners, grandparents, nannies, and families planning for a second baby.</p>
-          <a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
+          <p class="overline">Future babies</p>
+          <h2>What about a second baby?</h2>
+          <p>The device is not tied to one newborn stage. Put it back near the crib, pair it with the app, and use the same one-button habit when your household starts again.</p>
         </div>
-        <blockquote><p>"Nubo is the first one I can use half-asleep."</p><footer>Kiran K. · Verified Purchase</footer></blockquote>
+        <div class="second-baby-grid">
+          <article><h3>Hardware keeps working</h3><p>The physical tracker, mount, and lanyard can move with your nursery setup instead of becoming a one-child purchase.</p></article>
+          <article><h3>The app supports profiles</h3><p>Nubo keeps child timelines separate, so a future baby can have their own record without losing older history.</p></article>
+          <article><h3>Caregivers come back faster</h3><p>Partners and grandparents who already know the button do not need to learn a new logging system the next time.</p></article>
+        </div>
       </div>
     </section>
 
     <section class="faq-band">
       <div class="container">
-        <div class="section-intro"><p class="overline">Device FAQ</p><h2>The practical stuff.</h2></div>
+        <div class="section-intro"><p class="overline">Device FAQ</p><h2>Before you buy.</h2></div>
         <div class="faq-grid">
-          <article><h3>Does it need Wi-Fi?</h3><p>No. Nubo syncs to the app with Bluetooth Low Energy when your phone is nearby.</p></article>
-          <article><h3>How long does the battery last?</h3><p>Several months with typical use. A spare CR2032 battery is included in the box.</p></article>
-          <article><h3>Is it waterproof?</h3><p>Nubo is water and spill resistant for everyday messes. It is not designed for submersion.</p></article>
-          <article><h3>Can I return it?</h3><p>Nubo is sold on Amazon and follows Amazon's standard return policy.</p></article>
+          <article><h3>Does the device require a Premium subscription?</h3><p>No. The device works with the free app and grants Premium to every phone that connects to it for 30 days.</p></article>
+          <article><h3>Can caregivers use different phones?</h3><p>Yes. The device can grant Premium across separate App Store and Google Play accounts when caregiver phones connect to it.</p></article>
+          <article><h3>What if a caregiver visits occasionally?</h3><p>Their Premium access lasts 30 days after sync. When they visit again and sync with the device, Premium refreshes.</p></article>
+          <article><h3>Can I use the app without the device?</h3><p>Yes. The free Nubo app is useful on its own. The device adds the fastest logging method and caregiver Premium economics.</p></article>
+          <article><h3>What can the button track?</h3><p>The device covers the highest-frequency newborn events: feeds, sleep, pee, and poop.</p></article>
+          <article><h3>Can I return it?</h3><p>Nubo is sold through Amazon, so returns follow Amazon's standard return policy.</p></article>
         </div>
       </div>
     </section>
@@ -110,30 +136,32 @@ const jsonLd = {
 </BaseLayout>
 
 <style>
-  .device-hero { padding: 10rem 0 5rem; background: linear-gradient(170deg, #f0fafa 0%, #fff 55%, var(--color-bg-warm) 100%); }
-  .device-hero-inner, .compare-inner, .logs-inner, .value-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-  .device-hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.08; margin-bottom: 1rem; }
-  .device-hero p, .compare-inner p, .logs-inner p, .value-inner p, .faq-grid p { color: var(--color-text-secondary); line-height: 1.7; }
-  .device-hero img, .moment-grid img, .logs-inner img { border-radius: var(--radius-xl); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08); }
-  .hero-actions-inline { margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
-  .hero-trust, .feature-pills { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem; }
-  .hero-trust span, .feature-pills span { background: #fff; color: var(--color-brand-dark); border-radius: 999px; padding: 0.5rem 0.875rem; font-size: 0.8125rem; font-weight: 700; }
-  .moments-section, .compare-section, .logs-section, .value-section, .faq-band { padding: 6rem 0; }
-  .moments-section, .logs-section { background: #fff; }
-  .compare-section, .faq-band { background: var(--color-bg-soft); }
-  .value-section { background: var(--color-bg-warm); }
-  .moment-grid, .faq-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .faq-grid { grid-template-columns: repeat(4, 1fr); }
-  .moment-grid article, .faq-grid article, blockquote { background: #fff; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); padding: 1.5rem; }
-  .moment-grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 1.25rem; }
-  .moment-grid h3, .faq-grid h3 { font-size: 1.125rem; margin-bottom: 0.5rem; }
-  .compare-inner h2, .logs-inner h2, .value-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; margin-bottom: 1rem; }
-  .table-wrap { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; background: #fff; border-radius: var(--radius-xl); overflow: hidden; }
-  th, td { padding: 1rem; text-align: left; border-bottom: 1px solid #eee; vertical-align: top; }
-  th { color: var(--color-text-secondary); font-size: 0.8125rem; text-transform: uppercase; }
-  blockquote p { font-size: clamp(1.5rem, 4vw, 2.25rem); color: var(--color-text) !important; line-height: 1.2; font-weight: 700; }
-  blockquote footer { margin-top: 1rem; color: var(--color-text-secondary); }
-  @media (max-width: 900px) { .device-hero-inner, .compare-inner, .logs-inner, .value-inner { grid-template-columns: 1fr; } .moment-grid, .faq-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 640px) { .device-hero { padding-top: 8rem; } .moments-section, .compare-section, .logs-section, .value-section, .faq-band { padding: 4rem 0; } .moment-grid, .faq-grid { grid-template-columns: 1fr; } }
+  .device-hero { padding: 8rem 0 5rem; background: var(--color-bg-warm); }
+  .device-hero-grid, .mechanics-grid, .gift-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .device-hero-grid { align-items: start; }
+  .device-hero h1 { font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1; letter-spacing: 0; max-width: 760px; }
+  .hero-sub { font-size: 1.25rem; line-height: 1.7; color: var(--color-text-secondary); margin: 1.5rem 0 0; max-width: 640px; }
+  .hero-actions-inline { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+  .device-hero img, .gift-grid img { width: 100%; height: auto; border-radius: var(--radius-xl); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.1); }
+  @media (min-width: 981px) { .device-hero-grid > img { margin-top: calc(0.8125rem * 1.6 + 0.75rem); } }
+  .trust-strip { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+  .trust-strip span { background: #fff; border-radius: 999px; padding: 0.625rem 0.875rem; font-size: 0.8125rem; font-weight: 700; }
+  .three-speeds-section, .moments-section, .mechanics-section, .gift-section, .second-baby-section, .faq-band { padding: 6rem 0; }
+  .three-speeds-section, .mechanics-section, .second-baby-section, .faq-band { background: #fff; }
+  .moments-section, .gift-section { background: var(--color-bg-soft); }
+  .speed-card-grid, .moment-grid, .second-baby-grid, .faq-grid { display: grid; gap: 1.5rem; }
+  .speed-card-grid { grid-template-columns: repeat(3, 1fr); }
+  .moment-grid, .faq-grid { grid-template-columns: repeat(2, 1fr); }
+  .second-baby-grid { grid-template-columns: repeat(3, 1fr); }
+  .speed-card-grid article, .moment-grid article, .second-baby-grid article, .spec-card, .faq-grid article { background: #fff; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); padding: 1.75rem; }
+  .three-speeds-section .speed-card-grid article { background: var(--color-bg-soft); }
+  .speed-card-grid span { display: inline-flex; margin-bottom: 1rem; color: var(--color-brand-dark); font-size: 2.5rem; font-weight: 700; line-height: 1; }
+  .speed-card-grid h3, .moment-grid h3, .second-baby-grid h3, .spec-card h3, .faq-grid h3 { font-size: 1.125rem; line-height: 1.25; margin-bottom: 0.75rem; }
+  .speed-card-grid p, .moment-grid p, .mechanics-grid li, .gift-grid p, .second-baby-inner p, .faq-grid p { color: var(--color-text-secondary); line-height: 1.7; }
+  .mechanics-grid h2, .gift-grid h2, .second-baby-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; margin-bottom: 1rem; }
+  .second-baby-inner { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 4rem; align-items: start; }
+  .mechanics-grid ol, .spec-card ul { display: grid; gap: 0.875rem; padding-left: 1.25rem; }
+  .gift-grid .btn-primary { margin-top: 1.5rem; }
+  @media (max-width: 980px) { .device-hero-grid, .mechanics-grid, .gift-grid, .second-baby-inner { grid-template-columns: 1fr; gap: 2.5rem; } .device-hero { padding-top: 6rem; } }
+  @media (max-width: 760px) { .speed-card-grid, .moment-grid, .second-baby-grid, .faq-grid { grid-template-columns: 1fr; } .three-speeds-section, .moments-section, .mechanics-section, .gift-section, .second-baby-section, .faq-band { padding: 4rem 0; } }
 </style>

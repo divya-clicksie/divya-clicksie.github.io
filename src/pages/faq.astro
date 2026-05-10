@@ -9,23 +9,23 @@ const description = 'Frequently asked questions about the Nubo baby activity tra
 const faqs = [
   {
     q: "What does Nubo track?",
-    a: "Nubo tracks feedings (breast and bottle with volume), sleep, and diapers (pee and poop). Press the corresponding button on the device to log an activity. It takes about one second."
+    a: "Nubo tracks feedings (breast and bottle with volume), sleep, and diapers (pee and poop). Press the corresponding button on the device to log an activity. It takes about one second. See the <a href=\"/device/\">device page</a> for what the physical buttons cover, or the <a href=\"/app/\">app page</a> for the full timeline and advanced logs."
   },
   {
     q: "Do I need the app to use Nubo?",
-    a: "No. The device works on its own and stores activity logs internally. The free companion app adds trends, insights, caregiver sharing, and data export. You can start using the device immediately and connect the app whenever you're ready."
+    a: "No. The device works on its own and stores activity logs internally. The free companion app adds history, trends, insights, and caregiver sharing. You can start using the device immediately and connect the app whenever you're ready. The <a href=\"/how-it-works/\">how it works page</a> shows how the device, app, and caregivers stay in sync."
   },
   {
     q: "How does Nubo sync with the app?",
-    a: "Nubo syncs via Bluetooth Low Energy. When your phone is nearby, the app automatically pulls new activity data from the device. No Wi-Fi or internet connection is needed for syncing."
+    a: "Nubo syncs via Bluetooth Low Energy. When your phone is nearby, the app automatically pulls new activity data from the device. No Wi-Fi or internet connection is needed for syncing. For the full flow, visit <a href=\"/how-it-works/\">how it works</a>."
   },
   {
     q: "What phones are compatible?",
-    a: "The Nubo app is available for iOS (iPhone) and Android. It requires Bluetooth Low Energy support, which is standard on any phone released in the last several years."
+    a: "The Nubo app is available for iOS (iPhone) and Android. It requires Bluetooth Low Energy support, which is standard on any phone released in the last several years. Start from the <a href=\"/app/\">free app page</a> to choose App Store or Google Play."
   },
   {
     q: "How long does the battery last?",
-    a: "Nubo uses a standard coin cell battery (CR2032) that lasts several months with typical use. An extra battery is included in the box. No charging cables needed."
+    a: "Nubo uses a standard coin cell battery (CR2032) that lasts several months with typical use. An extra battery is included in the box. No charging cables needed. The <a href=\"/device/\">device page</a> has the box contents and setup overview."
   },
   {
     q: "Is Nubo waterproof?",
@@ -33,11 +33,39 @@ const faqs = [
   },
   {
     q: "Can multiple caregivers use Nubo?",
-    a: "Yes. Anyone can press the buttons on the Nubo device to log activities. In the app, you can invite caregivers (partner, grandparents, nanny) so everyone sees the same activity log in real time. Nubo Premium is included free for every caregiver."
+    a: "Yes. Anyone can press the buttons on the Nubo device to log activities. In the app, you can invite caregivers like a partner, grandparents, or nanny so everyone sees the same activity log. Learn more on the <a href=\"/caregivers/\">caregiver page</a>."
+  },
+  {
+    q: "Does the device require a Premium subscription?",
+    a: "No. The <a href=\"/device/\">Nubo device</a> works with the free app and gives Premium to each phone that connects to it for 30 days. You do not need a separate device subscription."
+  },
+  {
+    q: "How does the device give caregivers Premium?",
+    a: "When a caregiver phone pairs with or syncs from the device, that phone gets 30 days of Premium. Each later sync refreshes the 30-day window. This is why the device can be a strong value for households with nannies, grandparents, doulas, or daycare staff. See the <a href=\"/pricing/\">pricing page</a> for the household math."
+  },
+  {
+    q: "What happens if a caregiver only visits occasionally?",
+    a: "Premium lasts 30 days after that caregiver's most recent sync. If it lapses, it reactivates the next time that caregiver syncs with your device. The <a href=\"/caregivers/\">caregiver page</a> explains how occasional helpers fit into the shared timeline."
+  },
+  {
+    q: "Does Premium work for me if my partner buys the device?",
+    a: "Yes. Premium follows device use. It does not depend on which caregiver bought the device or which Apple or Google account made the purchase."
+  },
+  {
+    q: "Can my partner use Nubo too?",
+    a: "Yes. The free tier supports unlimited caregivers. Premium tools belong to the App Store or Google Play account that buys Premium. Caregivers on separate store accounts usually need their own Premium, or the device can grant Premium when they use it. The <a href=\"/pricing/\">pricing page</a> compares those setups."
   },
   {
     q: "Is my baby's data private?",
-    a: "Yes. Activity data is stored locally on your phone. Caregiver sharing uses end-to-end encryption. Backups go to your own iCloud or Google Drive. We never sell or share your information. Read our <a href=\"/privacy-policy/\">privacy policy</a> for full details."
+    a: "Yes. Activity data is stored locally on your phone. Caregiver sharing works across iOS and Android and uses end-to-end encryption. Backups go to your own iCloud or Google Drive. We never sell or share your information. Read the plain-English <a href=\"/privacy/\">privacy overview</a> or the full <a href=\"/privacy-policy/\">privacy policy</a>."
+  },
+  {
+    q: "What happens to my data if I cancel Premium?",
+    a: "Your baby history remains available in the free app. Premium adds advanced tools, but canceling Premium does not erase your logs. The <a href=\"/app/\">free app page</a> shows what remains useful without upgrading."
+  },
+  {
+    q: "Is the free tier actually useful?",
+    a: "Yes. The <a href=\"/app/\">free Nubo app</a> includes routine tracking, unlimited caregivers, child profiles, cloud backup, offline mode, voice logging, quick logs, and the core timeline. Premium and the device are optional upgrades."
   },
   {
     q: "Do I need to create an account?",
@@ -45,11 +73,19 @@ const faqs = [
   },
   {
     q: "Where can I buy Nubo?",
-    a: "Nubo is available on <a href=\"https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas\" target=\"_blank\" rel=\"noopener noreferrer\">Amazon</a>. Free shipping with Prime. The companion app is free on the App Store and Google Play."
+    a: "Nubo is available on <a href=\"https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas\" target=\"_blank\" rel=\"noopener noreferrer\">Amazon</a>. Free shipping with Prime. The companion app is free on the App Store and Google Play. You can compare options on the <a href=\"/pricing/\">pricing page</a>."
+  },
+  {
+    q: "What if I have a second baby?",
+    a: "The app supports multiple child profiles, and the device can keep working for a future baby. A one-time device purchase can be especially useful for families planning beyond one newborn stage. Compare app, Premium, and device paths on the <a href=\"/pricing/\">pricing page</a>."
+  },
+  {
+    q: "Can I return the device?",
+    a: "Nubo is sold through Amazon, so returns follow Amazon's standard return policy. You can review device pricing and purchase reassurance on the <a href=\"/pricing/\">pricing page</a>."
   },
   {
     q: "What comes in the box?",
-    a: "The Nubo device (with battery installed), a milk volume sticker, a magnetic mount sticker, an extra CR2032 battery, a lanyard, and setup and user guides."
+    a: "The Nubo device (with battery installed), a milk volume sticker, a magnetic mount sticker, an extra CR2032 battery, a lanyard, and setup and user guides. See the <a href=\"/device/\">device page</a> for the setup and box overview."
   },
   {
     q: "How do I mount or carry Nubo?",
@@ -57,7 +93,11 @@ const faqs = [
   },
   {
     q: "Can I export my data?",
-    a: "Yes. The Nubo app lets you export your baby's activity data as a PDF or CSV. This is helpful for pediatrician visits or keeping personal records."
+    a: "Yes. Premium includes PDF and CSV export for your baby's activity data. This is helpful for pediatrician visits or keeping personal records. Your timeline stays available in the free app even if you do not use Premium. The <a href=\"/app/\">app page</a> covers the app-first tools in more detail."
+  },
+  {
+    q: "Can caregivers see my pumping data?",
+    a: "No. Nubo Premium includes a private pumping tracker for milk output. Pumping data is not in the shared baby log, not in caregiver sync, and not visible to partners, nannies, grandparents, or other collaborators. Read the <a href=\"/blog/privacy/pumping-tracker-private-data/\">pumping privacy guide</a> for the full design."
   },
   {
     q: "Is Nubo a medical device?",
@@ -69,7 +109,7 @@ const faqs = [
   },
   {
     q: "How do I pair Nubo with my phone?",
-    a: "Open the Nubo app, tap Add Device, and hold Nubo close to your phone. The app will find it automatically via Bluetooth. The whole process takes about 30 seconds. No Wi-Fi or passwords needed."
+    a: "Open the Nubo app, tap Add Device, and hold Nubo close to your phone. The app will find it automatically via Bluetooth. The whole process takes about 30 seconds. No Wi-Fi or passwords needed. The <a href=\"/how-it-works/\">how it works page</a> walks through the setup flow."
   },
   {
     q: "How do I reset Nubo?",
@@ -85,11 +125,11 @@ const faqs = [
   },
   {
     q: "Can I log activities manually in the app?",
-    a: "Yes. Open the app and tap the + button to add any activity with a custom time. This is useful if you forgot to press the device or want to add a past event."
+    a: "Yes. Open the app and tap the + button to add any activity with a custom time. This is useful if you forgot to press the device or want to add a past event. See the <a href=\"/app/\">app page</a> for quick logging and catch-up options."
   },
   {
     q: "Can I log by voice in the app?",
-    a: "Yes. Open Nubo and speak naturally, like 'Sophie had 4 ounces at 3pm, right side' or 'She napped from 1 to 2:30'. Nubo turns it into a structured log instantly. You can also pin free-form voice notes to any moment. In-app voice logging is free and unlimited, with no usage caps."
+    a: "Yes. Open Nubo and speak naturally, like 'Sophie had 4 ounces at 3pm, right side' or 'She napped from 1 to 2:30'. Nubo turns it into a structured log instantly. You can also pin free-form voice notes to any moment. In-app voice logging is free and unlimited, with no usage caps. See more on the <a href=\"/app/\">app page</a>."
   },
   {
     q: "Does my voice get sent to the cloud?",
@@ -97,7 +137,7 @@ const faqs = [
   },
   {
     q: "Do I need the Nubo device to use voice logging?",
-    a: "No. In-app voice logging works in the free Nubo app on its own. The device adds one-touch logging for moments when your phone isn't within reach."
+    a: "No. In-app voice logging works in the free Nubo app on its own. The device adds one-touch logging for moments when your phone isn't within reach. The <a href=\"/compare/\">comparison page</a> shows where voice, Quick Log, and the device each fit."
   }
 ];
 
@@ -126,6 +166,16 @@ const jsonLd = {
           Everything you need to know about Nubo. Can't find your answer?
           <a href="/contact/" class="hero-link">Reach out to us</a>.
         </p>
+      </div>
+    </section>
+
+    <section class="faq-paths" aria-label="Common next steps">
+      <div class="container faq-path-grid">
+        <a href="/device/"><span>Device</span><strong>One-button logging</strong></a>
+        <a href="/app/"><span>App</span><strong>Free iOS and Android tracker</strong></a>
+        <a href="/pricing/"><span>Pricing</span><strong>Free, Premium, or device</strong></a>
+        <a href="/caregivers/"><span>Caregivers</span><strong>Shared timeline and Premium</strong></a>
+        <a href="/privacy/"><span>Privacy</span><strong>Local-first baby data</strong></a>
       </div>
     </section>
 
@@ -158,6 +208,46 @@ const jsonLd = {
 
 
 <style>
+  .faq-paths {
+    padding: 0 0 1rem;
+    background: #fff;
+  }
+
+  .faq-path-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+  }
+
+  .faq-path-grid a {
+    display: grid;
+    gap: 0.35rem;
+    min-height: 96px;
+    padding: 1rem;
+    border: 1px solid #e8e8e8;
+    border-radius: var(--radius-lg);
+    background: var(--color-bg-soft);
+    color: var(--color-text);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .faq-path-grid a:hover {
+    border-color: var(--color-brand);
+    transform: translateY(-2px);
+  }
+
+  .faq-path-grid span {
+    color: var(--color-brand-dark);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .faq-path-grid strong {
+    font-size: 0.95rem;
+    line-height: 1.35;
+  }
+
   .faq-content {
     padding: 4rem 0 2rem;
   }
@@ -180,7 +270,7 @@ const jsonLd = {
     font-size: 1.0625rem;
     font-weight: 600;
     color: var(--color-text);
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
     list-style: none;
     gap: 1.5rem;
   }
@@ -239,7 +329,7 @@ const jsonLd = {
     font-size: 1.75rem;
     font-weight: 700;
     color: var(--color-text);
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
     margin-bottom: 0.5rem;
   }
 
@@ -251,6 +341,8 @@ const jsonLd = {
 
   @media (max-width: 768px) {
     .page-hero { padding: 8rem 0 3rem; }
+    .faq-path-grid { grid-template-columns: 1fr; }
+    .faq-path-grid a { min-height: 0; }
     .faq-question { font-size: 1rem; padding: 1.25rem 0; }
     .faq-cta-inner { padding: 2rem; }
   }

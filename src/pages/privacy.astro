@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Privacy Overview | Nubo Baby Tracker';
+const description = 'A plain-English overview of how Nubo protects baby tracking data, voice logging, end-to-end encrypted caregiver sharing across iOS and Android, backups, and website privacy.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  description,
+  url: 'https://www.nubotracker.com/privacy/'
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+  <main>
+    <section class="page-hero privacy-hero">
+      <div class="container">
+        <p class="overline">Privacy overview</p>
+        <h1>Baby data should serve the family caring for the baby.</h1>
+        <p class="page-hero-sub">This is the plain-English version. The legal policy is still available when you need the full text.</p>
+        <div class="hero-actions-inline"><a href="/privacy-policy/" class="btn-primary">Read the legal policy</a><a href="/contact/" class="btn-ghost">Ask a privacy question</a></div>
+      </div>
+    </section>
+
+    <section class="privacy-principles">
+      <div class="container">
+        <div class="principle-grid">
+          <article><h2>Local-first app data</h2><p>Your baby history starts on your phone. Backups use your own iCloud or Google Drive rather than a marketing data warehouse.</p></article>
+          <article><h2>Private voice logging</h2><p>In-app voice logging runs on your phone. Alexa logging works through Amazon's Alexa systems, the same way other Alexa skills do.</p></article>
+          <article><h2>End-to-end encrypted sharing</h2><p>Caregiver sharing works across iOS and Android while staying limited to invited helpers, not public links or ad targeting.</p></article>
+          <article><h2>No marketing-site tracking</h2><p>This website does not run analytics, pixels, session replay, or retargeting scripts.</p></article>
+          <article><h2>No selling baby data</h2><p>Nubo is not built around selling or sharing baby activity data with advertisers.</p></article>
+          <article><h2>You keep your history</h2><p>If Premium ends, your baby history remains available in the free tier.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="privacy-deep-dive">
+      <div class="container privacy-deep-inner">
+        <div><p class="overline">What this means in practice</p><h2>Caregivers get the context they need. Advertisers do not.</h2></div>
+        <div>
+          <p>Nubo exists to help families answer ordinary questions: when did the baby eat, how long did the nap last, was the diaper wet, and what should the next caregiver know. Shared tracking can cross Apple and Google ecosystems, but the baby's timeline stays end-to-end encrypted for the people you invite. That is the boundary we design around.</p>
+          <p>For formal terms, retention details, support contact, and legal language, use the full <a href="/privacy-policy/">privacy policy</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .privacy-hero .hero-actions-inline { justify-content: center; margin-top: 2rem; }
+  .hero-actions-inline { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .privacy-principles, .privacy-deep-dive { padding: 6rem 0; }
+  .privacy-principles { background: #fff; }
+  .privacy-deep-dive { background: var(--color-bg-soft); }
+  .principle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .principle-grid article { background: var(--color-bg-soft); border: 1px solid #e8e8e8; border-radius: var(--radius-xl); padding: 1.75rem; }
+  .principle-grid h2 { font-size: 1.125rem; line-height: 1.25; margin-bottom: 0.75rem; }
+  .principle-grid p, .privacy-deep-inner p { color: var(--color-text-secondary); line-height: 1.7; }
+  .privacy-deep-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .privacy-deep-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; }
+  .privacy-deep-inner a { color: var(--color-brand-dark); font-weight: 700; }
+  @media (max-width: 900px) { .principle-grid { grid-template-columns: 1fr 1fr; } .privacy-deep-inner { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { .privacy-principles, .privacy-deep-dive { padding: 4rem 0; } .principle-grid { grid-template-columns: 1fr; } }
+</style>

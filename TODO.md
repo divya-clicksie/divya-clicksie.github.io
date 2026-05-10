@@ -16,4 +16,4 @@ These items need real assets or external services before they can be implemented
 ## Nice to Have
 
 - [ ] **"See how it works" button should link to a video** — Currently scrolls to the text section. Once the demo video exists, update the hero button to scroll to / play the video.
-- [ ] **Gifting landing page** — Dedicated page for gift buyers with different psychology (generous & thoughtful, not practical). At minimum the current "Gift it on Amazon" CTA covers this.
+- [x] **Gifting landing page** - Dedicated page for gift buyers with different psychology (generous & thoughtful, not practical). Implemented at `/gift/` with direct Amazon CTAs.

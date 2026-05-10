@@ -3,6 +3,7 @@
 ## What this site does
 
 Static marketing site for [www.nubotracker.com](https://www.nubotracker.com). Informational only. Routes visitors to Amazon, App Store, and Google Play. No on-site checkout.
+No website analytics, tracking pixels, or retargeting scripts.
 
 ## Product lineup
 
@@ -39,11 +40,12 @@ Nubo is a baby tracking ecosystem: a physical device, a companion app, and an Al
 7. No em dashes anywhere in copy, alt text, titles, or meta tags
 8. Preserve indexed URLs: `/`, `/privacy-policy/`, `/contact/`, `/faq/`
 9. `/support/` redirects to `/contact/` via meta-refresh
+10. No website analytics, pixels, session replay, heatmaps, or retargeting scripts
 
 ## CTA rules
 
 - Labels: "Buy on Amazon", "Download on the App Store", "Get it on Google Play"
-- Product pages and guides route to marketplaces (directly or via `/buy/`)
+- Product pages and guides route directly to Amazon, the App Store, or Google Play
 - No on-site cart, checkout, or "Buy now" language
 
 ---
@@ -52,6 +54,20 @@ Nubo is a baby tracking ecosystem: a physical device, a companion app, and an Al
 
 ## Live pages
 - `/` Home
+- `/pricing/` Pricing and setup chooser
+- `/device/` Nubo device
+- `/app/` Nubo app
+- `/compare/` Comparison
+- `/how-it-works/` Ecosystem explainer
+- `/caregivers/` Caregiver sharing
+- `/privacy/` Plain-English privacy overview
+- `/resources/` Resources hub
+- `/about/` About
+- `/alexa/` Alexa skill
+- `/gift/` Gift guide landing page
+- `/blog/` Blog index
+- `/blog/[category]/` Server-rendered category pages
+- `/blog/[category]/[slug]/` Blog posts
 - `/privacy-policy/` Privacy Policy
 - `/contact/` Contact
 - `/faq/` FAQ
@@ -59,22 +75,15 @@ Nubo is a baby tracking ecosystem: a physical device, a companion app, and an Al
 - `/guides/` Guide index
 - `/guides/track-feeding-sleep-diapers-first-12-weeks/` First guide
 
-## Planned pages
-- `/product/` Product (canonical explainer)
-- `/how-it-works/` How It Works
-- `/why-hardware-vs-app-only/` Why Hardware Beats App-Only
-- `/share-with-caregivers/` Caregiver Sharing
-- `/compare/` Comparison (Nubo vs Pen-and-Paper vs App-Only)
-- `/buy/` Outbound conversion hub (Amazon, App Store, Play Store)
-- `/reviews/` Reviews and Testimonials
-- `/about/` About
-- `/press/` Press
+## Deferred pages and flows
+- `/reviews/` Reviews and testimonials. Build only when enough real testimonials are available.
+- `/press/` Press. Build only when there are real press assets or mentions.
+- Email capture and nurture flows. Build after choosing an email service provider.
+- Direct outbound purchase CTAs to Amazon, App Store, and Play Store remain required. No `/buy/` or `/shop/` hub.
 
-## Planned redirect pages (meta-refresh, no content)
-- `/shop/` -> `/buy/`
-- `/cart/` -> `/buy/`
-- `/checkout/` -> `/buy/`
-- `/wishlist/` -> `/buy/`
+## Outdated commerce routes
+- Do not create `/buy/`, `/shop/`, `/cart/`, `/checkout/`, or `/wishlist/` routes.
+- All purchase and install CTAs should go directly to Amazon, the App Store, or Google Play.
 
 ## Planned guides
 - `/guides/why-a-physical-baby-tracker-is-faster/`
@@ -103,7 +112,7 @@ Nubo is a baby tracking ecosystem: a physical device, a companion app, and an Al
 
 # Internal linking rules
 
-1. Every guide links to `/product/`, `/buy/` or `/privacy-policy/`, and at least 2 related guides
+1. Every guide links to a relevant product page, direct marketplace/store CTA, or `/privacy-policy/`, and at least 2 related guides
 2. Homepage links to all core pages
 3. Footer links to core trust pages
 4. No important page should require search to discover
@@ -130,16 +139,12 @@ Nubo is a baby tracking ecosystem: a physical device, a companion app, and an Al
 
 ---
 
-# Analytics
+# Website privacy
 
-Use Plausible Analytics (privacy-friendly, no cookies).
-
-Custom events:
-- `click_amazon`
-- `click_app_store`
-- `click_google_play`
-- `view_product_page`
-- `view_buy_page`
+- No website analytics or event tracking
+- No pixels, session replay, heatmaps, or retargeting scripts
+- No cookie banner should be required
+- Use plain outbound links to Amazon, App Store, and Google Play
 
 ---
 

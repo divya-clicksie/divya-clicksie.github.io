@@ -14,12 +14,13 @@ const {
   title,
   description,
   canonicalURL = Astro.url.href,
-  ogImage = '/images/og-default.jpg',
+  ogImage = '/images/nubo-instant-tracker.webp',
   ogType = 'website',
   jsonLd,
 } = Astro.props;
 
 const siteName = 'Nubo Baby Tracker';
+const stickyCtaVariant = Astro.url.pathname === '/app/' ? 'app' : 'device';
 ---
 
 <!doctype html>
@@ -38,7 +39,7 @@ const siteName = 'Nubo Baby Tracker';
 
     <!-- Preload LCP image on the home page -->
     {Astro.url.pathname === '/' && (
-      <link rel="preload" as="image" href="/images/hero.webp" fetchpriority="high" />
+      <link rel="preload" as="image" href="/images/nubo-instant-tracker-1400.webp" imagesrcset="/images/nubo-instant-tracker-900.webp 900w, /images/nubo-instant-tracker-1400.webp 1400w" imagesizes="(max-width: 900px) 92vw, 48vw" fetchpriority="high" />
     )}
 
     <!-- Open Graph -->
@@ -71,14 +72,30 @@ const siteName = 'Nubo Baby Tracker';
   </head>
   <body>
     <slot />
-    <MobileStickyCTA />
+    <MobileStickyCTA variant={stickyCtaVariant} />
     <script>
+      const scrollToHashTarget = () => {
+        if (!window.location.hash) return false;
+        const target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+        if (!target) return true;
+        target.scrollIntoView({ block: 'start' });
+        return true;
+      };
+
       if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';
       }
       window.addEventListener('pageshow', () => {
+        if (scrollToHashTarget()) {
+          setTimeout(scrollToHashTarget, 300);
+          setTimeout(scrollToHashTarget, 1000);
+          return;
+        }
         requestAnimationFrame(() => window.scrollTo(0, 0));
       });
+      window.addEventListener('load', () => {
+        if (scrollToHashTarget()) setTimeout(scrollToHashTarget, 300);
+      }, { once: true });
     </script>
   </body>
 </html>
@@ -191,7 +208,7 @@ const siteName = 'Nubo Baby Tracker';
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 700;
     line-height: 1.1;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
     color: var(--color-text);
   }
 
@@ -215,7 +232,7 @@ const siteName = 'Nubo Baby Tracker';
     border-radius: 100px;
     border: none;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
   }
 
   .btn-primary:hover {
@@ -269,7 +286,7 @@ const siteName = 'Nubo Baby Tracker';
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 700;
     line-height: 1.1;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
     color: var(--color-text);
   }
 

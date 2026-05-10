@@ -1,0 +1,121 @@
+---
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  intro?: string;
+  expanded?: boolean;
+  compact?: boolean;
+  ctaHref?: string;
+  ctaLabel?: string;
+}
+
+const {
+  eyebrow = 'Faster than the alternatives',
+  title = '42 seconds with a diary. 18 seconds with an app. 1 second with Nubo.',
+  intro = 'Every app-based log starts with a phone pickup. The Nubo device logs the moment without unlocking your phone.',
+  expanded = false,
+  compact = false,
+  ctaHref,
+  ctaLabel = 'See the full comparison',
+} = Astro.props;
+
+const summaryRows = [
+  ['Pen-and-paper diary', '42 sec', '25 hrs', 'No phone required'],
+  ['Other apps', '18 sec', '11 hrs', 'Every log requires unlocking the phone'],
+  ['Nubo device', '1 sec', '40 mins', 'No phone unlock'],
+];
+
+const expandedRows = [
+  ['Pen-and-paper diary', '42 sec', 'Write time and quantity in a baby journal'],
+  ['Other apps', '18 sec', 'Unlock phone, open app, navigate, enter, save'],
+  ['Nubo voice', '8 sec', 'Open app and speak one sentence for catch-up'],
+  ['Nubo Quick Log', '4 sec', 'Open app and tap the right quick-log card'],
+  ['Nubo device', '1 sec', 'Press one button without unlocking a phone'],
+];
+
+const methodology = expanded
+  ? 'Times measured for a typical feeding entry. Screen-time language refers to repeated phone pickups, not a universal measured number of minutes after each log.'
+  : 'Times measured for a typical feeding entry. Three-month estimates assume roughly 24 logged events per day across feeds, diapers, sleep starts and stops, pumping, medicine, and caregiver notes. Screen-time language refers to repeated phone pickups, not a universal measured number of minutes after each log.';
+---
+
+<section class:list={['speed-comparison-section', { 'speed-comparison-section-compact': compact }]}>
+  <div class="container speed-comparison-inner">
+    <div class="section-intro speed-comparison-intro">
+      <p class="overline">{eyebrow}</p>
+      <h2>{title}</h2>
+      <p class="section-sub">{intro}</p>
+    </div>
+
+    <div class="speed-table-wrap">
+      {expanded ? (
+        <table class="speed-table">
+          <caption>Expanded baby tracker speed comparison</caption>
+          <thead>
+            <tr>
+              <th scope="col">Method</th>
+              <th scope="col">Time per log</th>
+              <th scope="col">What it requires</th>
+            </tr>
+          </thead>
+          <tbody>
+            {expandedRows.map(([method, time, requirement]) => (
+              <tr class:list={{ 'speed-row-highlight': method === 'Nubo device' }}>
+                <th scope="row">{method}</th>
+                <td>{time}</td>
+                <td>{requirement}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <table class="speed-table">
+          <caption>Baby tracker logging speed comparison</caption>
+          <thead>
+            <tr>
+              <th scope="col">Method</th>
+              <th scope="col">Time per log</th>
+              <th scope="col">3-month logging time</th>
+              <th scope="col">Phone pickup</th>
+            </tr>
+          </thead>
+          <tbody>
+            {summaryRows.map(([method, time, total, pickup]) => (
+              <tr class:list={{ 'speed-row-highlight': method === 'Nubo device' }}>
+                <th scope="row">{method}</th>
+                <td>{time}</td>
+                <td>{total}</td>
+                <td>{pickup}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </div>
+
+    <p class="speed-methodology">
+      {methodology}
+    </p>
+    {ctaHref && <p class="speed-cta"><a href={ctaHref}>{ctaLabel} &rarr;</a></p>}
+  </div>
+</section>
+
+<style>
+  .speed-comparison-section { padding: 6rem 0; background: #fff; }
+  .speed-comparison-section-compact { padding: 4rem 0; }
+  .speed-comparison-inner { max-width: 1120px; }
+  .speed-comparison-intro { margin-bottom: 2rem; }
+  .speed-comparison-intro h2 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.08; }
+  .speed-table-wrap { overflow-x: auto; border-radius: var(--radius-xl); border: 1px solid #e8e8e8; box-shadow: 0 16px 44px rgba(0, 0, 0, 0.05); }
+  .speed-table { width: 100%; min-width: 720px; border-collapse: collapse; background: #fff; }
+  .speed-table caption { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+  .speed-table th, .speed-table td { padding: 1.15rem 1.25rem; text-align: left; border-bottom: 1px solid #eee; vertical-align: top; }
+  .speed-table thead th { color: var(--color-text-secondary); font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  .speed-table tbody th { font-size: 1rem; }
+  .speed-table tbody td { color: var(--color-text-secondary); line-height: 1.5; }
+  .speed-row-highlight th, .speed-row-highlight td { background: var(--color-brand-light); color: var(--color-brand-dark); font-weight: 700; }
+  .speed-methodology { max-width: 920px; margin: 1.25rem 0 0; color: var(--color-text-secondary); font-size: 0.875rem; line-height: 1.6; }
+  .speed-cta { margin-top: 1rem; }
+  .speed-cta a { color: var(--color-brand); font-weight: 800; }
+  .speed-cta a:hover { color: var(--color-brand-dark); }
+  @media (max-width: 768px) { .speed-comparison-section { padding: 4rem 0; } }
+</style>

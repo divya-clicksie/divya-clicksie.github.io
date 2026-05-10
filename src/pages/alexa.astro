@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Nubo Alexa Skill | Hands-Free Baby Logging';
+const description = 'Use the Nubo Alexa skill to log feeds, sleep, diapers, and caregiver updates by voice from across the room, with events flowing into the same Nubo baby timeline.';
+const alexaURL = 'https://www.amazon.com/Clicksie-LLC-Nubo-Baby-Tracker/dp/B0FJ2N8XKB';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Nubo Alexa Skill',
+  applicationCategory: 'LifestyleApplication',
+  operatingSystem: 'Amazon Alexa',
+  description,
+  image: 'https://www.nubotracker.com/images/nubo-alexa-echo-show.webp',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Nubo',
+    url: 'https://www.nubotracker.com/'
+  },
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+    url: alexaURL
+  }
+};
+---
+
+<BaseLayout title={title} description={description} ogImage="/images/nubo-alexa-echo-show.webp" jsonLd={jsonLd}>
+  <Header />
+  <main>
+    <section class="alexa-hero">
+      <div class="container alexa-hero-inner">
+        <div>
+          <p class="overline">Nubo Alexa Skill</p>
+          <h1>Hands-free baby logging when both hands are busy.</h1>
+          <p class="hero-sub">Ask Alexa to log a bottle, nursing session, diaper, or nap from across the room. The event flows into the same Nubo timeline your app, device, and caregivers already use.</p>
+          <p class="premium-note">Alexa logging is a Nubo Premium app feature. If you already have Premium, open the skill on Amazon. If you are choosing a setup, compare Premium and device options first.</p>
+          <div class="hero-actions-inline">
+            <a href="/pricing/" class="btn-primary">Compare Premium options</a>
+            <a href={alexaURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">Open the Alexa skill</a>
+          </div>
+        </div>
+        <div class="alexa-media">
+          <img src="/images/nubo-alexa-echo-show.webp" srcset="/images/nubo-alexa-echo-show-720.webp 720w, /images/nubo-alexa-echo-show.webp 1280w" sizes="(max-width: 900px) 92vw, 42vw" alt="Nubo baby tracker dashboard displayed on an Amazon Echo Show" width="1280" height="800" loading="eager" decoding="async" />
+          <img class="alexa-badge" src="/images/just-ask-alexa-badge.webp" alt="Just Ask Alexa" width="250" height="122" loading="lazy" decoding="async" />
+        </div>
+      </div>
+    </section>
+
+    <section class="moments-section">
+      <div class="container">
+        <div class="section-intro">
+          <p class="overline">Where it helps</p>
+          <h2>For the moments tapping is not the easiest option.</h2>
+        </div>
+        <div class="moment-grid">
+          <article><h3>Bottle prep</h3><p>Log a bottle while your hands are on the warmer, sink, or formula scoop.</p></article>
+          <article><h3>Contact naps</h3><p>Start or end a sleep log without reaching for the phone under the baby.</p></article>
+          <article><h3>Grandparent care</h3><p>Give Echo-comfortable caregivers a familiar way to add the basics.</p></article>
+          <article><h3>Shared rooms</h3><p>Keep logs moving in kitchens, nurseries, and play areas where a speaker is already nearby.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="example-section">
+      <div class="container example-inner">
+        <div>
+          <p class="overline">Example commands</p>
+          <h2>Say the event the way you remember it.</h2>
+          <p>Nubo is built for ordinary caregiver language, not rigid command templates. Include times the way people actually say them, then review the structured timeline in the app later.</p>
+        </div>
+        <div class="command-list" aria-label="Example Alexa commands">
+          <p>&ldquo;Alexa, tell Newborn Tracker she had four ounces.&rdquo;</p>
+          <p>&ldquo;Alexa, tell Newborn Tracker he started nursing five minutes ago.&rdquo;</p>
+          <p>&ldquo;Alexa, tell Newborn Tracker baby slept at 1 and woke up 10 minutes ago.&rdquo;</p>
+          <p>&ldquo;Alexa, tell Newborn Tracker she had a dirty diaper.&rdquo;</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="timeline-section">
+      <div class="container timeline-inner">
+        <div class="timeline-copy">
+          <p class="overline">One timeline</p>
+          <h2>Alexa is another way in, not another place to check.</h2>
+          <p>Alexa logs feed into the same baby timeline as the Nubo device and app. Your partner, nanny, grandparent, and pediatrician-visit summary all work from one record.</p>
+          <div class="hero-actions-inline"><a href="/app/" class="btn-primary">Explore the app</a><a href="/caregivers/" class="btn-ghost">See caregiver sync</a></div>
+        </div>
+        <ol class="flow-list">
+          <li><strong>Ask Alexa.</strong><span>Say what happened, including clock times or phrases like 10 minutes ago.</span></li>
+          <li><strong>Nubo structures the event.</strong><span>The log is filed as feeding, sleep, diaper, or a related baby-care update.</span></li>
+          <li><strong>The app timeline updates.</strong><span>Caregivers see the same record in Nubo instead of piecing together texts.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="privacy-note-section">
+      <div class="container privacy-note-inner">
+        <div>
+          <p class="overline">Privacy note</p>
+          <h2>Alexa voice requests use Amazon's Alexa systems.</h2>
+        </div>
+        <div>
+          <p>In-app Nubo voice logging runs on your phone. Alexa logging is different: Alexa voice requests are processed through Amazon's Alexa systems, the same way other Alexa skills work.</p>
+          <p>For the full privacy picture, read Nubo's plain-English <a href="/privacy/">privacy overview</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .alexa-hero { padding: 9rem 0 5rem; background: linear-gradient(170deg, #f0fafa 0%, #fff 62%); }
+  .alexa-hero-inner, .example-inner, .timeline-inner, .privacy-note-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .alexa-hero h1 { font-size: clamp(2.35rem, 5vw, 4.25rem); line-height: 1.05; margin-bottom: 1rem; }
+  .hero-sub, .premium-note, .moment-grid p, .example-inner p, .timeline-copy p, .flow-list span, .privacy-note-inner p { color: var(--color-text-secondary); line-height: 1.7; }
+  .premium-note { margin-top: 1rem; padding: 1rem; border: 1px solid rgba(61, 179, 173, 0.24); border-radius: 16px; background: #fff; font-weight: 700; color: var(--color-text) !important; }
+  .hero-actions-inline { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+  .alexa-media { display: grid; gap: 1.25rem; justify-items: center; }
+  .alexa-media > img:first-child { width: 100%; height: auto; border-radius: var(--radius-xl); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.1); }
+  .alexa-badge { width: min(100%, 180px); height: auto; }
+  .moments-section, .example-section, .timeline-section, .privacy-note-section { padding: 6rem 0; }
+  .moments-section, .timeline-section { background: #fff; }
+  .example-section, .privacy-note-section { background: var(--color-bg-soft); }
+  .moment-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .moment-grid article, .command-list, .flow-list li { background: #fff; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); padding: 1.5rem; }
+  .moments-section .moment-grid article { background: var(--color-bg-soft); }
+  .moment-grid h3 { font-size: 1.125rem; margin-bottom: 0.6rem; }
+  .example-inner h2, .timeline-inner h2, .privacy-note-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; margin-bottom: 1rem; }
+  .command-list { display: grid; gap: 0.85rem; }
+  .command-list p { margin: 0; color: var(--color-text); font-weight: 800; }
+  .flow-list { list-style: none; display: grid; gap: 1rem; }
+  .flow-list li { display: grid; gap: 0.35rem; background: var(--color-bg-soft); }
+  .flow-list strong { color: var(--color-text); }
+  .privacy-note-inner { align-items: start; }
+  .privacy-note-inner a { color: var(--color-brand-dark); font-weight: 800; }
+  @media (max-width: 980px) { .alexa-hero-inner, .example-inner, .timeline-inner, .privacy-note-inner { grid-template-columns: 1fr; } .moment-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .alexa-hero { padding: 8rem 0 4rem; } .moments-section, .example-section, .timeline-section, .privacy-note-section { padding: 4rem 0; } .moment-grid { grid-template-columns: 1fr; } }
+</style>

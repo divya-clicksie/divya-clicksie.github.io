@@ -44,7 +44,7 @@ const jsonLd = {
             <li>No account is required to use the Nubo device or app</li>
             <li>Activity data (feedings, sleep, diapers) is stored locally on your phone</li>
             <li>We do not have access to your baby's tracking data</li>
-            <li>Caregiver sharing uses end-to-end encryption</li>
+            <li>Caregiver sharing works across iOS and Android and uses end-to-end encryption</li>
             <li>Backups go to your own iCloud or Google Drive, not our servers</li>
             <li>We never sell, rent, or share your personal information</li>
             <li>No third-party advertising or tracking SDKs in the app</li>
@@ -89,8 +89,8 @@ const jsonLd = {
           <h2>4. Caregiver sharing and encryption</h2>
           <p>
             When you invite a caregiver, a secure sharing link is generated. Activity data shared
-            between caregivers is encrypted end-to-end. Nubo servers act only as a relay and
-            cannot decrypt or access the content of shared data.
+            between caregivers can sync across iOS and Android devices and is encrypted end-to-end.
+            Nubo servers act only as a relay and cannot decrypt or access the content of shared data.
           </p>
 
           <h2>5. Analytics and tracking</h2>
@@ -100,8 +100,8 @@ const jsonLd = {
             the app experience. These statistics cannot be linked to individual users or babies.
           </p>
           <p>
-            This website uses Plausible Analytics, a privacy-friendly analytics tool that does
-            not use cookies and does not collect personal data.
+            This website does not use analytics, cookies, tracking pixels, or retargeting
+            scripts.
           </p>
 
           <h2>6. Data retention and deletion</h2>
@@ -188,7 +188,7 @@ const jsonLd = {
     font-weight: 700;
     color: var(--color-text);
     margin-bottom: 1.25rem;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
   }
 
   .summary-list {
@@ -220,7 +220,7 @@ const jsonLd = {
     color: var(--color-text);
     margin-top: 2.5rem;
     margin-bottom: 0.75rem;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
   }
 
   .policy-body p {

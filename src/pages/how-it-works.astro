@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import PremiumFollowsDevice from '../components/PremiumFollowsDevice.astro';
 
 const title = 'How Nubo Works | One Timeline, Easy Logging';
 const description = 'See how Nubo combines a physical baby tracker device, free app, voice catch-up, caregiver sync, and Alexa logging into one baby timeline.';
@@ -22,18 +23,23 @@ const jsonLd = {
     <section class="page-hero">
       <div class="container">
         <p class="overline">How it works</p>
-        <h1>One baby timeline. Use what is easiest in the moment.</h1>
+        <h1>One baby timeline. Log however the moment allows.</h1>
         <p class="page-hero-sub">Press a button, speak a sentence, tap a card, or ask Alexa. Everything lands in one timeline that caregivers can trust.</p>
       </div>
     </section>
 
     <section class="methods-section">
       <div class="container">
+        <div class="section-intro">
+          <p class="overline">Logging methods</p>
+          <h2>Use what fits the moment. One record comes out.</h2>
+          <p class="section-sub">Nubo does not ask every caregiver to build the same habit. The fastest method changes by moment, so the timeline accepts them all.</p>
+        </div>
         <div class="method-grid">
-          <article><img src="/images/nubo-device-hand.webp" alt="Hand pressing the Nubo tracker device" width="640" height="400" /><h2>Tap the device</h2><p>The fastest log when your phone is locked, across the room, or too bright for 3 a.m.</p></article>
-          <article><img src="/images/appscreens/02_voicelogging.webp" alt="Nubo app voice logging screen" width="642" height="1389" /><h2>Say it on your phone</h2><p>Catch up later with natural language and the right historical timestamp.</p></article>
-          <article><img src="/images/appscreens/01_onetouch.webp" alt="Nubo app one-touch cards" width="642" height="1389" /><h2>Tap a card</h2><p>When the phone is open, quick cards make common logs fast and structured.</p></article>
-          <article><img src="/images/nubo-alexa-echo-show.webp" alt="Nubo dashboard on an Amazon Echo Show" width="640" height="400" /><h2>Ask Alexa</h2><p>Log from across the room when your hands are busy with bottles, laundry, or baby.</p></article>
+          <article><img src="/images/nubo-instant-tracker-900.webp" alt="Hand pressing the Nubo instant tracker beside a sleeping baby" width="900" height="900" loading="lazy" decoding="async" /><h2>Tap the device</h2><p>The fastest log when your phone is locked, across the room, or too bright for 3 a.m.</p><p>Press once at the moment it happens. The device stores the event and syncs when a paired phone is nearby.</p><a href="/device/" class="text-link">View the device &rarr;</a></article>
+          <article><img src="/images/appscreens/02_voicelogging.webp" alt="Nubo app voice logging screen" width="642" height="1389" loading="lazy" decoding="async" /><h2>Say it on your phone</h2><p>Catch up later with natural language and the right historical timestamp.</p><p>Say a sentence like &ldquo;she napped from 1 to 2:30&rdquo; and Nubo turns it into a structured log.</p><a href="/app/" class="text-link">Explore voice catch-up &rarr;</a></article>
+          <article><img src="/images/appscreens/01_onetouch.webp" alt="Nubo app one-touch cards" width="642" height="1389" loading="lazy" decoding="async" /><h2>Tap a card</h2><p>When the phone is open, quick cards make common logs fast and structured.</p><p>Quick Log is for the moments when you are already in the app and want one clean tap instead of a form.</p><a href="/app/" class="text-link">See the free app &rarr;</a></article>
+          <article><img src="/images/nubo-alexa-echo-show.webp" alt="Nubo dashboard on an Amazon Echo Show" width="640" height="400" loading="lazy" decoding="async" /><h2>Ask Alexa</h2><p>Log from across the room when your hands are busy with bottles, laundry, or baby.</p><p>Supported voice-assistant logging is useful in kitchens, nurseries, and shared rooms where a screen is not the easiest option.</p><a href="/alexa/" class="text-link">See Alexa logging &rarr;</a></article>
         </div>
       </div>
     </section>
@@ -48,22 +54,40 @@ const jsonLd = {
         <ol class="timeline">
           <li><time>5:47 a.m.</time><span>Mom feeds baby half-asleep and taps the device.</span></li>
           <li><time>7:15 a.m.</time><span>Dad takes over and taps a card in the app while making coffee.</span></li>
-          <li><time>11:00 a.m.</time><span>Nanny arrives and presses the device through the day.</span></li>
+          <li><time>11:00 a.m.</time><span>Nanny arrives and presses the device through the day. Her phone syncs and gets Premium for 30 days.</span></li>
           <li><time>2:30 p.m.</time><span>Mom checks the lock-screen activity from work.</span></li>
           <li><time>6:30 p.m.</time><span>Grandma uses Alexa to log a bottle from across the room.</span></li>
-          <li><time>11:00 p.m.</time><span>Dad says "she had 4 ounces around 9" and Nubo catches up.</span></li>
+          <li><time>11:00 p.m.</time><span>Dad realizes he forgot the 9 p.m. feed, says what happened, and Nubo catches up.</span></li>
         </ol>
       </div>
     </section>
 
+    <PremiumFollowsDevice />
+
     <section class="setup-section">
       <div class="container setup-inner">
-        <img src="/images/care_with_confidence.webp" alt="Nubo app, device, and caregivers staying in sync" width="1536" height="651" />
+        <img src="/images/caregiver-hub.webp" alt="Nubo device syncing baby tracking data with multiple caregiver phones" width="970" height="600" />
         <div>
           <p class="overline">Setup flow</p>
           <h2>Pair in about 30 seconds. Invite caregivers with a QR code.</h2>
-          <p>Start with the free app. Add the device when nighttime feeds, hands-full care, or multi-caregiver handoffs start to dominate.</p>
+          <p>A working multi-caregiver tracker should take minutes, not a weekend of account setup. Start with the free app, add the device when it helps, and invite caregivers only when you need them.</p>
+          <ol class="setup-steps">
+            <li><strong>Pair the device.</strong><span>Bluetooth Low Energy connects it to the app in about 30 seconds.</span></li>
+            <li><strong>Invite a caregiver.</strong><span>Use a QR code so a partner, grandparent, nanny, or daycare helper can join the timeline.</span></li>
+            <li><strong>Start logging.</strong><span>Tap the device, speak to the app, tap a card, or ask Alexa. Each method feeds the same day.</span></li>
+          </ol>
           <div class="hero-actions-inline"><a href="/device/" class="btn-primary">View the device</a><a href="/pricing/" class="btn-ghost">See pricing</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="decision-section">
+      <div class="container">
+        <div class="section-intro"><p class="overline">Decision guide</p><h2>Start simple. Add speed when the routine asks for it.</h2><p class="section-sub">Nubo works as a free app first. The upgrades are for specific pressure points: advanced tools, nighttime speed, and multi-caregiver care.</p></div>
+        <div class="decision-grid">
+          <article><h3>Start with the free app</h3><p>Best when your phone is already nearby and you mainly need shared tracking, voice catch-up, and a private baby timeline.</p><a href="/app/" class="text-link">Explore the app &rarr;</a></article>
+          <article><h3>Add the device</h3><p>Best when nighttime feeds, hands-full moments, nannies, grandparents on separate plans, or daycare handoffs start to dominate.</p><a href="/device/" class="text-link">View the device &rarr;</a></article>
+          <article><h3>Use Premium</h3><p>Best for reminders, Alexa, exports, Live Activities, and advanced insights when one primary app account needs more tools.</p><a href="/pricing/" class="text-link">Compare setups &rarr;</a></article>
         </div>
       </div>
     </section>
@@ -72,21 +96,30 @@ const jsonLd = {
 </BaseLayout>
 
 <style>
-  .methods-section, .day-section, .setup-section { padding: 6rem 0; }
+  .methods-section, .day-section, .setup-section, .decision-section { padding: 6rem 0; }
   .methods-section, .setup-section { background: #fff; }
-  .day-section { background: var(--color-bg-soft); }
+  .day-section, .decision-section { background: var(--color-bg-soft); }
   .method-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-  .method-grid article { background: var(--color-bg-soft); border-radius: var(--radius-xl); padding: 1rem 1rem 1.5rem; text-align: center; }
+  .method-grid article { background: var(--color-bg-soft); border-radius: var(--radius-xl); padding: 1rem 1rem 1.5rem; text-align: center; display: flex; flex-direction: column; }
   .method-grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top; border-radius: 18px; margin-bottom: 1rem; }
   .method-grid h2 { font-size: 1.125rem; margin-bottom: 0.5rem; }
-  .method-grid p, .day-inner p, .timeline span, .setup-inner p { color: var(--color-text-secondary); line-height: 1.7; }
+  .method-grid p, .day-inner p, .timeline span, .setup-inner p, .decision-grid p { color: var(--color-text-secondary); line-height: 1.7; }
+  .method-grid p { margin-bottom: 0.75rem; }
+  .method-grid .text-link { margin-top: auto; padding-top: 0.5rem; }
   .day-inner, .setup-inner { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 4rem; align-items: center; }
   .day-inner h2, .setup-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; margin-bottom: 1rem; }
   .timeline { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
   .timeline li { display: grid; grid-template-columns: 6rem 1fr; gap: 1rem; background: #fff; border-radius: 16px; padding: 1rem; }
   .timeline time { font-weight: 700; color: var(--color-brand-dark); }
   .setup-inner img { border-radius: var(--radius-xl); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08); }
+  .setup-steps { list-style: none; display: grid; gap: 0.85rem; margin-top: 1.5rem; }
+  .setup-steps li { display: grid; gap: 0.25rem; padding: 1rem; border-radius: 16px; background: var(--color-bg-soft); }
+  .setup-steps strong { color: var(--color-text); }
+  .setup-steps span { color: var(--color-text-secondary); line-height: 1.6; }
+  .decision-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .decision-grid article { background: #fff; border-radius: var(--radius-xl); padding: 1.5rem; }
+  .decision-grid h3 { font-size: 1.15rem; margin-bottom: 0.6rem; color: var(--color-text); }
   .hero-actions-inline { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
-  @media (max-width: 980px) { .method-grid { grid-template-columns: 1fr 1fr; } .day-inner, .setup-inner { grid-template-columns: 1fr; } }
-  @media (max-width: 640px) { .methods-section, .day-section, .setup-section { padding: 4rem 0; } .method-grid { grid-template-columns: 1fr; } .timeline li { grid-template-columns: 1fr; gap: 0.25rem; } }
+  @media (max-width: 980px) { .method-grid { grid-template-columns: 1fr 1fr; } .day-inner, .setup-inner, .decision-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { .methods-section, .day-section, .setup-section, .decision-section { padding: 4rem 0; } .method-grid { grid-template-columns: 1fr; } .timeline li { grid-template-columns: 1fr; gap: 0.25rem; } }
 </style>

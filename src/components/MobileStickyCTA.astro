@@ -1,17 +1,50 @@
 ---
+interface Props {
+  variant?: 'device' | 'app';
+}
+
 const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
+const { variant = 'device' } = Astro.props;
+const cta = variant === 'app'
+  ? {
+      href: '#app-downloads',
+      label: 'Download free',
+      value: '$0',
+      detail: 'Choose your store',
+      ariaLabel: 'Choose where to download the free Nubo baby tracker app',
+      external: false,
+    }
+  : {
+      href: amazonURL,
+      label: 'Buy on Amazon',
+      value: '$89.99',
+      detail: 'Premium for every caregiver',
+      ariaLabel: 'Buy Nubo on Amazon for $89.99 with Premium for every caregiver included',
+      external: true,
+    };
 ---
 
-<a href={amazonURL} class="mobile-sticky-cta" data-mobile-sticky-cta target="_blank" rel="noopener noreferrer" aria-label="Buy Nubo on Amazon for $89.99 with Premium for every caregiver included">
-  <span>Buy on Amazon</span>
-  <strong>$89.99</strong>
-  <span>Premium for every caregiver</span>
+<a href={cta.href} class:list={["mobile-sticky-cta", { "mobile-sticky-cta-app": variant === 'app' }]} data-mobile-sticky-cta target={cta.external ? '_blank' : undefined} rel={cta.external ? 'noopener noreferrer' : undefined} aria-label={cta.ariaLabel}>
+  <span>{cta.label}</span>
+  <strong>{cta.value}</strong>
+  <span>{cta.detail}</span>
 </a>
 
 <script>
   const setupMobileStickyCTA = () => {
     const stickyCTA = document.querySelector<HTMLElement>('[data-mobile-sticky-cta]');
     if (!stickyCTA) return;
+
+    const href = stickyCTA.getAttribute('href');
+    if (href?.startsWith('#')) {
+      stickyCTA.addEventListener('click', (event) => {
+        const target = document.querySelector<HTMLElement>(href);
+        if (!target) return;
+        event.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', href);
+      });
+    }
 
     const updateVisibility = () => {
       stickyCTA.classList.toggle('is-visible', window.scrollY > 520);

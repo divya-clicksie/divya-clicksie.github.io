@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'About Nubo | Baby Tracking Built by a Mom and Engineer';
+const description = 'Meet the thinking behind Nubo, a baby tracker built to make logging faster, calmer, more private, and easier for every caregiver helping with the baby.';
+const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: title,
+  description,
+  url: 'https://www.nubotracker.com/about/',
+  about: {
+    '@type': 'Brand',
+    name: 'Nubo',
+    slogan: 'Care with Confidence'
+  }
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+  <main>
+    <section class="about-hero">
+      <div class="container about-hero-grid">
+        <div>
+          <p class="overline">About Nubo</p>
+          <h1>Built for the part of parenting nobody does perfectly.</h1>
+          <p class="hero-sub">Nubo exists because early baby care is repetitive, emotional, and shared. The tracker should make those moments easier, not turn them into another screen-heavy task.</p>
+          <div class="hero-actions-inline"><a href="/pricing/" class="btn-primary">Choose your setup</a><a href={amazonURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">Buy on Amazon</a></div>
+        </div>
+        <img src="/images/nubo-instant-tracker-1400.webp" srcset="/images/nubo-instant-tracker-900.webp 900w, /images/nubo-instant-tracker-1400.webp 1400w" sizes="(max-width: 900px) 92vw, 48vw" alt="Hand pressing the Nubo instant tracker beside a sleeping baby" width="1400" height="1400" loading="eager" decoding="async" />
+      </div>
+    </section>
+
+    <section class="founder-story">
+      <div class="container founder-story-inner">
+        <p class="overline">Created by a mom, for parents</p>
+        <blockquote>
+          <p>&ldquo;Nubo was born from the chaos of early motherhood. I was exhausted, overwhelmed, and constantly dropping the ball on tracking feeds and diapers. So I built what I wished existed: something so simple you could use it with your eyes closed. Because parenting is hard, but the moments that matter shouldn't be lost.&rdquo;</p>
+        </blockquote>
+        <p class="founder-name">Divya, Founder of Nubo</p>
+        <p class="founder-sub">Mom. Engineer. Sleep-deprived inventor.</p>
+      </div>
+    </section>
+
+    <section class="values-section">
+      <div class="container">
+        <div class="section-intro"><p class="overline">What guides the product</p><h2>Small choices that matter at 3 a.m.</h2></div>
+        <div class="values-grid">
+          <article><h3>Fast beats perfect</h3><p>The best log is the one that actually happens. Nubo keeps the highest-frequency moments down to a button press, quick tap, or spoken catch-up.</p></article>
+          <article><h3>Care is shared</h3><p>Parents, grandparents, nannies, doulas, and daycare staff all need the same timeline without turning handoff into detective work.</p></article>
+          <article><h3>Privacy is a feature</h3><p>Baby care data should serve the family caring for the baby. Nubo is local-first, private by design, and built without marketing-site tracking scripts.</p></article>
+          <article><h3>The app should stand on its own</h3><p>The free Nubo app is useful without hardware. The device adds speed, screen-free logging, and Premium for every caregiver who uses it.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-cta">
+      <div class="container about-cta-inner">
+        <div><p class="overline">Care with confidence</p><h2>Choose the simplest setup your household will actually use.</h2></div>
+        <div><p>Start free if your phone is already in hand. Add Premium for advanced tools. Buy the device when sleep, speed, or caregiver handoff makes one-second logging worth it.</p><a href="/pricing/" class="btn-primary">Compare setups</a></div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .about-hero { padding: 9rem 0 5rem; background: var(--color-bg-warm); }
+  .about-hero-grid, .about-cta-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .about-hero h1 { font-size: clamp(2.35rem, 6vw, 4.75rem); line-height: 1; max-width: 760px; }
+  .hero-sub, .values-grid p, .about-cta p { color: var(--color-text-secondary); line-height: 1.7; }
+  .about-hero img { width: 100%; height: auto; border-radius: var(--radius-xl); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.1); }
+  .hero-actions-inline { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+  .founder-story, .values-section, .about-cta { padding: 6rem 0; }
+  .founder-story, .about-cta { background: #fff; }
+  .values-section { background: var(--color-bg-soft); }
+  .founder-story-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+  .founder-story blockquote p { font-size: clamp(1.5rem, 4vw, 2.75rem); line-height: 1.18; letter-spacing: 0; color: var(--color-text); }
+  .founder-name { margin-top: 2rem; font-weight: 700; color: var(--color-text); }
+  .founder-sub { color: var(--color-text-secondary); margin-top: 0.35rem; }
+  .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .values-grid article { background: #fff; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); padding: 1.75rem; }
+  .values-grid h3 { font-size: 1.125rem; line-height: 1.25; margin-bottom: 0.75rem; }
+  .about-cta h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; }
+  .about-cta .btn-primary { margin-top: 1.5rem; }
+  @media (max-width: 980px) { .about-hero-grid, .about-cta-inner { grid-template-columns: 1fr; } .values-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .about-hero { padding-top: 7rem; } .founder-story, .values-section, .about-cta { padding: 4rem 0; } .values-grid { grid-template-columns: 1fr; } }
+</style>

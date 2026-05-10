@@ -24,6 +24,51 @@ const categoryDescriptions: Record<string, string> = {
   gifts: 'Gift guides and practical baby shower ideas for new parents.',
 };
 
+const categoryCtas: Record<string, { title: string; copy: string; href: string; label: string }> = {
+  sleep: {
+    title: 'Track nights without unlocking your phone every time.',
+    copy: 'Nubo combines a 1-second device tap with voice catch-up and a shared caregiver timeline.',
+    href: '/device/',
+    label: 'View the device',
+  },
+  feeding: {
+    title: 'A free app for feeds, pumping, bottles, and notes.',
+    copy: 'Use Nubo for the basics from day one, then add Premium or the device when the routine gets more complex.',
+    href: '/app/',
+    label: 'Explore the app',
+  },
+  tracking: {
+    title: 'Not sure which Nubo setup fits?',
+    copy: 'Compare the free app, Premium, and the device by household, caregiver needs, and logging speed.',
+    href: '/pricing/',
+    label: 'See pricing',
+  },
+  caregiver: {
+    title: 'Keep every caregiver on the same timeline.',
+    copy: 'See how QR invites, sync, and device-based Premium work for partners, grandparents, nannies, and daycare.',
+    href: '/caregivers/',
+    label: 'See caregiver sync',
+  },
+  privacy: {
+    title: 'Baby data should stay with the family caring for the baby.',
+    copy: 'Read how Nubo handles local storage, private voice logging, caregiver sharing, and backups.',
+    href: '/privacy/',
+    label: 'Read privacy overview',
+  },
+  product: {
+    title: 'See the full Nubo ecosystem in one place.',
+    copy: 'Device tap, app Quick Log, voice catch-up, caregiver sync, and Alexa support all feed one baby timeline.',
+    href: '/how-it-works/',
+    label: 'See how it works',
+  },
+  gifts: {
+    title: 'A baby shower gift that still matters at 3 a.m.',
+    copy: 'The device gives parents the fastest log, fewer phone pickups, and Premium for every caregiver who uses it.',
+    href: '/gift/',
+    label: 'See the gift page',
+  },
+};
+
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   const categories = [...new Set(posts.map((post) => post.data.category))];
@@ -37,6 +82,7 @@ const categoryPosts = posts
 const label = categoryLabels[category] || category;
 const description = categoryDescriptions[category] || `Nubo ${label.toLowerCase()} articles and guides.`;
 const title = `${label} Baby Tracking Guides | Nubo Resources`;
+const categoryCta = categoryCtas[category] || categoryCtas.tracking;
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -64,6 +110,13 @@ const jsonLd = {
           <a href="/resources/" class="text-link">Resources hub</a>
           <a href="/blog/" class="text-link">All articles</a>
         </div>
+        <aside class="category-cta" aria-label="Recommended next step">
+          <div>
+            <h2>{categoryCta.title}</h2>
+            <p>{categoryCta.copy}</p>
+          </div>
+          <a href={categoryCta.href}>{categoryCta.label}</a>
+        </aside>
         <div class="post-grid">
           {categoryPosts.map((post) => (
             <a href={`/blog/${post.data.category}/${post.slug}/`} class="post-card">
@@ -85,6 +138,11 @@ const jsonLd = {
 <style>
   .category-list { padding: 4rem 0 6rem; background: #fff; }
   .category-actions { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2.5rem; }
+  .category-cta { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 1.5rem; max-width: 840px; margin: 0 auto 2.5rem; padding: 1.5rem; border: 1px solid rgba(61, 179, 173, 0.22); border-radius: var(--radius-xl); background: linear-gradient(150deg, #f0fafa 0%, #fff 76%); }
+  .category-cta h2 { font-size: clamp(1.35rem, 3vw, 1.9rem); line-height: 1.15; color: var(--color-text); letter-spacing: 0; }
+  .category-cta p { margin-top: 0.6rem; color: var(--color-text-secondary); line-height: 1.65; }
+  .category-cta a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0.75rem 1rem; border-radius: 999px; background: var(--color-brand); color: #fff; font-weight: 800; white-space: nowrap; }
+  .category-cta a:hover { background: var(--color-brand-dark); }
   .post-grid { display: grid; gap: 2rem; max-width: 840px; margin: 0 auto; }
   .post-card { display: grid; grid-template-columns: 220px 1fr; gap: 1.5rem; align-items: center; border: 1px solid #eee; border-radius: var(--radius-xl); padding: 1rem; transition: transform 0.2s ease, box-shadow 0.2s ease; }
   .post-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06); }
@@ -92,5 +150,5 @@ const jsonLd = {
   .post-card p { color: var(--color-brand-dark); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem; }
   .post-card h2 { font-size: 1.25rem; line-height: 1.3; margin-bottom: 0.5rem; }
   .post-card span { color: var(--color-text-secondary); line-height: 1.7; }
-  @media (max-width: 680px) { .post-card { grid-template-columns: 1fr; } .category-actions { flex-direction: column; align-items: center; gap: 0.75rem; } }
+  @media (max-width: 680px) { .post-card { grid-template-columns: 1fr; } .category-actions { flex-direction: column; align-items: center; gap: 0.75rem; } .category-cta { grid-template-columns: 1fr; align-items: start; border-radius: 18px; } .category-cta a { width: 100%; } }
 </style>

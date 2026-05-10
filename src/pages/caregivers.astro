@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CaregiverEconomics from '../components/CaregiverEconomics.astro';
+import PremiumFollowsDevice from '../components/PremiumFollowsDevice.astro';
+
+const title = 'Caregiver Baby Tracking | Nanny, Grandparent, Partner, and Daycare Sharing | Nubo';
+const description = 'Keep every caregiver in sync with the Nubo baby tracker. Nubo turns helpers into one caregiving team across iOS and Android with end-to-end encrypted sharing.';
+const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  description,
+  url: 'https://www.nubotracker.com/caregivers/',
+  about: { '@type': 'Product', name: 'Nubo Baby Tracker' }
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+  <main>
+    <section class="caregiver-hero">
+      <div class="container caregiver-hero-grid">
+        <div>
+          <p class="overline">Caregiver sync</p>
+          <h1>One baby timeline for every person helping.</h1>
+          <p class="hero-sub">Nubo turns parents, grandparents, nannies, doulas, and daycare staff into one caregiving team across iOS and Android, all contributing to the same end-to-end encrypted record without turning care into a group text.</p>
+          <div class="hero-actions-inline"><a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a><a href="/pricing/" class="btn-ghost">Compare setups</a></div>
+        </div>
+        <img src="/images/caregiver-hub.webp" alt="Nubo device syncing baby tracking data with multiple caregiver phones" width="970" height="600" loading="eager" decoding="async" />
+      </div>
+    </section>
+
+    <section class="handoff-section">
+      <div class="container">
+        <div class="section-intro"><p class="overline">Fewer handoff gaps</p><h2>The useful details travel with the baby.</h2></div>
+        <div class="handoff-grid">
+          <article><h3>Partner takes over</h3><p>See the last feed, diaper, nap, and notes without asking for a full recap.</p></article>
+          <article><h3>Nanny logs the day</h3><p>Care happens normally. The device and app keep the record current.</p></article>
+          <article><h3>Grandparents help out</h3><p>Occasional caregivers can press the device and sync without needing to buy a separate subscription.</p></article>
+          <article><h3>Daycare notes stay structured</h3><p>Logs stay in the same timeline instead of scattered across photos, paper sheets, and texts.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <PremiumFollowsDevice showImage={false} />
+    <CaregiverEconomics />
+
+    <section class="privacy-handshake">
+      <div class="container privacy-handshake-inner">
+        <div><p class="overline">Privacy boundaries</p><h2>Share baby care data intentionally.</h2></div>
+        <div><p>Nubo is built for family care, not advertising. The app is local-first, caregiver sharing is end-to-end encrypted across Apple and Google ecosystems, and the marketing site does not use analytics or tracking scripts.</p><a href="/privacy/" class="btn-primary">Read the privacy overview</a></div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .caregiver-hero { padding: 9rem 0 5rem; background: var(--color-bg-warm); }
+  .caregiver-hero-grid, .privacy-handshake-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .caregiver-hero h1 { font-size: clamp(2.35rem, 6vw, 4.75rem); line-height: 1; }
+  .hero-sub, .handoff-grid p, .privacy-handshake p { color: var(--color-text-secondary); line-height: 1.7; }
+  .caregiver-hero img { width: 100%; height: auto; border-radius: var(--radius-xl); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.1); }
+  .hero-actions-inline { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+  .handoff-section, .privacy-handshake { padding: 6rem 0; }
+  .handoff-section { background: #fff; }
+  .privacy-handshake { background: var(--color-bg-warm); }
+  .handoff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .handoff-grid article { background: var(--color-bg-soft); border: 1px solid #e8e8e8; border-radius: var(--radius-xl); padding: 1.75rem; }
+  .handoff-grid h3 { font-size: 1.125rem; line-height: 1.25; margin-bottom: 0.75rem; }
+  .privacy-handshake h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; }
+  .privacy-handshake .btn-primary { margin-top: 1.5rem; }
+  @media (max-width: 980px) { .caregiver-hero-grid, .privacy-handshake-inner { grid-template-columns: 1fr; } .handoff-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .caregiver-hero { padding-top: 7rem; } .handoff-section, .privacy-handshake { padding: 4rem 0; } .handoff-grid { grid-template-columns: 1fr; } }
+</style>
