@@ -13,7 +13,7 @@ The site is deployed as a static Astro build through GitHub Actions and GitHub P
 - **@astrojs/sitemap** with `site: https://www.nubotracker.com`, static output, and `trailingSlash: 'always'`
 - **GitHub Actions** deployment to GitHub Pages
 - **Self-hosted Quicksand fonts** in `public/fonts/`
-- **No website analytics or tracking scripts** on the marketing site
+- **Privacy-friendly, cookieless analytics may be used** on the marketing site. Plausible is approved; ad pixels, retargeting scripts, heatmaps, session replay, and cookie-banner-dependent tracking remain prohibited.
 
 ## Current Architecture
 
@@ -135,7 +135,7 @@ Prefer existing shared components and global classes before introducing new abst
 ## Copy Rules
 
 - No em dashes in copy, alt text, titles, metadata, or new documentation. Use commas, periods, colons, semicolons, or parentheses instead.
-- Do not add website analytics, tracking pixels, retargeting scripts, session replay, heatmaps, or cookie banners.
+- Only add privacy-friendly, cookieless analytics, such as Plausible. Do not add tracking pixels, retargeting scripts, session replay, heatmaps, or cookie-banner-dependent tracking.
 - Do not present the marketing site as the checkout destination.
 - CTA labels should stay direct and familiar, such as "Buy on Amazon", "Download on the App Store", and "Get it on Google Play".
 - External marketplace, store, social, and video links need `target="_blank"` and `rel="noopener noreferrer"`.
