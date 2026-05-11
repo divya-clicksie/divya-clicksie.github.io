@@ -4,16 +4,48 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PremiumFollowsDevice from '../components/PremiumFollowsDevice.astro';
 
-const title = 'How Nubo Works | One Timeline, Easy Logging';
-const description = 'See how Nubo combines a physical baby tracker device, free app, voice catch-up, caregiver sync, and Alexa logging into one baby timeline.';
+const title = 'How Nubo Works | One-Tap Baby Tracker, App, and Voice';
+const description = 'See how the Nubo one-tap baby tracker combines a physical device, free app, voice catch-up, caregiver sync, and Alexa logging into one baby timeline.';
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: title,
-  description,
-  url: 'https://www.nubotracker.com/how-it-works/',
-  about: { '@type': 'Product', name: 'Nubo Baby Tracker' }
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      name: title,
+      description,
+      url: 'https://www.nubotracker.com/how-it-works/',
+      about: { '@type': 'Product', name: 'Nubo Baby Tracker' }
+    },
+    {
+      '@type': 'HowTo',
+      name: 'How to set up Nubo baby tracking',
+      description: 'Pair the Nubo device, invite caregivers, and start logging baby care events into one shared timeline.',
+      image: 'https://www.nubotracker.com/images/caregiver-hub.webp',
+      totalTime: 'PT2M',
+      supply: [
+        { '@type': 'HowToSupply', name: 'Nubo device' },
+        { '@type': 'HowToSupply', name: 'Free Nubo app' }
+      ],
+      step: [
+        {
+          '@type': 'HowToStep',
+          name: 'Pair the device',
+          text: 'Open the free Nubo app and pair the Nubo device over Bluetooth Low Energy.'
+        },
+        {
+          '@type': 'HowToStep',
+          name: 'Invite caregivers',
+          text: 'Use a QR code so a partner, grandparent, nanny, or daycare helper can join the shared baby timeline.'
+        },
+        {
+          '@type': 'HowToStep',
+          name: 'Start logging',
+          text: 'Tap the device, speak to the app, tap a quick-log card, or ask Alexa. Each method feeds the same baby timeline.'
+        }
+      ]
+    }
+  ]
 };
 ---
 
@@ -22,7 +54,7 @@ const jsonLd = {
   <main>
     <section class="page-hero">
       <div class="container">
-        <p class="overline">How it works</p>
+        <p class="overline">How the one-tap baby tracker works</p>
         <h1>One baby timeline. Log however the moment allows.</h1>
         <p class="page-hero-sub">Press a button, speak a sentence, tap a card, or ask Alexa. Everything lands in one timeline that caregivers can trust.</p>
       </div>

@@ -4,8 +4,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SpeedComparison from '../components/SpeedComparison.astro';
 
-const title = 'Nubo Baby Tracker | Tap as it happens. Talk to catch up.';
-const description = 'The fastest baby tracker. Tap the Nubo device the moment it happens, or just say "she napped from 1 to 2:30" on your phone an hour later. Free app, on-device voice. Feeds, sleep, diapers, growth, vaccines, allergens. One timeline. Every caregiver in sync.';
+const title = 'Nubo Baby Tracker | One-Tap Baby Tracker for Night Feeds';
+const description = 'The one-tap baby tracker for night feeds, hands-full moments, and multi-caregiver households. Use the device, free app, voice catch-up, and Alexa in one shared baby timeline.';
 
 const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
 const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
@@ -18,11 +18,14 @@ const jsonLd = {
     {
       "@type": "Product",
       "name": "Nubo Baby Activity Tracker",
-      "description": "Baby tracking ecosystem with a physical device, in-app one-tap and voice logging, an Alexa skill, and a companion app for logging feedings, sleep, and diapers.",
+      "alternateName": "One-tap baby tracker",
+      "description": "The one-tap baby tracker for night feeds, hands-full moments, and multi-caregiver households. Nubo combines a physical device, in-app one-tap and voice logging, an Alexa skill, and a companion app for logging feedings, sleep, and diapers.",
       "image": "https://www.nubotracker.com/images/nubo-instant-tracker.webp",
+      "url": "https://www.nubotracker.com/",
+      "category": "Baby activity tracker",
       "brand": {
         "@type": "Brand",
-        "name": "nubo",
+        "name": "Nubo",
         "sameAs": [
           "https://www.instagram.com/nubo_baby_tracker",
           "https://www.youtube.com/@NuboBabyTracker"
@@ -39,14 +42,40 @@ const jsonLd = {
         "@type": "AggregateRating",
         "ratingValue": "4.2",
         "reviewCount": "32"
-      }
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "reviewBody": "I tried three baby-tracker apps before this. All felt like spreadsheets with pastel icons. Nubo is the first one I can use half-asleep.",
+          "author": { "@type": "Person", "name": "Kiran K." },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+        },
+        {
+          "@type": "Review",
+          "reviewBody": "So much easier to tag team with our baby. If one of us has been out, the other can just glance at the app and see what's been going on.",
+          "author": { "@type": "Person", "name": "Devi" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+        },
+        {
+          "@type": "Review",
+          "reviewBody": "Our preemie needed exact intake tracking for the NICU follow-up. We exported the data and the pediatrician was impressed by how complete it was.",
+          "author": { "@type": "Person", "name": "Priya M." },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+        },
+        {
+          "@type": "Review",
+          "reviewBody": "My husband, my mom, and I all use Nubo. Nobody has to ask when did the baby eat last anymore. That alone is worth it.",
+          "author": { "@type": "Person", "name": "Jessica R." },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+        }
+      ]
     },
     {
       "@type": "MobileApplication",
       "name": "Nubo Baby Tracker",
       "operatingSystem": "iOS, Android",
       "applicationCategory": "HealthApplication",
-      "description": "Free baby tracker with one-tap quick logging and on-device voice logging. Track feeds, sleep, diapers, growth (WHO and Fenton), vaccines, allergens, and milestones. Unlimited caregivers, unlimited cloud backup, full offline mode.",
+      "description": "Free baby tracker app with one-tap quick logging and on-device voice logging. Track feeds, sleep, diapers, growth (WHO and Fenton), vaccines, allergens, and milestones. Unlimited caregivers, unlimited cloud backup, full offline mode.",
       "image": "https://www.nubotracker.com/images/nubo-instant-tracker.webp",
       "offers": {
         "@type": "Offer",
@@ -54,7 +83,7 @@ const jsonLd = {
         "priceCurrency": "USD"
       },
       "installUrl": appStoreURL,
-      "downloadUrl": appStoreURL
+      "downloadUrl": [appStoreURL, playStoreURL]
     }
   ]
 };
@@ -73,7 +102,7 @@ const jsonLd = {
       </div>
       <div class="container hero-inner">
         <div class="hero-content">
-          <p class="overline">Track in seconds</p>
+          <p class="overline">One-tap baby tracker</p>
           <h1>
             Nobody remembers at 3&nbsp;a.m.
             <span class="hero-accent">Nubo does.</span>

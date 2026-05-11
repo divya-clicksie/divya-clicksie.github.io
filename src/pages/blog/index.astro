@@ -4,8 +4,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
-const title = 'Blog | Nubo Baby Tracker';
-const description = 'Practical advice on baby sleep, feeding schedules, newborn tracking, and parenting from the Nubo team.';
+const title = 'Blog | Nubo One-Tap Baby Tracker';
+const description = 'Practical advice on baby sleep, feeding schedules, night feeds, newborn tracking, and multi-caregiver baby care from the Nubo team.';
 
 const posts = (await getCollection('blog')).sort(
   (a, b) => new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime()
@@ -49,7 +49,7 @@ const jsonLd = {
   <main>
     <section class="page-hero">
       <div class="container">
-        <p class="overline">Blog</p>
+        <p class="overline">One-tap baby tracker blog</p>
         <h1>Nubo Blog</h1>
         <p class="page-hero-sub">
           Practical advice on baby tracking, newborn sleep, feeding, and the stuff nobody tells you before the first week home.

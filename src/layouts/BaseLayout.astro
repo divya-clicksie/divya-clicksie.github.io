@@ -5,7 +5,7 @@ interface Props {
   canonicalURL?: string;
   ogImage?: string;
   ogType?: string;
-  jsonLd?: Record<string, unknown>;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 import MobileStickyCTA from '../components/MobileStickyCTA.astro';
@@ -21,6 +21,74 @@ const {
 
 const siteName = 'Nubo Baby Tracker';
 const stickyCtaVariant = Astro.url.pathname === '/app/' ? 'app' : 'device';
+const siteURL = 'https://www.nubotracker.com';
+
+const absoluteURL = (url: string) => new URL(url, siteURL).href;
+const canonicalHref = absoluteURL(canonicalURL);
+const ogImageHref = absoluteURL(ogImage);
+
+const labelOverrides: Record<string, string> = {
+  alexa: 'Alexa Skill',
+  app: 'App',
+  blog: 'Blog',
+  caregivers: 'Caregivers',
+  compare: 'Compare',
+  contact: 'Contact',
+  device: 'Device',
+  faq: 'FAQ',
+  gift: 'Gift',
+  guides: 'Guides',
+  resources: 'Resources',
+  pricing: 'Pricing',
+  privacy: 'Privacy',
+  'privacy-policy': 'Privacy Policy',
+  support: 'Support',
+  'terms-of-use': 'Terms of Use',
+  tracking: 'Tracking',
+};
+
+const titleCase = (segment: string) =>
+  labelOverrides[segment] ||
+  segment
+    .split('-')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+let breadcrumbPath = '';
+const breadcrumbList = {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: siteURL + '/',
+    },
+    ...pathSegments.map((segment, index) => {
+      breadcrumbPath += `/${segment}/`;
+      return {
+        '@type': 'ListItem',
+        position: index + 2,
+        name: titleCase(segment),
+        item: absoluteURL(breadcrumbPath),
+      };
+    }),
+  ],
+};
+
+const jsonLdItems = Array.isArray(jsonLd)
+  ? jsonLd
+  : jsonLd && Array.isArray(jsonLd['@graph'])
+    ? (jsonLd['@graph'] as Record<string, unknown>[])
+    : jsonLd
+      ? [jsonLd]
+      : [];
+
+const jsonLdGraph = {
+  '@context': 'https://schema.org',
+  '@graph': [...jsonLdItems.map(({ '@context': _context, ...item }) => item), breadcrumbList],
+};
 ---
 
 <!doctype html>
@@ -35,7 +103,7 @@ const stickyCtaVariant = Astro.url.pathname === '/app/' ? 'app' : 'device';
     <!-- SEO -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalURL} />
+    <link rel="canonical" href={canonicalHref} />
 
     <!-- Preload LCP image on the home page -->
     {Astro.url.pathname === '/' && (
@@ -45,8 +113,8 @@ const stickyCtaVariant = Astro.url.pathname === '/app/' ? 'app' : 'device';
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalHref} />
+    <meta property="og:image" content={ogImageHref} />
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={siteName} />
 
@@ -54,12 +122,10 @@ const stickyCtaVariant = Astro.url.pathname === '/app/' ? 'app' : 'device';
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={ogImageHref} />
 
     <!-- JSON-LD -->
-    {jsonLd && (
-      <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-    )}
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdGraph)} />
 
     <!-- Fonts – self-hosted to eliminate the Google Fonts critical chain -->
     <link

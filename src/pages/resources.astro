@@ -4,8 +4,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const title = 'Resources | Nubo Baby Tracker Guides and Articles';
-const description = 'Start here for baby tracking guides on feeding, sleep, diapers, caregivers, privacy, and choosing the right Nubo setup.';
+const title = 'Resources | One-Tap Baby Tracker Guides and Articles';
+const description = 'Start here for baby tracking guides on night feeds, sleep, diapers, caregivers, privacy, and choosing the right one-tap Nubo setup.';
 
 const posts = (await getCollection('blog'))
   .sort((a, b) => new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime())
@@ -44,7 +44,7 @@ const categoryCopy = [
   <main>
     <section class="page-hero">
       <div class="container">
-        <p class="overline">Resources</p>
+        <p class="overline">One-tap baby tracker resources</p>
         <h1>Baby tracking help that routes back to real life.</h1>
         <p class="page-hero-sub">Start with the first 12 weeks, then explore sleep, feeding, caregiver handoffs, privacy, and product decisions.</p>
       </div>

@@ -6,8 +6,8 @@ import SpeedComparison from '../components/SpeedComparison.astro';
 import CaregiverEconomics from '../components/CaregiverEconomics.astro';
 import PremiumFollowsDevice from '../components/PremiumFollowsDevice.astro';
 
-const title = 'Nubo Device | One-Button Baby Tracker for Feeds, Sleep, and Diapers';
-const description = 'Log feeds, sleep, pee, and poop with a one-second button press. The Nubo device syncs to the free app and gives Premium to every caregiver who uses it.';
+const title = 'Nubo Device | One-Tap Baby Tracker for Night Feeds';
+const description = 'The one-tap baby tracker for night feeds, hands-full moments, and multi-caregiver households. Log feeds, sleep, pee, and poop with a one-second button press.';
 
 const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
 
@@ -15,10 +15,35 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Product',
   name: 'Nubo Baby Tracker Device',
-  image: 'https://www.nubotracker.com/images/nubo-instant-tracker.webp',
+  alternateName: ['One-tap baby tracker', 'Physical baby tracker device'],
+  image: [
+    'https://www.nubotracker.com/images/nubo-instant-tracker.webp',
+    'https://www.nubotracker.com/images/nubo-oneclick.webp'
+  ],
   description,
-  brand: { '@type': 'Brand', name: 'nubo' },
-  offers: { '@type': 'Offer', price: '89.99', priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: amazonURL }
+  sku: 'B0CJLNBG4P',
+  category: 'Baby activity tracker',
+  brand: { '@type': 'Brand', name: 'Nubo' },
+  url: 'https://www.nubotracker.com/device/',
+  featureList: [
+    'One-button logging for feeds, sleep, pee, and poop',
+    'Bluetooth sync with the free Nubo app',
+    'Premium access refresh for phones that sync with the device',
+    'Magnetic mount, lanyard, and battery included'
+  ],
+  offers: {
+    '@type': 'Offer',
+    price: '89.99',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock',
+    itemCondition: 'https://schema.org/NewCondition',
+    url: amazonURL
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.2',
+    reviewCount: '32'
+  }
 };
 ---
 
@@ -28,7 +53,7 @@ const jsonLd = {
     <section class="device-hero">
       <div class="container device-hero-grid">
         <div>
-          <p class="overline">Nubo Device</p>
+          <p class="overline">One-tap baby tracker</p>
           <h1>One-second baby logging, even when your phone is nowhere near you.</h1>
           <p class="hero-sub">Press once for feeding, sleep, pee, or poop. Nubo remembers the exact time, then syncs with the free app and keeps every active caregiver on Premium.</p>
           <div class="hero-actions-inline"><a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon · $89.99</a><a href="/app/" class="btn-ghost">Use the free app first</a></div>

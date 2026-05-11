@@ -6,8 +6,8 @@ import SpeedComparison from '../components/SpeedComparison.astro';
 import CaregiverEconomics from '../components/CaregiverEconomics.astro';
 import PremiumFollowsDevice from '../components/PremiumFollowsDevice.astro';
 
-const title = 'Pricing | Nubo Baby Tracker | Free App, Premium, and Device';
-const description = 'Choose the right Nubo setup: free app, Premium, or the one-time Nubo device with Premium for every caregiver who uses it.';
+const title = 'Pricing | Nubo One-Tap Baby Tracker, Free App, and Premium';
+const description = 'Choose the right one-tap baby tracker setup: free app, Premium, or the Nubo device for night feeds, hands-full moments, and multi-caregiver households.';
 
 const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
 const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
@@ -15,14 +15,59 @@ const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Product',
-  name: 'Nubo Baby Tracker',
-  description,
-  brand: { '@type': 'Brand', name: 'nubo' },
-  offers: [
-    { '@type': 'Offer', name: 'Nubo app Free', price: '0', priceCurrency: 'USD', url: appStoreURL },
-    { '@type': 'Offer', name: 'Nubo Premium', price: '39.99', priceCurrency: 'USD', url: appStoreURL },
-    { '@type': 'Offer', name: 'Nubo Device', price: '89.99', priceCurrency: 'USD', url: amazonURL }
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      name: title,
+      description,
+      url: 'https://www.nubotracker.com/pricing/',
+      about: { '@type': 'Product', name: 'Nubo Baby Tracker' }
+    },
+    {
+      '@type': 'Product',
+      name: 'Nubo Baby Tracker Device',
+      alternateName: ['One-tap baby tracker', 'Physical baby tracker device'],
+      description: 'A one-tap baby tracker device for night feeds, hands-full moments, and multi-caregiver households.',
+      image: 'https://www.nubotracker.com/images/nubo-instant-tracker.webp',
+      sku: 'B0CJLNBG4P',
+      brand: { '@type': 'Brand', name: 'Nubo' },
+      offers: {
+        '@type': 'Offer',
+        name: 'Nubo Device',
+        price: '89.99',
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+        itemCondition: 'https://schema.org/NewCondition',
+        url: amazonURL
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.2',
+        reviewCount: '32'
+      }
+    },
+    {
+      '@type': 'MobileApplication',
+      name: 'Nubo Baby Tracker App',
+      operatingSystem: 'iOS, Android',
+      applicationCategory: 'HealthApplication',
+      description: 'Free baby tracker app with one-tap quick logs, voice catch-up, caregiver sync, and private baby timeline tools.',
+      offers: [
+        { '@type': 'Offer', name: 'Nubo app Free', price: '0', priceCurrency: 'USD', url: appStoreURL },
+        { '@type': 'Offer', name: 'Nubo Premium', price: '39.99', priceCurrency: 'USD', url: appStoreURL }
+      ],
+      installUrl: [appStoreURL, playStoreURL],
+      downloadUrl: [appStoreURL, playStoreURL]
+    },
+    {
+      '@type': 'OfferCatalog',
+      name: 'Nubo setup options',
+      itemListElement: [
+        { '@type': 'Offer', itemOffered: { '@type': 'MobileApplication', name: 'Nubo free app' }, price: '0', priceCurrency: 'USD', url: appStoreURL },
+        { '@type': 'Offer', itemOffered: { '@type': 'SoftwareApplication', name: 'Nubo Premium' }, price: '39.99', priceCurrency: 'USD', url: appStoreURL },
+        { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Nubo Device' }, price: '89.99', priceCurrency: 'USD', url: amazonURL }
+      ]
+    }
   ]
 };
 ---
@@ -32,7 +77,7 @@ const jsonLd = {
   <main>
     <section class="page-hero pricing-hero">
       <div class="container">
-        <p class="overline">Pricing</p>
+        <p class="overline">One-tap baby tracker pricing</p>
         <h1>Start free. Upgrade when time, sleep, or caregivers make it worth it.</h1>
         <p class="page-hero-sub">Three paths count: install the free app, upgrade to Premium, or buy the device once for one-second logging and Premium for every caregiver who uses it.</p>
         <div class="hero-actions-inline">

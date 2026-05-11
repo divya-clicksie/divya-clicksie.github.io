@@ -3,21 +3,39 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const title = 'About Nubo | Baby Tracking Built by a Mom and Engineer';
-const description = 'Meet the thinking behind Nubo, a baby tracker built to make logging faster, calmer, more private, and easier for every caregiver helping with the baby.';
+const title = 'About Nubo | One-Tap Baby Tracking Built by a Mom and Engineer';
+const description = 'Meet the thinking behind Nubo, the one-tap baby tracker built to make logging faster, calmer, more private, and easier for every caregiver helping with the baby.';
 const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
+const instagramURL = 'https://www.instagram.com/nubo_baby_tracker';
+const youtubeURL = 'https://www.youtube.com/@NuboBabyTracker';
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'AboutPage',
-  name: title,
-  description,
-  url: 'https://www.nubotracker.com/about/',
-  about: {
-    '@type': 'Brand',
-    name: 'Nubo',
-    slogan: 'Care with Confidence'
-  }
+  '@graph': [
+    {
+      '@type': 'AboutPage',
+      name: title,
+      description,
+      url: 'https://www.nubotracker.com/about/',
+      about: { '@id': 'https://www.nubotracker.com/#organization' }
+    },
+    {
+      '@type': 'Organization',
+      '@id': 'https://www.nubotracker.com/#organization',
+      name: 'Nubo',
+      legalName: 'Clicksie LLC',
+      url: 'https://www.nubotracker.com/',
+      logo: 'https://www.nubotracker.com/images/nubo-logo.svg',
+      slogan: 'Care with Confidence',
+      description: 'Nubo makes a one-tap baby tracker for night feeds, hands-full moments, and multi-caregiver households.',
+      founder: {
+        '@type': 'Person',
+        name: 'Divya',
+        jobTitle: 'Founder of Nubo'
+      },
+      sameAs: [instagramURL, youtubeURL]
+    }
+  ]
 };
 ---
 
@@ -27,7 +45,7 @@ const jsonLd = {
     <section class="about-hero">
       <div class="container about-hero-grid">
         <div>
-          <p class="overline">About Nubo</p>
+          <p class="overline">One-tap baby tracker</p>
           <h1>Built for the part of parenting nobody does perfectly.</h1>
           <p class="hero-sub">Nubo exists because early baby care is repetitive, emotional, and shared. The tracker should make those moments easier, not turn them into another screen-heavy task.</p>
           <div class="hero-actions-inline"><a href="/pricing/" class="btn-primary">Choose your setup</a><a href={amazonURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">Buy on Amazon</a></div>
