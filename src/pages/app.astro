@@ -3,8 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const title = 'Nubo App | Free One-Tap Baby Tracker for iOS and Android';
-const description = 'Download the free Nubo baby tracker app for one-tap logging, voice catch-up, caregiver sync, growth, vaccines, allergens, milestones, and private iOS and Android sharing.';
+const title = 'Nubo App | Free Baby Tracker with Voice Catch-Up';
+const description = 'Download the free Nubo baby tracker app for quick logs, voice catch-up, caregiver sync, growth, vaccines, allergens, milestones, and private iOS and Android sharing.';
 const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
 const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
 
@@ -52,26 +52,38 @@ const jsonLd = {
     <section class="app-hero">
       <div class="container app-hero-inner">
         <div>
-          <p class="overline">Free one-tap baby tracker</p>
-          <h1>A free baby tracker built for shared care.</h1>
-          <p>Track the essentials, invite caregivers, catch up by voice, and keep the baby's history private. Start with the app today, then add Premium or the device only when it makes sense.</p>
+          <p class="overline">Free baby tracker app for iPhone and Android</p>
+          <h1>Baby tracking that catches up when real life gets ahead of you.</h1>
+          <p>Log feeds, sleep, diapers, medicine, growth, and notes with quick taps. Remembered something later? Say it in plain English. Sharing care? Keep partners, grandparents, nannies, and family helpers on the same timeline.</p>
           <div class="hero-actions-inline">
             <a href={appStoreURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Download on App Store</a>
             <a href={playStoreURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
           </div>
+          <p class="hero-trust">No ads. No credit card. No trial countdown.</p>
         </div>
         <img src="/images/appscreens/01_onetouch.webp" alt="Nubo app one-touch tracking screen" width="642" height="1389" />
       </div>
     </section>
 
+    <section class="timeline-section">
+      <div class="container">
+        <div class="section-intro"><p class="overline">One baby timeline</p><h2>However care happens.</h2><p class="section-sub">Baby care rarely happens in perfect app-sized moments. Nubo helps keep the day accurate whether you log right away, remember later, or hand care to someone else.</p></div>
+        <div class="moment-grid">
+          <article><h3>Log now</h3><p>Use quick app buttons for feeds, sleep, diapers, medicine, growth, notes, and more when your phone is already in hand.</p></article>
+          <article><h3>Catch up later</h3><p>Say what happened in plain English, like "gave 3 oz around noon" or "wet diaper after the nap," and Nubo turns it into structured logs.</p></article>
+          <article><h3>Share the day</h3><p>Invite caregivers across iPhone and Android so everyone works from the same baby timeline.</p></article>
+        </div>
+      </div>
+    </section>
+
     <section class="free-section">
       <div class="container">
-        <div class="section-intro"><p class="overline">Free forever</p><h2>The free tier is real.</h2><p class="section-sub">No ads, no time limits, no credit card, and no artificial cap on the basics parents need every day.</p></div>
+        <div class="section-intro"><p class="overline">Free forever</p><h2>Start free and actually use it free.</h2><p class="section-sub">Nubo's free app includes the core tracking families use every day, without ads, a credit card, a trial countdown, or artificial caps on the basics.</p></div>
         <div class="feature-grid">
-          <article><h3>Full routine tracking</h3><p>Feeds, sleep, diapers, growth, vaccines, allergens, milestones, medication, and notes.</p></article>
-          <article><h3>Voice catch-up</h3><p>Say "baby slept at 1 and woke up 10 minutes ago" and Nubo turns it into a structured log.</p></article>
-          <article><h3>Unlimited caregiver sync</h3><p>Invite partner, grandparents, nanny, or anyone helping with the baby across iOS and Android. See how it works on the <a href="/caregivers/">caregiver page</a>.</p></article>
-          <article><h3>Private by design</h3><p>Voice logging runs on your phone. Backups go to your own iCloud or Google Drive. Read the <a href="/privacy/">privacy overview</a>.</p></article>
+          <article><h3>Core logs</h3><p>Feeds, sleep, diapers, medicine, growth, vaccines, allergens, milestones, and notes.</p></article>
+          <article><h3>Voice catch-up</h3><p>Speak naturally when you remember something later, and Nubo files it into the timeline.</p></article>
+          <article><h3>Caregiver sync</h3><p>Invite a partner, grandparent, nanny, or anyone helping with the baby across iOS and Android.</p></article>
+          <article><h3>Offline and private storage</h3><p>Use Nubo offline, then back up to your own iCloud or Google Drive when you choose.</p></article>
         </div>
       </div>
     </section>
@@ -80,26 +92,37 @@ const jsonLd = {
       <div class="container voice-inner">
         <div>
           <p class="overline">Voice catch-up</p>
-          <h2>For the log you remembered later.</h2>
-          <p>Nubo voice is built for normal parent memory and real speech patterns. Say what happened in plain English, including fuzzy times, and Nubo turns it into a structured event in the right place.</p>
+          <h2>Remembered it later? Say it once.</h2>
+          <p>Newborn care is full of late logs. Say what happened in plain English, including fuzzy times, and Nubo turns it into a structured event in the right place.</p>
           <div class="voice-example" aria-label="Example voice log">
-            <span>&ldquo;Baby slept at 1 and woke up 10 minutes ago.&rdquo;</span>
-            <strong>Nubo infers the likely 1 a.m. or 1 p.m. start, then anchors 10 minutes ago to the moment you spoke.</strong>
+            <span>&ldquo;Baby slept at around 1 and woke up 10 minutes ago.&rdquo;</span>
+            <span>&ldquo;Gave 3 oz around noon.&rdquo;</span>
+            <strong>Nubo turns plain English into structured logs, so the timeline stays useful even when you did not track perfectly in the moment.</strong>
           </div>
-          <p class="voice-note">No need to twist your commands to fit a rigid voice system. Voice catch-up is free and runs on your phone.</p>
+          <p class="voice-note">Voice catch-up is free and runs on your phone.</p>
         </div>
         <img src="/images/appscreens/02_voicelogging.webp" alt="Nubo app voice logging screen" width="642" height="1389" loading="lazy" decoding="async" />
       </div>
     </section>
+
+    <div class="mid-cta-strip">
+      <div class="container mid-cta-inner">
+        <p>Free on iPhone and Android &mdash; no credit card, no ads, no trial countdown.</p>
+        <div class="mid-cta-links">
+          <a href={appStoreURL} target="_blank" rel="noopener noreferrer"><img src="/images/appstore-badge.webp" alt="Download on the App Store" width="160" height="56" loading="lazy" /></a>
+          <a href={playStoreURL} target="_blank" rel="noopener noreferrer"><img src="/images/playstore-badge.webp" alt="Get it on Google Play" width="160" height="56" loading="lazy" /></a>
+        </div>
+      </div>
+    </div>
 
     <section class="caregiver-app-section">
       <div class="container caregiver-app-inner">
         <img src="/images/caregiver-hub.webp" alt="Nubo device syncing baby tracking data with multiple caregiver phones" width="970" height="600" loading="lazy" decoding="async" />
         <div>
           <p class="overline">Caregiver sync</p>
-          <h2>Shared tracking works in the free app too.</h2>
-          <p>Invite a partner, grandparent, nanny, or anyone helping with the baby, whether they use an iPhone or Android phone. Everyone sees the same day without turning handoff into a thread of check-in texts.</p>
-          <p>Caregiver sharing is end-to-end encrypted, so shared tracking can work across Apple and Google ecosystems while keeping the baby's timeline private to the people you invite.</p>
+          <h2>One shared day for everyone helping.</h2>
+          <p>Invite a partner, grandparent, nanny, or family helper, whether they use an iPhone or Android phone. Everyone can see what happened, what is next, and when the last feed, nap, diaper, or note was logged.</p>
+          <p>Free caregiver sync keeps handoffs from turning into "When did the baby last eat?" texts. Caregiver sharing is end-to-end encrypted between the people you invite.</p>
           <p>The device adds one-button logging and Premium for active caregivers, but the shared timeline starts with the free app.</p>
           <a href="/caregivers/" class="text-link">See caregiver sync &rarr;</a>
         </div>
@@ -108,7 +131,7 @@ const jsonLd = {
 
     <section class="privacy-app-section">
       <div class="container">
-        <div class="section-intro"><p class="overline">Privacy promise</p><h2>The baby's history belongs to the family.</h2><p class="section-sub">Nubo is designed around private baby care, not ads or data resale.</p></div>
+        <div class="section-intro"><p class="overline">Privacy details</p><h2>Privacy details you can check.</h2><p class="section-sub">Nubo is not built around ads or selling baby data. In-app voice runs on your phone, backups use your cloud, and sharing stays between invited caregivers.</p></div>
         <div class="privacy-points">
           <article><h3>In-app voice stays on your phone</h3><p>In-app voice logging runs on-device, so audio is not sent to Nubo servers for transcription. Alexa logging uses Amazon's Alexa systems.</p></article>
           <article><h3>Your backup, your cloud</h3><p>Backups use your own iCloud or Google Drive instead of a Nubo account database.</p></article>
@@ -136,14 +159,15 @@ const jsonLd = {
       <div class="container upgrade-inner">
         <div>
           <p class="overline">Optional upgrade</p>
-          <h2>Premium adds advanced tools. The device adds a faster way to log.</h2>
+          <h2>Start with the app. Add the button when your phone becomes the bottleneck.</h2>
+          <p>Many families begin with the free app. If logging from a phone starts to feel annoying during feeds, pumping, diaper changes, or handoffs, the Nubo device gives you a physical one-touch way to log without unlocking your phone.</p>
           <p>Premium is for app-first families who want reminders, Alexa, Live Activities, exports, advanced growth metrics, Premium modes, and a private pumping tracker. It is managed by the App Store or Google Play account that buys it, while the device can grant Premium to separate caregiver accounts.</p>
           <div class="upgrade-cards">
             <article><h3>Private pumping</h3><p>Milk output is your body data. It is not in the shared baby log, not in caregiver sync, and not visible to partners, nannies, grandparents, or other collaborators.</p><a href="/blog/privacy/pumping-tracker-private-data/">Read the privacy guide</a></article>
             <article><h3>Premium app</h3><p>Best when one primary app account needs reminders, exports, Live Activities, advanced metrics, Alexa, and Premium modes.</p></article>
             <article><h3>Nubo device</h3><p>Best when even unlocking your phone is too much, or when non-family caregivers need Premium too.</p></article>
           </div>
-          <div class="hero-actions-inline"><a href="/pricing/" class="btn-primary">Compare setups</a><a href="/device/" class="btn-ghost">See what the device adds</a></div>
+          <div class="hero-actions-inline"><a href="#app-downloads" class="btn-primary">Download the free app</a><a href="/device/" class="btn-ghost">See the one-touch device</a></div>
         </div>
         <img src="/images/nubo-instant-tracker-900.webp" alt="Hand pressing the Nubo instant tracker beside a sleeping baby" width="900" height="900" loading="lazy" decoding="async" />
       </div>
@@ -153,8 +177,8 @@ const jsonLd = {
       <div class="container proof-inner">
         <div>
           <p class="overline">Start with the app</p>
-          <h2>Download free. Upgrade only when the routine asks for it.</h2>
-          <p>The app is the foundation: free tracking, free voice catch-up, free caregiver sync, and private storage. Premium and the device are optional paths for families who need more.</p>
+          <h2>Download free. Keep the day easier to trust.</h2>
+          <p>Start with quick logs, voice catch-up, caregiver sync, offline mode, and private storage. Premium and the device are optional paths for families who need more.</p>
         </div>
         <div class="store-panel" aria-label="Download Nubo app">
           <p><strong>Free on iOS and Android</strong><span>No credit card. No ads. No time limit.</span></p>
@@ -173,15 +197,20 @@ const jsonLd = {
 <style>
   .app-hero { padding: 10rem 0 5rem; background: linear-gradient(170deg, #f0fafa 0%, #fff 60%); overflow: hidden; }
   .app-hero-inner, .upgrade-inner, .voice-inner, .caregiver-app-inner, .proof-inner { display: grid; grid-template-columns: 1fr 0.75fr; gap: 4rem; align-items: center; }
+  .voice-inner { align-items: start; }
   .app-hero h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.08; margin-bottom: 1rem; }
-  .app-hero p, .feature-grid p, .upgrade-inner p, .voice-inner p, .caregiver-app-inner p, .privacy-points p, .proof-inner p, figcaption span { color: var(--color-text-secondary); line-height: 1.7; }
+  .app-hero p, .moment-grid p, .feature-grid p, .upgrade-inner p, .voice-inner p, .caregiver-app-inner p, .privacy-points p, .proof-inner p, figcaption span { color: var(--color-text-secondary); line-height: 1.7; }
   .app-hero-inner > img { justify-self: center; }
   .app-hero img { max-height: 620px; width: auto; border-radius: 30px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.14); }
   .hero-actions-inline { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
-  .free-section, .voice-section, .caregiver-app-section, .privacy-app-section, .screens-section, .upgrade-section, .proof-section { padding: 6rem 0; }
+  .hero-trust { margin-top: 1rem; font-weight: 800; color: var(--color-brand-dark) !important; }
+  .timeline-section, .free-section, .voice-section, .caregiver-app-section, .privacy-app-section, .screens-section, .upgrade-section, .proof-section { padding: 6rem 0; }
   .proof-section { scroll-margin-top: 1rem; }
   .free-section, .caregiver-app-section, .upgrade-section { background: #fff; }
-  .voice-section, .privacy-app-section, .screens-section, .proof-section { background: var(--color-bg-soft); }
+  .timeline-section, .voice-section, .privacy-app-section, .screens-section, .proof-section { background: var(--color-bg-soft); }
+  .moment-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .moment-grid article { background: #fff; border-radius: var(--radius-xl); padding: 1.75rem; }
+  .moment-grid h3 { font-size: 1.125rem; margin-bottom: 0.5rem; }
   .feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
   .feature-grid article { background: var(--color-bg-soft); border-radius: var(--radius-xl); padding: 1.75rem; }
   .feature-grid h3 { font-size: 1.125rem; margin-bottom: 0.5rem; }
@@ -210,6 +239,11 @@ const jsonLd = {
   .store-panel strong { color: var(--color-text); font-size: 1.15rem; }
   .store-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
   .store-links img { height: 48px; width: auto; }
-  @media (max-width: 980px) { .app-hero-inner, .upgrade-inner, .voice-inner, .caregiver-app-inner, .proof-inner { grid-template-columns: 1fr; } .feature-grid, .screens-grid, .privacy-points, .upgrade-cards { grid-template-columns: 1fr 1fr; } .app-hero-inner > img, .voice-inner img { order: -1; } .store-panel { justify-self: stretch; width: 100%; } }
-  @media (max-width: 640px) { .app-hero { padding-top: 8rem; } .free-section, .voice-section, .caregiver-app-section, .privacy-app-section, .screens-section, .upgrade-section, .proof-section { padding: 4rem 0; } .feature-grid, .screens-grid, .privacy-points, .upgrade-cards { grid-template-columns: 1fr; } .app-hero img { max-height: 480px; } .screens-grid img { height: 360px; } .store-links a, .store-links img { width: 100%; height: auto; } }
+  .mid-cta-strip { background: var(--color-brand-light); padding: 2.5rem 0; border-top: 1px solid rgba(61, 179, 173, 0.15); border-bottom: 1px solid rgba(61, 179, 173, 0.15); }
+  .mid-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+  .mid-cta-inner p { margin: 0; font-weight: 700; color: var(--color-text); font-size: 1.05rem; }
+  .mid-cta-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .mid-cta-links img { height: 44px; width: auto; }
+  @media (max-width: 980px) { .app-hero { padding: 8rem 0 4rem; } .app-hero-inner, .upgrade-inner, .voice-inner, .caregiver-app-inner, .proof-inner { grid-template-columns: 1fr; } .moment-grid, .feature-grid, .screens-grid, .privacy-points, .upgrade-cards { grid-template-columns: 1fr 1fr; } .voice-inner img { order: -1; } .store-panel { justify-self: stretch; width: 100%; } .mid-cta-inner { flex-direction: column; align-items: flex-start; } }
+  @media (max-width: 640px) { .app-hero { padding-top: 7rem; } .timeline-section, .free-section, .voice-section, .caregiver-app-section, .privacy-app-section, .screens-section, .upgrade-section, .proof-section { padding: 4rem 0; } .moment-grid, .feature-grid, .screens-grid, .privacy-points, .upgrade-cards { grid-template-columns: 1fr; } .app-hero img { max-height: 480px; } .screens-grid img { height: 360px; } .store-links a, .store-links img { width: 100%; height: auto; } .mid-cta-links img { height: 40px; } }
 </style>
