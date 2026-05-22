@@ -1622,6 +1622,8 @@ status: "draft | review | published"
 
 [2026-04-03] BONUS — DONE — What To Expect feature spotlight. ~1,230 words. Filed as src/content/blog/what-to-expect-age-specific-guidance.mdx. Citations: La Leche League International, WHO Infant and Young Child Feeding fact sheet, HealthyChildren.org, Flaherman et al. (Pediatrics, 2015; PMID 25554815). Three-ways angle: Light (one framing sentence acknowledging paper, app, and physical tracking, then shifting to interpretation). Nubo mentions: throughout as logging tool plus guidance companion. Internal links: POST-002 (feeding schedule), POST-017 (diaper output), POST-015 (eating enough), POST-005 (cluster feeding), POST-007 (sleep hours). Build: pass.
 
+[2026-05-21] BONUS — DONE — Grandma baby handoff checklist. Filed as src/content/blog/grandma-baby-handoff-checklist.mdx. Citations: none. Three-ways angle: Light (one sentence acknowledging paper, phone notes, and app-based handoff tracking). App feature weave: Care Vault + caregiver sync. Internal links: baby tracking for grandparents, privacy architecture article, app page, caregiver page. Build: pass.
+
 ---
 
 ## Summary Tracker
