@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Page not found | Nubo Baby Tracker';
+const description = 'This page does not exist. Find the Nubo app, device, pricing, and more from the links below.';
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="overline">404</p>
+        <h1>Page not found.</h1>
+        <p class="page-hero-sub">
+          This URL does not exist. Try one of the links below.
+        </p>
+      </div>
+    </section>
+
+    <section class="not-found-links">
+      <div class="container">
+        <ul class="not-found-grid">
+          <li>
+            <a href="/" class="not-found-card">
+              <span class="not-found-label">Home</span>
+              <span class="not-found-desc">Overview of the Nubo ecosystem</span>
+            </a>
+          </li>
+          <li>
+            <a href="/app/" class="not-found-card">
+              <span class="not-found-label">App</span>
+              <span class="not-found-desc">Free baby tracker for iOS and Android</span>
+            </a>
+          </li>
+          <li>
+            <a href="/device/" class="not-found-card">
+              <span class="not-found-label">Device</span>
+              <span class="not-found-desc">One-tap physical tracker for night feeds</span>
+            </a>
+          </li>
+          <li>
+            <a href="/pricing/" class="not-found-card">
+              <span class="not-found-label">Pricing</span>
+              <span class="not-found-desc">Compare free, Premium, and device</span>
+            </a>
+          </li>
+          <li>
+            <a href="/blog/" class="not-found-card">
+              <span class="not-found-label">Blog</span>
+              <span class="not-found-desc">Sleep, feeding, caregivers, and more</span>
+            </a>
+          </li>
+          <li>
+            <a href="/contact/" class="not-found-card">
+              <span class="not-found-label">Contact</span>
+              <span class="not-found-desc">Reach the Nubo team</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof window.plausible === 'function') {
+      plausible('404', { props: { path: document.location.pathname } });
+    }
+  });
+</script>
+
+<style>
+  .not-found-links {
+    padding: 4rem 0 8rem;
+  }
+
+  .not-found-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .not-found-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    padding: 1.5rem;
+    border: 1.5px solid var(--color-border, #e5e7eb);
+    border-radius: 16px;
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .not-found-card:hover {
+    border-color: var(--color-brand);
+    box-shadow: 0 4px 20px rgba(19, 188, 195, 0.1);
+  }
+
+  .not-found-label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-brand);
+  }
+
+  .not-found-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+</style>
