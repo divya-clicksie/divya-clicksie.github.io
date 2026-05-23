@@ -104,6 +104,7 @@ const jsonLdGraph = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalHref} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Preload LCP image on the home page -->
     {Astro.url.pathname === '/' && (
