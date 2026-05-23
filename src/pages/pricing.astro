@@ -21,7 +21,7 @@ const jsonLd = {
       name: title,
       description,
       url: 'https://www.nubotracker.com/pricing/',
-      about: { '@type': 'Product', name: 'Nubo Baby Tracker' }
+      about: { '@type': 'Thing', name: 'Nubo Baby Tracker' }
     },
     {
       '@type': 'Product',
@@ -65,7 +65,7 @@ const jsonLd = {
       itemListElement: [
         { '@type': 'Offer', itemOffered: { '@type': 'MobileApplication', name: 'Nubo free app' }, price: '0', priceCurrency: 'USD', url: appStoreURL },
         { '@type': 'Offer', itemOffered: { '@type': 'SoftwareApplication', name: 'Nubo Premium' }, price: '39.99', priceCurrency: 'USD', url: appStoreURL },
-        { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Nubo Device' }, price: '89.99', priceCurrency: 'USD', url: amazonURL }
+        { '@type': 'Offer', itemOffered: { '@type': 'Thing', name: 'Nubo Device' }, price: '89.99', priceCurrency: 'USD', url: amazonURL }
       ]
     }
   ]
