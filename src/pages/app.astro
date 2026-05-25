@@ -55,9 +55,9 @@ const jsonLd = {
           <p class="overline">Free baby tracker app for iPhone and Android</p>
           <h1>Baby tracking that catches up when newborn life gets messy.</h1>
           <p>Log feeds, sleep, diapers, medicine, growth, and notes with quick taps. Remembered something later? Say it in plain English. Sharing care? Keep every caregiver on the same timeline.</p>
-          <div class="hero-actions-inline">
-            <a href={appStoreURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Download on App Store</a>
-            <a href={playStoreURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
+          <div class="hero-store-links" aria-label="Download Nubo app">
+            <a href={appStoreURL} target="_blank" rel="noopener noreferrer"><img src="/images/appstore-badge.webp" alt="Download on the App Store" width="160" height="56" /></a>
+            <a href={playStoreURL} target="_blank" rel="noopener noreferrer"><img src="/images/playstore-badge.webp" alt="Get it on Google Play" width="160" height="56" /></a>
           </div>
           <p class="hero-trust">No ads. No credit card. No trial countdown.</p>
         </div>
@@ -204,6 +204,8 @@ const jsonLd = {
   .app-hero-inner > img { justify-self: center; }
   .app-hero img { max-height: 620px; width: auto; border-radius: 30px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.14); }
   .hero-actions-inline { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+  .hero-store-links { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; margin-top: 2rem; }
+  .hero-store-links img { height: 52px; width: auto; border-radius: 0; box-shadow: none; }
   .hero-trust { margin-top: 1rem; font-weight: 800; color: var(--color-brand-dark) !important; }
   .timeline-section, .free-section, .voice-section, .caregiver-app-section, .privacy-app-section, .screens-section, .upgrade-section, .proof-section { padding: 6rem 0; }
   .proof-section { scroll-margin-top: 1rem; }
@@ -246,5 +248,5 @@ const jsonLd = {
   .mid-cta-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
   .mid-cta-links img { height: 44px; width: auto; }
   @media (max-width: 980px) { .app-hero { padding: 8rem 0 4rem; } .app-hero-inner, .upgrade-inner, .voice-inner, .caregiver-app-inner, .proof-inner { grid-template-columns: 1fr; } .moment-grid, .feature-grid, .screens-grid, .privacy-points, .upgrade-cards { grid-template-columns: 1fr 1fr; } .voice-inner img { order: -1; } .store-panel { justify-self: stretch; width: 100%; } .mid-cta-inner { flex-direction: column; align-items: flex-start; } }
-  @media (max-width: 640px) { .app-hero { padding-top: 7rem; } .timeline-section, .free-section, .voice-section, .caregiver-app-section, .privacy-app-section, .screens-section, .upgrade-section, .proof-section { padding: 4rem 0; } .moment-grid, .feature-grid, .screens-grid, .privacy-points, .upgrade-cards { grid-template-columns: 1fr; } .app-hero img { max-height: 480px; } .screens-grid img { height: 360px; } .store-links a, .store-links img { width: 100%; height: auto; } .mid-cta-links img { height: 40px; } }
+  @media (max-width: 640px) { .app-hero { padding-top: 7rem; } .timeline-section, .free-section, .voice-section, .caregiver-app-section, .privacy-app-section, .screens-section, .upgrade-section, .proof-section { padding: 4rem 0; } .moment-grid, .feature-grid, .screens-grid, .privacy-points, .upgrade-cards { grid-template-columns: 1fr; } .app-hero img { max-height: 480px; } .hero-store-links img { height: 46px; } .screens-grid img { height: 360px; } .store-links a, .store-links img { width: 100%; height: auto; } .mid-cta-links img { height: 40px; } }
 </style>
