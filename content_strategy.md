@@ -1624,6 +1624,8 @@ status: "draft | review | published"
 
 [2026-05-21] BONUS — DONE — Grandma baby handoff checklist. Filed as src/content/blog/grandma-baby-handoff-checklist.mdx. Citations: none. Three-ways angle: Light (one sentence acknowledging paper, phone notes, and app-based handoff tracking). App feature weave: Care Vault + caregiver sync. Internal links: baby tracking for grandparents, privacy architecture article, app page, caregiver page. Build: pass.
 
+[2026-05-30] BONUS — DONE — Best baby tracker for nannies and grandparents. Filed as src/content/blog/best-baby-tracker-for-nanny-grandparents.mdx. Citations: none (no clinical claims). Tier: Full (~1,200 words). Three-ways angle: Heavy (full comparison table with paper/app/device columns evaluated through caregiver lens). App feature weave: QR-code caregiver invitations, Alexa voice logging for grandparents, end-to-end encrypted sync. Nubo mentions: 2 (ecosystem reveal section, soft CTA). Internal links: POST-018 (return to work handoff), POST-006 (nanny tracking), POST-009 (physical tracker vs app), POST-026 (privacy architecture), POST-014 (grandparent tracking). Targets "best baby tracker for nanny" and "best baby tracker for grandparents" search queries. Build: pass.
+
 ---
 
 ## Summary Tracker
