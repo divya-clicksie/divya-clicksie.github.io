@@ -1533,6 +1533,7 @@ These are natural minis (500-700 words). Interleave between full posts for publi
 - **What CDC milestones actually mean (and how to track them without anxiety)** — 4 developmental categories, 12 age groups, radial progress rings. Pillar: Tracking. Links to: POST-013. Images: radial progress rings screenshot.
 - **What To Expect: age-specific guidance that comes to you** - Feature spotlight on Nubo's in-app guidance layer. Show why a parent of a 5-day-old needs different reassurance than a parent of a 6-week-old, then use day-5 and week-6 examples to make the narrow relevance window feel concrete. Pillar: Product. Links to: POST-002, POST-007, POST-015, POST-017, POST-027. Images: day-5 guidance card, week-6 guidance card, unlock reminder card. Sources: AAP, WHO, La Leche League. Angle: Nubo as a logging tool plus age-specific guidance companion.
 - **The quick action card: designed for the 4-second interaction** — Deep-dive into the home screen: taps-to-log, live timers, contextual summaries. Pillar: Product. Links to: POST-024. Images: quick action card screenshot with annotation overlays.
+- **How Nubo syncs over Bluetooth: the buttons, the range, and the caregiver hub** — High-level explainer of how button presses queue, sync over BLE, and reach every caregiver's phone. Covers all nine buttons with multi-click behaviors (formula/pumped volume, nursing L/R auto-stop), real-world Bluetooth range (20-40 ft), and why pairing every caregiver's phone creates the fastest opportunistic sync. Pillar: Product. Tier: Medium (~1,000 words). Links to: POST-026, POST-027, best-baby-tracker-for-nanny-grandparents. Images: caregiver-hub.webp.
 
 ---
 
@@ -1626,6 +1627,8 @@ status: "draft | review | published"
 
 [2026-05-30] BONUS — DONE — Best baby tracker for nannies and grandparents. Filed as src/content/blog/best-baby-tracker-for-nanny-grandparents.mdx. Citations: none (no clinical claims). Tier: Full (~1,200 words). Three-ways angle: Heavy (full comparison table with paper/app/device columns evaluated through caregiver lens). App feature weave: QR-code caregiver invitations, Alexa voice logging for grandparents, end-to-end encrypted sync. Nubo mentions: 2 (ecosystem reveal section, soft CTA). Internal links: POST-018 (return to work handoff), POST-006 (nanny tracking), POST-009 (physical tracker vs app), POST-026 (privacy architecture), POST-014 (grandparent tracking). Targets "best baby tracker for nanny" and "best baby tracker for grandparents" search queries. Build: pass.
 
+[2026-06-01] BONUS — DONE — How Nubo syncs over Bluetooth. Filed as src/content/blog/nubo-bluetooth-sync.mdx. Citations: none (no clinical claims). Tier: Medium (~1,000 words prose). Three-ways angle: Light (one sentence acknowledging paper/apps/device in the sync context). Covers: all nine buttons with multi-click behaviors (formula/pumped volume counting, nursing L/R auto-stop, sleep/wake, pee/poop), event queuing and BLE sync explained at consumer level, real-world range (20-40 ft), caregiver hub concept with caregiver-hub.webp, and the case for pairing every caregiver's phone. Internal links: POST-026 (privacy architecture), POST-027 (ecosystem), best-baby-tracker-for-nanny-grandparents (caregiver hub), returning-to-work handoff. Build: pass.
+
 ---
 
 ## Summary Tracker
@@ -1660,6 +1663,7 @@ status: "draft | review | published"
 | POST-026 | Privacy architecture | 4 | Full | 1,500-1,800 | `DONE` | 2026-03-30 |
 | POST-027 | The invisible tracker (ecosystem) | 4 | Full | 1,400-1,700 | `DONE` | 2026-03-30 |
 | POST-028 | Allergen introduction tracker | 4 | Full | 1,200-1,500 | `DONE` | 2026-04-02 |
+| BONUS | Nubo Bluetooth sync | 4 | Medium | 900-1,100 | `DONE` | 2026-06-01 |
 
 *POST-017: Phase 3 label retained, but publish early in Phase 2 cadence (high-volume, easy win).
 
