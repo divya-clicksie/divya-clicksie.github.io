@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import SpeedComparison from '../components/SpeedComparison.astro';
 import CaregiverEconomics from '../components/CaregiverEconomics.astro';
 import PremiumFollowsDevice from '../components/PremiumFollowsDevice.astro';
+import AttentionLine from '../components/AttentionLine.astro';
 
 const title = 'Nubo Device | One-Tap Baby Tracker for Night Feeds';
 const description = 'The one-tap baby tracker for night feeds, hands-full moments, and multi-caregiver households. Log feeds, sleep, pee, and poop with a one-second button press.';
@@ -63,6 +64,8 @@ const jsonLd = {
       </div>
     </section>
 
+    <AttentionLine lead="Baby tracking without the phone trap." support="Press once. Log the moment. No unlock, no scroll, no distraction." />
+
     <SpeedComparison expanded />
 
     <section class="three-speeds-section">
@@ -85,6 +88,15 @@ const jsonLd = {
           <article><h3>Caregiver handoff</h3><p>The best baby tracker for nannies and grandparents: one button, zero training, real-time sync. Nanny or grandparent logs from the device, then their phone syncs when it is nearby.</p></article>
           <article><h3>Pediatrician prep</h3><p>Keep a more complete history for questions about intake, output, sleep, medicine, and growth.</p></article>
         </div>
+      </div>
+    </section>
+
+    <section class="philosophy-section">
+      <div class="container philosophy-inner">
+        <p class="overline">Why screen-free</p>
+        <h2>Clinical guidance says watch your baby, not your phone.</h2>
+        <p>Research from the Academy of Breastfeeding Medicine and pediatric sleep experts consistently points to the same concern: phone-based logging pulls attention away from infant cues at exactly the moments when those cues matter most. Nubo's physical device was designed around that principle: one tap, no screen, no distraction. Log it and get back to your baby.</p>
+        <a href="/blog/tracking/screen-free-baby-tracking-clinical-guidance/" class="text-link">Why we built a screen-free tracker &rarr;</a>
       </div>
     </section>
 
@@ -174,6 +186,11 @@ const jsonLd = {
   .three-speeds-section, .moments-section, .mechanics-section, .gift-section, .second-baby-section, .faq-band { padding: 6rem 0; }
   .three-speeds-section, .mechanics-section, .second-baby-section, .faq-band { background: #fff; }
   .moments-section, .gift-section { background: var(--color-bg-soft); }
+  .philosophy-section { padding: 5rem 0; background: var(--color-bg-warm); }
+  .philosophy-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+  .philosophy-inner h2 { font-size: clamp(1.5rem, 3.5vw, 2.25rem); line-height: 1.2; margin: 0.75rem 0 1.25rem; }
+  .philosophy-inner p { color: var(--color-text-secondary); line-height: 1.75; margin-bottom: 1.25rem; }
+  .philosophy-inner .text-link { font-size: 0.9375rem; font-weight: 600; }
   .speed-card-grid, .moment-grid, .second-baby-grid, .faq-grid { display: grid; gap: 1.5rem; }
   .speed-card-grid { grid-template-columns: repeat(3, 1fr); }
   .moment-grid, .faq-grid { grid-template-columns: repeat(2, 1fr); }

@@ -144,6 +144,10 @@ const jsonLd = {
           <p>{nextStep.copy}</p>
           <a href={nextStep.href}>{nextStep.cta}</a>
         </aside>
+        <aside class="article-brand-line" aria-label="Why Nubo">
+          <p class="article-brand-line-lead">Not more screen time. Better caregiving coordination.</p>
+          <p class="article-brand-line-support">Nubo is built for the kind of tracking pediatric guidance can live with: private, minimal, shared, and designed to keep attention on the baby.</p>
+        </aside>
       </div>
     </article>
   </main>
@@ -349,6 +353,27 @@ const jsonLd = {
 
   .article-next-step a:hover {
     background: var(--color-brand-dark);
+  }
+
+  .article-brand-line {
+    max-width: 720px;
+    margin: 1.5rem auto 0;
+    padding: 0 0.25rem;
+    text-align: center;
+  }
+
+  .article-brand-line-lead {
+    font-weight: 800;
+    font-size: 1.0625rem;
+    color: var(--color-brand-dark);
+    margin: 0;
+  }
+
+  .article-brand-line-support {
+    margin: 0.5rem auto 0;
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    font-size: 0.9375rem;
   }
 
   @media (max-width: 768px) {

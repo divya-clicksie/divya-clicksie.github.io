@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SpeedComparison from '../components/SpeedComparison.astro';
+import AttentionLine from '../components/AttentionLine.astro';
 
 const title = 'Nubo Baby Tracker | One-Tap Baby Tracker for Night Feeds';
 const description = 'The one-tap baby tracker for night feeds, hands-full moments, and multi-caregiver households. Use the device, free app, voice catch-up, and Alexa in one shared baby timeline.';
@@ -225,6 +226,9 @@ const jsonLd = {
         <p class="section-route reveal"><a href="/how-it-works/" class="text-link">See how the ecosystem works &rarr;</a></p>
       </div>
     </section>
+
+
+    <AttentionLine lead="Built to support caregiving, not compete with it." />
 
 
     <!-- ════════════════════════════════════════════
@@ -477,6 +481,8 @@ const jsonLd = {
     <!-- ════════════════════════════════════════════
          FINAL CTA
     ════════════════════════════════════════════ -->
+    <AttentionLine variant="kicker" lead="Track the moment. Stay with the baby." />
+
     <section class="final-cta" id="buy">
       <div class="container final-cta-inner reveal">
         <h2>Start free.<br/>Upgrade when it matters.</h2>
