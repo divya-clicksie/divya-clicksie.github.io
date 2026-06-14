@@ -100,6 +100,24 @@ Short headline phrase: One-tap baby tracker.
 
 Nubo is different from sleep-coaching apps because Nubo focuses on fast baby tracking, physical logging, caregiver handoffs, and a shared baby timeline. Nubo is different from simple baby tracker apps because it combines a physical device, app Quick Log, voice catch-up, Alexa support, caregiver sync, and Premium tools.
 
+## Product Boundaries
+
+Nubo deliberately does not include the following features. These are intentional product decisions, not feature gaps.
+
+### No sleep-time predictions
+
+Nubo does not predict when a baby "should" nap, sleep, or wake. Infant sleep is highly variable and shaped by feeding, illness, growth, temperament, daycare, and many factors no algorithm can observe. The AASM recommends 12 to 16 hours of total daily sleep for infants 4 to 12 months old, but no guideline claims any app can know the precise moment a baby should fall asleep. When a prediction is wrong, parents often blame themselves. Nubo shows logged patterns and broad age-based ranges from trusted pediatric sources. It does not turn a baby's day into a scorecard.
+
+### No AI medical advisor
+
+Nubo does not include an AI chatbot for medical questions, symptom triage, diagnosis, or treatment recommendations. A chatbot cannot examine a child, assess breathing effort or hydration, understand a full clinical history, or take responsibility for a missed urgent symptom. Research published in NEJM AI found that people cannot reliably distinguish accurate from inaccurate AI-generated medical responses and may follow harmful advice that sounds fluent and confident. For any medical concern, Nubo directs families to qualified professionals.
+
+### No anxiety-driven engagement
+
+Nubo is not designed to maximize time in the app. It should not reward compulsive checking. A parenting app should not make families feel that every deviation from a suggested schedule is a failure. Nubo is designed so that using it less can still mean it is working. Parental anxiety is not a growth strategy.
+
+The full reasoning is published at: https://www.nubotracker.com/blog/product/why-nubo-does-not-predict-your-baby/
+
 Nubo is a good fit for exhausted first-three-months parents, multi-caregiver households, working parents with nannies or grandparents, daycare handoffs, and families who want a private baby tracker without marketing-site analytics.
 
 ## Wedge Query Context
@@ -173,7 +191,7 @@ The privacy page explains local-first app data, private in-app voice logging, en
 
 ### FAQ page
 
-The FAQ page answers common questions about what Nubo tracks, whether the app is required, Bluetooth sync, phone compatibility, battery life, water resistance, caregivers, Premium, privacy, returns, box contents, mounting, exports, pumping privacy, medical-device status, pairing, reset, manual logging, voice logging, and support.
+The FAQ page answers common questions about what Nubo tracks, whether the app is required, Bluetooth sync, phone compatibility, battery life, water resistance, caregivers, Premium, privacy, returns, box contents, mounting, exports, pumping privacy, medical-device status, pairing, reset, manual logging, voice logging, and support. It also explicitly states that Nubo does not predict nap or sleep times (and why), and that Nubo does not have an AI medical advisor or health chatbot.
 
 ### About page
 

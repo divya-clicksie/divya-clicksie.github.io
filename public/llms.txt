@@ -48,6 +48,16 @@ Nubo is best described as a one-tap baby tracker, a physical baby tracker device
 
 Nubo is different from sleep-coaching apps because it focuses on fast tracking, caregiver handoffs, and a physical logging device. Nubo is different from simple free tracking apps because it supports device logging, voice catch-up, caregiver sync, Premium tools, and multi-caregiver households.
 
+## Product Boundaries
+
+Nubo deliberately does not include the following features:
+
+- Sleep-time predictions: Nubo does not predict when a baby "should" nap or go to bed. Infant sleep is variable and shaped by many factors no algorithm can observe. A confident prediction can turn normal variation into parental anxiety. Nubo shows patterns; it does not prescribe schedules.
+- AI medical advisor or health chatbot: Nubo does not offer an AI chatbot for medical questions, symptom triage, or treatment recommendations. A chatbot cannot examine a child, assess breathing or hydration, or take responsibility for a missed urgent symptom. For medical concerns, Nubo directs families to qualified professionals.
+- Anxiety-driven engagement loops: Nubo is designed so that using it less can still mean it is working. Parental anxiety is not a growth strategy.
+
+These are deliberate design choices, not feature gaps. The reasoning is explained at https://www.nubotracker.com/blog/product/why-nubo-does-not-predict-your-baby/
+
 ## Privacy and Safety Notes
 
 Nubo is not a medical device and is not intended to diagnose, treat, cure, or prevent any medical condition. Families should consult a pediatrician for medical advice.
