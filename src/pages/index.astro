@@ -73,34 +73,28 @@ const jsonLd = {
         <div class="hero-content">
           <p class="overline">One-tap baby tracker</p>
           <h1>
-            Nobody remembers at 3&nbsp;a.m.
-            <span class="hero-accent">Nubo does.</span>
+            Baby tracking that keeps up
+            <span class="hero-accent">when newborn life gets messy.</span>
           </h1>
           <p class="hero-sub">
-            Track feeds, sleep, and diapers with the free app, voice catch-up, or the one-tap device. Every caregiver sees one shared timeline.
+            Track feeds, sleep, and diapers with the free app, voice catch-up, or the one-tap device, the fastest way to log.
           </p>
           <div class="hero-actions">
-            <a href="/app/#app-downloads" class="btn-primary">
+            <a href="/device/" class="btn-primary">
+              See one-tap device
+            </a>
+            <a href="/app/#app-downloads" class="btn-ghost">
               Download free app
             </a>
-            <a href={amazonURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">
-              Buy device
-            </a>
-          </div>
-          <div class="hero-trust">
-            <span class="trust-chip">Free app</span>
-            <span class="trust-chip">$89.99 device</span>
-            <span class="trust-chip">No device subscription required</span>
           </div>
         </div>
         <div class="hero-image">
           <img
-            src="/images/nubo-instant-tracker-900.webp"
-            srcset="/images/nubo-instant-tracker-640.webp 640w, /images/nubo-instant-tracker-900.webp 900w, /images/nubo-instant-tracker-1400.webp 1400w"
-            sizes="(max-width: 768px) 72vw, (max-width: 900px) 88vw, 48vw"
-            alt="Hand pressing the Nubo instant tracker beside a sleeping baby"
-            width="1400"
-            height="1400"
+            src="/images/hero.webp"
+            sizes="(max-width: 768px) 72vw, (max-width: 900px) 88vw, 42vw"
+            alt="Nubo baby tracker beside a caregiver holding a newborn"
+            width="782"
+            height="878"
             loading="eager"
             fetchpriority="high"
             decoding="async"
@@ -108,9 +102,6 @@ const jsonLd = {
         </div>
       </div>
     </section>
-
-
-    <AttentionLine lead="Built to support caregiving, not compete with it." />
 
 
     <!-- ════════════════════════════════════════════
@@ -129,6 +120,9 @@ const jsonLd = {
         </div>
       </div>
     </section>
+
+
+    <AttentionLine lead="Built to support caregiving, not compete with it." />
 
     <!-- ════════════════════════════════════════════
          THREE WAYS TO LOG
@@ -511,32 +505,6 @@ const jsonLd = {
     flex-wrap: wrap;
   }
 
-  .hero-trust {
-    margin-top: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.8125rem;
-    color: var(--color-text-secondary);
-    flex-wrap: wrap;
-  }
-
-  .trust-sep {
-    color: #ccc;
-  }
-
-  .trust-chip {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.4rem 0.875rem;
-    background: var(--color-brand-light);
-    color: var(--color-brand-dark);
-    border-radius: 100px;
-    font-weight: 700;
-    font-size: 0.8125rem;
-    letter-spacing: 0.01em;
-  }
-
   .hero-image {
     display: flex;
     justify-content: center;
@@ -568,7 +536,6 @@ const jsonLd = {
     .hero-accent { display: block; }
     .hero-sub { margin: 1rem auto 0; font-size: 1rem; line-height: 1.65; }
     .hero-actions { justify-content: center; }
-    .hero-trust { justify-content: center; }
     .hero-image { order: -1; }
     .hero-image img { max-height: 24vh; max-width: 72vw; }
   }
