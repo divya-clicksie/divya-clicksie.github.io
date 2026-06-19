@@ -39,6 +39,7 @@ const jsonLd = {
           <article><h2>Vs. paper diary</h2><p>Paper is fine for quiet, undistracted moments. It loses when you need charts, exports, caregiver sync, or a record that travels to appointments.</p></article>
           <article><h2>Vs. Apple Notes</h2><p>A shared note is flexible, but baby tracking needs timestamps, totals, growth, exports, and a way to log without typing.</p></article>
           <article><h2>Vs. free tracker apps</h2><p>Free apps can be enough for one phone-first caregiver. Nubo adds a physical baby tracker device and stronger caregiver economics when the household gets more complex.</p></article>
+          <article><h2>Vs. Talli</h2><p>Talli is a Wi-Fi baby tracker with customization. Nubo is a Bluetooth tracker with a free app-first path, privacy-first storage, and Premium that follows device use.</p><a href="/compare/talli/" class="text-link">Compare Nubo vs Talli &rarr;</a></article>
           <article><h2>Vs. Huckleberry</h2><p>Huckleberry is sleep-coaching software with a tracker. Nubo is tracking software with a device. They are adjacent, not identical.</p></article>
           <article><h2>Vs. hospital paper logs</h2><p>Paper logs help in the hospital. Nubo helps keep the same discipline at home after NICU follow-up, then turns that history into pediatrician-ready data.</p></article>
         </div>
@@ -69,6 +70,37 @@ const jsonLd = {
       </div>
     </section>
 
+    <section class="matrix-section">
+      <div class="container">
+        <div class="section-intro"><p class="overline">Decision matrix</p><h2>Match the tracker to the moment.</h2><p class="section-sub">The best baby tracker is the one your household will keep using when everyone is tired.</p></div>
+        <div class="matrix-wrap">
+          <table class="decision-matrix">
+            <caption>Baby tracker decision matrix by household need</caption>
+            <thead>
+              <tr>
+                <th scope="col">Need</th>
+                <th scope="col">Paper</th>
+                <th scope="col">Notes</th>
+                <th scope="col">Free app</th>
+                <th scope="col">Premium</th>
+                <th scope="col">Device</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">One phone-first caregiver</th><td>Okay</td><td>Okay</td><td>Best start</td><td>Optional</td><td>Optional</td></tr>
+              <tr><th scope="row">Two parents</th><td>Limited</td><td>Messy</td><td>Strong</td><td>Helpful</td><td>Strong</td></tr>
+              <tr><th scope="row">Nanny or grandparent</th><td>Delayed</td><td>Inconsistent</td><td>Depends on comfort</td><td>Can help</td><td>Best fit</td></tr>
+              <tr><th scope="row">Night feeds</th><td>Slow</td><td>Bright screen</td><td>Good if phone is nearby</td><td>Good if phone is nearby</td><td>Best fit</td></tr>
+              <tr><th scope="row">Pumping privacy</th><td>Private but isolated</td><td>Risky if shared</td><td>Basic tracking</td><td>Best app fit</td><td>Best with Premium access</td></tr>
+              <tr><th scope="row">Pediatrician export</th><td>Manual</td><td>Manual</td><td>Basic history</td><td>Best app fit</td><td>Best with Premium access</td></tr>
+              <tr><th scope="row">Privacy concerns</th><td>Offline</td><td>Depends on account</td><td>Strong</td><td>Strong</td><td>Strong</td></tr>
+              <tr><th scope="row">Wants sleep predictions</th><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
     <section class="truth-band">
       <div class="container truth-inner">
         <div><p class="overline">The honest answer</p><h2>Choose the simplest tracker that your household will actually use.</h2></div>
@@ -82,11 +114,12 @@ const jsonLd = {
 <style>
   .compare-hero .hero-actions-inline { justify-content: center; }
   .hero-actions-inline { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
-  .use-case-section, .fit-section, .truth-band { padding: 6rem 0; }
+  .use-case-section, .fit-section, .matrix-section, .truth-band { padding: 6rem 0; }
   .use-case-section { background: #fff; }
   .fit-section { background: var(--color-bg-soft); }
+  .matrix-section { background: #fff; }
   .truth-band { background: var(--color-bg-warm); }
-  .comparison-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+  .comparison-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem; }
   .comparison-grid article, .fit-grid > div { background: #fff; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); padding: 1.75rem; }
   .comparison-grid h2 { font-size: 1.125rem; margin-bottom: 0.75rem; }
   .comparison-grid p, .truth-inner p, .fit-grid li { color: var(--color-text-secondary); line-height: 1.7; }
@@ -96,7 +129,15 @@ const jsonLd = {
   .fit-grid li + li { margin-top: 0.75rem; }
   .truth-inner { align-items: center; }
   .truth-inner .btn-primary { margin-top: 1.5rem; }
-  @media (max-width: 1120px) { .comparison-grid { grid-template-columns: repeat(3, 1fr); } }
+  .matrix-wrap { overflow-x: auto; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); background: #fff; }
+  .decision-matrix { width: 100%; min-width: 840px; border-collapse: collapse; }
+  .decision-matrix caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+  .decision-matrix th, .decision-matrix td { padding: 0.95rem; border-bottom: 1px solid #eeeeee; text-align: left; line-height: 1.45; }
+  .decision-matrix thead th { background: var(--color-bg-soft); color: var(--color-text); font-size: 0.875rem; }
+  .decision-matrix tbody th { color: var(--color-text); font-weight: 800; }
+  .decision-matrix td { color: var(--color-text-secondary); }
+  .decision-matrix tbody tr:last-child th, .decision-matrix tbody tr:last-child td { border-bottom: 0; }
+  @media (max-width: 1280px) { .comparison-grid { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 900px) { .fit-grid, .truth-inner { grid-template-columns: 1fr; } }
-  @media (max-width: 640px) { .use-case-section, .fit-section, .truth-band { padding: 4rem 0; } .comparison-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { .use-case-section, .fit-section, .matrix-section, .truth-band { padding: 4rem 0; } .comparison-grid { grid-template-columns: 1fr; } }
 </style>

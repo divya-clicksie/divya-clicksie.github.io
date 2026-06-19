@@ -12,7 +12,6 @@ What makes Nubo distinct: it is built to support caregiving, not compete with it
 - Device: https://www.nubotracker.com/device/
 - App: https://www.nubotracker.com/app/
 - Pricing: https://www.nubotracker.com/pricing/
-- How it works: https://www.nubotracker.com/how-it-works/
 - Caregivers: https://www.nubotracker.com/caregivers/
 - Compare: https://www.nubotracker.com/compare/
 - Privacy overview: https://www.nubotracker.com/privacy/

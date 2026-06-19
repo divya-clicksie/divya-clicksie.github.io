@@ -20,7 +20,7 @@ const {
 } = Astro.props;
 
 const siteName = 'Nubo Baby Tracker';
-const stickyCtaVariant = Astro.url.pathname === '/app/' ? 'app' : 'device';
+const stickyCtaVariant = ['/device/','/gift/'].includes(Astro.url.pathname) ? 'device' : 'app';
 const siteURL = 'https://www.nubotracker.com';
 
 const absoluteURL = (url: string) => new URL(url, siteURL).href;
@@ -133,6 +133,25 @@ const jsonLdGraph = {
     <script is:inline>
       window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
       plausible.init()
+    </script>
+    <script is:inline>
+      document.addEventListener('click', (event) => {
+        const link = event.target instanceof Element ? event.target.closest('a') : null;
+        if (!link || typeof plausible !== 'function') return;
+
+        const href = link.getAttribute('href') || '';
+        const label = link.textContent?.trim().replace(/\s+/g, ' ').slice(0, 80) || 'Unlabeled link';
+        let action = '';
+
+        if (href.includes('apps.apple.com')) action = 'App Store Click';
+        else if (href.includes('play.google.com')) action = 'Google Play Click';
+        else if (href.includes('amazon.com') && href.includes('B0CJLNBG4P')) action = 'Amazon Device Click';
+        else if (href.includes('/app/#app-downloads') || href === '#app-downloads') action = 'Download Intent Click';
+        else if (href.includes('/pricing/') || href.includes('/compare/')) action = 'Decision Support Click';
+
+        if (!action) return;
+        plausible(action, { props: { label, href, path: window.location.pathname } });
+      }, { capture: true });
     </script>
 
     <!-- Fonts – self-hosted to eliminate the Google Fonts critical chain -->

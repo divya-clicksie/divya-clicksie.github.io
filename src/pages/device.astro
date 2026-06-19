@@ -2,13 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import SpeedComparison from '../components/SpeedComparison.astro';
-import CaregiverEconomics from '../components/CaregiverEconomics.astro';
 import PremiumFollowsDevice from '../components/PremiumFollowsDevice.astro';
-import AttentionLine from '../components/AttentionLine.astro';
+import SpeedComparison from '../components/SpeedComparison.astro';
 
 const title = 'Nubo Device | One-Tap Baby Tracker for Night Feeds';
-const description = 'The one-tap baby tracker for night feeds, hands-full moments, and multi-caregiver households. Log feeds, sleep, pee, and poop with a one-second button press.';
+const description = 'The one-tap baby tracker for night feeds, hands-full moments, and multi-caregiver households. Log bottle feeds, nursing, sleep, and diapers with dedicated event buttons.';
 
 const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
 
@@ -27,7 +25,7 @@ const jsonLd = {
   brand: { '@type': 'Brand', name: 'Nubo' },
   url: 'https://www.nubotracker.com/device/',
   featureList: [
-    'One-button logging for feeds, sleep, pee, and poop',
+    'Dedicated event buttons for bottle feeds, nursing, sleep, and diapers',
     'Bluetooth sync with the free Nubo app',
     'Premium access refresh for phones that sync with the device',
     'Magnetic mount, lanyard, and battery included'
@@ -56,47 +54,99 @@ const jsonLd = {
         <div>
           <p class="overline">One-tap baby tracker</p>
           <h1>One-second baby logging, even when your phone is nowhere near you.</h1>
-          <p class="hero-sub">Press once for feeding, sleep, pee, or poop. Nubo remembers the exact time, then syncs with the free app and keeps every active caregiver on Premium.</p>
+          <p class="hero-sub">Tap the matching button for bottle feeds, nursing, sleep, or diapers. Nubo remembers the exact time, then syncs with the free app and keeps every active caregiver on Premium.</p>
           <div class="hero-actions-inline"><a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon · $89.99</a><a href="/app/" class="btn-ghost">Use the free app first</a></div>
-          <div class="trust-strip" aria-label="Nubo purchase reassurance"><span>4.2 stars on Amazon</span><span>No subscription required</span><span>Free shipping with Prime</span><span>30-day returns through Amazon</span></div>
+          <div class="trust-strip" aria-label="Nubo purchase reassurance"><span>No device subscription required</span><span>Works with the free app</span><span>Sold on Amazon</span></div>
         </div>
         <img src="/images/nubo-instant-tracker-1400.webp" srcset="/images/nubo-instant-tracker-900.webp 900w, /images/nubo-instant-tracker-1400.webp 1400w" sizes="(max-width: 900px) 92vw, 48vw" alt="Hand pressing the Nubo instant tracker beside a sleeping baby" width="1400" height="1400" loading="eager" decoding="async" />
       </div>
     </section>
 
-    <AttentionLine lead="Baby tracking without the phone trap." support="Press once. Log the moment. No unlock, no scroll, no distraction." />
+    <section class="light-switch-section">
+      <div class="container light-switch-inner">
+        <div class="light-switch-image">
+          <img
+            src="/images/nubo-oneclick.webp"
+            alt="Close-up of a finger pressing the sleep button on Nubo"
+            width="740"
+            height="554"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="light-switch-text">
+          <p class="overline">The Device</p>
+          <h2>
+            Like a light switch<br/>
+            for baby tracking.
+          </h2>
+          <p class="light-switch-lead">
+            A simple tap. Done.
+          </p>
+          <p>
+            Nubo is a physical tracker built for the moments your phone can't reach.
+            Tap the matching event button to log feeds, sleep, pee, and poop. It stores everything and syncs to the app when your phone is nearby.
+          </p>
+          <p>
+            Use it one-handed, half-asleep, in the dark. Get back to your baby.
+          </p>
+          <p>
+            A button needs no translation. Whoever is helping with the baby, a partner, a grandparent, a nanny, can log the same way you do. No app to learn, no language to read.
+          </p>
+          <a href={amazonURL} class="text-link" target="_blank" rel="noopener noreferrer">Buy Nubo on Amazon &rarr;</a>
+        </div>
+      </div>
 
-    <SpeedComparison expanded />
-
-    <section class="three-speeds-section">
-      <div class="container">
-        <div class="section-intro"><p class="overline">Three ways to log</p><h2>Use the fastest input that fits the moment.</h2></div>
-        <div class="speed-card-grid">
-          <article><span>1 sec</span><h3>Device press</h3><p>Best for nighttime feeds, diaper changes, and any moment where unlocking your phone would pull attention away.</p></article>
-          <article><span>4 sec</span><h3>Quick Log</h3><p>Best when your phone is already open and you want a fast tap-based entry.</p></article>
-          <article><span>8 sec</span><h3>Voice logging</h3><p>Best for catch-up logging after a feed, pump, medicine dose, or caregiver handoff.</p></article>
+      <div class="container device-videos">
+        <div class="video-grid">
+          <a href="https://www.youtube.com/watch?v=NH5-ECtIpzw" target="_blank" rel="noopener noreferrer" class="video-thumb">
+            <img src="/images/nubo-instant-tracker-900.webp" alt="Unboxing the Nubo baby tracker" width="480" height="270" loading="lazy" decoding="async" />
+            <span class="video-play" aria-hidden="true"></span>
+            <span class="video-label">Watch Nubo unboxing</span>
+          </a>
+          <a href="https://www.youtube.com/watch?v=2XT00mDc2-U" target="_blank" rel="noopener noreferrer" class="video-thumb">
+            <img src="/images/nubo-oneclick.webp" alt="Setting up the Nubo baby tracker" width="480" height="270" loading="lazy" decoding="async" />
+            <span class="video-play" aria-hidden="true"></span>
+            <span class="video-label">Watch Nubo setup</span>
+          </a>
+          <a href="https://www.youtube.com/watch?v=RyiNBesv804" target="_blank" rel="noopener noreferrer" class="video-thumb">
+            <img src="/images/nubo-app-screens-720.webp" alt="Using Nubo to track baby activities and review in the app" width="480" height="270" loading="lazy" decoding="async" />
+            <span class="video-play" aria-hidden="true"></span>
+            <span class="video-label">Watch tracking demo</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="moments-section">
+    <SpeedComparison compact />
+
+    <section class="logs-section" id="device-logs">
       <div class="container">
-        <div class="section-intro"><p class="overline">Real life moments</p><h2>Built for the moments apps make harder.</h2></div>
-        <div class="moment-grid">
-          <article><h3>Night feeds</h3><p>Tap the button without bright screens, app navigation, or a phone search in the dark.</p></article>
-          <article><h3>Hands-full diaper changes</h3><p>Mark pee or poop while the change is happening, then add notes later if you need them.</p></article>
-          <article><h3>Caregiver handoff</h3><p>The best baby tracker for nannies and grandparents: one button, zero training, real-time sync. Nanny or grandparent logs from the device, then their phone syncs when it is nearby.</p></article>
-          <article><h3>Pediatrician prep</h3><p>Keep a more complete history for questions about intake, output, sleep, medicine, and growth.</p></article>
+        <div class="section-intro"><p class="overline">What the device logs</p><h2>Dedicated buttons for common newborn events.</h2></div>
+        <div class="logs-grid" aria-label="Nubo device log types">
+          <article><span>Bottle feeds</span><p>Log formula or pumped milk bottles with quick volume taps.</p></article>
+          <article><span>Nursing</span><p>Track left and right nursing sessions without opening your phone.</p></article>
+          <article><span>Sleep</span><p>Start or end sleep when naps and nights happen.</p></article>
+          <article><span>Diapers</span><p>Separate wet and dirty diaper buttons keep changes simple.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="philosophy-section">
-      <div class="container philosophy-inner">
-        <p class="overline">Why screen-free</p>
-        <h2>Clinical guidance says watch your baby, not your phone.</h2>
-        <p>Research from the Academy of Breastfeeding Medicine and pediatric sleep experts consistently points to the same concern: phone-based logging pulls attention away from infant cues at exactly the moments when those cues matter most. Nubo's physical device was designed around that principle: one tap, no screen, no distraction. Log it and get back to your baby.</p>
-        <a href="/blog/tracking/screen-free-baby-tracking-clinical-guidance/" class="text-link">Why we built a screen-free tracker &rarr;</a>
+    <section class="fit-section">
+      <div class="container fit-grid">
+        <article><p class="overline">Buy the device if</p><h2>You want less phone in baby moments.</h2><p>Keep the nursery calmer, protect night feeds from screen glare, and let caregivers log without pulling a phone into every bottle, nap, or diaper change.</p><a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a></article>
+        <article><p class="overline">Start free if</p><h2>Your phone is usually with you.</h2><p>The free app is a strong first step when your phone is nearby and the caregivers helping most are comfortable logging from an app.</p><a href="/app/#app-downloads" class="btn-ghost">Download free app</a></article>
+      </div>
+    </section>
+
+    <section class="competitor-section">
+      <div class="container competitor-inner">
+        <div>
+          <p class="overline">Comparing device trackers?</p>
+          <h2>Nubo vs Talli</h2>
+          <p>Talli is a familiar Wi-Fi baby tracker with customizable buttons. Nubo takes a different path: Bluetooth sync, a free app-first start, and Premium that follows caregiver phones that use the device.</p>
+        </div>
+        <a href="/compare/talli/" class="btn-ghost">Compare Nubo vs Talli</a>
       </div>
     </section>
 
@@ -104,9 +154,9 @@ const jsonLd = {
       <div class="container mechanics-grid">
         <div>
           <p class="overline">How the device works</p>
-          <h2>A button simple enough for 3 a.m.</h2>
+          <h2>Event buttons simple enough for 3 a.m.</h2>
           <ol>
-            <li><strong>Press:</strong> Log feeding, sleep, pee, or poop with a physical button.</li>
+            <li><strong>Tap:</strong> Log bottle feeds, nursing, sleep, or diapers with the matching event button.</li>
             <li><strong>Store:</strong> The device keeps the timestamp even before a phone connects.</li>
             <li><strong>Sync:</strong> Bluetooth sends logs to the app when a caregiver phone is nearby. <a href="/blog/product/nubo-bluetooth-sync/" class="text-link">How Bluetooth sync works &rarr;</a></li>
             <li><strong>Review:</strong> The app shows history, charts, exports, reminders, and caregiver notes.</li>
@@ -126,34 +176,6 @@ const jsonLd = {
     </section>
 
     <PremiumFollowsDevice />
-    <CaregiverEconomics />
-
-    <section class="gift-section">
-      <div class="container gift-grid">
-        <div>
-          <p class="overline">Baby shower and second baby</p>
-          <h2>A practical gift that keeps working.</h2>
-          <p>The device is a simple gift because it does not ask new parents to choose a subscription on day one. It also keeps working for a second baby, future caregiver routines, and the next phase of family life.</p>
-          <div class="hero-actions-inline"><a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a><a href="/gift/" class="btn-ghost">Gift guide</a></div>
-        </div>
-        <img src="/images/caregiver-hub.webp" alt="Nubo baby tracker shared across caregiver phones" width="970" height="600" loading="lazy" decoding="async" />
-      </div>
-    </section>
-
-    <section class="second-baby-section">
-      <div class="container second-baby-inner">
-        <div>
-          <p class="overline">Future babies</p>
-          <h2>What about a second baby?</h2>
-          <p>The device is not tied to one newborn stage. Put it back near the crib, pair it with the app, and use the same one-button habit when your household starts again.</p>
-        </div>
-        <div class="second-baby-grid">
-          <article><h3>Hardware keeps working</h3><p>The physical tracker, mount, and lanyard can move with your nursery setup instead of becoming a one-child purchase.</p></article>
-          <article><h3>The app supports profiles</h3><p>Nubo keeps child timelines separate, so a future baby can have their own record without losing older history.</p></article>
-          <article><h3>Caregivers come back faster</h3><p>Partners and grandparents who already know the button do not need to learn a new logging system the next time.</p></article>
-        </div>
-      </div>
-    </section>
 
     <section class="faq-band">
       <div class="container">
@@ -161,9 +183,8 @@ const jsonLd = {
         <div class="faq-grid">
           <article><h3>Does the device require a Premium subscription?</h3><p>No. The device works with the free app and grants Premium to every phone that connects to it for 30 days.</p></article>
           <article><h3>Can caregivers use different phones?</h3><p>Yes. The device can grant Premium across separate App Store and Google Play accounts when caregiver phones connect to it.</p></article>
-          <article><h3>What if a caregiver visits occasionally?</h3><p>Their Premium access lasts 30 days after sync. When they visit again and sync with the device, Premium refreshes.</p></article>
           <article><h3>Can I use the app without the device?</h3><p>Yes. The free Nubo app is useful on its own. The device adds the fastest logging method and caregiver Premium economics.</p></article>
-          <article><h3>What can the button track?</h3><p>The device covers the highest-frequency newborn events: feeds, sleep, pee, and poop.</p></article>
+          <article><h3>What can the device track?</h3><p>The dedicated buttons cover the highest-frequency newborn events: bottle feeds, nursing, sleep, and diapers.</p></article>
           <article><h3>Can I return it?</h3><p>Nubo is sold through Amazon, so returns follow Amazon's standard return policy.</p></article>
         </div>
       </div>
@@ -183,27 +204,53 @@ const jsonLd = {
   @media (min-width: 981px) { .device-hero-grid > img { margin-top: calc(0.8125rem * 1.6 + 0.75rem); } }
   .trust-strip { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
   .trust-strip span { background: #fff; border-radius: 999px; padding: 0.625rem 0.875rem; font-size: 0.8125rem; font-weight: 700; }
-  .three-speeds-section, .moments-section, .mechanics-section, .gift-section, .second-baby-section, .faq-band { padding: 6rem 0; }
-  .three-speeds-section, .mechanics-section, .second-baby-section, .faq-band { background: #fff; }
-  .moments-section, .gift-section { background: var(--color-bg-soft); }
+  .light-switch-section { padding: 6rem 0; background: var(--color-bg-soft); }
+  .light-switch-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .light-switch-image img { width: 100%; max-width: 640px; height: auto; object-fit: contain; border-radius: var(--radius-2xl); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.06); }
+  .light-switch-text h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; margin-bottom: 1.5rem; }
+  .light-switch-text p { max-width: 500px; color: var(--color-text-secondary); line-height: 1.7; font-size: 1.0625rem; }
+  .light-switch-text p + p { margin-top: 1rem; }
+  .light-switch-lead { font-size: 1.25rem !important; font-weight: 700; color: var(--color-text) !important; }
+  .light-switch-text .text-link { display: inline-block; margin-top: 1.25rem; }
+  .device-videos { margin-top: 4rem; }
+  .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .video-thumb { position: relative; display: block; border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+  .video-thumb:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0, 0, 0, 0.14); }
+  .video-thumb img { width: 100%; aspect-ratio: 16 / 9; height: auto; object-fit: cover; display: block; }
+  .video-play { position: absolute; inset: 50% auto auto 50%; width: 56px; height: 56px; border-radius: 50%; background: rgba(255, 255, 255, 0.94); transform: translate(-50%, -50%); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16); }
+  .video-play::after { content: ""; position: absolute; left: 22px; top: 17px; width: 0; height: 0; border-top: 11px solid transparent; border-bottom: 11px solid transparent; border-left: 16px solid var(--color-brand); }
+  .video-label { position: absolute; left: 1rem; right: 1rem; bottom: 1rem; color: #fff; font-size: 0.875rem; font-weight: 700; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45); }
+  .logs-section, .three-speeds-section, .moments-section, .fit-section, .competitor-section, .mechanics-section, .gift-section, .second-baby-section, .faq-band { padding: 6rem 0; }
+  .logs-section, .three-speeds-section, .mechanics-section, .second-baby-section, .faq-band { background: #fff; }
+  .moments-section, .fit-section, .gift-section { background: var(--color-bg-soft); }
+  .competitor-section { background: var(--color-bg-warm); }
   .philosophy-section { padding: 5rem 0; background: var(--color-bg-warm); }
   .philosophy-inner { max-width: 680px; margin: 0 auto; text-align: center; }
   .philosophy-inner h2 { font-size: clamp(1.5rem, 3.5vw, 2.25rem); line-height: 1.2; margin: 0.75rem 0 1.25rem; }
   .philosophy-inner p { color: var(--color-text-secondary); line-height: 1.75; margin-bottom: 1.25rem; }
   .philosophy-inner .text-link { font-size: 0.9375rem; font-weight: 600; }
-  .speed-card-grid, .moment-grid, .second-baby-grid, .faq-grid { display: grid; gap: 1.5rem; }
+  .logs-grid, .speed-card-grid, .moment-grid, .fit-grid, .second-baby-grid, .faq-grid { display: grid; gap: 1.5rem; }
+  .logs-grid { grid-template-columns: repeat(4, 1fr); }
   .speed-card-grid { grid-template-columns: repeat(3, 1fr); }
+  .fit-grid { grid-template-columns: repeat(2, 1fr); align-items: stretch; }
   .moment-grid, .faq-grid { grid-template-columns: repeat(2, 1fr); }
   .second-baby-grid { grid-template-columns: repeat(3, 1fr); }
-  .speed-card-grid article, .moment-grid article, .second-baby-grid article, .spec-card, .faq-grid article { background: #fff; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); padding: 1.75rem; }
+  .logs-grid article, .speed-card-grid article, .moment-grid article, .fit-grid article, .second-baby-grid article, .spec-card, .faq-grid article { background: #fff; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); padding: 1.75rem; }
   .three-speeds-section .speed-card-grid article { background: var(--color-bg-soft); }
-  .speed-card-grid span { display: inline-flex; margin-bottom: 1rem; color: var(--color-brand-dark); font-size: 2.5rem; font-weight: 700; line-height: 1; }
+  .speed-card-grid span, .logs-grid span { display: inline-flex; margin-bottom: 1rem; color: var(--color-brand-dark); font-size: 2.5rem; font-weight: 700; line-height: 1; }
+  .logs-grid span { font-size: 1.5rem; }
   .speed-card-grid h3, .moment-grid h3, .second-baby-grid h3, .spec-card h3, .faq-grid h3 { font-size: 1.125rem; line-height: 1.25; margin-bottom: 0.75rem; }
-  .speed-card-grid p, .moment-grid p, .mechanics-grid li, .gift-grid p, .second-baby-inner p, .faq-grid p { color: var(--color-text-secondary); line-height: 1.7; }
+  .logs-grid p, .speed-card-grid p, .moment-grid p, .fit-grid p, .mechanics-grid li, .gift-grid p, .second-baby-inner p, .faq-grid p { color: var(--color-text-secondary); line-height: 1.7; }
+  .fit-grid h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: 1.15; margin-bottom: 1rem; }
+  .fit-grid .btn-primary, .fit-grid .btn-ghost { margin-top: 1.5rem; }
   .mechanics-grid h2, .gift-grid h2, .second-baby-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; margin-bottom: 1rem; }
   .second-baby-inner { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 4rem; align-items: start; }
   .mechanics-grid ol, .spec-card ul { display: grid; gap: 0.875rem; padding-left: 1.25rem; }
+  .competitor-inner { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; }
+  .competitor-inner h2 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); line-height: 1.15; margin-bottom: 0.75rem; }
+  .competitor-inner p { color: var(--color-text-secondary); line-height: 1.7; max-width: 760px; }
   .gift-grid .btn-primary { margin-top: 1.5rem; }
-  @media (max-width: 980px) { .device-hero-grid, .mechanics-grid, .gift-grid, .second-baby-inner { grid-template-columns: 1fr; gap: 2.5rem; } .device-hero { padding-top: 6rem; } }
-  @media (max-width: 760px) { .speed-card-grid, .moment-grid, .second-baby-grid, .faq-grid { grid-template-columns: 1fr; } .three-speeds-section, .moments-section, .mechanics-section, .gift-section, .second-baby-section, .faq-band { padding: 4rem 0; } }
+  @media (max-width: 980px) { .device-hero-grid, .light-switch-inner, .mechanics-grid, .gift-grid, .second-baby-inner, .competitor-inner { grid-template-columns: 1fr; gap: 2.5rem; } .device-hero { padding-top: 6rem; } .light-switch-image { display: flex; justify-content: center; order: -1; } .video-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 980px) { .logs-grid { grid-template-columns: repeat(2, 1fr); } .fit-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 760px) { .logs-grid, .speed-card-grid, .moment-grid, .second-baby-grid, .faq-grid { grid-template-columns: 1fr; } .light-switch-section, .logs-section, .three-speeds-section, .moments-section, .fit-section, .competitor-section, .mechanics-section, .gift-section, .second-baby-section, .faq-band { padding: 4rem 0; } }
 </style>

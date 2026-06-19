@@ -9,15 +9,15 @@ const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id166746115
 const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
 
 const screenshots = [
-  ['One-touch logging', '/images/appscreens/01_onetouch.webp', 'Fast logs when your phone is already in hand.'],
-  ['Voice catch-up', '/images/appscreens/02_voicelogging.webp', 'Speak naturally and Nubo files it at the right time.'],
-  ['Caregiver timeline', '/images/appscreens/03_collaboration.webp', 'Everyone sees the same day without check-in texts.'],
-  ['Live Activities', '/images/appscreens/04_liveactivities.webp', 'Glance from the lock screen during active care.'],
-  ['Growth charts', '/images/appscreens/05_growth.webp', 'Bring real numbers to the pediatrician visit.'],
-  ['Midnight Ember', '/images/appscreens/06_midnightember.webp', 'A softer night mode for 3 a.m. logging.'],
-  ['Privacy controls', '/images/appscreens/07_privacy.webp', 'Local-first storage with encrypted sharing and backups.'],
-  ['Voice notes', '/images/appscreens/08_voicenotes.webp', 'Capture details you do not want to type.'],
-  ['Allergen SafeStart', '/images/appscreens/09_allergensafestart.webp', 'Track first foods and reactions with structure.']
+  ['Free, unlimited quick logging', '/images/appscreens/01_onetouch.webp', 'Nubo app screenshot showing colorful quick-log cards for sleep, nursing, formula, milk, and diaper'],
+  ['Voice catch-up', '/images/appscreens/02_voicelogging.webp', 'Nubo app screenshot showing voice logging for catching up on missed baby events'],
+  ['Caregiver timeline', '/images/appscreens/03_collaboration.webp', 'Nubo app screenshot showing caregiver collaboration and shared baby timeline'],
+  ['Live Activities', '/images/appscreens/04_liveactivities.webp', 'Nubo app screenshot showing Live Activities for active baby care'],
+  ['Growth charts', '/images/appscreens/05_growth.webp', 'Nubo app screenshot showing baby growth charts'],
+  ['Midnight Ember', '/images/appscreens/06_midnightember.webp', 'Nubo app screenshot showing Midnight Ember night mode'],
+  ['Privacy controls', '/images/appscreens/07_privacy.webp', 'Nubo app screenshot showing privacy controls and sharing settings'],
+  ['Voice notes', '/images/appscreens/08_voicenotes.webp', 'Nubo app screenshot showing voice notes for baby care details'],
+  ['Allergen SafeStart', '/images/appscreens/09_allergensafestart.webp', 'Nubo app screenshot showing allergen introduction tracking']
 ];
 
 const jsonLd = {
@@ -61,7 +61,24 @@ const jsonLd = {
           </div>
           <p class="hero-trust">No ads. No credit card. No trial countdown.</p>
         </div>
-        <img src="/images/appscreens/01_onetouch.webp" alt="Nubo app one-touch tracking screen" width="642" height="1389" />
+        <div class="app-carousel" data-app-carousel aria-roledescription="carousel" aria-label="Nubo app screenshots">
+          <div class="app-carousel-stage">
+            {screenshots.map(([label, src, alt], index) => (
+              <figure class:list={['app-slide', { 'is-active': index === 0 }]} data-app-slide hidden={index !== 0}>
+                <img src={src} alt={alt} width="642" height="1389" loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
+              </figure>
+            ))}
+          </div>
+          <div class="app-carousel-controls" aria-label="App screenshot controls">
+            <button type="button" class="app-carousel-btn" data-app-prev aria-label="Previous app screenshot"></button>
+            <div class="app-carousel-dots" role="tablist" aria-label="Choose app screenshot">
+              {screenshots.map(([label], index) => (
+                <button type="button" class:list={['app-carousel-dot', { 'is-active': index === 0 }]} data-app-dot={index} role="tab" aria-selected={index === 0 ? 'true' : 'false'} aria-label={`Show ${label}`}></button>
+              ))}
+            </div>
+            <button type="button" class="app-carousel-btn" data-app-next aria-label="Next app screenshot"></button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -88,47 +105,15 @@ const jsonLd = {
       </div>
     </section>
 
-    <section class="voice-section">
-      <div class="container voice-inner">
-        <div>
-          <p class="overline">Voice catch-up</p>
-          <h2>Remembered it later? Say it once.</h2>
-          <p>Newborn care is full of late logs. Say what happened in plain English, including fuzzy times, and Nubo turns it into a structured event in the right place.</p>
-          <div class="voice-example" aria-label="Example voice log">
-            <span>&ldquo;Baby slept at around 1 and woke up 10 minutes ago.&rdquo;</span>
-            <span>&ldquo;Gave 3 oz around noon.&rdquo;</span>
-            <strong>Nubo turns plain English into structured logs, so the timeline stays useful even when you did not track perfectly in the moment.</strong>
-          </div>
-          <p class="voice-note">Voice catch-up is free and runs on your phone.</p>
-        </div>
-        <img src="/images/appscreens/02_voicelogging.webp" alt="Nubo app voice logging screen" width="642" height="1389" loading="lazy" decoding="async" />
-      </div>
-    </section>
-
     <div class="mid-cta-strip">
       <div class="container mid-cta-inner">
-        <p>Free on iPhone and Android &mdash; no credit card, no ads, no trial countdown.</p>
+        <p>Free on iPhone and Android, no credit card, no ads, no trial countdown.</p>
         <div class="mid-cta-links">
           <a href={appStoreURL} target="_blank" rel="noopener noreferrer"><img src="/images/appstore-badge.webp" alt="Download on the App Store" width="160" height="56" loading="lazy" /></a>
           <a href={playStoreURL} target="_blank" rel="noopener noreferrer"><img src="/images/playstore-badge.webp" alt="Get it on Google Play" width="160" height="56" loading="lazy" /></a>
         </div>
       </div>
     </div>
-
-    <section class="caregiver-app-section">
-      <div class="container caregiver-app-inner">
-        <img src="/images/caregiver-hub.webp" alt="Nubo device syncing baby tracking data with multiple caregiver phones" width="970" height="600" loading="lazy" decoding="async" />
-        <div>
-          <p class="overline">Caregiver sync</p>
-          <h2>One shared day for everyone helping.</h2>
-          <p>Invite a partner, grandparent, nanny, or family helper, whether they use an iPhone or Android phone. Everyone can see what happened, what is next, and when the last feed, nap, diaper, or note was logged.</p>
-          <p>Free caregiver sync keeps handoffs from turning into "When did the baby last eat?" texts. Caregiver sharing is end-to-end encrypted between the people you invite.</p>
-          <p>If the shared timeline covers the day but the handoff still needs pediatrician info, insurance details, allergy notes, or settle routines, Premium adds Care Vault for those standing details.</p>
-          <p>The device adds one-button logging and Premium for active caregivers, but the shared timeline starts with the free app.</p>
-          <a href="/caregivers/" class="text-link">See caregiver sync &rarr;</a>
-        </div>
-      </div>
-    </section>
 
     <section class="privacy-app-section">
       <div class="container">
@@ -142,54 +127,17 @@ const jsonLd = {
       </div>
     </section>
 
-    <section class="no-predict-section">
-      <div class="container">
-        <div class="section-intro"><p class="overline">What we chose not to build</p><h2>Support without false certainty.</h2><p class="section-sub">Some baby apps race to predict nap windows and answer medical questions by AI. Nubo made a different choice.</p></div>
-        <div class="no-predict-grid">
-          <article>
-            <h3>No sleep predictions</h3>
-            <p>Nubo shows you what you logged and lets you spot patterns. It does not tell you when your baby should sleep. Infant sleep is variable, and a confident prediction can turn normal variation into something that feels like a failure.</p>
-          </article>
-          <article>
-            <h3>No AI medical advisor</h3>
-            <p>A chatbot cannot examine your baby, assess breathing, or take responsibility for a missed symptom. For medical concerns, Nubo points you toward qualified professionals, not a confident-sounding guess.</p>
-          </article>
-          <article>
-            <h3>Less pressure, more confidence</h3>
-            <p>The goal is to lighten the mental load, not add a new performance metric. Nubo is designed so that using it less can still mean it is working.</p>
-          </article>
-        </div>
-        <p class="section-route"><a href="/blog/product/why-nubo-does-not-predict-your-baby/" class="text-link">Why we made this choice &rarr;</a></p>
-      </div>
-    </section>
-
-    <section class="screens-section">
-      <div class="container">
-        <div class="section-intro"><p class="overline">Screenshots by outcome</p><h2>Everything has a job.</h2></div>
-        <div class="screens-grid">
-          {screenshots.map(([label, src, copy]) => (
-            <figure>
-              <img src={src} alt={`Nubo app screenshot: ${label}`} width="642" height="1389" loading="lazy" decoding="async" />
-              <figcaption><strong>{label}</strong><span>{copy}</span></figcaption>
-            </figure>
-          ))}
-        </div>
-      </div>
-    </section>
-
     <section class="upgrade-section">
       <div class="container upgrade-inner">
         <div>
           <p class="overline">Optional upgrade</p>
-          <h2>Start with the app. Add the button when your phone becomes the bottleneck.</h2>
-          <p>Many families begin with the free app. If logging from a phone starts to feel annoying during feeds, pumping, diaper changes, or handoffs, the Nubo device gives you a physical one-touch way to log without unlocking your phone.</p>
-          <p>Premium is for app-first families who want reminders, Alexa, Live Activities, Care Vault for standing handoff details, exports, advanced growth metrics, Premium modes, and a private pumping tracker. It is managed by the App Store or Google Play account that buys it, while the device can grant Premium to separate caregiver accounts.</p>
+          <h2>Start with the app. Add the device when your phone becomes the bottleneck.</h2>
+          <p>Many families begin with the free app. Add Premium for advanced app tools, or add the device when opening your phone becomes the part that keeps failing.</p>
           <div class="upgrade-cards">
-            <article><h3>Private pumping</h3><p>Milk output is your body data. It is not in the shared baby log, not in caregiver sync, and not visible to partners, nannies, grandparents, or other collaborators.</p><a href="/blog/privacy/pumping-tracker-private-data/">Read the privacy guide</a></article>
-            <article><h3>Premium app</h3><p>Best when one primary app account needs Care Vault for caregiver handoffs, reminders, exports, Live Activities, advanced metrics, Alexa, and Premium modes.</p><a href="/pricing/#plans">See Premium details</a></article>
-            <article><h3>Nubo device</h3><p>Best when even unlocking your phone is too much, or when non-family caregivers need Premium too.</p></article>
+            <article><h3>Premium app</h3><p>Best for reminders, exports, Alexa, Live Activities, Care Vault, private pumping, and advanced views.</p><a href="/pricing/#plans">See Premium details</a></article>
+            <article><h3>Nubo device</h3><p>Best when night feeds, hands-full changes, or caregiver routines make phone logging unreliable.</p><a href="/device/">See device details</a></article>
           </div>
-          <div class="hero-actions-inline"><a href="#app-downloads" class="btn-primary">Download the free app</a><a href="/device/" class="btn-ghost">See the one-touch device</a></div>
+          <div class="hero-actions-inline"><a href="#app-downloads" class="btn-primary">Download the free app</a><a href="/device/" class="btn-ghost">See the quick-log device</a></div>
         </div>
         <img src="/images/nubo-instant-tracker-900.webp" alt="Hand pressing the Nubo instant tracker beside a sleeping baby" width="900" height="900" loading="lazy" decoding="async" />
       </div>
@@ -216,26 +164,93 @@ const jsonLd = {
   <Footer />
 </BaseLayout>
 
+<script>
+  const carousel = document.querySelector('[data-app-carousel]');
+
+  if (carousel) {
+    const slides = Array.from(carousel.querySelectorAll('[data-app-slide]'));
+    const dots = Array.from(carousel.querySelectorAll('[data-app-dot]'));
+    const prev = carousel.querySelector('[data-app-prev]');
+    const next = carousel.querySelector('[data-app-next]');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let activeIndex = 0;
+    let rotation;
+
+    const showSlide = (nextIndex) => {
+      activeIndex = (nextIndex + slides.length) % slides.length;
+
+      slides.forEach((slide, index) => {
+        const active = index === activeIndex;
+        slide.hidden = !active;
+        slide.classList.toggle('is-active', active);
+      });
+
+      dots.forEach((dot, index) => {
+        const active = index === activeIndex;
+        dot.classList.toggle('is-active', active);
+        dot.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+    };
+
+    const stopRotation = () => {
+      if (rotation) window.clearInterval(rotation);
+      rotation = undefined;
+    };
+
+    const startRotation = () => {
+      if (prefersReducedMotion || rotation) return;
+      rotation = window.setInterval(() => showSlide(activeIndex + 1), 4500);
+    };
+
+    prev?.addEventListener('click', () => {
+      stopRotation();
+      showSlide(activeIndex - 1);
+    });
+
+    next?.addEventListener('click', () => {
+      stopRotation();
+      showSlide(activeIndex + 1);
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        stopRotation();
+        showSlide(index);
+      });
+    });
+
+    carousel.addEventListener('mouseenter', stopRotation);
+    carousel.addEventListener('focusin', stopRotation);
+    carousel.addEventListener('mouseleave', startRotation);
+    startRotation();
+  }
+</script>
+
 <style>
   .app-hero { padding: 10rem 0 5rem; background: linear-gradient(170deg, #f0fafa 0%, #fff 60%); overflow: hidden; }
-  .app-hero-inner, .upgrade-inner, .voice-inner, .caregiver-app-inner, .proof-inner { display: grid; grid-template-columns: 1fr 0.75fr; gap: 4rem; align-items: center; }
-  .voice-inner { align-items: start; }
+  .app-hero-inner, .upgrade-inner, .proof-inner { display: grid; grid-template-columns: 1fr 0.75fr; gap: 4rem; align-items: center; }
   .app-hero h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.08; margin-bottom: 1rem; }
-  .app-hero p, .moment-grid p, .feature-grid p, .upgrade-inner p, .voice-inner p, .caregiver-app-inner p, .privacy-points p, .proof-inner p, figcaption span { color: var(--color-text-secondary); line-height: 1.7; }
-  .app-hero-inner > img { justify-self: center; }
-  .app-hero img { max-height: 620px; width: auto; border-radius: 30px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.14); }
+  .app-hero p, .moment-grid p, .feature-grid p, .upgrade-inner p, .privacy-points p, .proof-inner p { color: var(--color-text-secondary); line-height: 1.7; }
   .hero-actions-inline { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
   .hero-store-links { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; margin-top: 2rem; }
   .hero-store-links img { height: 52px; width: auto; border-radius: 0; box-shadow: none; }
   .hero-trust { margin-top: 1rem; font-weight: 800; color: var(--color-brand-dark) !important; }
-  .timeline-section, .free-section, .voice-section, .caregiver-app-section, .privacy-app-section, .no-predict-section, .screens-section, .upgrade-section, .proof-section { padding: 6rem 0; }
+  .app-carousel { justify-self: center; width: min(100%, 360px); }
+  .app-carousel-stage { position: relative; display: grid; place-items: center; min-height: 620px; }
+  .app-slide { margin: 0; text-align: center; }
+  .app-slide img { display: block; max-height: 620px; width: auto; max-width: 100%; border-radius: 30px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.14); }
+  .app-carousel-controls { display: grid; grid-template-columns: 2.25rem 1fr 2.25rem; align-items: center; gap: 0.75rem; margin-top: 1rem; }
+  .app-carousel-btn { position: relative; width: 2.25rem; height: 2.25rem; border: 1px solid rgba(61, 179, 173, 0.28); border-radius: 999px; background: #fff; color: var(--color-brand-dark); cursor: pointer; }
+  .app-carousel-btn::before { content: ""; position: absolute; top: 50%; left: 50%; width: 0.5rem; height: 0.5rem; border-top: 2px solid currentColor; border-right: 2px solid currentColor; }
+  .app-carousel-btn[data-app-prev]::before { transform: translate(-42%, -50%) rotate(225deg); }
+  .app-carousel-btn[data-app-next]::before { transform: translate(-58%, -50%) rotate(45deg); }
+  .app-carousel-dots { display: flex; align-items: center; justify-content: center; gap: 0.45rem; }
+  .app-carousel-dot { width: 0.55rem; height: 0.55rem; border: 0; border-radius: 999px; background: #c9e9ea; cursor: pointer; }
+  .app-carousel-dot.is-active { width: 1.4rem; background: var(--color-brand); }
+  .timeline-section, .free-section, .privacy-app-section, .upgrade-section, .proof-section { padding: 6rem 0; }
   .proof-section { scroll-margin-top: 1rem; }
-  .free-section, .caregiver-app-section, .upgrade-section { background: #fff; }
-  .timeline-section, .voice-section, .privacy-app-section, .no-predict-section, .screens-section, .proof-section { background: var(--color-bg-soft); }
-  .no-predict-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .no-predict-grid article { background: #fff; border-radius: var(--radius-xl); padding: 1.75rem; }
-  .no-predict-grid h3 { font-size: 1.1rem; margin-bottom: 0.55rem; color: var(--color-text); }
-  .no-predict-grid p { color: var(--color-text-secondary); line-height: 1.7; }
+  .free-section, .upgrade-section { background: #fff; }
+  .timeline-section, .privacy-app-section, .proof-section { background: var(--color-bg-soft); }
   .moment-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
   .moment-grid article { background: #fff; border-radius: var(--radius-xl); padding: 1.75rem; }
   .moment-grid h3 { font-size: 1.125rem; margin-bottom: 0.5rem; }
@@ -243,24 +258,13 @@ const jsonLd = {
   .feature-grid article { background: var(--color-bg-soft); border-radius: var(--radius-xl); padding: 1.75rem; }
   .feature-grid h3 { font-size: 1.125rem; margin-bottom: 0.5rem; }
   .feature-grid a { color: var(--color-brand-dark); font-weight: 700; }
-  .voice-inner h2, .caregiver-app-inner h2, .upgrade-inner h2, .proof-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; margin-bottom: 1rem; }
-  .voice-inner img { max-height: 560px; width: auto; justify-self: center; border-radius: 28px; box-shadow: 0 16px 44px rgba(0, 0, 0, 0.12); }
-  .voice-example { display: grid; gap: 0.5rem; margin: 1.5rem 0 0.75rem; padding: 1.25rem; border-radius: 18px; background: #fff; border: 1px solid rgba(61, 179, 173, 0.18); }
-  .voice-example span { color: var(--color-text); font-size: 1.15rem; font-weight: 800; }
-  .voice-example strong { color: var(--color-brand-dark); }
-  .voice-note { font-size: 0.9rem; font-weight: 700; color: var(--color-brand-dark) !important; }
-  .caregiver-app-inner img { width: 100%; border-radius: var(--radius-xl); box-shadow: 0 18px 44px rgba(0, 0, 0, 0.08); }
+  .upgrade-inner h2, .proof-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; margin-bottom: 1rem; }
   .privacy-points, .upgrade-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
   .privacy-points article, .upgrade-cards article { background: #fff; border-radius: var(--radius-xl); padding: 1.5rem; }
   .upgrade-cards { grid-template-columns: repeat(3, 1fr); margin-top: 1.5rem; }
   .upgrade-cards article { background: var(--color-bg-soft); }
   .privacy-points h3, .upgrade-cards h3 { font-size: 1.1rem; margin-bottom: 0.55rem; color: var(--color-text); }
   .upgrade-cards a { display: inline-flex; margin-top: 0.75rem; color: var(--color-brand-dark); font-weight: 700; }
-  .section-route { margin-top: 1.5rem; text-align: center; }
-  .screens-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .screens-grid figure { background: #fff; border-radius: var(--radius-xl); padding: 1rem; text-align: center; }
-  .screens-grid img { height: 420px; width: auto; max-width: 100%; aspect-ratio: 642 / 1389; object-fit: contain; margin: 0 auto; border-radius: 24px; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12); }
-  figcaption { display: flex; flex-direction: column; gap: 0.375rem; margin-top: 1rem; }
   .upgrade-inner img { border-radius: var(--radius-xl); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08); }
   .store-panel { display: grid; gap: 1rem; justify-self: end; width: min(100%, 420px); padding: 1.75rem; border-radius: var(--radius-xl); background: #fff; box-shadow: 0 18px 44px rgba(0, 0, 0, 0.07); }
   .store-panel p { margin: 0; display: grid; gap: 0.35rem; }
@@ -272,6 +276,6 @@ const jsonLd = {
   .mid-cta-inner p { margin: 0; font-weight: 700; color: var(--color-text); font-size: 1.05rem; }
   .mid-cta-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
   .mid-cta-links img { height: 44px; width: auto; }
-  @media (max-width: 980px) { .app-hero { padding: 8rem 0 4rem; } .app-hero-inner, .upgrade-inner, .voice-inner, .caregiver-app-inner, .proof-inner { grid-template-columns: 1fr; } .moment-grid, .feature-grid, .screens-grid, .privacy-points, .no-predict-grid, .upgrade-cards { grid-template-columns: 1fr 1fr; } .voice-inner img { order: -1; } .store-panel { justify-self: stretch; width: 100%; } .mid-cta-inner { flex-direction: column; align-items: flex-start; } }
-  @media (max-width: 640px) { .app-hero { padding-top: 7rem; } .timeline-section, .free-section, .voice-section, .caregiver-app-section, .privacy-app-section, .no-predict-section, .screens-section, .upgrade-section, .proof-section { padding: 4rem 0; } .moment-grid, .feature-grid, .screens-grid, .privacy-points, .no-predict-grid, .upgrade-cards { grid-template-columns: 1fr; } .app-hero img { max-height: 480px; } .hero-store-links img { height: 46px; } .screens-grid img { height: 360px; } .store-links a, .store-links img { width: 100%; height: auto; } .mid-cta-links img { height: 40px; } }
+  @media (max-width: 980px) { .app-hero { padding: 8rem 0 4rem; } .app-hero-inner, .upgrade-inner, .proof-inner { grid-template-columns: 1fr; } .moment-grid, .feature-grid, .privacy-points, .upgrade-cards { grid-template-columns: 1fr 1fr; } .store-panel { justify-self: stretch; width: 100%; } .mid-cta-inner { flex-direction: column; align-items: flex-start; } }
+  @media (max-width: 640px) { .app-hero { padding-top: 7rem; } .timeline-section, .free-section, .privacy-app-section, .upgrade-section, .proof-section { padding: 4rem 0; } .moment-grid, .feature-grid, .privacy-points, .upgrade-cards { grid-template-columns: 1fr; } .app-carousel { width: min(100%, 300px); } .app-carousel-stage { min-height: 520px; } .app-slide img { max-height: 480px; } .hero-store-links img { height: 46px; } .store-links a, .store-links img { width: 100%; height: auto; } .mid-cta-links img { height: 40px; } }
 </style>

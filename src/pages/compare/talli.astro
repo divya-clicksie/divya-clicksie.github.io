@@ -1,0 +1,255 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = 'Nubo vs Talli | Baby Tracker Device Comparison';
+const description = 'Compare Nubo and Talli baby tracker devices by price, sync style, app model, caregiver fit, customization, and phone-light newborn logging.';
+const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
+const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
+const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
+const talliHomeURL = 'https://talli.me/';
+const talliProductURL = 'https://talli.me/products/talli-baby-tracker-event-logger';
+const talliAmazonURL = 'https://www.amazon.com/Talli-Daily-One-Touch-Baby-Tracker/dp/B0DJN6B1HB';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  description,
+  url: 'https://www.nubotracker.com/compare/talli/',
+  about: [
+    { '@type': 'Product', name: 'Nubo Baby Tracker Device' },
+    { '@type': 'Product', name: 'Talli Baby One-Touch Baby Tracker' }
+  ],
+  mainEntity: {
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How do Nubo and Talli differ for phone-light baby tracking?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Both devices support phone-light logging. Nubo uses Bluetooth syncing, device-side event storage, a free app-first path, and Premium for every caregiver phone that syncs with the device. Talli uses Wi-Fi syncing and offers broader button customization.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Does Nubo require Wi-Fi?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'No. The Nubo device syncs over Bluetooth when a paired caregiver phone is nearby. It does not require Wi-Fi.'
+        }
+      }
+    ]
+  }
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+  <main>
+    <section class="page-hero talli-hero">
+      <div class="container">
+        <p class="overline">Nubo vs Talli</p>
+        <h1>Two baby tracker buttons. Two different philosophies.</h1>
+        <p class="page-hero-sub">Talli is a well-known Wi-Fi baby tracker with customizable buttons. Nubo is built for phone-light newborn care, Bluetooth sync, device-side event storage, no required account, and Premium for every caregiver phone that syncs with the device.</p>
+        <div class="hero-actions-inline">
+          <a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy Nubo on Amazon</a>
+          <a href="/device/" class="btn-ghost">See Nubo device</a>
+        </div>
+        <p class="source-note">Device-level comparison based on public Talli website and Amazon information reviewed June 19, 2026.</p>
+      </div>
+    </section>
+
+    <section class="table-section">
+      <div class="container">
+        <div class="section-intro">
+          <p class="overline">Side-by-side</p>
+          <h2>The practical differences.</h2>
+        </div>
+
+        <div class="compare-table-wrap">
+          <table class="compare-table">
+            <caption>Nubo and Talli baby tracker device comparison</caption>
+            <thead>
+              <tr>
+                <th scope="col">Question</th>
+                <th scope="col">Nubo</th>
+                <th scope="col">Talli</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Device price</th><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>$89.99 listed</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>$109.99 listed</span></span></td></tr>
+              <tr><th scope="row">Premium in-app features</th><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Free for every syncing phone</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>14-day trial, then $39.99/year</span></span></td></tr>
+              <tr><th scope="row">iOS/Device compatibility</th><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>iPhone app</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>iPhone app</span></span></td></tr>
+              <tr><th scope="row">Android/Device compatibility</th><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Android app</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>Currently iOS-only</span></span></td></tr>
+              <tr><th scope="row">Connectivity</th><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Bluetooth 5.0</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-partial" aria-label="Partial">~</span><span>Wi-Fi (Incompatible with 5GHz routers)</span></span></td></tr>
+              <tr><th scope="row">Offline logging</th><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Stores on device</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>No device storage</span></span></td></tr>
+              <tr><th scope="row">On-the-go logging</th><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Hospital, park, daycare, airplane</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>Known Wi-Fi to transmit</span></span></td></tr>
+              <tr><th scope="row">Exact milk amount from device</th><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Multi-click amount</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>App edit for non-default</span></span></td></tr>
+              <tr><th scope="row">Form factor</th><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Handheld or pocketable remote</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>Larger tabletop or wall device</span></span></td></tr>
+              <tr><th scope="row">Portable mount and carry options</th><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Magnet, sticker, lanyard</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>Fixed spot or wall mount</span></span></td></tr>
+              <tr><th scope="row">Water-resistance</th><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Yes</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>Not publicly positioned</span></span></td></tr>
+              <tr><th scope="row">Child lock for siblings</th><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Locks accidental presses</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>No child lock listed</span></span></td></tr>
+              <tr><th scope="row">Multi-month charge-free operation</th><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>CR2032, spare included</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Four AA batteries</span></span></td></tr>
+              <tr><th scope="row">Broad all-button customization</th><td><span class="compare-cell"><span class="compare-mark compare-partial" aria-label="Partial">~</span><span>Focused buttons, one custom</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>8 custom buttons</span></span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="compare-table-wrap">
+          <table class="compare-table">
+            <caption>Nubo and Talli baby tracker app comparison</caption>
+            <thead>
+              <tr>
+                <th scope="col">Question</th>
+                <th scope="col">Nubo App</th>
+                <th scope="col">Talli App</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Phone Compatibility</th>
+                <td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>iOS and Android</span></span></td>
+                <td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>iOS and Android</span></span></td>
+              </tr>
+
+              <tr><th scope="row">Premium in-app features</th><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Free for every syncing phone</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>14-day trial, then $39.99/year</span></span></td></tr>
+              
+              <tr><th scope="row">User account</th><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Optional</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>Required</span></span></td></tr>
+              
+              <tr><th scope="row">Data storage</th><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>App storage, private backup</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>Cloud account model</span></span></td></tr>
+
+              <tr><th scope="row">Offline mode</th><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Fully supported</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>Requires internet access</span></span></td></tr>
+
+              <tr><th scope="row">One-tap logging</th>
+              <td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Free, unlimited</span></span></td>
+              <td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>Premium</span></span></td>
+              </tr>
+
+              <tr><th scope="row">Voice logging</th>
+              <td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Free, on-device, unlimited</span></span></td>
+              <td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>Not available</span></span></td>
+              </tr>
+              <tr><th scope="row">Voice Notes</th>
+              <td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Free, unlimited</span></span></td>
+              <td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>Not available</span></span></td>
+              </tr>
+              <tr><th scope="row">Growth Tracking</th>
+              <td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Free WHO charts</span></span></td>
+              <td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>Not available</span></span></td>
+              </tr>
+              <tr><th scope="row">Growth Tracking</th>
+              <td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Free Pre-term Fenton Charts</span></span></td>
+              <td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>Not available</span></span></td>
+              </tr>
+              <tr><th scope="row">CDC Milestones</th>
+              <td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Yes</span></span></td>
+              <td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>Not available</span></span></td>
+              </tr>
+              <tr><th scope="row">Multiple Children</th>
+              <td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Supported</span></span></td>
+              <td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Supported</span></span></td>
+              </tr>
+              <tr><th scope="row">Multiple Caregivers</th>
+              <td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Supported</span></span></td>
+              <td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Supported</span></span></td>
+              </tr>
+              <tr><th scope="row">Reminders and Auto-Reminders</th>
+              <td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Supported</span></span></td>
+              <td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Supported</span></span></td>
+              </tr>
+              <tr><th scope="row">Pumping, Collection Tracking</th>
+              <td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Premium, private</span></span></td>
+              <td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>Free, shared, no collection</span></span></td>
+              </tr>
+              <tr><th scope="row">Allergen Introduction</th>
+              <td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Premium</span></span></td>
+              <td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>Not available</span></span></td>
+              </tr>
+              <tr><th scope="row">Care Vault</th>
+              <td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Premium</span></span></td>
+              <td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>Not available</span></span></td>
+              </tr>
+              <tr><th scope="row">Light/Dark Mode</th>
+              <td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Free</span></span></td>
+              <td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>Free</span></span></td>
+              </tr>
+              <tr><th scope="row">Melatonin mode</th>
+              <td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Premium</span></span></td>
+              <td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>Not available</span></span></td>
+              </tr>
+              <tr><th scope="row">Sleep Sounds</th>
+              <td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Premium</span></span></td>
+              <td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>Not available</span></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="phone-light-section">
+      <div class="container phone-light-inner">
+        <div>
+          <p class="overline">For Nubo families</p>
+          <h2>If your goal is less phone around the baby, start here.</h2>
+          <p>Nubo is for the parent who wants the log without inviting the phone into every quiet moment. Tap the device for common newborn events, use the free app when the phone is already with you, and let every caregiver work from one timeline.</p>
+        </div>
+        <div class="phone-light-actions">
+          <a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy Nubo on Amazon</a>
+          <a href={appStoreURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">Download on App Store</a>
+          <a href={playStoreURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="source-section">
+      <div class="container source-inner">
+        <p class="overline">Sources</p>
+        <p>Talli details were taken from the public <a href={talliHomeURL} target="_blank" rel="noopener noreferrer">Talli homepage</a>, <a href={talliProductURL} target="_blank" rel="noopener noreferrer">Talli Baby product page</a>, and <a href={talliAmazonURL} target="_blank" rel="noopener noreferrer">Talli Amazon listing</a>. Product pages can change, so verify current pricing, subscription terms, compatibility, and feature details before buying.</p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .talli-hero .hero-actions-inline { justify-content: center; }
+  .hero-actions-inline { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+  .source-note { margin-top: 1rem; color: var(--color-text-secondary); font-size: 0.875rem; }
+  .table-section, .phone-light-section, .source-section { padding: 6rem 0; }
+  .source-section { background: #fff; }
+  .table-section, .phone-light-section { background: var(--color-bg-soft); }
+  .phone-light-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: stretch; }
+  .phone-light-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; margin-bottom: 1rem; }
+  .phone-light-inner p, .source-inner p { color: var(--color-text-secondary); line-height: 1.7; }
+  .compare-table-wrap { overflow-x: auto; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); background: #fff; }
+  .compare-table-wrap + .compare-table-wrap { margin-top: 3rem; }
+  .compare-table { width: 100%; min-width: 980px; table-layout: fixed; border-collapse: collapse; }
+  .compare-table caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+  .compare-table th, .compare-table td { padding: 0.95rem 1rem; border-bottom: 1px solid #eeeeee; text-align: left; line-height: 1.35; vertical-align: middle; }
+  .compare-table th:nth-child(1), .compare-table td:nth-child(1) { width: 32%; }
+  .compare-table th:nth-child(2), .compare-table td:nth-child(2) { width: 34%; }
+  .compare-table th:nth-child(3), .compare-table td:nth-child(3) { width: 34%; }
+  .compare-table thead th { background: #fff; color: var(--color-text); font-size: 0.875rem; }
+  .compare-table thead th:nth-child(2) { background: rgba(61, 179, 173, 0.08); color: var(--color-brand-dark); }
+  .compare-table tbody th { color: var(--color-text); font-weight: 800; }
+  .compare-table tbody td:nth-child(2) { background: rgba(61, 179, 173, 0.06); }
+  .compare-table td { color: var(--color-text-secondary); }
+  .compare-table tbody tr:last-child th, .compare-table tbody tr:last-child td { border-bottom: 0; }
+  .compare-cell { display: flex; align-items: center; gap: 0.65rem; font-weight: 700; color: var(--color-text); }
+  .compare-mark { display: inline-grid; place-items: center; flex: 0 0 auto; width: 1.65rem; height: 1.65rem; border-radius: 999px; font-size: 0.95rem; font-weight: 900; line-height: 1; }
+  .compare-yes { background: var(--color-brand-light); color: var(--color-brand-dark); }
+  .compare-no { background: #f3f3f3; color: #8a8a8a; }
+  .compare-partial { background: #fff5d8; color: #8a6500; }
+  .phone-light-inner { align-items: center; }
+  .phone-light-actions { display: flex; flex-direction: column; gap: 1rem; justify-self: end; width: min(100%, 420px); }
+  .phone-light-actions .btn-primary, .phone-light-actions .btn-ghost { width: 100%; justify-content: center; }
+  .source-inner { max-width: 760px; }
+  .source-inner a { color: var(--color-brand-dark); font-weight: 700; }
+  @media (max-width: 900px) { .phone-light-inner { grid-template-columns: 1fr; } .phone-light-actions { justify-self: start; } }
+  @media (max-width: 640px) { .table-section, .phone-light-section, .source-section { padding: 4rem 0; } .phone-light-actions .btn-primary, .phone-light-actions .btn-ghost { width: 100%; } }
+</style>

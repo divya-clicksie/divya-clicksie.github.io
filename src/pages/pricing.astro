@@ -99,7 +99,7 @@ const jsonLd = {
           <article><h3>Two parents, mostly app-first</h3><p>Free works for shared basics. Premium adds advanced tools and Care Vault when the handoff needs more than the shared timeline, and the device adds speed when the phone is not open.</p><a href="#plans">Compare plans</a></article>
           <article class="decision-featured"><h3>Multi-caregiver household</h3><p>The best baby tracker for nannies and grandparents who should not have to learn an app. Nanny, grandparents on separate plans, postpartum doula, or daycare staff? The device is the cleanest value.</p><a href={amazonURL} target="_blank" rel="noopener noreferrer">Buy the device</a></article>
           <article><h3>App user ready for advanced features</h3><p>Premium adds reminders, Care Vault for handoff details, exports, Alexa, Live Activities, advanced metrics, Premium modes, and a private pumping tracker.</p><a href={appStoreURL} target="_blank" rel="noopener noreferrer">Try Premium</a></article>
-          <article><h3>Buying a gift</h3><p>The device is the easiest gift to understand: one button, one-time purchase, useful from the first week.</p><a href="/gift/">Gift guide</a></article>
+          <article><h3>Buying a gift</h3><p>The device is the easiest gift to understand: dedicated newborn log buttons, one-time purchase, useful from the first week.</p><a href="/gift/">Gift guide</a></article>
         </div>
       </div>
     </section>
@@ -107,11 +107,10 @@ const jsonLd = {
     <section class="plans-section" id="plans">
       <div class="container">
         <div class="trust-strip" aria-label="Nubo purchase reassurance">
-          <span>4.2 stars on Amazon</span>
           <span>No subscription required</span>
           <span>Private by design</span>
-          <span>Free shipping with Prime</span>
-          <span>30-day returns through Amazon</span>
+          <span>Start with the free app</span>
+          <span>Device sold on Amazon</span>
         </div>
 
         <div class="pricing-grid">
@@ -120,12 +119,12 @@ const jsonLd = {
             <p class="price">$0</p>
             <p class="tagline">A complete baby tracker for parents who want to start today.</p>
             <ul>
-              <li>Sleep, feeding, diaper, growth, vaccine, allergen, medication, and milestone tracking</li>
-              <li>Unlimited caregivers across iOS and Android, child profiles, cloud backup, and event logs</li>
-              <li>Unlimited in-app voice logging and quick-log cards</li>
+              <li>Core logs for feeds, sleep, diapers, medicine, growth, vaccines, allergens, milestones, and notes</li>
+              <li>Unlimited caregivers across iOS and Android</li>
+              <li>In-app voice catch-up and quick-log cards</li>
               <li>Offline mode and local-first private storage</li>
             </ul>
-            <a href={appStoreURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">Download free</a>
+            <a href={appStoreURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Download free</a>
           </article>
 
           <article class="pricing-card pricing-card-featured">
@@ -135,13 +134,11 @@ const jsonLd = {
             <p class="tagline">For app-first families who want advanced tools and cleaner caregiver handoffs without hardware.</p>
             <ul>
               <li>Everything in Free</li>
-              <li>Auto Reminders, Alexa logging, Live Activities, Care Vault, and CSV export</li>
-              <li>Private pumping tracker for milk output. Not in the shared log, not in caregiver sync.</li>
-              <li>Advanced growth metrics, Allergen SafeStart, Smart Averages, and Premium themes</li>
-              <li>Care Vault keeps pediatrician, emergency, insurance, allergy, and settle notes ready for caregiver handoffs, with read-only sharing for active caregivers.</li>
-              <li>Premium is managed by the App Store or Google Play account that buys it. Caregivers on separate store accounts usually need their own Premium, or the device can cover everyone who uses it.</li>
+              <li>Reminders, Alexa, Live Activities, Care Vault, CSV export, and advanced views</li>
+              <li>Private pumping tracker that is not in caregiver sync</li>
+              <li>Best when one primary app account needs more tools</li>
             </ul>
-            <a href={appStoreURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Download and try Premium</a>
+            <a href={appStoreURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">Try Premium in the app</a>
           </article>
 
           <article class="pricing-card pricing-card-device">
@@ -150,16 +147,47 @@ const jsonLd = {
             <p class="price">$89.99</p>
             <p class="tagline">Premium for every caregiver who uses it.</p>
             <ul>
-              <li>Any caregiver phone that connects to your Nubo gets 30 days of Premium, even across separate App Store or Google Play accounts</li>
-              <li>Shared tracking stays end-to-end encrypted across Apple and Google ecosystems</li>
-              <li>Active caregivers stay on Premium continuously with no per-seat fees to manage</li>
-              <li>Physical one-touch logging for feeds, sleep, pee, and poop</li>
+              <li>Dedicated physical buttons for feeds, sleep, pee, and poop</li>
+              <li>Premium for every caregiver phone that syncs with the device</li>
+              <li>Strongest fit for night feeds and multi-caregiver households</li>
               <li>Bluetooth sync, magnetic mount, lanyard, and months of battery life</li>
             </ul>
             <a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
           </article>
         </div>
-        <p class="return-note">Free shipping with Prime · 30-day returns through Amazon</p>
+        <p class="return-note">The device is sold on Amazon. Shipping and returns follow the current Amazon listing.</p>
+      </div>
+    </section>
+
+    <section class="comparison-section">
+      <div class="container">
+        <div class="section-intro">
+          <p class="overline">Feature comparison</p>
+          <h2>See the difference without reading every paragraph.</h2>
+        </div>
+        <div class="plan-table-wrap">
+          <table class="plan-table">
+            <caption>Free app, Premium, and Nubo device comparison</caption>
+            <thead>
+              <tr>
+                <th scope="col">Need</th>
+                <th scope="col">Free app</th>
+                <th scope="col">Premium</th>
+                <th scope="col">Device</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Core tracking</th><td>Included</td><td>Included</td><td>Included through app</td></tr>
+              <tr><th scope="row">Voice catch-up</th><td>Included</td><td>Included</td><td>Included through app</td></tr>
+              <tr><th scope="row">Caregiver sync</th><td>Included</td><td>Included</td><td>Included</td></tr>
+              <tr><th scope="row">Reminders, exports, advanced views</th><td>Not included</td><td>Included</td><td>Included for syncing caregivers</td></tr>
+              <tr><th scope="row">Alexa and Live Activities</th><td>Not included</td><td>Included</td><td>Included for syncing caregivers</td></tr>
+              <tr><th scope="row">Private pumping tracker</th><td>Not included</td><td>Included</td><td>Included for syncing caregivers</td></tr>
+              <tr><th scope="row">One-second hardware logging</th><td>Not included</td><td>Not included</td><td>Included</td></tr>
+              <tr><th scope="row">Best fit</th><td>Start today</td><td>App-first families</td><td>Night feeds and caregivers</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
@@ -209,8 +237,8 @@ const jsonLd = {
 <style>
   .pricing-hero .hero-actions-inline { justify-content: center; margin-top: 2rem; }
   .hero-actions-inline { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .decision-section, .plans-section, .second-baby-section, .faq-band { padding: 6rem 0; }
-  .decision-section, .faq-band { background: #fff; }
+  .decision-section, .plans-section, .comparison-section, .second-baby-section, .faq-band { padding: 6rem 0; }
+  .decision-section, .comparison-section, .faq-band { background: #fff; }
   .plans-section, .second-baby-section { background: var(--color-bg-soft); }
   .decision-grid, .pricing-grid, .second-baby-grid, .faq-grid { display: grid; gap: 1.5rem; }
   .decision-grid { grid-template-columns: repeat(5, 1fr); }
@@ -238,7 +266,15 @@ const jsonLd = {
   .pricing-card li::before { content: '✓'; position: absolute; left: 0; color: var(--color-brand); font-weight: 700; }
   .pricing-card .btn-primary, .pricing-card .btn-ghost { width: 100%; }
   .return-note { margin-top: 1.5rem; text-align: center; color: var(--color-text-secondary); font-weight: 700; }
+  .plan-table-wrap { overflow-x: auto; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); background: #fff; }
+  .plan-table { width: 100%; border-collapse: collapse; min-width: 720px; }
+  .plan-table caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+  .plan-table th, .plan-table td { padding: 1rem; border-bottom: 1px solid #eeeeee; text-align: left; vertical-align: top; line-height: 1.45; }
+  .plan-table thead th { background: var(--color-bg-soft); color: var(--color-text); font-size: 0.875rem; }
+  .plan-table tbody th { color: var(--color-text); font-weight: 800; }
+  .plan-table td { color: var(--color-text-secondary); }
+  .plan-table tbody tr:last-child th, .plan-table tbody tr:last-child td { border-bottom: 0; }
   @media (max-width: 1120px) { .decision-grid { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 980px) { .pricing-grid, .faq-grid { grid-template-columns: 1fr 1fr; } .second-baby-inner { grid-template-columns: 1fr; gap: 2.5rem; } }
-  @media (max-width: 680px) { .decision-section, .plans-section, .second-baby-section, .faq-band { padding: 4rem 0; } .decision-grid, .pricing-grid, .second-baby-grid, .faq-grid { grid-template-columns: 1fr; } .tagline { min-height: 0; } }
+  @media (max-width: 680px) { .decision-section, .plans-section, .comparison-section, .second-baby-section, .faq-band { padding: 4rem 0; } .decision-grid, .pricing-grid, .second-baby-grid, .faq-grid { grid-template-columns: 1fr; } .tagline { min-height: 0; } }
 </style>

@@ -19,7 +19,6 @@ Device: https://www.nubotracker.com/device/
 App: https://www.nubotracker.com/app/
 Pricing: https://www.nubotracker.com/pricing/
 Compare: https://www.nubotracker.com/compare/
-How it works: https://www.nubotracker.com/how-it-works/
 Caregivers: https://www.nubotracker.com/caregivers/
 Privacy overview: https://www.nubotracker.com/privacy/
 Privacy policy: https://www.nubotracker.com/privacy-policy/
@@ -176,10 +175,6 @@ The pricing page compares the free app, Nubo Premium, and the Nubo device. The f
 ### Compare page
 
 The compare page compares Nubo with paper diaries, Apple Notes, free tracker apps, sleep-focused baby apps, and hospital paper logs. It explains that Nubo is strongest when tracking needs to be fast, shared, and less phone-heavy.
-
-### How it works page
-
-The how-it-works page explains that Nubo accepts multiple logging methods into one baby timeline: the device, the app, voice catch-up, Quick Log cards, and Alexa. It also explains the setup flow: pair the device, invite caregivers, and start logging.
 
 ### Caregivers page
 

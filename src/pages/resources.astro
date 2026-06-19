@@ -37,6 +37,13 @@ const categoryCopy = [
   ['Product', 'Nubo setup, app features, Alexa, Premium, and how the ecosystem fits together.', '/blog/product/'],
   ['Gifts', 'Practical baby shower ideas for the newborn weeks and the people helping.', '/blog/gifts/']
 ];
+
+const intentLinks = [
+  ['I want to start tracking today', 'Download the free app, then read the first 12 weeks guide when you need a simple routine.', '/app/#app-downloads', 'Download free app'],
+  ['I am choosing app, Premium, or device', 'Compare setup paths before you commit to hardware or Premium.', '/pricing/', 'Compare setups'],
+  ['My caregiver routine is getting messy', 'Start with handoff guidance for partners, grandparents, nannies, and returning to work.', '/blog/caregiver/', 'Read caregiver guides'],
+  ['I care most about privacy', 'Review how voice, backups, sharing, and private pumping are handled.', '/privacy/', 'Read privacy overview'],
+];
 ---
 
 <BaseLayout title={title} description={description} jsonLd={jsonLd}>
@@ -64,7 +71,22 @@ const categoryCopy = [
 
     <section class="category-section">
       <div class="container">
-        <div class="section-intro"><p class="overline">Browse by need</p><h2>Find the moment you are in.</h2></div>
+        <div class="section-intro"><p class="overline">Start here if</p><h2>Choose the next step by what you need.</h2></div>
+        <div class="intent-grid">
+          {intentLinks.map(([label, copy, href, cta]) => (
+            <article>
+              <h3>{label}</h3>
+              <p>{copy}</p>
+              <a href={href}>{cta}</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="category-section category-section-alt">
+      <div class="container">
+        <div class="section-intro"><p class="overline">Browse by topic</p><h2>Find the moment you are in.</h2></div>
         <div class="category-grid">
           {categoryCopy.map(([label, copy, href]) => (
             <a href={href} class="category-card"><h3>{label}</h3><p>{copy}</p></a>
@@ -96,19 +118,24 @@ const categoryCopy = [
   .start-section, .category-section, .latest-section { padding: 6rem 0; }
   .start-section, .latest-section { background: #fff; }
   .category-section { background: var(--color-bg-soft); }
+  .category-section-alt { background: #fff; }
   .start-inner { display: grid; grid-template-columns: 1fr 0.65fr; gap: 4rem; align-items: center; }
   .start-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; margin-bottom: 1rem; }
   .start-inner p, .category-card p, .post-grid p { color: var(--color-text-secondary); line-height: 1.7; }
   .start-inner .btn-primary { margin-top: 1.5rem; }
   .start-inner img { max-height: 520px; width: auto; justify-self: center; border-radius: var(--radius-xl); }
-  .category-grid, .post-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .intent-grid, .category-grid, .post-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
   .post-grid { grid-template-columns: repeat(3, 1fr); }
-  .category-card, .post-grid article { background: #fff; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); padding: 1.75rem; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .intent-grid article, .category-card, .post-grid article { background: #fff; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); padding: 1.75rem; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .intent-grid article { display: flex; flex-direction: column; }
+  .category-section-alt .category-card { background: var(--color-bg-soft); }
   .category-card:hover, .post-grid article:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06); }
-  .category-card h3, .post-grid h3 { font-size: 1.125rem; line-height: 1.3; margin-bottom: 0.625rem; }
+  .intent-grid h3, .category-card h3, .post-grid h3 { font-size: 1.125rem; line-height: 1.3; margin-bottom: 0.625rem; }
+  .intent-grid p { color: var(--color-text-secondary); line-height: 1.7; flex: 1; }
+  .intent-grid a { display: inline-flex; margin-top: 1rem; color: var(--color-brand-dark); font-weight: 800; }
   .post-category { color: var(--color-brand-dark) !important; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem; }
   .post-grid h3 a:hover { color: var(--color-brand-dark); }
   .all-posts { margin-top: 2.5rem; text-align: center; }
-  @media (max-width: 980px) { .start-inner { grid-template-columns: 1fr; } .category-grid, .post-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 640px) { .start-section, .category-section, .latest-section { padding: 4rem 0; } .category-grid, .post-grid { grid-template-columns: 1fr; } .start-inner img { max-height: 420px; } }
+  @media (max-width: 980px) { .start-inner { grid-template-columns: 1fr; } .intent-grid, .category-grid, .post-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .start-section, .category-section, .latest-section { padding: 4rem 0; } .intent-grid, .category-grid, .post-grid { grid-template-columns: 1fr; } .start-inner img { max-height: 420px; } }
 </style>

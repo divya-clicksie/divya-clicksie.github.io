@@ -6,7 +6,12 @@ import mdx from '@astrojs/mdx';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.nubotracker.com',
-  integrations: [sitemap(), mdx()],
+  integrations: [
+    sitemap({
+      filter: (page) => page !== 'https://www.nubotracker.com/how-it-works/',
+    }),
+    mdx(),
+  ],
   output: 'static',
   trailingSlash: 'always',
 });

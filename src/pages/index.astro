@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import SpeedComparison from '../components/SpeedComparison.astro';
 import AttentionLine from '../components/AttentionLine.astro';
 
 const title = 'Nubo Baby Tracker | One-Tap Baby Tracker for Night Feeds';
@@ -38,38 +37,7 @@ const jsonLd = {
         "priceCurrency": "USD",
         "price": "89.99",
         "availability": "https://schema.org/InStock"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.2",
-        "reviewCount": "32"
-      },
-      "review": [
-        {
-          "@type": "Review",
-          "reviewBody": "I tried three baby-tracker apps before this. All felt like spreadsheets with pastel icons. Nubo is the first one I can use half-asleep.",
-          "author": { "@type": "Person", "name": "Kiran K." },
-          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-        },
-        {
-          "@type": "Review",
-          "reviewBody": "So much easier to tag team with our baby. If one of us has been out, the other can just glance at the app and see what's been going on.",
-          "author": { "@type": "Person", "name": "Devi" },
-          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-        },
-        {
-          "@type": "Review",
-          "reviewBody": "Our preemie needed exact intake tracking for the NICU follow-up. We exported the data and the pediatrician was impressed by how complete it was.",
-          "author": { "@type": "Person", "name": "Priya M." },
-          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-        },
-        {
-          "@type": "Review",
-          "reviewBody": "My husband, my mom, and I all use Nubo. Nobody has to ask when did the baby eat last anymore. That alone is worth it.",
-          "author": { "@type": "Person", "name": "Jessica R." },
-          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-        }
-      ]
+      }
     },
     {
       "@type": "MobileApplication",
@@ -109,21 +77,20 @@ const jsonLd = {
             <span class="hero-accent">Nubo does.</span>
           </h1>
           <p class="hero-sub">
-            Tap the device, even half-asleep. Or recap the night by voice in the morning. Every feed, nap, and diaper lands in one timeline.
+            Track feeds, sleep, and diapers with the free app, voice catch-up, or the one-tap device. Every caregiver sees one shared timeline.
           </p>
           <div class="hero-actions">
-            <a href="/pricing/" class="btn-primary">
-              Choose your setup
+            <a href="/app/#app-downloads" class="btn-primary">
+              Download free app
             </a>
             <a href={amazonURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">
-              Buy the device
+              Buy device
             </a>
           </div>
           <div class="hero-trust">
-            <span class="trust-chip">Free</span>
-            <span class="trust-chip">Unlimited</span>
-            <span class="trust-chip">On-device &amp; private</span>
-            <span class="trust-chip">No predictions. No pressure.</span>
+            <span class="trust-chip">Free app</span>
+            <span class="trust-chip">$89.99 device</span>
+            <span class="trust-chip">No device subscription required</span>
           </div>
         </div>
         <div class="hero-image">
@@ -143,6 +110,9 @@ const jsonLd = {
     </section>
 
 
+    <AttentionLine lead="Built to support caregiving, not compete with it." />
+
+
     <!-- ════════════════════════════════════════════
          PAIN POINT
     ════════════════════════════════════════════ -->
@@ -150,20 +120,15 @@ const jsonLd = {
       <div class="container">
         <div class="pain-inner reveal">
           <p class="overline">Sound familiar?</p>
-          <p class="pain-text">
-            You're breastfeeding in the dark. Your phone is across the room.
-            You're in the kitchen warming a bottle with both hands full.
-            You just changed a diaper and the baby's already crying again.
-            Logging it shouldn't be one more thing to forget.
-          </p>
-          <p class="pain-relief">Tap as it happens. Talk to catch up. Whatever fits the moment. Everything stays in sync.</p>
+          <h2>Tracking should not be one more thing to remember.</h2>
+          <div class="problem-grid">
+            <article><h3>Night feeds</h3><p>Log without waking yourself with a bright screen.</p></article>
+            <article><h3>Hands full</h3><p>Tap the matching event button while the care moment is happening.</p></article>
+            <article><h3>Handoffs</h3><p>Everyone sees the same day without check-in texts.</p></article>
+          </div>
         </div>
       </div>
     </section>
-
-
-    <SpeedComparison compact ctaHref="/compare/" ctaLabel="See the full comparison" />
-
 
     <!-- ════════════════════════════════════════════
          THREE WAYS TO LOG
@@ -171,9 +136,10 @@ const jsonLd = {
     <section class="three-ways" id="three-ways">
       <div class="container">
         <div class="section-intro reveal">
-          <p class="overline">The Nubo Ecosystem</p>
-          <h2>Tap as it happens.<br/>Talk to catch up.</h2>
-          <p class="section-sub">Two moments, both covered. Log it the second it happens, or fill in what you missed an hour later. Whatever fits the moment. Everything lands in one timeline.</p>
+          <p class="overline">How the one-tap baby tracker works</p>
+          <h2>One baby timeline. Log however the moment allows.</h2>
+          <p class="section-sub">Tap the device, speak a sentence, tap a card, or ask Alexa. Everything lands in one timeline that caregivers can trust.</p>
+          <p class="ways-intro-note">Nubo does not ask every caregiver to build the same habit. The fastest method changes by moment, so the timeline accepts them all.</p>
         </div>
 
         <div class="ways-grid">
@@ -183,8 +149,8 @@ const jsonLd = {
             </div>
             <div class="way-card-body">
               <h3>Tap the device</h3>
-              <p>The fastest log there is. No phone, no unlock, no opening anything. Press a button on Nubo and the activity is logged. One-handed, eyes closed, in the dark, or in broad daylight with the baby in your arms.</p>
-              <span class="way-best">Best for: the absolute fastest log, hands full, phone locked or across the room</span>
+              <p>Tap the matching button for feeds, sleep, pee, or poop when your phone is locked, across the room, or too bright for 3 a.m.</p>
+              <span class="way-best">Best for: night feeds, hands full, phone across the room</span>
             </div>
           </div>
 
@@ -194,8 +160,8 @@ const jsonLd = {
             </div>
             <div class="way-card-body">
               <h3>Say it on your phone</h3>
-              <p>Forgot to log earlier? Just say it naturally. &ldquo;Baby slept at 1 and woke up 10 minutes ago.&rdquo; Nubo understands ordinary speech, including times and relative phrases, then files the event at the right timestamp.</p>
-              <span class="way-best">Best for: catching up on what already happened, voice notes for the pediatrician</span>
+              <p>Remembered later? Say what happened in plain English and Nubo files the structured log at the right time.</p>
+              <span class="way-best">Best for: missed logs, fuzzy times, quick catch-up</span>
             </div>
           </div>
 
@@ -205,8 +171,8 @@ const jsonLd = {
             </div>
             <div class="way-card-body">
               <h3>Tap a card in the app</h3>
-              <p>If your phone is already in your hand, the app's home screen has a colorful one-touch card for every routine event. Sleep, nursing, formula, pumping, diaper. Each card shows a live &ldquo;ago&rdquo; timer. One tap and it's logged.</p>
-              <span class="way-best">Best for: when the phone is already open, scrubbing through the day's timeline</span>
+              <p>Use colorful quick cards when your phone is already open and you want to log, review, or edit the day.</p>
+              <span class="way-best">Best for: app-first tracking, reviewing the day</span>
             </div>
           </div>
 
@@ -216,76 +182,45 @@ const jsonLd = {
             </div>
             <div class="way-card-body">
               <h3>Ask Alexa</h3>
-              <p>&ldquo;Alexa, tell Newborn tracker I breast fed baby for half an hour.&rdquo; Natural language logging from across the room when your hands are full.</p>
-              <span class="way-best">Best for: bottle prep, hands full, multitasking</span>
+              <p>Log from across the room when your hands are busy and the phone is not where the care is happening.</p>
+              <span class="way-best">Best for: kitchens, nurseries, shared rooms</span>
               <a href="/alexa/" class="text-link">See Alexa logging &rarr;</a>
             </div>
           </div>
         </div>
 
-        <p class="ways-convergence reveal">Everything feeds into the same timeline. Nothing gets lost. Every caregiver sees the same data.</p>
-        <p class="section-route reveal"><a href="/how-it-works/" class="text-link">See how the ecosystem works &rarr;</a></p>
+        <p class="ways-convergence reveal">One record comes out: synced across caregivers, ready for handoffs, and not rebuilt from memory.</p>
+        <p class="section-route reveal"><a href="/compare/" class="text-link">Compare setup options &rarr;</a></p>
       </div>
     </section>
 
 
-    <AttentionLine lead="Built to support caregiving, not compete with it." />
-
-
-    <!-- ════════════════════════════════════════════
-         MEET NUBO (DEVICE)
-    ════════════════════════════════════════════ -->
-    <section class="meet-nubo" id="features">
-      <div class="container meet-inner">
-        <div class="meet-image reveal">
-          <img
-            src="/images/nubo-oneclick.webp"
-            alt="Close-up of a finger pressing the sleep button on Nubo for one touch logging"
-            width="740"
-            height="554"
-          />
+    <section class="setup-choice" id="choose">
+      <div class="container">
+        <div class="section-intro reveal">
+          <p class="overline">Choose your setup</p>
+          <h2>Start free. Add speed when your phone becomes the bottleneck.</h2>
+          <p class="section-sub">Pick the path that fits today. You can start with the app, add Premium for advanced tools, or buy the device for the fastest logging.</p>
         </div>
-        <div class="meet-text reveal reveal-delay-1">
-          <p class="overline">The Device</p>
-          <h2>
-            Like a light switch<br/>
-            for baby tracking.
-          </h2>
-          <p class="meet-description meet-description-lead">
-            A simple tap. Done.
-          </p>
-          <p class="meet-description">
-            Nubo is a physical tracker built for the moments your phone can't reach.
-            Press a button to log feeds, sleep, pee, and poop. It stores everything
-            and syncs to the app when your phone is nearby.
-          </p>
-          <p class="meet-description">
-            Use it one-handed, half-asleep, in the dark. Get back to your baby.
-          </p>
-          <p class="meet-description">
-            A button needs no translation. Whoever is helping with the baby, a partner, a grandparent, a nanny, can log the same way you do. No app to learn, no language to read.
-          </p>
-          <a href="/device/" class="text-link">View the device page &rarr;</a>
-        </div>
-      </div>
-
-      <div class="container meet-videos reveal">
-        <div class="video-grid">
-          <a href="https://www.youtube.com/watch?v=NH5-ECtIpzw" target="_blank" rel="noopener noreferrer" class="video-thumb">
-            <img src="/images/nubo-instant-tracker-900.webp" alt="Unboxing the Nubo baby tracker" width="480" height="270" loading="lazy" decoding="async" />
-            <span class="video-play" aria-hidden="true"></span>
-            <span class="video-label">Watch Nubo unboxing</span>
-          </a>
-          <a href="https://www.youtube.com/watch?v=2XT00mDc2-U" target="_blank" rel="noopener noreferrer" class="video-thumb">
-            <img src="/images/nubo-oneclick.webp" alt="Setting up the Nubo baby tracker" width="480" height="270" loading="lazy" decoding="async" />
-            <span class="video-play" aria-hidden="true"></span>
-            <span class="video-label">Watch Nubo setup</span>
-          </a>
-          <a href="https://www.youtube.com/watch?v=RyiNBesv804" target="_blank" rel="noopener noreferrer" class="video-thumb">
-            <img src="/images/nubo-app-screens-720.webp" alt="Using Nubo to track baby activities and review in the app" width="480" height="270" loading="lazy" decoding="async" />
-            <span class="video-play" aria-hidden="true"></span>
-            <span class="video-label">Watch tracking demo</span>
-          </a>
+        <div class="setup-grid">
+          <article class="setup-card reveal">
+            <span class="setup-label">Free app</span>
+            <h3>Start tracking today.</h3>
+            <p>Quick logs, voice catch-up, caregiver sync, offline use, and private storage without ads, a credit card, or a trial countdown.</p>
+            <a href="/app/#app-downloads" class="btn-primary">Download free app</a>
+          </article>
+          <article class="setup-card reveal reveal-delay-1">
+            <span class="setup-label">Premium</span>
+            <h3>Add advanced app tools.</h3>
+            <p>Use reminders, exports, Alexa, Live Activities, Care Vault, private pumping, and advanced views when your app workflow needs more.</p>
+            <a href="/pricing/#plans" class="btn-ghost">Compare Premium</a>
+          </article>
+          <article class="setup-card setup-card-device reveal reveal-delay-2">
+            <span class="setup-label">Nubo device</span>
+            <h3>One tap when opening the phone fails.</h3>
+            <p>Best for night feeds, hands-full changes, nannies, grandparents, and households where every active caregiver needs Premium.</p>
+            <a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy device</a>
+          </article>
         </div>
       </div>
     </section>
@@ -299,69 +234,13 @@ const jsonLd = {
         <div class="section-intro reveal">
           <p class="overline">Nubo for Everyone</p>
           <h2>Unlimited caregivers.<br/>Always free.</h2>
-          <p class="section-sub">Mom, dad, grandparents, nanny. Invite anyone with a QR code and turn everyone helping into one caregiving team across iOS and Android. Everyone sees the same end-to-end encrypted timeline in real time. No per-seat fees, no &ldquo;did you feed the baby?&rdquo; texts.</p>
+          <p class="section-sub">Invite a partner, grandparent, nanny, or family helper with a QR code. Everyone sees the same encrypted timeline across iOS and Android.</p>
         </div>
 
         <div class="caregivers-banner reveal">
           <img src="/images/caregiver-hub.webp" sizes="(max-width: 768px) 92vw, 970px" alt="Nubo device syncing baby tracking data with multiple caregiver phones" width="970" height="600" loading="lazy" decoding="async"/>
         </div>
         <p class="section-route reveal"><a href="/caregivers/" class="text-link">See caregiver sync &rarr;</a></p>
-      </div>
-    </section>
-
-
-    <!-- ════════════════════════════════════════════
-         REVIEWS
-    ════════════════════════════════════════════ -->
-    <section class="reviews" id="reviews">
-      <div class="container">
-        <div class="section-intro reveal">
-          <p class="overline">Real Reviews</p>
-          <h2>Parents who've<br/>been there.</h2>
-        </div>
-
-        <div class="reviews-aggregates reveal">
-          <div class="reviews-aggregate">
-            <span class="agg-stars" aria-label="4.2 out of 5 stars">★★★★☆</span>
-            <span class="agg-text">4.2 stars on Amazon</span>
-          </div>
-          <a href={appStoreURL} target="_blank" rel="noopener noreferrer" class="reviews-aggregate reviews-aggregate-link">
-            <span class="agg-stars" aria-label="App Store rating">★★★★★</span>
-            <span class="agg-text">Loved on the App Store</span>
-          </a>
-        </div>
-
-        <div class="reviews-grid">
-          <blockquote class="review reveal">
-            <div class="review-stars">★★★★★</div>
-            <p>&ldquo;I tried three baby-tracker apps before this. All felt like spreadsheets with pastel icons. <strong>Nubo is the first one I can use half-asleep.</strong>&rdquo;</p>
-            <footer><strong>Kiran K.</strong> &middot; Verified Purchase</footer>
-          </blockquote>
-
-          <blockquote class="review reveal reveal-delay-1">
-            <div class="review-stars">★★★★★</div>
-            <p>&ldquo;So much easier to tag team with our baby. If one of us has been out, the other can just <strong>glance at the app and see what's been going on.</strong>&rdquo;</p>
-            <footer><strong>Devi</strong> &middot; Verified Purchase</footer>
-          </blockquote>
-
-          <blockquote class="review reveal reveal-delay-2">
-            <div class="review-stars">★★★★★</div>
-            <p>&ldquo;Our preemie needed exact intake tracking for the NICU follow-up. <strong>We exported the data and the pediatrician was impressed</strong> by how complete it was.&rdquo;</p>
-            <footer><strong>Priya M.</strong> &middot; Austin, TX &middot; Verified Purchase</footer>
-          </blockquote>
-
-          <blockquote class="review reveal reveal-delay-3">
-            <div class="review-stars">★★★★★</div>
-            <p>&ldquo;My husband, my mom, and I all use Nubo. <strong>Nobody has to ask &lsquo;when did the baby eat last?&rsquo; anymore.</strong> That alone is worth it.&rdquo;</p>
-            <footer><strong>Jessica R.</strong> &middot; Portland, OR &middot; Verified Purchase</footer>
-          </blockquote>
-        </div>
-
-        <div class="reviews-link reveal">
-          <a href="https://www.amazon.com/product-reviews/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas" target="_blank" rel="noopener noreferrer">
-            Read all reviews on Amazon &rarr;
-          </a>
-        </div>
       </div>
     </section>
 
@@ -374,7 +253,12 @@ const jsonLd = {
         <div class="privacy-text reveal">
           <p class="overline">Built for Your Privacy</p>
           <h2>Your baby's data<br/>stays yours.</h2>
-          <p class="privacy-summary">Logs stay on your phone, voice runs on your phone, backups use your iCloud or Google Drive, caregiver sharing is encrypted.</p>
+          <ul class="privacy-list">
+            <li>No ads and no selling baby data.</li>
+            <li>In-app voice catch-up runs on your phone.</li>
+            <li>Backups use your iCloud or Google Drive.</li>
+            <li>Caregiver sharing is encrypted between invited people.</li>
+          </ul>
           <a href="/privacy/" class="text-link">Read the privacy overview &rarr;</a>
         </div>
         <div class="privacy-visual reveal reveal-delay-1">
@@ -462,6 +346,32 @@ const jsonLd = {
 
 
     <!-- ════════════════════════════════════════════
+         REVIEWS
+    ════════════════════════════════════════════ -->
+    <section class="reviews" id="reviews">
+      <div class="container">
+        <div class="section-intro reveal">
+          <p class="overline">Real-life use cases</p>
+          <h2>Built for newborn chaos.</h2>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review reveal"><h3>Half-asleep logging</h3><p>Tap the device during a night feed, then go back to soothing the baby instead of opening an app.</p></article>
+          <article class="review reveal reveal-delay-1"><h3>Caregiver handoffs</h3><p>Partners, grandparents, and nannies can work from one shared timeline instead of a stream of texts.</p></article>
+          <article class="review reveal reveal-delay-2"><h3>Pediatrician prep</h3><p>Keep feeds, diapers, sleep, medicine, and growth organized when a visit needs clearer history.</p></article>
+          <article class="review reveal reveal-delay-3"><h3>Phone-light care</h3><p>Use the app when it helps, the device buttons when the phone gets in the way, and voice when you remember later.</p></article>
+        </div>
+
+        <div class="reviews-link reveal">
+          <a href="https://www.amazon.com/product-reviews/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas" target="_blank" rel="noopener noreferrer">
+            Read all reviews on Amazon &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
          FOUNDER
     ════════════════════════════════════════════ -->
     <section class="founder" id="founder">
@@ -490,9 +400,11 @@ const jsonLd = {
         <p class="final-price-frame">Premium is about 11 cents a day.</p>
         <p class="final-sub">The app is free. Premium is $39.99/year for reminders, exports, Alexa, private pumping, Live Activities, and advanced views. Add the $89.99 device when one-second logging matters.</p>
 
-        <a href="/pricing/" class="btn-primary btn-lg">
-          Choose your setup
-        </a>
+        <div class="final-actions">
+          <a href="/app/#app-downloads" class="btn-primary btn-lg">Download free app</a>
+          <a href={amazonURL} class="btn-ghost btn-lg" target="_blank" rel="noopener noreferrer">Buy device</a>
+          <a href="/pricing/" class="text-link">Compare setups &rarr;</a>
+        </div>
 
         <div class="final-trust-badges">
           <span class="trust-badge">
@@ -647,86 +559,18 @@ const jsonLd = {
     .hero-inner {
       grid-template-columns: 1fr;
       text-align: center;
-      padding-top: 100px;
-      padding-bottom: 3rem;
+      gap: 1.25rem;
+      padding-top: 88px;
+      padding-bottom: 2.5rem;
       min-height: auto;
     }
+    .hero-content h1 { font-size: clamp(2rem, 10vw, 2.65rem); }
     .hero-accent { display: block; }
-    .hero-sub { margin: 1rem auto 0; }
+    .hero-sub { margin: 1rem auto 0; font-size: 1rem; line-height: 1.65; }
     .hero-actions { justify-content: center; }
     .hero-trust { justify-content: center; }
     .hero-image { order: -1; }
-    .hero-image img { max-height: 42vh; }
-  }
-
-
-  /* ═══════════════════════════════════════════
-     MEET NUBO
-  ═══════════════════════════════════════════ */
-  .meet-nubo {
-    padding: 8rem 0;
-    background: var(--color-bg-soft);
-  }
-
-  .meet-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-
-  .meet-image img {
-    width: 100%;
-    max-width: 640px;
-    height: auto;
-    object-fit: contain;
-    border-radius: var(--radius-2xl);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.06);
-  }
-
-  .meet-description-lead {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--color-text);
-  }
-
-  .meet-text .overline { }
-
-  .meet-text h2 {
-    font-size: clamp(1.75rem, 4vw, 3rem);
-    font-weight: 700;
-    line-height: 1.12;
-    letter-spacing: 0;
-    color: var(--color-text);
-    margin-bottom: 1.5rem;
-  }
-
-  .meet-description {
-    font-size: 1.0625rem;
-    color: var(--color-text-secondary);
-    line-height: 1.7;
-    max-width: 480px;
-  }
-
-  .meet-description + .meet-description {
-    margin-top: 1rem;
-  }
-
-  .meet-text .text-link {
-    display: inline-block;
-    margin-top: 1.25rem;
-  }
-
-  @media (max-width: 768px) {
-    .meet-nubo { padding: 5rem 0; }
-    .meet-inner {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-      text-align: center;
-    }
-    .meet-image { display: flex; justify-content: center; order: -1; }
-    .meet-image img { max-width: 100%; }
-    .meet-description { margin-left: auto; margin-right: auto; }
+    .hero-image img { max-height: 24vh; max-width: 72vw; }
   }
 
 
@@ -739,24 +583,98 @@ const jsonLd = {
   }
 
   .pain-inner {
-    max-width: 640px;
+    max-width: 980px;
     margin: 0 auto;
     text-align: center;
   }
 
-  .pain-text {
-    font-size: clamp(1.0625rem, 2.5vw, 1.25rem);
-    color: #444;
-    line-height: 1.8;
-    font-style: italic;
-    margin-top: 1rem;
+  .pain-inner h2 {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    line-height: 1.12;
+    margin: 0.75rem auto 2rem;
+    max-width: 680px;
   }
 
-  .pain-relief {
-    margin-top: 1.5rem;
-    font-size: clamp(1.125rem, 2.5vw, 1.375rem);
-    font-weight: 700;
-    color: var(--color-brand);
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .problem-grid article {
+    padding: 1.5rem;
+    border: 1px solid #e8e8e8;
+    border-radius: var(--radius-xl);
+    background: var(--color-bg-soft);
+    text-align: left;
+  }
+
+  .problem-grid h3 {
+    font-size: 1.0625rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .problem-grid p {
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+  }
+
+  .setup-choice {
+    padding: 6rem 0;
+    background: var(--color-bg-soft);
+  }
+
+  .setup-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .setup-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.75rem;
+    border: 1px solid #e8e8e8;
+    border-radius: var(--radius-xl);
+    background: #fff;
+  }
+
+  .setup-card-device {
+    border: 2px solid #1d1d1f;
+    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.08);
+  }
+
+  .setup-label {
+    align-self: flex-start;
+    padding: 0.375rem 0.75rem;
+    border-radius: 999px;
+    background: var(--color-brand-light);
+    color: var(--color-brand-dark);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .setup-card-device .setup-label {
+    background: #1d1d1f;
+    color: #fff;
+  }
+
+  .setup-card h3 {
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+
+  .setup-card p {
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  .setup-card .btn-primary,
+  .setup-card .btn-ghost {
+    width: 100%;
   }
 
 
@@ -770,6 +688,18 @@ const jsonLd = {
 
   .three-ways h2 {
     font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .three-ways .section-sub {
+    max-width: 720px;
+  }
+
+  .ways-intro-note {
+    max-width: 680px;
+    margin: 1rem auto 0;
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.65;
   }
 
   .ways-grid {
@@ -856,91 +786,6 @@ const jsonLd = {
 
 
   /* ═══════════════════════════════════════════
-     MEET NUBO VIDEOS
-  ═══════════════════════════════════════════ */
-  .meet-videos {
-    margin-top: 4rem;
-  }
-
-  .video-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .video-thumb {
-    position: relative;
-    display: block;
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-
-  .video-thumb:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.14);
-  }
-
-  .video-thumb img {
-    width: 100%;
-    height: auto;
-    display: block;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-  }
-
-  .video-play {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 56px;
-    height: 56px;
-    background: rgba(0, 0, 0, 0.65);
-    border-radius: 50%;
-    pointer-events: none;
-    transition: background 0.2s ease;
-  }
-
-  .video-play::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 54%;
-    transform: translate(-50%, -50%);
-    border-style: solid;
-    border-width: 9px 0 9px 16px;
-    border-color: transparent transparent transparent #fff;
-  }
-
-  .video-thumb:hover .video-play {
-    background: rgba(0, 0, 0, 0.8);
-  }
-
-  .video-label {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 0.625rem 1rem;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-    color: #fff;
-    font-size: 0.875rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    text-align: center;
-  }
-
-  @media (max-width: 768px) {
-    .video-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; gap: 1rem; }
-  }
-
-
-
-
-
-  /* ═══════════════════════════════════════════
      CAREGIVERS
   ═══════════════════════════════════════════ */
   .caregivers {
@@ -1008,7 +853,11 @@ const jsonLd = {
     color: #333;
     line-height: 1.7;
     flex: 1;
-    font-style: italic;
+  }
+
+  .review h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.625rem;
   }
 
   .review footer {
@@ -1032,45 +881,6 @@ const jsonLd = {
 
   .reviews-link a:hover {
     color: var(--color-brand-dark);
-  }
-
-  .reviews-aggregates {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 3rem;
-  }
-
-  .reviews-aggregate {
-    padding: 1rem 1.5rem;
-    background: var(--color-brand-light);
-    border-radius: 100px;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .reviews-aggregate-link {
-    text-decoration: none;
-    transition: transform 0.2s ease;
-  }
-
-  .reviews-aggregate-link:hover {
-    transform: scale(1.03);
-  }
-
-  .agg-stars {
-    color: #F5A623;
-    font-size: 1.125rem;
-    letter-spacing: 2px;
-  }
-
-  .agg-text {
-    font-size: 1.0625rem;
-    font-weight: 600;
-    color: var(--color-text);
   }
 
   @media (max-width: 768px) {
@@ -1104,11 +914,27 @@ const jsonLd = {
     margin-bottom: 1.5rem;
   }
 
-  .privacy-summary {
+  .privacy-list {
+    display: grid;
+    gap: 0.75rem;
+    list-style: none;
     margin-bottom: 1.5rem;
+  }
+
+  .privacy-list li {
+    position: relative;
+    padding-left: 1.5rem;
     color: #444;
     font-size: 1rem;
-    line-height: 1.7;
+    line-height: 1.55;
+  }
+
+  .privacy-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-brand);
+    font-weight: 800;
   }
 
   .privacy-visual img {
@@ -1423,6 +1249,15 @@ const jsonLd = {
     flex-wrap: wrap;
   }
 
+  .final-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
   .trust-badge {
     display: inline-flex;
     align-items: center;
@@ -1459,6 +1294,12 @@ const jsonLd = {
     background: var(--color-brand-dark);
     transform: scale(1.04);
     box-shadow: 0 8px 30px rgba(19, 188, 195, 0.3);
+  }
+
+  .final-cta .btn-ghost {
+    font-size: 1.125rem;
+    padding: 1.125rem 3rem;
+    background: #fff;
   }
 
   .store-badges {
@@ -1500,5 +1341,15 @@ const jsonLd = {
     max-width: none;
     aspect-ratio: 250 / 122;
   }
-</style>
 
+  @media (max-width: 900px) {
+    .setup-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+  }
+
+  @media (max-width: 768px) {
+    .problem-grid { grid-template-columns: 1fr; }
+    .setup-choice { padding: 5rem 0; }
+    .final-actions { flex-direction: column; align-items: stretch; }
+    .final-actions .text-link { text-align: center; }
+  }
+</style>
