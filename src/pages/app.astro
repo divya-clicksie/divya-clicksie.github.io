@@ -3,8 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const title = 'Nubo App | Free Baby Tracker with Voice Catch-Up';
-const description = 'Download the free Nubo baby tracker app for quick logs, voice catch-up, caregiver sync, growth, vaccines, allergens, milestones, and private iOS and Android sharing.';
+const title = 'Free Baby Tracker App for iPhone and Android | Nubo';
+const description = 'Download the free Nubo baby tracker app for iPhone and Android. Log feeds, sleep, diapers, voice catch-up, and caregiver sync with no ads.';
 const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
 const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
 
@@ -20,30 +20,67 @@ const screenshots = [
   ['Allergen SafeStart', '/images/appscreens/09_allergensafestart.webp', 'Nubo app screenshot showing allergen introduction tracking']
 ];
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'MobileApplication',
-  name: 'Nubo Baby Tracker',
-  operatingSystem: 'iOS, Android',
-  applicationCategory: 'HealthApplication',
-  url: 'https://www.nubotracker.com/app/',
-  description,
-  image: 'https://www.nubotracker.com/images/appscreens/01_onetouch.webp',
-  featureList: [
-    'One-tap quick logs for routine baby care',
-    'On-device voice catch-up in the app',
-    'Feeds, sleep, diapers, growth, vaccines, allergens, milestones, medication, and notes',
-    'Unlimited caregivers across iOS and Android',
-    'End-to-end encrypted caregiver sharing',
-    'Offline mode and private cloud backup'
-  ],
-  offers: [
-    { '@type': 'Offer', name: 'Nubo free app', price: '0', priceCurrency: 'USD', url: appStoreURL },
-    { '@type': 'Offer', name: 'Nubo Premium', price: '39.99', priceCurrency: 'USD', url: appStoreURL }
-  ],
-  installUrl: [appStoreURL, playStoreURL],
-  downloadUrl: [appStoreURL, playStoreURL]
-};
+const faqItems = [
+  {
+    q: 'Is Nubo really a free baby tracker app?',
+    a: 'Yes. The free Nubo app includes everyday baby tracking for feeds, sleep, diapers, medicine, growth, vaccines, allergens, milestones, notes, voice catch-up, caregiver sync, offline mode, and private storage. Premium and the Nubo device are optional upgrades.'
+  },
+  {
+    q: 'Does Nubo work on iPhone and Android?',
+    a: 'Yes. Nubo is cross-platform compatible. Parents and caregivers can use iPhone or Android and still share the same baby timeline.'
+  },
+  {
+    q: 'Can two parents use the same baby tracker?',
+    a: 'Yes. Parents can invite each other and other trusted caregivers so everyone logs into the same shared baby timeline instead of keeping separate notes.'
+  },
+  {
+    q: 'Can I log baby events after they happen?',
+    a: 'Yes. Use voice catch-up in the app to say what happened later, such as a bottle around noon or a wet diaper after a nap, and Nubo files it into the timeline.'
+  },
+  {
+    q: 'Do I need the Nubo device to use the app?',
+    a: 'No. The app works on its own as a free baby tracker. The device is optional for families who want dedicated one-tap buttons during night feeds, hands-full changes, or caregiver handoffs.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'MobileApplication',
+    name: 'Nubo Baby Tracker',
+    operatingSystem: 'iOS, Android',
+    applicationCategory: 'HealthApplication',
+    url: 'https://www.nubotracker.com/app/',
+    description,
+    image: 'https://www.nubotracker.com/images/appscreens/01_onetouch.webp',
+    featureList: [
+      'One-tap quick logs for routine baby care',
+      'On-device voice catch-up in the app',
+      'Feeds, sleep, diapers, growth, vaccines, allergens, milestones, medication, and notes',
+      'Unlimited caregivers across iOS and Android',
+      'End-to-end encrypted caregiver sharing',
+      'Offline mode and private cloud backup'
+    ],
+    offers: [
+      { '@type': 'Offer', name: 'Nubo free app', price: '0', priceCurrency: 'USD', url: appStoreURL },
+      { '@type': 'Offer', name: 'Nubo Premium', price: '39.99', priceCurrency: 'USD', url: appStoreURL }
+    ],
+    installUrl: [appStoreURL, playStoreURL],
+    downloadUrl: [appStoreURL, playStoreURL]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a
+      }
+    }))
+  }
+];
 ---
 
 <BaseLayout title={title} description={description} jsonLd={jsonLd}>
@@ -52,14 +89,14 @@ const jsonLd = {
     <section class="app-hero">
       <div class="container app-hero-inner">
         <div>
-          <p class="overline">Free baby tracker app for iPhone and Android</p>
-          <h1>Baby tracking that catches up when newborn life gets messy.</h1>
-          <p>Log feeds, sleep, diapers, medicine, growth, and notes with quick taps. Remembered something later? Say it in plain English. Sharing care? Keep every caregiver on the same timeline.</p>
+          <p class="overline">Free on iOS and Android</p>
+          <h1>Free baby tracker app for iPhone and Android.</h1>
+          <p>Log feeds, sleep, diapers, medicine, growth, and notes with quick taps. Remembered something later? Say it in plain English. Sharing care with another parent, grandparent, or nanny? Keep every caregiver on the same timeline.</p>
           <div class="hero-store-links" aria-label="Download Nubo app">
             <a href={appStoreURL} target="_blank" rel="noopener noreferrer"><img src="/images/appstore-badge.webp" alt="Download on the App Store" width="160" height="56" /></a>
             <a href={playStoreURL} target="_blank" rel="noopener noreferrer"><img src="/images/playstore-badge.webp" alt="Get it on Google Play" width="160" height="56" /></a>
           </div>
-          <p class="hero-trust">No ads. No credit card. No trial countdown.</p>
+          <p class="hero-trust">Free on iPhone and Android. No ads. No credit card. No trial countdown.</p>
         </div>
         <div class="app-carousel" data-app-carousel aria-roledescription="carousel" aria-label="Nubo app screenshots">
           <div class="app-carousel-stage">
@@ -95,12 +132,30 @@ const jsonLd = {
 
     <section class="free-section">
       <div class="container">
-        <div class="section-intro"><p class="overline">Free forever</p><h2>Start free and actually use it free.</h2><p class="section-sub">Nubo's free app includes the core tracking families use every day, without ads, a credit card, a trial countdown, or artificial caps on the basics.</p></div>
+        <div class="section-intro"><p class="overline">Free forever</p><h2>Start with a free baby tracker app you can actually keep using.</h2><p class="section-sub">Nubo's free app includes the core tracking families use every day, without ads, a credit card, a trial countdown, or artificial caps on the basics.</p></div>
         <div class="feature-grid">
           <article><h3>Core logs</h3><p>Feeds, sleep, diapers, medicine, growth, vaccines, allergens, milestones, and notes.</p></article>
           <article><h3>Voice catch-up</h3><p>Speak naturally when you remember something later, and Nubo files it into the timeline.</p></article>
           <article><h3>Caregiver sync</h3><p>Invite a partner, grandparent, nanny, or anyone helping with the baby across iOS and Android.</p></article>
           <article><h3>Offline and private storage</h3><p>Use Nubo offline, then back up to your own iCloud or Google Drive when you choose.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-intro">
+          <p class="overline">App questions</p>
+          <h2>Quick answers about the free app.</h2>
+          <p class="section-sub">A few details for parents choosing a free baby tracker app, setting up shared care, or deciding whether the device is worth adding later.</p>
+        </div>
+        <div class="app-faq-grid">
+          {faqItems.map((faq) => (
+            <article>
+              <h3>{faq.q}</h3>
+              <p>{faq.a}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -128,18 +183,18 @@ const jsonLd = {
     </section>
 
     <section class="upgrade-section">
-      <div class="container upgrade-inner">
+      <div class="container upgrade-inner upgrade-inner-text-only">
         <div>
           <p class="overline">Optional upgrade</p>
-          <h2>Start with the app. Add the device for moments when one tap is all you can remember.</h2>
-          <p>Many families begin with the free app. Add Premium for advanced app tools, or add the device when you want simple event buttons that are easy to remember during feeds, changes, rest, or handoffs.</p>
+          <h2>Start free. Add Premium when you want more from the app.</h2>
+          <p>Many families begin with the free app. Premium adds the advanced tools that help when tracking becomes part of a bigger care routine, like reminders, Sleep Sounds, exports, Alexa, Live Activities, Care Vault, private pumping, and deeper views.</p>
           <div class="upgrade-cards">
-            <article><h3>Premium app</h3><p>Best for reminders, exports, Alexa, Live Activities, Care Vault, private pumping, and advanced views.</p><a href="/pricing/#plans">See Premium details</a></article>
-            <article><h3>Nubo device</h3><p>Best when night feeds, hands-full changes, or caregiver routines call for instant, screen-free logging.</p><a href="/device/">See device details</a></article>
+            <article><h3>Smarter reminders</h3><p>Set reminders that follow the last feed, bottle, nap, or care event instead of a rigid clock.</p></article>
+            <article><h3>Caregiver handoff tools</h3><p>Use Care Vault, exports, and advanced views when the shared timeline needs more context.</p></article>
+            <article><h3>Sleep Sounds</h3><p>Let Nubo shush the baby to sleep with calming sounds alongside Alexa, Live Activities, private pumping, and other Premium app tools.</p></article>
           </div>
-          <div class="hero-actions-inline"><a href="#app-downloads" class="btn-primary">Download the free app</a><a href="/device/" class="btn-ghost">See the quick-log device</a></div>
+          <div class="hero-actions-inline"><a href="#app-downloads" class="btn-primary">Download the free app</a><a href="/pricing/#plans" class="btn-ghost">See Premium details</a></div>
         </div>
-        <img src="/images/nubo-instant-tracker-900.webp" alt="Hand pressing the Nubo instant tracker beside a sleeping baby" width="900" height="900" loading="lazy" decoding="async" />
       </div>
     </section>
 
@@ -229,7 +284,8 @@ const jsonLd = {
 <style>
   .app-hero { padding: 10rem 0 5rem; background: linear-gradient(170deg, #f0fafa 0%, #fff 60%); overflow: hidden; }
   .app-hero-inner, .upgrade-inner, .proof-inner { display: grid; grid-template-columns: 1fr 0.75fr; gap: 4rem; align-items: center; }
-  .app-hero h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.08; margin-bottom: 1rem; }
+  .app-hero-inner > div, .section-intro, .moment-grid article, .feature-grid article, .app-faq-grid article, .privacy-points article, .upgrade-cards article { min-width: 0; }
+  .app-hero h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.08; margin-bottom: 1rem; overflow-wrap: break-word; }
   .app-hero p, .moment-grid p, .feature-grid p, .upgrade-inner p, .privacy-points p, .proof-inner p { color: var(--color-text-secondary); line-height: 1.7; }
   .hero-actions-inline { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
   .hero-store-links { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; margin-top: 2rem; }
@@ -247,10 +303,10 @@ const jsonLd = {
   .app-carousel-dots { display: flex; align-items: center; justify-content: center; gap: 0.45rem; }
   .app-carousel-dot { width: 0.55rem; height: 0.55rem; border: 0; border-radius: 999px; background: #c9e9ea; cursor: pointer; }
   .app-carousel-dot.is-active { width: 1.4rem; background: var(--color-brand); }
-  .timeline-section, .free-section, .privacy-app-section, .upgrade-section, .proof-section { padding: 6rem 0; }
+  .timeline-section, .free-section, .faq-section, .privacy-app-section, .upgrade-section, .proof-section { padding: 6rem 0; }
   .proof-section { scroll-margin-top: 1rem; }
   .free-section, .upgrade-section { background: #fff; }
-  .timeline-section, .privacy-app-section, .proof-section { background: var(--color-bg-soft); }
+  .timeline-section, .faq-section, .privacy-app-section, .proof-section { background: var(--color-bg-soft); }
   .moment-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
   .moment-grid article { background: #fff; border-radius: var(--radius-xl); padding: 1.75rem; }
   .moment-grid h3 { font-size: 1.125rem; margin-bottom: 0.5rem; }
@@ -258,7 +314,14 @@ const jsonLd = {
   .feature-grid article { background: var(--color-bg-soft); border-radius: var(--radius-xl); padding: 1.75rem; }
   .feature-grid h3 { font-size: 1.125rem; margin-bottom: 0.5rem; }
   .feature-grid a { color: var(--color-brand-dark); font-weight: 700; }
+  .app-faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .app-faq-grid article { background: #fff; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); padding: 1.75rem; }
+  .app-faq-grid h3 { font-size: 1.125rem; line-height: 1.3; margin-bottom: 0.75rem; color: var(--color-text); }
+  .app-faq-grid p { color: var(--color-text-secondary); line-height: 1.7; }
   .upgrade-inner h2, .proof-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; margin-bottom: 1rem; }
+  .upgrade-inner-text-only { display: block; max-width: 980px; }
+  .upgrade-inner-text-only > div { max-width: none; }
+  .upgrade-inner-text-only h2, .upgrade-inner-text-only > div > p { max-width: 780px; }
   .privacy-points, .upgrade-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
   .privacy-points article, .upgrade-cards article { background: #fff; border-radius: var(--radius-xl); padding: 1.5rem; }
   .upgrade-cards { grid-template-columns: repeat(3, 1fr); margin-top: 1.5rem; }
@@ -276,6 +339,6 @@ const jsonLd = {
   .mid-cta-inner p { margin: 0; font-weight: 700; color: var(--color-text); font-size: 1.05rem; }
   .mid-cta-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
   .mid-cta-links img { height: 44px; width: auto; }
-  @media (max-width: 980px) { .app-hero { padding: 8rem 0 4rem; } .app-hero-inner, .upgrade-inner, .proof-inner { grid-template-columns: 1fr; } .moment-grid, .feature-grid, .privacy-points, .upgrade-cards { grid-template-columns: 1fr 1fr; } .store-panel { justify-self: stretch; width: 100%; } .mid-cta-inner { flex-direction: column; align-items: flex-start; } }
-  @media (max-width: 640px) { .app-hero { padding-top: 7rem; } .timeline-section, .free-section, .privacy-app-section, .upgrade-section, .proof-section { padding: 4rem 0; } .moment-grid, .feature-grid, .privacy-points, .upgrade-cards { grid-template-columns: 1fr; } .app-carousel { width: min(100%, 300px); } .app-carousel-stage { min-height: 520px; } .app-slide img { max-height: 480px; } .hero-store-links img { height: 46px; } .store-links a, .store-links img { width: 100%; height: auto; } .mid-cta-links img { height: 40px; } }
+  @media (max-width: 980px) { .app-hero { padding: 8rem 0 4rem; } .app-hero-inner, .upgrade-inner, .proof-inner { grid-template-columns: 1fr; } .moment-grid, .feature-grid, .app-faq-grid, .privacy-points, .upgrade-cards { grid-template-columns: 1fr 1fr; } .store-panel { justify-self: stretch; width: 100%; } .mid-cta-inner { flex-direction: column; align-items: flex-start; } }
+  @media (max-width: 640px) { .app-hero { padding-top: 7rem; } .app-hero h1 { font-size: clamp(2rem, 10vw, 2.45rem); overflow-wrap: anywhere; } .app-hero .overline { font-size: 0.72rem; letter-spacing: 0.04em; overflow-wrap: anywhere; } .app-hero p, .section-intro h2, .section-sub { overflow-wrap: anywhere; } .timeline-section, .free-section, .faq-section, .privacy-app-section, .upgrade-section, .proof-section { padding: 4rem 0; } .moment-grid, .feature-grid, .app-faq-grid, .privacy-points, .upgrade-cards { grid-template-columns: 1fr; } .app-carousel { width: min(100%, 300px); } .app-carousel-stage { min-height: 520px; } .app-slide img { max-height: 480px; } .hero-store-links img { height: 46px; } .store-links a, .store-links img { width: 100%; height: auto; } .mid-cta-links img { height: 40px; } }
 </style>
