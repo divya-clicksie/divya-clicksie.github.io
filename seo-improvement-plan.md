@@ -1,6 +1,6 @@
 # Nubo SEO Improvement Plan
 
-Updated: 2026-06-20
+Updated: 2026-06-20, after first commercial-page implementation pass
 
 ## Executive take
 
@@ -18,7 +18,7 @@ Nubo's strongest organic wedge is not "newborn advice." That space is crowded by
 
 The goal is to make Nubo the best answer for parents searching for a baby tracker that solves a specific real-life moment: night feeds, one-handed logging, nanny handoffs, grandparent care, shared tracking, and privacy concerns.
 
-This document is a plan only. Do not change pages as part of this pass.
+This document began as a plan. It is now the running SEO plan and implementation log for the first commercial-page cleanup.
 
 ## Grounding principles
 
@@ -199,7 +199,7 @@ Implications:
 
 ### Plausible-adjusted priorities
 
-Plausible reinforces the low-data GSC plan but changes the rationale:
+Plausible reinforced the low-data GSC plan and shaped the first implementation pass:
 
 1. `/app/`: highest product entry volume, strong bounce profile, and App Store clicks are the top outbound action.
 2. `/device/`: lower volume, good engagement, and Amazon clicks are already meaningful.
@@ -209,6 +209,16 @@ Plausible reinforces the low-data GSC plan but changes the rationale:
 6. `/blog/tracking/physical-baby-tracker-vs-app/`: high strategic fit, needs stronger product-page routing.
 7. `/blog/feeding/how-to-track-breastfeeding-without-phone/`: small volume, high relevance, improve device/app links.
 8. `/blog/privacy/what-data-does-baby-tracking-app-collect/`: important trust page, but refresh only after privacy disclosure alignment.
+
+### Current priorities after the commercial-page implementation pass
+
+Now that `/app/`, `/device/`, `/pricing/`, `/caregivers/`, and `/compare/` have been sharpened, the next work should help searchers and crawlers move from informational articles into the right commercial page.
+
+1. `physical-baby-tracker-vs-app.mdx`: refresh as the strongest article-to-device bridge and route readers to `/device/`, `/pricing/`, and `/compare/`.
+2. `how-to-track-breastfeeding-without-phone.mdx`: refresh for screen-free, night-feed, and device/app intent without making the device only about night feeds.
+3. `best-baby-tracker-for-nanny-grandparents.mdx`, `baby-tracking-for-grandparents.mdx`, and `how-to-share-baby-tracking-with-nanny.mdx`: route caregiver-intent readers into the rebuilt `/caregivers/` page.
+4. `/blog/tracking/newborn-diaper-output-normal/`: review title, meta, intro, and next-step links because it has high early impressions.
+5. `/resources/`: turn it into a stronger intent hub once the article refreshes are complete.
 
 ### Measurement improvements to consider
 
@@ -231,6 +241,33 @@ Primary outcomes:
 - More qualified clicks to Amazon, App Store, Google Play, Alexa, `/pricing/`, `/device/`, and `/app/`.
 - More internal link flow from articles into feature and conversion pages.
 - Less reliance on broad newborn topics where Nubo has weaker topical authority.
+
+## Implementation progress
+
+### Completed on 2026-06-20
+
+The first pass focused on existing commercial pages instead of creating new URLs.
+
+| Page | Status | What changed | Verification |
+|---|---|---|---|
+| `/app/` | Done | Repositioned as the free baby tracker app for iPhone and Android. Added clearer free-app proof, cross-platform caregiver language, visible FAQ content, FAQPage JSON-LD, and a Premium upsell focused on app tools such as reminders, Sleep Sounds, exports, Alexa, Live Activities, Care Vault, private pumping, and deeper views. | `npm run build` passed. Source copy scan passed. |
+| `/device/` | Done | Strengthened physical baby tracker language, added screen-free and caregiver use cases, added visible device FAQ content and FAQPage JSON-LD, clarified the device works with the free app, and removed unsupported Product aggregate rating markup. | `npm run build` passed. Source/schema checks passed. |
+| `/pricing/` | Done | Rebuilt the page around the three concrete choices visitors came for: Free app at `$0`, Premium at `$39.99/year`, and Nubo Device at `$89.99`. Removed decision-guide fluff, Caregiver Economics, Premium Follows Device, long-term value, and long FAQ sections. Added full tier feature lists and simplified Product, MobileApplication, and OfferCatalog JSON-LD without aggregate rating. | `npm run build` passed. Schema inspection confirmed no aggregate rating and all three price mentions. Desktop and mobile Chrome smoke checks passed. |
+| `/caregivers/` | Done | Rebuilt around the parent psychology of shared care: one baby timeline for everyone helping. Added proof points for unlimited free caregivers, iPhone and Android support, shared timeline, and private pumping staying private. Removed Caregiver Economics and Premium Follows Device. Added caregiver scenarios, app vs optional device logging, shared/private data sections, and FAQPage JSON-LD. | `npm run build` passed. Source scan passed. Schema inspection confirmed WebPage, FAQPage, and BreadcrumbList. Desktop and narrow mobile Chrome smoke checks passed. |
+| `/compare/` | Done | Rebuilt as the setup decision hub for traffic acquisition and conversion. Added above-fold paths for Free app, Premium, and Device; a fast decision list; alternatives for paper, notes, free apps, sleep-focused apps, physical tracker devices, and Nubo vs Talli; caregiver routing; and FAQPage JSON-LD. Pricing and detailed tier features stay on `/pricing/`. | `npm run build` passed. Schema inspection confirmed WebPage, FAQPage, BreadcrumbList, and conversion CTAs. |
+
+### Decisions made during implementation
+
+- Existing high-intent product pages were improved before creating new URLs.
+- `/pricing/` was intentionally simplified because pricing visitors likely want the three options and feature lists quickly.
+- `/caregivers/` now treats the device as optional support, not the main point. The main point is reducing handoff friction across parents, partners, grandparents, nannies, and sitters.
+- Unsupported `AggregateRating` markup was removed from the commercial pages touched in this pass.
+- The app page now avoids repeated headline/subheadline phrasing and gives direct app-store intent clearer priority.
+- `/compare/` now serves as the decision bridge between SEO traffic and conversion paths instead of a speed-comparison-led page.
+
+### Current implementation state
+
+The original first move is complete. The next phase should shift from core commercial page cleanup to internal link flow and high-impression article refreshes.
 
 ## Target audience and search intent
 
@@ -411,67 +448,102 @@ Default rule: improve an existing page first unless a new URL serves a clearly d
 
 Goal: become the strongest commercial page for free baby tracker app, baby tracker app for iPhone and Android, voice catch-up, and caregiver sync.
 
-Recommended changes for a future implementation pass:
+Status: first-pass implementation complete.
 
-- Adjust H1 or intro to include "free baby tracker app" more directly while keeping the warm voice.
-- Add a visible section for "iPhone, Android, and every caregiver" with specific iOS and Android language.
-- Add FAQ questions:
-  - Is Nubo really free?
-  - Can two parents use the same baby tracker?
-  - Can caregivers use Nubo on both iPhone and Android?
-  - Can I log baby events after they happen?
-- Link to `/caregivers/`, `/privacy/`, `/pricing/`, and `/device/` with descriptive anchors.
-- Keep App Store and Google Play CTAs direct with `target="_blank"` and `rel="noopener noreferrer"`.
+Completed changes:
+
+- Reframed the page around "Free baby tracker app for iPhone and Android."
+- Added visible FAQ content and FAQPage JSON-LD.
+- Clarified that Nubo is cross-platform compatible for caregivers on iPhone and Android.
+- Clarified that the app is free with no ads, no credit card, and no trial countdown.
+- Reworked the Premium section to focus on app upgrades, including Sleep Sounds, reminders, exports, Alexa, Live Activities, Care Vault, private pumping, and deeper views.
+- Kept App Store and Google Play CTAs direct with `target="_blank"` and `rel="noopener noreferrer"`.
+
+Remaining follow-up:
+
+- After the next GSC export, review whether title and meta CTR improved for app-related queries.
+- Add or strengthen article links into `/app/` from free-app, voice catch-up, breastfeeding without phone, and privacy articles.
 
 ### `/device/`
 
 Goal: become the strongest commercial page for physical baby tracker, one-tap baby tracker, baby tracking device, screen-free baby tracker, and night feeds without phone use.
 
-Recommended changes:
+Status: first-pass implementation complete.
 
-- Make "physical baby tracker" and "baby tracking device" visible in body copy, preferably near the top.
-- Add a section that names the screen-free moment: night feeds, contact naps, diaper changes, and caregiver handoffs.
-- Add FAQ questions:
-  - What is a physical baby tracker?
-  - Can I track feeds and diapers without opening my phone?
-  - Does the device work for grandparents or nannies?
-  - What happens when the phone is out of range?
-- Link to the physical tracker article, Bluetooth sync article, caregiver page, and pricing page.
+Completed changes:
+
+- Made "physical baby tracker device" visible above the fold.
+- Reframed the H1 as screen-free baby tracking in one tap, avoiding a night-feeds-only position.
+- Added screen-free moments such as hands-full changes, contact naps, caregiver handoffs, and night feeds.
+- Added visible device FAQ content and FAQPage JSON-LD.
+- Clarified that the device works with the free app and refreshes a 30-day Premium window for syncing phones.
+- Removed unsupported Product aggregate rating markup.
+
+Remaining follow-up:
+
+- After deployment data, decide whether a separate `/screen-free-baby-tracker/` page is still needed or whether `/device/` is absorbing that intent.
+- Strengthen links from `physical-baby-tracker-vs-app.mdx`, `how-to-track-breastfeeding-without-phone.mdx`, and `nubo-bluetooth-sync.mdx` into `/device/`.
 
 ### `/caregivers/`
 
 Goal: become the canonical landing page for baby tracker for grandparents, baby tracker for nanny, shared baby tracker app, and multiple caregivers.
 
-Recommended changes:
+Status: first-pass implementation complete.
 
-- Split content into parent, nanny, grandparent, and occasional caregiver sections.
-- Add screenshots or real product images showing caregiver timeline and device use.
-- Add a practical handoff checklist block, then link to a guide or template.
-- Add FAQ questions:
-  - Can grandparents log feeds without learning a complicated app?
-  - Can a nanny share baby logs with parents in real time?
-  - Can multiple caregivers use the same baby tracker?
-  - Does every caregiver need Premium?
-- Add internal links from caregiver posts into this page using exact but natural anchors.
+Completed changes:
+
+- Rebuilt the page around one baby timeline for everyone helping.
+- Added proof points for unlimited caregivers in the free app, iPhone and Android support, one shared timeline, and private pumping staying private.
+- Split examples into partner handoffs, grandparents, nannies and sitters, and overnight help.
+- Added an app vs optional device section for caregiver logging.
+- Added a visible shared-data list and privacy boundary section.
+- Added visible caregiver FAQ content and FAQPage JSON-LD.
+- Removed Caregiver Economics and Premium Follows Device from this page.
+
+Remaining follow-up:
+
+- Add internal links from caregiver posts into `/caregivers/` using natural anchors such as "shared baby tracker for caregivers" and "baby tracker for grandparents."
+- Consider a handoff template or nanny daily log guide only after article refreshes route traffic into this page.
+
+### `/pricing/`
+
+Goal: give specific pricing and tier features as quickly as possible for visitors comparing Nubo setup options.
+
+Status: first-pass implementation complete.
+
+Completed changes:
+
+- Rebuilt the page around three plans: Free app, Premium, and Nubo Device.
+- Put `$0`, `$39.99/year`, and `$89.99` in the first decision area.
+- Listed the feature set for each tier.
+- Removed Caregiver Economics, Premium Follows Device, second-baby value copy, long FAQ content, and broad decision-guide copy.
+- Added simplified Product, MobileApplication, and OfferCatalog JSON-LD without unsupported aggregate rating.
+
+Remaining follow-up:
+
+- After deployment, watch CTR and bounce for `/pricing/`.
+- Consider one or two short pricing FAQs only if real Search Console queries show confusion that the current plan cards do not answer.
 
 ### `/compare/`
 
 Goal: become the product decision hub, not just a broad comparison page.
 
-Recommended changes:
+Status: first-pass implementation complete.
 
-- Keep the honest paper vs app vs device structure.
-- Add a decision matrix for:
-  - App-only families.
-  - Night-feed-heavy families.
-  - Nanny or grandparent households.
-  - Privacy-sensitive families.
-  - Gift buyers.
-- Add comparison subpage links, starting with Talli and future Huckleberry.
-- Add FAQ questions:
-  - Is a physical baby tracker worth it?
-  - Should I use a baby tracker app or paper log?
-  - What is the easiest baby tracker for caregivers?
+Completed changes:
+
+- Rebuilt the hero around choosing the baby tracker setup the household will actually use.
+- Added immediate conversion paths to pricing, app download, and device purchase.
+- Added above-fold setup cards for Free app, Premium, and Device.
+- Added a fast decision list that maps common care problems to the right setup.
+- Compared paper logs, shared notes, free apps, sleep-focused apps, physical tracker devices, and Nubo vs Talli.
+- Added caregiver routing into `/caregivers/` and plan routing into `/pricing/`.
+- Added visible comparison FAQ content and FAQPage JSON-LD.
+
+Remaining follow-up:
+
+- Watch whether `/compare/` begins receiving more internal entrances from articles.
+- Consider future subpages only if Search Console shows real demand for competitor or alternative queries.
 
 ### `/resources/` and `/blog/`
 
@@ -713,17 +785,26 @@ Acceptance:
 
 ### Phase 1: improve existing commercial pages
 
-- Refresh `/app/` for free baby tracker app, App Store and Google Play intent, and cross-platform caregiver intent.
-- Refresh `/device/` for physical baby tracker, screen-free baby tracker, night-feed intent, and Amazon purchase intent.
-- Refresh `/pricing/` for clearer setup decision framing because it is conversion-critical and currently high-bounce.
-- Refresh `/caregivers/` for nanny, grandparent, two-parent, and multiple-caregiver intent.
-- Refresh `/compare/` as the setup decision hub.
-- Add visible FAQs and matching JSON-LD only where useful.
+Status: complete for first-pass commercial page cleanup.
+
+Completed:
+
+- Refreshed `/app/` for free baby tracker app, App Store and Google Play intent, and cross-platform caregiver intent.
+- Refreshed `/device/` for physical baby tracker, screen-free baby tracker, caregiver intent, and Amazon purchase intent.
+- Refreshed `/pricing/` around the three concrete setup options and tier feature lists.
+- Refreshed `/caregivers/` for shared care, nanny, grandparent, partner, and multiple-caregiver intent.
+- Refreshed `/compare/` as the setup decision hub for app, Premium, device, paper, notes, caregivers, and alternatives.
+- Added visible FAQs and matching JSON-LD where useful on `/app/`, `/device/`, `/caregivers/`, and `/compare/`.
+
+Still open:
+
+- Add stronger internal links from relevant articles into the refreshed commercial pages.
+- Run post-deployment GSC and Plausible review after enough fresh data accumulates.
 
 Acceptance:
 
-- Each page has a clear primary query family.
-- Each page links to at least 2 supporting articles.
+- Each commercial page has a clear primary query family.
+- Each commercial page links to at least 2 supporting articles or receives links from at least 2 supporting articles.
 - Each page has direct CTAs to the appropriate marketplace or setup path.
 - Build passes.
 - Rich Results Test passes for changed structured data.
@@ -793,12 +874,19 @@ Acceptance:
 - Do not add structured data that is not represented in visible content.
 - Do not add published dates to evergreen post bodies.
 
-## My recommended first move
+## Current recommended next move
 
-Start with the existing GSC and Plausible exports, then improve `/app/`, `/device/`, `/pricing/`, and `/caregivers/` before creating any new URLs.
+The first commercial-page cleanup is complete. Do not create new URLs yet.
 
-Those pages already exist, already match Nubo's highest-value intent, and can absorb the keyword clusters from the advice without creating duplicate content. Once those pages are sharper, use articles and templates to support them.
+Next, refresh the articles that should feed the rebuilt commercial pages:
 
-The simple rule for the next implementation pass:
+1. `physical-baby-tracker-vs-app.mdx`
+2. `how-to-track-breastfeeding-without-phone.mdx`
+3. `best-baby-tracker-for-nanny-grandparents.mdx`
+4. `baby-tracking-for-grandparents.mdx`
+5. `how-to-share-baby-tracking-with-nanny.mdx`
+6. `newborn-diaper-output-normal.mdx`
+
+The simple rule for the next implementation pass remains:
 
 "Every article should help a tired parent, and every product page should make the right next step obvious."
