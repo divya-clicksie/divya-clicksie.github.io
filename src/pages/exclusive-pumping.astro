@@ -1,0 +1,385 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Exclusive Pumping Tracker App | Nubo';
+const description = 'Use Nubo as an exclusive pumping tracker: share pumped milk bottle feeds with caregivers while private pumping logs stay visible only to mom.';
+const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
+const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
+const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
+
+const faqItems = [
+  {
+    q: 'Can I use Nubo as an exclusive pumping tracker?',
+    a: 'Yes. Nubo supports the two records exclusive pumping families usually need: pumped milk bottles in the shared baby timeline, and private pumping logs for milk output.'
+  },
+  {
+    q: 'Can caregivers see my pumping output?',
+    a: 'No. Private pumping logs stay separate from the shared baby timeline. Partners, grandparents, nannies, sitters, and other caregivers can see baby feeds, not your private pumping sessions.'
+  },
+  {
+    q: 'Can caregivers log pumped milk bottles?',
+    a: 'Yes. A caregiver can log a pumped milk bottle as a baby feeding event from the app, the Nubo device, or Alexa when enabled.'
+  },
+  {
+    q: 'Does Nubo calculate my freezer stash?',
+    a: 'Not currently. Nubo tracks private pumping output and shared baby bottle intake, but it does not maintain a running milk stash total.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: title,
+    description,
+    url: 'https://www.nubotracker.com/exclusive-pumping/',
+    about: [
+      { '@type': 'Thing', name: 'exclusive pumping tracker' },
+      { '@type': 'MobileApplication', name: 'Nubo Baby Tracker App' }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'MobileApplication',
+    name: 'Nubo Baby Tracker',
+    operatingSystem: 'iOS, Android',
+    applicationCategory: 'HealthApplication',
+    description: 'Baby tracker app with shared pumped milk bottle logs and private pumping output tracking.',
+    offers: [
+      { '@type': 'Offer', name: 'Nubo free app', price: '0', priceCurrency: 'USD', url: appStoreURL },
+      { '@type': 'Offer', name: 'Nubo Premium', price: '39.99', priceCurrency: 'USD', url: appStoreURL }
+    ],
+    installUrl: [appStoreURL, playStoreURL]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a
+      }
+    }))
+  }
+];
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd} stickyCtaVariant="app">
+  <Header />
+  <main>
+    <section class="ep-hero">
+      <div class="container ep-hero-inner">
+        <div>
+          <p class="overline">Exclusive pumping tracker</p>
+          <h1>A baby tracker that understands exclusive pumping.</h1>
+          <p class="hero-sub">Exclusive pumping creates two different records: what your baby drank and what you pumped. Nubo lets caregivers share pumped milk bottle feeds while your private pumping output stays yours.</p>
+          <div class="hero-actions-inline">
+            <a href={appStoreURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Download on the App Store</a>
+            <a href={playStoreURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
+          </div>
+        </div>
+        <img src="/images/nubo-app-screens.webp" srcset="/images/nubo-app-screens-720.webp 720w, /images/nubo-app-screens.webp 1280w" sizes="(max-width: 900px) 88vw, 430px" alt="Nubo app screens showing baby tracking logs for feeds, pumping, sleep, and diapers" width="640" height="400" loading="eager" decoding="async" />
+      </div>
+    </section>
+
+    <section class="ep-proof" aria-label="Exclusive pumping tracker benefits">
+      <div class="container proof-strip">
+        <span>Shared pumped milk bottles</span>
+        <span>Private milk output logs</span>
+        <span>Caregiver-friendly feeding history</span>
+        <span>No ads or selling baby data</span>
+      </div>
+    </section>
+
+    <section class="ep-section ep-section-white">
+      <div class="container split">
+        <div>
+          <p class="overline">The core distinction</p>
+          <h2>Baby intake is family data. Pumping output is body data.</h2>
+        </div>
+        <div class="copy-stack">
+          <p>When a caregiver gives the baby a 3 ounce bottle of pumped milk, that belongs in the baby timeline. Everyone helping needs to know when the baby ate and how much.</p>
+          <p>When you pump 4 ounces at 11 p.m., that is different. It says something about your body, your schedule, and your supply. Nubo keeps that milk output in private pumping instead of placing it in the shared baby log.</p>
+          <a href="/blog/privacy/pumping-tracker-private-data/" class="text-link">Read the pumping privacy guide &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="ep-section ep-section-soft">
+      <div class="container">
+        <div class="section-intro">
+          <p class="overline">How it works</p>
+          <h2>Use the right log for the right question.</h2>
+          <p class="section-sub">Exclusive pumping is easier to manage when baby intake and mom output are not forced into one messy record.</p>
+        </div>
+        <div class="workflow-grid">
+          <article><h3>Log pumped milk bottles</h3><p>Use the app, device, or Alexa to record what the baby drank. This stays in the shared timeline for partners and caregivers.</p></article>
+          <article><h3>Track private pumping output</h3><p>Use Premium private pumping for your own sessions, volume, duration, and side. Those logs are visible only to you.</p></article>
+          <article><h3>Review the day clearly</h3><p>Baby feeding history stays useful for handoffs and pediatrician questions, while your personal pumping history stays separate.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ep-section ep-section-white">
+      <div class="container split">
+        <div>
+          <p class="overline">Caregivers</p>
+          <h2>Partners and nannies can help without seeing everything.</h2>
+        </div>
+        <div class="copy-stack">
+          <p>Exclusive pumping often means another adult is feeding the baby while mom is pumping, sleeping, working, or washing parts. Nubo lets that caregiver log the bottle as a baby event.</p>
+          <p>The caregiver does not need your pumping output. They need clear intake history: amount, time, and notes. That is the record Nubo shares.</p>
+          <div class="inline-actions"><a href="/caregivers/" class="btn-primary">See caregiver sync</a><a href={amazonURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">Buy device on Amazon</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ep-section ep-section-warm">
+      <div class="container split">
+        <div>
+          <p class="overline">What Nubo does not do</p>
+          <h2>It is not a freezer stash calculator.</h2>
+        </div>
+        <div class="copy-stack">
+          <p>Nubo does not currently maintain a running stash total. That is intentional. Stash math has to combine what you pumped, what was fed, what expired, what spilled, and what was discarded.</p>
+          <p>For now, Nubo keeps the privacy model clean: private pumping output on your side, pumped milk bottle feeds in the shared baby timeline.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ep-section ep-section-white">
+      <div class="container">
+        <div class="section-intro">
+          <p class="overline">Exclusive pumping FAQ</p>
+          <h2>Quick answers for EP families.</h2>
+        </div>
+        <div class="faq-grid">
+          {faqItems.map((faq) => (
+            <article>
+              <h3>{faq.q}</h3>
+              <p>{faq.a}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="ep-cta">
+      <div class="container cta-inner">
+        <div>
+          <p class="overline">Start with the app</p>
+          <h2>Track bottles together. Keep pumping private.</h2>
+          <p>Download Nubo free on iPhone or Android. Add Premium when private pumping output tracking becomes part of your routine.</p>
+        </div>
+        <div class="store-links" aria-label="Download Nubo app">
+          <a href={appStoreURL} target="_blank" rel="noopener noreferrer"><img src="/images/appstore-badge.webp" alt="Download on the App Store" width="160" height="56" loading="lazy" /></a>
+          <a href={playStoreURL} target="_blank" rel="noopener noreferrer"><img src="/images/playstore-badge.webp" alt="Get it on Google Play" width="160" height="56" loading="lazy" /></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .ep-hero {
+    padding: 9rem 0 5rem;
+    background: linear-gradient(170deg, #f0fafa 0%, #fff 62%);
+  }
+
+  .ep-hero-inner,
+  .split,
+  .cta-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .ep-hero h1 {
+    max-width: 720px;
+    margin-bottom: 1rem;
+    font-size: clamp(2.35rem, 5vw, 4.5rem);
+    line-height: 1.05;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-sub {
+    max-width: 640px;
+    color: var(--color-text-secondary);
+    font-size: 1.18rem;
+    line-height: 1.7;
+  }
+
+  .ep-hero img {
+    width: 100%;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.12);
+  }
+
+  .hero-actions-inline,
+  .inline-actions,
+  .store-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .ep-proof {
+    padding: 1.25rem 0;
+    background: #fff;
+  }
+
+  .proof-strip {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .proof-strip span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3.2rem;
+    border: 1px solid #e8e8e8;
+    border-radius: 999px;
+    background: var(--color-bg-soft);
+    padding: 0.65rem 0.95rem;
+    color: var(--color-text);
+    font-size: 0.88rem;
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .ep-section {
+    padding: 6rem 0;
+  }
+
+  .ep-section-white {
+    background: #fff;
+  }
+
+  .ep-section-soft {
+    background: var(--color-bg-soft);
+  }
+
+  .ep-section-warm {
+    background: var(--color-bg-warm);
+  }
+
+  .split h2,
+  .cta-inner h2 {
+    max-width: 600px;
+    font-size: clamp(1.85rem, 4vw, 3.2rem);
+    line-height: 1.1;
+    overflow-wrap: anywhere;
+  }
+
+  .copy-stack {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .copy-stack p,
+  .workflow-grid p,
+  .faq-grid p,
+  .cta-inner p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .workflow-grid,
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .workflow-grid article,
+  .faq-grid article {
+    min-width: 0;
+    border: 1px solid #e8e8e8;
+    border-radius: var(--radius-xl);
+    background: #fff;
+    padding: 1.75rem;
+  }
+
+  .workflow-grid h3,
+  .faq-grid h3 {
+    margin-bottom: 0.65rem;
+    font-size: 1.15rem;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  .ep-cta {
+    padding: 5rem 0;
+    background: var(--color-brand-light);
+  }
+
+  .store-links img {
+    height: 52px;
+    width: auto;
+  }
+
+  @media (max-width: 980px) {
+    .ep-hero-inner,
+    .split,
+    .cta-inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .proof-strip,
+    .workflow-grid,
+    .faq-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .ep-hero {
+      padding: 7rem 0 4rem;
+    }
+
+    .ep-section,
+    .ep-cta {
+      padding: 4rem 0;
+    }
+
+    .ep-hero h1 {
+      font-size: clamp(2rem, 9vw, 2.6rem);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+    }
+
+    .proof-strip,
+    .workflow-grid,
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-actions-inline .btn-primary,
+    .hero-actions-inline .btn-ghost,
+    .inline-actions .btn-primary,
+    .inline-actions .btn-ghost {
+      width: 100%;
+      text-align: center;
+      white-space: normal;
+    }
+
+    .store-links a,
+    .store-links img {
+      width: 100%;
+      height: auto;
+    }
+  }
+</style>

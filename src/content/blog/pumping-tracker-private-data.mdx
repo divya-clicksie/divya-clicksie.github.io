@@ -1,18 +1,18 @@
 ---
-title: "Pumping Data Is Yours Alone: How Nubo Keeps Milk Output Private"
-description: "Nubo's pumping tracker stores milk output in your private account, never the shared baby log. Here's how the privacy architecture works and why it matters."
+title: "Exclusive Pumping Data Is Yours Alone"
+description: "Nubo's private pumping tracker keeps exclusive pumping output in your account, never the shared baby log. See the privacy design."
 datePublished: "2026-05-08"
-dateModified: "2026-05-08"
+dateModified: "2026-06-21"
 author: "Nubo Team"
 category: "privacy"
-primaryKeyword: "pumping tracker privacy"
-excerpt: "Nubo's Pumping tool tracks milk output privately, visible only to you. Not your caregivers, not your co-parent. Here's why that design decision matters and how it works at the architecture level."
-tags: ["pumping tracker privacy", "breast pump tracking app", "milk output tracker", "breastfeeding app privacy", "pumping data private", "baby tracker privacy"]
+primaryKeyword: "private pumping tracker"
+excerpt: "For exclusive pumping moms, milk output is personal body data. Nubo keeps pumping output private while shared pumped milk bottles stay in the baby timeline."
+tags: ["private pumping tracker", "exclusive pumping", "exclusive pumping tracker", "EP mom", "breast pump tracking app", "milk output tracker", "pumping data private", "baby tracker privacy"]
 ---
 
-Pumping data is body data. It records what you produce, when, and at what volume. That is not the same category of information as what your baby ate, how long they slept, or how many wet diapers they went through. Nubo's pumping tracker treats those two types of data accordingly: baby events are shared with caregivers who need them; pumping output belongs to the person who logged it.
+A private pumping tracker matters most when you are exclusively pumping. Pumping data is body data. It records what you produce, when, and at what volume. That is not the same category of information as what your baby ate, how long they slept, or how many wet diapers they went through. Nubo treats those two types of data accordingly: baby events are shared with caregivers who need them; pumping output belongs to the person who logged it.
 
-This post explains the architecture behind that separation. No feature-announcement framing, no marketing abstractions. Just how the data is stored, where it goes, and what the design decisions cost and protect.
+This post explains the architecture behind that separation. No feature-announcement framing, no marketing abstractions. Just how exclusive pumping data is stored, where it goes, and what the design decisions cost and protect. For the setup overview, start with the [exclusive pumping tracker page](/exclusive-pumping/).
 
 ## Pumping data is your data, not your baby's
 
@@ -48,7 +48,7 @@ Nubo has always supported logging a bottle of expressed milk as a feeding event.
 
 The Pumping tool tracks what you produced. A 15-minute session, 4 ounces from the left side: that is a record about your output, not your baby's intake. These are different datasets with different answers to the question of who should have access.
 
-Nubo keeps them separate and does not conflate them.  Bottle feeds stay in the shared baby log where they have always been, visible to caregivers. Pump output records stay in your private account. The two do not cross-reference or interfere with each other. If a caregiver feeds the baby pumped milk and logs a bottle, that event appears in the shared log with no pointer back to any pumping session you logged.
+Nubo keeps them separate and does not conflate them. Bottle feeds stay in the shared baby log where they have always been, visible to caregivers. Pump output records stay in your private account. The two do not cross-reference or interfere with each other. If a caregiver feeds the baby pumped milk and logs a bottle, that event appears in the shared log with no pointer back to any pumping session you logged.
 
 ## What the tool intentionally does not do
 
@@ -72,4 +72,4 @@ When you use Nubo's Pumping tool, the guarantees are:
 
 Pumping is personal data. The architecture treats it that way.
 
-For a full picture of how Nubo handles baby event data and caregiver sync, the [privacy architecture overview](/blog/privacy/nubo-privacy-architecture/) covers encryption, local-first storage, and the zero-knowledge server in detail.
+For a full picture of how Nubo handles baby event data and caregiver sync, the [privacy architecture overview](/blog/privacy/nubo-privacy-architecture/) covers encryption, local-first storage, and the zero-knowledge server in detail. If you are planning a daily EP workflow, the [exclusive pumping tracker guide](/blog/feeding/exclusive-pumping-tracker/) covers what to log and what to keep private.
