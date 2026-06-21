@@ -2,20 +2,135 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import SpeedComparison from '../components/SpeedComparison.astro';
 
-const title = 'Compare Baby Trackers | One-Tap Device vs Apps and Notes';
-const description = 'Compare Nubo with paper logs, shared notes, free baby tracker apps, and sleep-focused baby apps. See when a one-tap baby tracker is worth it.';
+const title = 'Compare Baby Tracker App, Device, Premium, and Paper Logs | Nubo';
+const description = 'Compare baby tracker options: free app, Premium, physical device, paper logs, shared notes, and caregiver tracking. Choose the right Nubo setup.';
 const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
+const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
+const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: title,
-  description,
-  url: 'https://www.nubotracker.com/compare/',
-  about: { '@type': 'Product', name: 'Nubo Baby Tracker' }
-};
+const setupOptions = [
+  {
+    label: 'Start here',
+    title: 'Free app',
+    body: 'Best if your phone is usually nearby and you want baby tracking for feeds, sleep, diapers, voice catch-up, and caregivers on iPhone and Android.',
+    href: '/app/',
+    cta: 'Explore the free app'
+  },
+  {
+    label: 'App upgrade',
+    title: 'Premium',
+    body: 'Best if you already like app tracking and want advanced app tools. The pricing page lists the full Premium feature set.',
+    href: '/pricing/#plans',
+    cta: 'Compare pricing'
+  },
+  {
+    label: 'Physical tracker',
+    title: 'Nubo Device',
+    body: 'Best if night care, hands-full moments, grandparents, nannies, or partner handoffs make phone logging unreliable.',
+    href: '/device/',
+    cta: 'See the device'
+  }
+];
+
+const decisionRows = [
+  ['Phone usually in hand', 'Free app'],
+  ['Want advanced app tools', 'Premium'],
+  ['Want less phone around the baby', 'Device'],
+  ['Two parents sharing care', 'Free app or Device'],
+  ['Nanny, sitter, or grandparent helps', 'Buttons are easier'],
+  ['Need private pumping logs', 'Premium'],
+  ['Want exports for handoffs or appointments', 'Premium'],
+  ['Want paper as a backup', 'Paper log plus app']
+];
+
+const alternatives = [
+  {
+    title: 'Paper baby log',
+    body: 'Simple and private, but hard to share, search, total, export, or keep current when care moves between people.',
+    best: 'Best as a backup or hospital habit.'
+  },
+  {
+    title: 'Shared notes',
+    body: 'Flexible, but feeds, diapers, naps, and medicine quickly become messy text instead of a structured baby timeline.',
+    best: 'Best for loose notes, not routine tracking.'
+  },
+  {
+    title: 'Free baby tracker apps',
+    body: 'A good fit when caregivers are comfortable using phones. Nubo starts here with a free iPhone and Android app.',
+    best: 'Best first step for most families.'
+  },
+  {
+    title: 'Sleep-focused apps',
+    body: 'Useful if sleep coaching is the main job. Nubo is broader routine tracking for feeds, sleep, diapers, care handoffs, and caregivers.',
+    best: 'Best when sleep is the only decision.'
+  },
+  {
+    title: 'Physical baby tracker devices',
+    body: 'Useful when the phone is not in hand. Nubo adds a free app-first path, Bluetooth sync, and physical buttons for common care events.',
+    best: 'Best for screen-free logging and helpers.'
+  },
+  {
+    title: 'Nubo vs Talli',
+    body: 'Both are baby tracker devices, but they use different approaches to sync, app setup, portability, caregiver use, and pricing.',
+    best: 'Best if you are comparing device trackers.',
+    href: '/compare/talli/',
+    cta: 'Compare Nubo vs Talli'
+  }
+];
+
+const faqItems = [
+  {
+    q: 'What is the best baby tracker for most families?',
+    a: 'For most families, the best first step is a free baby tracker app that works on iPhone and Android. Nubo starts there, then lets families add Premium or the physical tracker device if their routine needs more.'
+  },
+  {
+    q: 'Is a physical baby tracker worth it?',
+    a: 'A physical baby tracker is most useful when phone logging breaks down: night feeds, hands-full changes, contact naps, partner handoffs, grandparents, nannies, or sitters. If your phone is always nearby, start with the free app.'
+  },
+  {
+    q: 'Should I use a baby tracker app or paper log?',
+    a: 'Paper can work for short-term notes, but an app is easier to share, search, total, and review later. Nubo keeps routine baby care in one timeline across caregivers.'
+  },
+  {
+    q: 'Can two parents use the same baby tracker?',
+    a: 'Yes. Nubo supports shared baby tracking across caregivers, including parents on iPhone and Android.'
+  },
+  {
+    q: 'What should I choose if grandparents or a nanny help?',
+    a: 'Start with the free app if helpers are comfortable logging from a phone. Add the physical device when simple buttons would be easier than teaching everyone an app workflow.'
+  },
+  {
+    q: 'Does Nubo predict sleep or replace medical advice?',
+    a: 'No. Nubo helps families track and share baby care information. It is not a medical device, and it does not diagnose, treat, cure, prevent, or clinically monitor any condition.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: title,
+    description,
+    url: 'https://www.nubotracker.com/compare/',
+    about: [
+      { '@type': 'MobileApplication', name: 'Nubo Baby Tracker App' },
+      { '@type': 'Product', name: 'Nubo Baby Tracker Device' }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a
+      }
+    }))
+  }
+];
 ---
 
 <BaseLayout title={title} description={description} jsonLd={jsonLd}>
@@ -23,88 +138,100 @@ const jsonLd = {
   <main>
     <section class="page-hero compare-hero">
       <div class="container">
-        <p class="overline">One-tap baby tracker comparison</p>
-        <h1>The fastest way to log a feed. By the numbers.</h1>
-        <p class="page-hero-sub">Nubo is the one-tap baby tracker for night feeds, hands-full moments, and multi-caregiver households. It is built for the moments when tracking needs to be fast, shared, and less phone-heavy.</p>
-        <div class="hero-actions-inline"><a href="/pricing/" class="btn-primary">See pricing</a><a href={amazonURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">Buy on Amazon</a></div>
+        <p class="overline">Compare baby tracker options</p>
+        <h1>Choose the baby tracker setup your household will actually use.</h1>
+        <p class="page-hero-sub">Compare the free Nubo app, Premium, the physical tracker device, paper logs, shared notes, and caregiver tracking so the next step is obvious.</p>
+        <div class="hero-actions-inline">
+          <a href="/pricing/" class="btn-primary">See pricing</a>
+          <a href={appStoreURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">Download free app</a>
+          <a href={amazonURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">Buy device</a>
+        </div>
       </div>
     </section>
 
-    <SpeedComparison expanded compact />
-
-    <section class="use-case-section">
+    <section class="setup-section">
       <div class="container">
-        <div class="section-intro"><p class="overline">Compare by use case</p><h2>Honest answers for the tracker you already know.</h2></div>
-        <div class="comparison-grid">
-          <article><h2>Vs. paper diary</h2><p>Paper is fine for quiet, undistracted moments. It loses when you need charts, exports, caregiver sync, or a record that travels to appointments.</p></article>
-          <article><h2>Vs. Apple Notes</h2><p>A shared note is flexible, but baby tracking needs timestamps, totals, growth, exports, and a way to log without typing.</p></article>
-          <article><h2>Vs. free tracker apps</h2><p>Free apps can be enough for one phone-first caregiver. Nubo adds a physical baby tracker device and stronger caregiver economics when the household gets more complex.</p></article>
-          <article><h2>Vs. Talli</h2><p>Talli is a Wi-Fi baby tracker with customization. Nubo is a Bluetooth tracker with a free app-first path, privacy-first storage, and Premium that follows device use.</p><a href="/compare/talli/" class="text-link">Compare Nubo vs Talli &rarr;</a></article>
-          <article><h2>Vs. Huckleberry</h2><p>Huckleberry is sleep-coaching software with a tracker. Nubo is tracking software with a device. They are adjacent, not identical.</p></article>
-          <article><h2>Vs. hospital paper logs</h2><p>Paper logs help in the hospital. Nubo helps keep the same discipline at home after NICU follow-up, then turns that history into pediatrician-ready data.</p></article>
+        <div class="setup-grid">
+          {setupOptions.map((option) => (
+            <article class="setup-card">
+              <p class="card-label">{option.label}</p>
+              <h2>{option.title}</h2>
+              <p>{option.body}</p>
+              <a href={option.href} class="btn-primary" target={option.external ? '_blank' : undefined} rel={option.external ? 'noopener noreferrer' : undefined}>{option.cta}</a>
+            </article>
+          ))}
         </div>
       </div>
     </section>
 
-    <section class="fit-section">
-      <div class="container fit-grid">
+    <section class="decision-section">
+      <div class="container decision-inner">
         <div>
-          <p class="overline">When the device is optional</p>
-          <h2>Start with the free Nubo app.</h2>
-          <ul>
-            <li>One caregiver, phone always in hand, the free Nubo app is probably enough.</li>
-            <li>No interest in advanced charts, exports, or Premium tools? The free Nubo app still covers everyday tracking.</li>
-            <li>If tracking itself creates stress, keep it light and only log what helps.</li>
-          </ul>
+          <p class="overline">Fast decision</p>
+          <h2>Match the setup to the care problem.</h2>
+          <p>The best baby tracker is not the one with the longest feature list. It is the one your family can keep using when everyone is tired, switching shifts, or holding the baby.</p>
         </div>
-        <div>
-          <p class="overline">When the device wins clearly</p>
-          <h2>The messy real-life cases.</h2>
-          <ul>
-            <li>Multiple caregivers, especially nanny, grandparents, doulas, or daycare.</li>
-            <li>Night feeds, hands-full changes, and phone-across-the-room moments.</li>
-            <li>Privacy-conscious families who want local-first data and no ads.</li>
-            <li>Families planning for another baby, where the device keeps working.</li>
-          </ul>
+        <div class="decision-list" aria-label="Baby tracker setup recommendations">
+          {decisionRows.map(([need, recommendation]) => (
+            <div>
+              <span>{need}</span>
+              <strong>{recommendation}</strong>
+            </div>
+          ))}
         </div>
       </div>
     </section>
 
-    <section class="matrix-section">
+    <section class="alternatives-section">
       <div class="container">
-        <div class="section-intro"><p class="overline">Decision matrix</p><h2>Match the tracker to the moment.</h2><p class="section-sub">The best baby tracker is the one your household will keep using when everyone is tired.</p></div>
-        <div class="matrix-wrap">
-          <table class="decision-matrix">
-            <caption>Baby tracker decision matrix by household need</caption>
-            <thead>
-              <tr>
-                <th scope="col">Need</th>
-                <th scope="col">Paper</th>
-                <th scope="col">Notes</th>
-                <th scope="col">Free app</th>
-                <th scope="col">Premium</th>
-                <th scope="col">Device</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><th scope="row">One phone-first caregiver</th><td>Okay</td><td>Okay</td><td>Best start</td><td>Optional</td><td>Optional</td></tr>
-              <tr><th scope="row">Two parents</th><td>Limited</td><td>Messy</td><td>Strong</td><td>Helpful</td><td>Strong</td></tr>
-              <tr><th scope="row">Nanny or grandparent</th><td>Delayed</td><td>Inconsistent</td><td>Depends on comfort</td><td>Can help</td><td>Best fit</td></tr>
-              <tr><th scope="row">Night feeds</th><td>Slow</td><td>Bright screen</td><td>Good if phone is nearby</td><td>Good if phone is nearby</td><td>Best fit</td></tr>
-              <tr><th scope="row">Pumping privacy</th><td>Private but isolated</td><td>Risky if shared</td><td>Basic tracking</td><td>Best app fit</td><td>Best with Premium access</td></tr>
-              <tr><th scope="row">Pediatrician export</th><td>Manual</td><td>Manual</td><td>Basic history</td><td>Best app fit</td><td>Best with Premium access</td></tr>
-              <tr><th scope="row">Privacy concerns</th><td>Offline</td><td>Depends on account</td><td>Strong</td><td>Strong</td><td>Strong</td></tr>
-              <tr><th scope="row">Wants sleep predictions</th><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
-            </tbody>
-          </table>
+        <div class="section-intro">
+          <p class="overline">Compare by option</p>
+          <h2>Apps, devices, notes, and paper each solve a different problem.</h2>
+          <p class="section-sub">Use this page to choose the simplest setup that still covers your real household.</p>
+        </div>
+        <div class="alternative-grid">
+          {alternatives.map((item) => (
+            <article>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+              <p class="best-fit">{item.best}</p>
+              {item.href && <a href={item.href} class="text-link">{item.cta} &rarr;</a>}
+            </article>
+          ))}
         </div>
       </div>
     </section>
 
-    <section class="truth-band">
-      <div class="container truth-inner">
-        <div><p class="overline">The honest answer</p><h2>Choose the simplest tracker that your household will actually use.</h2></div>
-        <div><p>Choose the free app if you want the lowest-friction start today. Choose the device if your partner, parents, nanny, or nighttime routine makes logging unreliable. Choose Premium if you love the app and want advanced tools without hardware.</p><a href="/pricing/" class="btn-primary">Choose your setup</a></div>
+    <section class="caregiver-section">
+      <div class="container caregiver-inner">
+        <div>
+          <p class="overline">Caregiver households</p>
+          <h2>If more than one person helps, compare by handoff friction.</h2>
+        </div>
+        <div>
+          <p>For one phone-first caregiver, a free app may be enough. For a partner, grandparent, nanny, sitter, or overnight helper, the question becomes simpler: can everyone log the same baby timeline without extra explaining?</p>
+          <div class="caregiver-actions">
+            <a href="/caregivers/" class="btn-primary">Compare caregiver tracking</a>
+            <a href="/pricing/" class="btn-ghost">Compare plans</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-intro">
+          <p class="overline">Comparison FAQ</p>
+          <h2>Quick answers before you choose.</h2>
+        </div>
+        <div class="faq-grid">
+          {faqItems.map((faq) => (
+            <article>
+              <h3>{faq.q}</h3>
+              <p>{faq.a}</p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   </main>
@@ -112,32 +239,273 @@ const jsonLd = {
 </BaseLayout>
 
 <style>
-  .compare-hero .hero-actions-inline { justify-content: center; }
-  .hero-actions-inline { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
-  .use-case-section, .fit-section, .matrix-section, .truth-band { padding: 6rem 0; }
-  .use-case-section { background: #fff; }
-  .fit-section { background: var(--color-bg-soft); }
-  .matrix-section { background: #fff; }
-  .truth-band { background: var(--color-bg-warm); }
-  .comparison-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem; }
-  .comparison-grid article, .fit-grid > div { background: #fff; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); padding: 1.75rem; }
-  .comparison-grid h2 { font-size: 1.125rem; margin-bottom: 0.75rem; }
-  .comparison-grid p, .truth-inner p, .fit-grid li { color: var(--color-text-secondary); line-height: 1.7; }
-  .fit-grid, .truth-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-  .fit-grid h2, .truth-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; margin-bottom: 1rem; }
-  .fit-grid ul { padding-left: 1.25rem; }
-  .fit-grid li + li { margin-top: 0.75rem; }
-  .truth-inner { align-items: center; }
-  .truth-inner .btn-primary { margin-top: 1.5rem; }
-  .matrix-wrap { overflow-x: auto; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); background: #fff; }
-  .decision-matrix { width: 100%; min-width: 840px; border-collapse: collapse; }
-  .decision-matrix caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
-  .decision-matrix th, .decision-matrix td { padding: 0.95rem; border-bottom: 1px solid #eeeeee; text-align: left; line-height: 1.45; }
-  .decision-matrix thead th { background: var(--color-bg-soft); color: var(--color-text); font-size: 0.875rem; }
-  .decision-matrix tbody th { color: var(--color-text); font-weight: 800; }
-  .decision-matrix td { color: var(--color-text-secondary); }
-  .decision-matrix tbody tr:last-child th, .decision-matrix tbody tr:last-child td { border-bottom: 0; }
-  @media (max-width: 1280px) { .comparison-grid { grid-template-columns: repeat(3, 1fr); } }
-  @media (max-width: 900px) { .fit-grid, .truth-inner { grid-template-columns: 1fr; } }
-  @media (max-width: 640px) { .use-case-section, .fit-section, .matrix-section, .truth-band { padding: 4rem 0; } .comparison-grid { grid-template-columns: 1fr; } }
+  .compare-hero .container {
+    max-width: 980px;
+  }
+
+  .compare-hero h1,
+  .compare-hero .page-hero-sub {
+    overflow-wrap: anywhere;
+  }
+
+  .hero-actions-inline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .setup-section,
+  .decision-section,
+  .alternatives-section,
+  .caregiver-section,
+  .faq-section {
+    padding: 6rem 0;
+  }
+
+  .setup-section,
+  .faq-section {
+    background: #fff;
+  }
+
+  .decision-section,
+  .caregiver-section {
+    background: var(--color-bg-warm);
+  }
+
+  .alternatives-section {
+    background: var(--color-bg-soft);
+  }
+
+  .setup-grid,
+  .alternative-grid,
+  .faq-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .setup-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .alternative-grid,
+  .faq-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .setup-card,
+  .alternative-grid article,
+  .faq-grid article {
+    min-width: 0;
+    border: 1px solid #e8e8e8;
+    border-radius: var(--radius-xl);
+    background: #fff;
+    padding: 1.75rem;
+    overflow: hidden;
+  }
+
+  .setup-card {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 16px 38px rgba(31, 41, 55, 0.06);
+  }
+
+  .card-label {
+    margin-bottom: 0.6rem;
+    color: var(--color-brand-dark);
+    font-size: 0.78rem;
+    font-weight: 800;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .setup-card h2,
+  .alternative-grid h3,
+  .faq-grid h3 {
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+    font-size: 1.25rem;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+
+  .setup-card p:not(.card-label),
+  .alternative-grid p,
+  .caregiver-inner p,
+  .faq-grid p,
+  .decision-inner p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+  }
+
+  .setup-card .btn-primary {
+    width: 100%;
+    margin-top: auto;
+  }
+
+  .setup-card p + .btn-primary {
+    margin-top: 1.5rem;
+  }
+
+  .decision-inner,
+  .caregiver-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .decision-inner > *,
+  .caregiver-inner > * {
+    min-width: 0;
+  }
+
+  .decision-inner h2,
+  .caregiver-inner h2 {
+    max-width: 560px;
+    font-size: clamp(1.9rem, 4vw, 3.2rem);
+    line-height: 1.1;
+    overflow-wrap: anywhere;
+  }
+
+  .decision-inner > div > p,
+  .caregiver-inner > div > p {
+    margin-top: 1rem;
+    font-size: 1.05rem;
+  }
+
+  .decision-list {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .decision-list div {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: center;
+    border: 1px solid #e8e8e8;
+    border-radius: 18px;
+    background: #fff;
+    padding: 1rem;
+  }
+
+  .decision-list span {
+    color: var(--color-text-secondary);
+    line-height: 1.35;
+  }
+
+  .decision-list strong {
+    color: var(--color-text);
+    line-height: 1.35;
+  }
+
+  .best-fit {
+    margin-top: 1rem;
+    color: var(--color-text) !important;
+    font-weight: 800;
+  }
+
+  .alternative-grid .text-link {
+    display: inline-flex;
+    margin-top: 1rem;
+  }
+
+  .caregiver-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 1080px) {
+    .setup-grid,
+    .alternative-grid,
+    .faq-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .decision-inner,
+    .caregiver-inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .setup-section,
+    .decision-section,
+    .alternatives-section,
+    .caregiver-section,
+    .faq-section {
+      padding: 4rem 0;
+    }
+
+    .compare-hero h1,
+    .section-intro h2,
+    .decision-inner h2,
+    .caregiver-inner h2 {
+      max-width: 340px;
+      margin-right: auto;
+      margin-left: auto;
+      font-size: clamp(2rem, 9vw, 2.45rem);
+    }
+
+    .compare-hero .page-hero-sub,
+    .section-intro .section-sub {
+      max-width: 340px;
+    }
+
+    .hero-actions-inline,
+    .caregiver-actions {
+      width: 100%;
+      max-width: 340px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .hero-actions-inline .btn-primary,
+    .hero-actions-inline .btn-ghost,
+    .caregiver-actions .btn-primary,
+    .caregiver-actions .btn-ghost {
+      width: 100%;
+      max-width: 340px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+      white-space: normal;
+    }
+
+    .setup-grid,
+    .alternative-grid,
+    .faq-grid {
+      grid-template-columns: 1fr;
+      max-width: 340px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .setup-card,
+    .alternative-grid article,
+    .faq-grid article {
+      width: 100%;
+      max-width: 340px;
+      padding: 1.35rem;
+    }
+
+    .setup-card .btn-primary {
+      width: 100%;
+      max-width: 100%;
+      padding-right: 1rem;
+      padding-left: 1rem;
+      white-space: normal;
+    }
+
+    .decision-list div {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+    }
+  }
 </style>
