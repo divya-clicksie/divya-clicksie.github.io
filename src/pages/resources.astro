@@ -53,8 +53,8 @@ const intentLinks = [
     <section class="page-hero">
       <div class="container">
         <p class="overline">One-tap baby tracker resources</p>
-        <h1>Baby tracking help that routes back to real life.</h1>
-        <p class="page-hero-sub">Start with the first 12 weeks, then explore sleep, feeding, caregiver handoffs, privacy, and product decisions.</p>
+        <h1>Baby tracker app guides for feeding, sleep, diapers, and caregivers.</h1>
+        <p class="page-hero-sub">Start with the first 12 weeks, then explore newborn feeding tracking, baby sleep and diaper logs, caregiver handoffs, privacy, and product decisions.</p>
       </div>
     </section>
 
@@ -62,8 +62,8 @@ const intentLinks = [
       <div class="container start-inner">
         <div>
           <p class="overline">Start here</p>
-          <h2>Track feeding, sleep, and diapers through the first 12 weeks.</h2>
-          <p>A practical guide for the stretch when nobody remembers exactly when the last feed, nap, or diaper happened.</p>
+          <h2>Newborn feeding tracker, sleep, and diaper guidance for the first 12 weeks.</h2>
+          <p>A practical guide for the stretch when nobody remembers exactly when the last feed, nap, or diaper happened. Pair it with the <a href="/app/" class="text-link">free baby tracker app</a> or the <a href="/device/" class="text-link">screen-free baby tracker</a> if phone logging is hard at night.</p>
           <a href="/guides/track-feeding-sleep-diapers-first-12-weeks/" class="btn-primary">Read the guide</a>
         </div>
         <img src="/images/nubo-instant-tracker-900.webp" alt="Hand pressing the Nubo instant tracker beside a sleeping baby" width="900" height="900" loading="lazy" decoding="async" />
@@ -72,7 +72,7 @@ const intentLinks = [
 
     <section class="category-section">
       <div class="container">
-        <div class="section-intro"><p class="overline">Start here if</p><h2>Choose the next step by what you need.</h2></div>
+        <div class="section-intro"><p class="overline">Start here if</p><h2>Choose the baby tracker resource by what you need.</h2></div>
         <div class="intent-grid">
           {intentLinks.map(([label, copy, href, cta]) => (
             <article>
@@ -87,7 +87,7 @@ const intentLinks = [
 
     <section class="category-section category-section-alt">
       <div class="container">
-        <div class="section-intro"><p class="overline">Browse by topic</p><h2>Find the moment you are in.</h2></div>
+        <div class="section-intro"><p class="overline">Browse by topic</p><h2>Find feeding, sleep, diaper, caregiver, and privacy help.</h2></div>
         <div class="category-grid">
           {categoryCopy.map(([label, copy, href]) => (
             <a href={href} class="category-card"><h3>{label}</h3><p>{copy}</p></a>
@@ -98,7 +98,7 @@ const intentLinks = [
 
     <section class="latest-section">
       <div class="container">
-        <div class="section-intro"><p class="overline">Latest articles</p><h2>Guides for tired families and the people helping them.</h2></div>
+        <div class="section-intro"><p class="overline">Latest articles</p><h2>Baby tracker guides for tired families and the people helping them.</h2></div>
         <div class="post-grid">
           {posts.map((post) => (
             <article>
