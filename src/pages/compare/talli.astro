@@ -4,7 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
 const title = 'Talli Alternative: Nubo vs Talli Baby Tracker Device';
-const description = 'Looking for a Talli alternative? Compare Nubo and Talli baby tracker devices by hardware availability, sync style, app model, caregiver fit, and phone-light newborn logging.';
+const description = 'Looking for a Talli alternative? Compare Nubo and Talli baby tracker devices by sync style, app model, caregiver fit, portability, and phone-light newborn logging.';
 const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
 const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
 const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
@@ -19,7 +19,7 @@ const faqItems = [
   },
   {
     q: 'What should I compare if I was considering Talli?',
-    a: 'Compare current hardware availability, price, app compatibility, sync style, caregiver setup, and whether the device works in the places your baby care actually happens.'
+    a: 'Compare sync style, app compatibility, caregiver setup, portability, button workflow, and whether the device works in the places your baby care actually happens.'
   },
   {
     q: 'Does Nubo work like Talli?',
@@ -66,27 +66,12 @@ const jsonLd = {
       <div class="container">
         <p class="overline">Talli alternative</p>
         <h1>Looking for a Talli alternative? Compare Nubo and Talli.</h1>
-        <p class="page-hero-sub">If you were considering Talli for one-press baby tracking, compare current physical baby tracker options before you choose. Nubo offers a physical baby tracker device, a free iPhone and Android app, Bluetooth sync, caregiver sharing, and direct Amazon purchase.</p>
+        <p class="page-hero-sub">If you were considering Talli for one-press baby tracking, compare how each device fits real newborn care. Nubo offers a physical baby tracker device, a free iPhone and Android app, Bluetooth sync, caregiver sharing, and direct Amazon purchase.</p>
         <div class="hero-actions-inline">
           <a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy Nubo on Amazon</a>
           <a href="/device/" class="btn-ghost">See Nubo device</a>
         </div>
         <p class="source-note">Device-level comparison based on public Talli website and Amazon information reviewed June 30, 2026.</p>
-      </div>
-    </section>
-
-    <section class="availability-section">
-      <div class="container availability-inner">
-        <div>
-          <p class="overline">Buying checklist</p>
-          <h2>What to compare when choosing a Talli alternative.</h2>
-          <p>Availability, pricing, app terms, and platform support can change, so verify Talli's current product page and Amazon listing before buying. Then compare the practical details that shape daily use: where the device works, how it syncs, who can log, and how much phone attention each setup requires.</p>
-        </div>
-        <div class="availability-card">
-          <h3>If your goal is physical buttons</h3>
-          <p>Choose around the routine you want, not only the app you can download today. Nubo is available through Amazon and keeps app, device, and caregiver logs in one baby timeline.</p>
-          <a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy Nubo on Amazon</a>
-        </div>
       </div>
     </section>
 
@@ -108,8 +93,6 @@ const jsonLd = {
               </tr>
             </thead>
             <tbody>
-              <tr><th scope="row">Hardware availability</th><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Available through Amazon</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-partial" aria-label="Partial">~</span><span>Verify current Talli availability</span></span></td></tr>
-              <tr><th scope="row">Direct purchase path</th><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Buy Nubo on Amazon</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-partial" aria-label="Partial">~</span><span>Check Talli site and Amazon</span></span></td></tr>
               <tr><th scope="row">Device price</th><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>$89.99 listed</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>$109.99 listed</span></span></td></tr>
               <tr><th scope="row">Premium in-app features</th><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>Free for every syncing phone</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-no" aria-label="No">X</span><span>14-day trial, then $39.99/year</span></span></td></tr>
               <tr><th scope="row">iOS/Device compatibility</th><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>iPhone app</span></span></td><td><span class="compare-cell"><span class="compare-mark compare-yes" aria-label="Yes">✓</span><span>iPhone app</span></span></td></tr>
@@ -256,7 +239,7 @@ const jsonLd = {
     <section class="source-section">
       <div class="container source-inner">
         <p class="overline">Sources</p>
-        <p>Talli details were taken from the public <a href={talliHomeURL} target="_blank" rel="noopener noreferrer">Talli homepage</a>, <a href={talliProductURL} target="_blank" rel="noopener noreferrer">Talli Baby product page</a>, and <a href={talliAmazonURL} target="_blank" rel="noopener noreferrer">Talli Amazon listing</a>. Product pages can change, so verify current availability, pricing, subscription terms, compatibility, and feature details before buying.</p>
+        <p>Talli details were taken from the public <a href={talliHomeURL} target="_blank" rel="noopener noreferrer">Talli homepage</a>, <a href={talliProductURL} target="_blank" rel="noopener noreferrer">Talli Baby product page</a>, and <a href={talliAmazonURL} target="_blank" rel="noopener noreferrer">Talli Amazon listing</a>. Product pages can change, so verify current pricing, subscription terms, compatibility, and feature details before buying.</p>
       </div>
     </section>
   </main>
@@ -267,16 +250,10 @@ const jsonLd = {
   .talli-hero .hero-actions-inline { justify-content: center; }
   .hero-actions-inline { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
   .source-note { margin-top: 1rem; color: var(--color-text-secondary); font-size: 0.875rem; }
-  .table-section, .availability-section, .faq-section, .phone-light-section, .source-section { padding: 6rem 0; }
+  .table-section, .faq-section, .phone-light-section, .source-section { padding: 6rem 0; }
   .source-section { background: #fff; }
   .table-section, .phone-light-section { background: var(--color-bg-soft); }
-  .availability-section, .faq-section { background: #fff; }
-  .availability-inner { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 2rem; align-items: stretch; }
-  .availability-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; margin-bottom: 1rem; }
-  .availability-inner p { color: var(--color-text-secondary); line-height: 1.7; }
-  .availability-card { border: 1px solid #e8e8e8; border-radius: var(--radius-xl); padding: 2rem; background: var(--color-bg-soft); display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
-  .availability-card h3 { font-size: 1.25rem; margin: 0; }
-  .availability-card p { margin: 0; }
+  .faq-section { background: #fff; }
   .phone-light-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: stretch; }
   .phone-light-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; margin-bottom: 1rem; }
   .phone-light-inner p, .source-inner p { color: var(--color-text-secondary); line-height: 1.7; }
@@ -308,6 +285,6 @@ const jsonLd = {
   .faq-grid p { color: var(--color-text-secondary); line-height: 1.65; margin: 0; }
   .source-inner { max-width: 760px; }
   .source-inner a { color: var(--color-brand-dark); font-weight: 700; }
-  @media (max-width: 900px) { .availability-inner, .phone-light-inner, .faq-grid { grid-template-columns: 1fr; } .phone-light-actions { justify-self: start; } }
-  @media (max-width: 640px) { .table-section, .availability-section, .faq-section, .phone-light-section, .source-section { padding: 4rem 0; } .phone-light-actions .btn-primary, .phone-light-actions .btn-ghost { width: 100%; } }
+  @media (max-width: 900px) { .phone-light-inner, .faq-grid { grid-template-columns: 1fr; } .phone-light-actions { justify-self: start; } }
+  @media (max-width: 640px) { .table-section, .faq-section, .phone-light-section, .source-section { padding: 4rem 0; } .phone-light-actions .btn-primary, .phone-light-actions .btn-ghost { width: 100%; } }
 </style>
