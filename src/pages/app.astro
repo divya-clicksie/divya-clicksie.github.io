@@ -3,24 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import AttentionLine from '../components/AttentionLine.astro';
+import AppCarousel from '../components/AppCarousel.astro';
 import { free, plus } from '../data/appFeatureComparison';
 
 const title = 'Free Baby Tracker App for iPhone and Android | Nubo';
 const description = 'Download the free Nubo baby tracker app for iPhone and Android. Log feeds, sleep, diapers, voice catch-up, and caregiver sync with no ads.';
 const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
 const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
-
-const screenshots = [
-  ['Free, unlimited quick logging', '/images/appscreens/01_onetouch.webp', 'Nubo app screenshot showing colorful quick-log cards for sleep, nursing, formula, milk, and diaper'],
-  ['Voice catch-up', '/images/appscreens/02_voicelogging.webp', 'Nubo app screenshot showing voice logging for catching up on missed baby events'],
-  ['Caregiver timeline', '/images/appscreens/03_collaboration.webp', 'Nubo app screenshot showing caregiver collaboration and shared baby timeline'],
-  ['Live Activities', '/images/appscreens/04_liveactivities.webp', 'Nubo app screenshot showing Live Activities for active baby care'],
-  ['Growth charts', '/images/appscreens/05_growth.webp', 'Nubo app screenshot showing baby growth charts'],
-  ['Midnight Ember', '/images/appscreens/06_midnightember.webp', 'Nubo app screenshot showing Midnight Ember night mode'],
-  ['Privacy controls', '/images/appscreens/07_privacy.webp', 'Nubo app screenshot showing privacy controls and sharing settings'],
-  ['Voice notes', '/images/appscreens/08_voicenotes.webp', 'Nubo app screenshot showing voice notes for baby care details'],
-  ['Allergen SafeStart', '/images/appscreens/09_allergensafestart.webp', 'Nubo app screenshot showing allergen introduction tracking']
-];
 
 const featureRows = [
   ...free.map((feature) => ({
@@ -114,24 +103,7 @@ const jsonLd = [
             <a href={playStoreURL} target="_blank" rel="noopener noreferrer"><img src="/images/playstore-badge.webp" alt="Get it on Google Play" width="160" height="56" /></a>
           </div>
         </div>
-        <div class="app-carousel" data-app-carousel aria-roledescription="carousel" aria-label="Nubo app screenshots">
-          <div class="app-carousel-stage">
-            {screenshots.map(([label, src, alt], index) => (
-              <figure class:list={['app-slide', { 'is-active': index === 0 }]} data-app-slide hidden={index !== 0}>
-                <img src={src} alt={alt} width="642" height="1389" loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
-              </figure>
-            ))}
-          </div>
-          <div class="app-carousel-controls" aria-label="App screenshot controls">
-            <button type="button" class="app-carousel-btn" data-app-prev aria-label="Previous app screenshot"></button>
-            <div class="app-carousel-dots" role="tablist" aria-label="Choose app screenshot">
-              {screenshots.map(([label], index) => (
-                <button type="button" class:list={['app-carousel-dot', { 'is-active': index === 0 }]} data-app-dot={index} role="tab" aria-selected={index === 0 ? 'true' : 'false'} aria-label={`Show ${label}`}></button>
-              ))}
-            </div>
-            <button type="button" class="app-carousel-btn" data-app-next aria-label="Next app screenshot"></button>
-          </div>
-        </div>
+        <AppCarousel />
       </div>
     </section>
 
@@ -216,68 +188,6 @@ const jsonLd = [
   <Footer />
 </BaseLayout>
 
-<script>
-  const carousel = document.querySelector('[data-app-carousel]');
-
-  if (carousel) {
-    const slides = Array.from(carousel.querySelectorAll('[data-app-slide]'));
-    const dots = Array.from(carousel.querySelectorAll('[data-app-dot]'));
-    const prev = carousel.querySelector('[data-app-prev]');
-    const next = carousel.querySelector('[data-app-next]');
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let activeIndex = 0;
-    let rotation;
-
-    const showSlide = (nextIndex) => {
-      activeIndex = (nextIndex + slides.length) % slides.length;
-
-      slides.forEach((slide, index) => {
-        const active = index === activeIndex;
-        slide.hidden = !active;
-        slide.classList.toggle('is-active', active);
-      });
-
-      dots.forEach((dot, index) => {
-        const active = index === activeIndex;
-        dot.classList.toggle('is-active', active);
-        dot.setAttribute('aria-selected', active ? 'true' : 'false');
-      });
-    };
-
-    const stopRotation = () => {
-      if (rotation) window.clearInterval(rotation);
-      rotation = undefined;
-    };
-
-    const startRotation = () => {
-      if (prefersReducedMotion || rotation) return;
-      rotation = window.setInterval(() => showSlide(activeIndex + 1), 4500);
-    };
-
-    prev?.addEventListener('click', () => {
-      stopRotation();
-      showSlide(activeIndex - 1);
-    });
-
-    next?.addEventListener('click', () => {
-      stopRotation();
-      showSlide(activeIndex + 1);
-    });
-
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        stopRotation();
-        showSlide(index);
-      });
-    });
-
-    carousel.addEventListener('mouseenter', stopRotation);
-    carousel.addEventListener('focusin', stopRotation);
-    carousel.addEventListener('mouseleave', startRotation);
-    startRotation();
-  }
-</script>
-
 <style>
   .app-hero { padding: 10rem 0 5rem; background: var(--color-bg-ivory); overflow: hidden; }
   .app-hero-inner { display: grid; grid-template-columns: 1fr 0.75fr; gap: 4rem; align-items: center; }
@@ -287,21 +197,6 @@ const jsonLd = [
   .hero-store-links { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; margin-top: 2rem; }
   .hero-store-links img { height: 52px; width: auto; border-radius: 0; box-shadow: none; }
   .hero-trust { margin-top: 1rem; font-weight: 800; color: var(--color-brand-dark) !important; }
-  .app-carousel { justify-self: center; width: min(100%, 360px); }
-  .app-carousel-stage { position: relative; display: grid; place-items: center; min-height: 620px; }
-  .app-carousel-stage::before { content: ""; position: absolute; inset: 3% 0; z-index: 0; border-radius: 46% 46% 38% 38%; background: var(--color-bg-peach); }
-  .app-slide { position: relative; z-index: 1; }
-  .app-slide { margin: 0; text-align: center; }
-  .app-slide img { display: block; max-height: 620px; width: auto; max-width: 100%; border-radius: 30px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.14); }
-  .app-carousel-controls { display: grid; grid-template-columns: 2.25rem 1fr 2.25rem; align-items: center; gap: 0.75rem; margin-top: 1rem; }
-  .app-carousel-btn { position: relative; width: 2.25rem; height: 2.25rem; border: 1px solid rgba(61, 179, 173, 0.28); border-radius: 999px; background: #fff; color: var(--color-brand-dark); cursor: pointer; }
-  .app-carousel-btn::before { content: ""; position: absolute; top: 50%; left: 50%; width: 0.5rem; height: 0.5rem; border-top: 2px solid currentColor; border-right: 2px solid currentColor; }
-  .app-carousel-btn[data-app-prev]::before { transform: translate(-42%, -50%) rotate(225deg); }
-  .app-carousel-btn[data-app-next]::before { transform: translate(-58%, -50%) rotate(45deg); }
-  .app-carousel-dots { display: flex; align-items: center; justify-content: center; gap: 0.45rem; }
-  .app-carousel-dot { width: 0.55rem; height: 0.55rem; border: 0; border-radius: 999px; background: #c9e9ea; cursor: pointer; }
-  .app-carousel-dot.is-active { width: 1.4rem; background: var(--color-brand); }
-
   :global(.app-hero + .attention-line) { padding-top: 0; padding-bottom: 3.5rem; background: var(--color-bg-ivory); }
 
   .feature-table-section, .faq-section, .proof-section { padding: 5rem 0; }
@@ -353,9 +248,6 @@ const jsonLd = [
     .feature-table tbody td { width: 21%; }
     .feature-mark { width: 1.45rem; height: 1.45rem; }
     .app-faq-grid { grid-template-columns: 1fr; }
-    .app-carousel { width: min(100%, 300px); }
-    .app-carousel-stage { min-height: 520px; }
-    .app-slide img { max-height: 480px; }
     .hero-store-links img { height: 46px; }
     .store-links a, .store-links img { width: 100%; height: auto; }
   }

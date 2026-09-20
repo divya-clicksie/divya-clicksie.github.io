@@ -21,6 +21,7 @@ export const free = [
 ];
 
 export const plus = [
+  'Personalized Insights',
   'Care Vault for standing handoff details',
   'Allergen SafeStart for guided allergen introduction',
   'Private pumping and milk collection tracker',
