@@ -12,7 +12,7 @@ const { compact = false } = Astro.props;
   <div class="app-carousel-stage">
     {appScreenshots.map(([label, src, alt], index) => (
       <figure class:list={['app-slide', { 'is-active': index === 0 }]} data-app-slide hidden={index !== 0}>
-        <img src={src} alt={alt} width="642" height="1389" loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
+        <img src={src} alt={alt} width="642" height="1389" loading={compact || index === 0 ? 'eager' : 'lazy'} fetchpriority={index === 0 ? 'auto' : 'low'} decoding="async" />
       </figure>
     ))}
   </div>
@@ -108,9 +108,10 @@ const { compact = false } = Astro.props;
   .app-carousel-dot.is-active { width: 1.4rem; background: var(--color-brand); }
   .app-carousel-btn:focus-visible, .app-carousel-dot:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 3px; }
   .app-carousel-compact { width: clamp(130px, 30%, 190px); }
-  .app-carousel-compact .app-carousel-stage { min-height: 0; }
+  .app-carousel-compact .app-carousel-stage { min-height: 0; aspect-ratio: 642 / 1389; }
   .app-carousel-compact .app-carousel-stage::before { display: none; }
-  .app-carousel-compact .app-slide img { width: 100%; max-height: none; border-radius: 13px; box-shadow: 0 14px 32px rgba(27, 72, 76, 0.22); }
+  .app-carousel-compact .app-slide { position: absolute; inset: 0; }
+  .app-carousel-compact .app-slide img { width: 100%; height: 100%; max-height: none; border-radius: 13px; box-shadow: 0 14px 32px rgba(27, 72, 76, 0.22); }
   .app-carousel-compact .app-carousel-controls { grid-template-columns: 1.75rem 1fr 1.75rem; gap: 0.3rem; margin-top: 0.5rem; }
   .app-carousel-compact .app-carousel-btn { width: 1.75rem; height: 1.75rem; }
   .app-carousel-compact .app-carousel-dots { gap: 0.24rem; }
