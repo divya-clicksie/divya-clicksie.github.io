@@ -29,7 +29,7 @@ Nubo is not a single product. It is three input surfaces that feed into one unif
 - Multi-caregiver sync (nanny, grandparents, partner all see the same data)
 - Privacy-first: local-first architecture, end-to-end encrypted sync, no server-side data access
 - Works in the dark, one-handed, at 3am (device); eyes-free from across the room (Alexa)
-- Nubo App is a full-featured tracker on its own, not just a device companion (smart averages, Fenton charts, Midnight Ember, vaccine tracking, CDC milestones, Live Activities)
+- Nubo App is a full-featured tracker on its own, with smart averages, Fenton charts, vaccine tracking, and CDC milestones. Nubo Plus adds Live Activities on iPhone and Midnight Ember.
 - Coin cell battery — months of life, no charging anxiety
 
 ---
@@ -104,7 +104,7 @@ Once the reader understands the category comparison, the Nubo ecosystem is the p
 | Reading level | Grade 8. No jargon unless defined. |
 | Perspective | Always validate the parent's exhaustion first, then offer practical help. |
 | Three ways thread | Every post acknowledges that parents track with paper, apps, or a physical device. Be honest about all three. Nubo is the third option the reader may not know about yet. See each post's `Three ways angle` for dosage. |
-| Nubo mentions | Include 1-2 natural product mentions per post. Never promotional. Always in context of solving a real problem. Nubo appears as the "third way" reveal, not the only way. When mentioning the app, highlight a specific feature advantage (not generic praise). When the scenario fits, mention the Alexa skill as a bonus input surface. Do not mention free/premium tiers, subscriptions, or pricing access in blog posts. |
+| Nubo mentions | Include 1-2 natural product mentions per post. Never promotional. Always in context of solving a real problem. Nubo appears as the "third way" reveal, not the only way. When mentioning the app, highlight a specific feature advantage (not generic praise). When the scenario fits, mention the Alexa skill as a bonus input surface. Avoid tier and subscription detail in general parenting posts. Pricing-intent and product comparison posts may discuss it when accurate and necessary. |
 | CTA style | Soft, at the end. E.g. "If you want to remove one more thing from your mental load at 3am, Nubo was built exactly for this." |
 | Avoid | Scare tactics, guilt, prescriptive "you must" language, excessive hedging, dismissing paper or app methods |
 | Headings | H2 for main sections, H3 for sub-sections. All sentence case. |
@@ -144,7 +144,7 @@ Create these once and reuse across multiple posts:
 |-------|-------------|---------|
 | **Nubo device product photo** | Clean product shot of the device | POST-006, 008, 009, 016, 020, 027 |
 | **Nubo ecosystem diagram** | Device + App + Alexa feeding into one data layer | POST-003, 009, 020, 027 |
-| **Live Activities lock screen** | Sleep/nursing timer on lock screen with L/R switch | POST-007, 008, 019, 027 |
+| **Live Activities lock screen** | Sleep/nursing timers plus recent feed and diaper details from the shared timeline | POST-007, 008, 019, 027, caregiver handoff spotlight |
 | **Midnight Ember screenshot** | Full app in night mode, amber/red palette | POST-001, 007, 008, 021 |
 | **Shared caregiver timeline** | App timeline showing events from different caregivers | POST-006, 010, 014 |
 | **Smart Averages daily view** | Feeding summary with accurate daily totals | POST-002, 013, 023 |
@@ -167,7 +167,7 @@ The Nubo App is a full-featured baby tracker on its own, not merely a device com
 | **Vaccine tracker** | 88 WHO standard vaccines + custom entries. Timeline history, per-vaccine notes, caregiver sync. | No more losing the paper immunization card. Searchable, shareable, always with you. | POST-013, POST-025 |
 | **Guided Allergen Introduction** | Guided introduction of FALCPA Top 9 allergens. Structured checklist, wait-window countdown (configurable 1-5 days), reaction logging (None/Mild/Moderate/Severe/Unsure), progress tracking (X/9 introduced), auto-reminders when wait window clears. | The 3-day gap between new allergens is the #1 thing parents lose track of. A live countdown is real-time state a notebook can't provide. Multi-caregiver visibility avoids "did you already give him peanut butter?" confusion. | POST-013, POST-028 |
 | **What To Expect** | In-app, age-specific guidance that unlocks as the baby grows. Pulls from peer-reviewed and institutional sources (AAP, WHO, La Leche League) for feeding, sleep, diapers, growth, and development. Parents can opt in to reminders when new guidance becomes relevant. | Parents do not need a book chapter or a forum rabbit hole at 3am. They need the right normal range for the exact age they are living through right now. | bonus post, POST-002, POST-007, POST-015, POST-017, POST-027 |
-| **Live Activities** | Sleep and nursing timers on the lock screen and Dynamic Island. One-tap side switch (L/R) for nursing. Stop button without unlocking. | You start a sleep timer and walk away. The elapsed time is always visible without opening the app. | POST-007, POST-008, POST-019, POST-027 |
+| **Live Activities** | Nubo Plus on iPhone: sleep and nursing timers on the Lock Screen and Dynamic Island, plus recent feed and diaper details. The view updates after another caregiver's log or device event reaches the shared timeline. One-tap side switch (L/R) for nursing and a stop button without unlocking. | A parent can check the last feed or diaper before taking over care, even when someone else logged it. The quick view reduces handoff questions and the need to reconstruct the day. | POST-007, POST-008, POST-019, POST-027, caregiver handoff spotlight |
 | **Auto-Reminders** | Rule-based reminders that reschedule from the last event. Auto-cancel on early events. Quiet hours. | "Remind me 3 hours after the last bottle" works even when the schedule shifts. | POST-002, POST-012, POST-027 |
 | **Alexa voice logging** | Natural language: "Alexa, tell Newborn Tracker that Emma had 4 ounces 20 minutes ago." Relative and absolute times. | Both hands occupied, phone across the room. Voice is the only option. | POST-005, POST-006, POST-010, POST-014, POST-027 |
 | **Privacy architecture** | Local-first SQLite, E2E encrypted caregiver sync (AES/CBC per-child key), encrypted iCloud backup, server never reads event data. | Your baby's health data isn't training someone else's AI. | POST-011, POST-020, POST-026 |
@@ -1534,6 +1534,7 @@ These are natural minis (500-700 words). Interleave between full posts for publi
 - **What To Expect: age-specific guidance that comes to you** - Feature spotlight on Nubo's in-app guidance layer. Show why a parent of a 5-day-old needs different reassurance than a parent of a 6-week-old, then use day-5 and week-6 examples to make the narrow relevance window feel concrete. Pillar: Product. Links to: POST-002, POST-007, POST-015, POST-017, POST-027. Images: day-5 guidance card, week-6 guidance card, unlock reminder card. Sources: AAP, WHO, La Leche League. Angle: Nubo as a logging tool plus age-specific guidance companion.
 - **The quick action card: designed for the 4-second interaction** — Deep-dive into the home screen: taps-to-log, live timers, contextual summaries. Pillar: Product. Links to: POST-024. Images: quick action card screenshot with annotation overlays.
 - **How Nubo syncs over Bluetooth: the buttons, the range, and the caregiver hub** — High-level explainer of how button presses queue, sync over BLE, and reach every caregiver's phone. Covers all nine buttons with multi-click behaviors (formula/pumped volume, nursing L/R auto-stop), real-world Bluetooth range (20-40 ft), and why pairing every caregiver's phone creates the fastest opportunistic sync. Pillar: Product. Tier: Medium (~1,000 words). Links to: POST-026, POST-027, best-baby-tracker-for-nanny-grandparents. Images: caregiver-hub.webp.
+- **Baby care at a glance, even when someone else logs it**: DONE 2026-09-20. Caregiver spotlight on last-feed and last-diaper answers from iPhone Live Activities after another caregiver or device event reaches the shared timeline. Filed as `src/content/blog/baby-care-at-a-glance-shared-live-activity.mdx`.
 
 ---
 
@@ -1632,6 +1633,12 @@ status: "draft | review | published"
 [2026-06-21] BONUS — DONE — Exclusive pumping opportunity implementation. Added /exclusive-pumping/ landing page, updated homepage/app/pricing/caregiver/privacy/FAQ/resources/footer copy, retargeted pumping privacy article around private pumping and exclusive pumping, and filed five EP cluster posts: src/content/blog/exclusive-pumping-tracker.mdx, src/content/blog/exclusive-pumping-newborn-schedule-tracking.mdx, src/content/blog/pumped-milk-bottle-log.mdx, src/content/blog/exclusive-pumping-caregiver-handoff.mdx, and src/content/blog/exclusive-pumping-return-to-work.mdx. Citations: CDC expressed milk storage and workplace pumping guidance, HealthyChildren.org expressed milk storage guidance, La Leche League exclusive expressing and pumping guidance, Kent et al. (Pediatrics, 2006; PMID 16510619). Three-ways angle: Light to Medium by post. Product boundary: baby intake is shared, pumping output is private, freezer stash tracking is not claimed.
 
 [2026-06-21] BONUS — REVISED — EP content cluster reduced after editorial review. Removed the redundant pumped milk bottle log and held the extra newborn-schedule and caregiver-handoff EP posts out of the published blog. Kept only two EP articles: src/content/blog/exclusive-pumping-tracker.mdx as the hub and src/content/blog/exclusive-pumping-return-to-work.mdx as the distinct work/caregiver use case. Backdated the kept posts so /blog/ opens with a non-EP article instead of an EP title.
+
+[2026-09-20] BONUS: DRAFTED. Added src/content/blog/free-nara-baby-alternative.mdx for Nara-specific comparison intent. Nara pricing, caregiver access, and CSV export were checked against Nara's FAQ. The post does not promise a direct import into Nubo. Build and browser review: pass.
+
+[2026-09-20] BONUS: REVISED. Updated src/content/blog/free-baby-tracker-no-paywalls.mdx for baby-tracker-without-subscription intent, kept its indexed URL, and clarified the 7-day Preview versus a subscription trial. Updated pricing and terms copy to match. Build and browser review: pass.
+
+[2026-09-20] BONUS: DONE. Added src/content/blog/baby-care-at-a-glance-shared-live-activity.mdx for caregiver handoffs and Nubo Plus Live Activities on iPhone. Updated app, pricing, caregiver, and related blog copy to describe recent feed and diaper details from the shared timeline after caregiver or device sync. No clinical claims or external citations. Build and browser review: pass.
 
 ---
 

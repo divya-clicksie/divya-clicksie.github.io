@@ -14,7 +14,6 @@ export const free = [
   'Offline in-app voice logging',
   'In-app AI for note-tagging',
   'Child-specific What To Expect guide',
-  'Live Activities (iOS)',
   'Dark mode',
   'No ads or selling baby data',
   'Works with Nubo screen-free tracker'
@@ -22,6 +21,7 @@ export const free = [
 
 export const plus = [
   'Personalized Insights',
+  'Live Activities for timers and recent caregiver updates (iOS)',
   'Care Vault for standing handoff details',
   'Allergen SafeStart for guided allergen introduction',
   'Private pumping and milk collection tracker',
