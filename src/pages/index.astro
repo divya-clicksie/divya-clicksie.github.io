@@ -96,7 +96,7 @@ const jsonLd = {
               sizes="(max-width: 768px) 80vw, (max-width: 1100px) 46vw, 540px"
               alt="Mother holding her sleeping newborn"
               width="1500"
-              height="1254"
+              height="1255"
               loading="eager"
               fetchpriority="high"
               decoding="async"
@@ -189,7 +189,7 @@ const jsonLd = {
       <div class="container">
         <div class="section-intro reveal">
           <p class="overline">Nubo for Everyone</p>
-          <h2>Baby tracker for caregivers.<br/>Always free.</h2>
+          <h2>Baby tracker for caregivers.<br/><span class="section-accent">Always free.</span></h2>
           <p class="section-sub">Invite a partner, grandparent, nanny, or family helper with a QR code. Everyone sees the same encrypted timeline across iOS and Android.</p>
         </div>
 
@@ -624,6 +624,10 @@ const jsonLd = {
 
   .caregivers h2 {
     font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .section-accent {
+    color: var(--color-brand);
   }
 
   .caregivers-banner {
