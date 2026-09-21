@@ -92,7 +92,7 @@ const { compact = false } = Astro.props;
 </script>
 
 <style>
-  .app-carousel { justify-self: center; width: min(100%, 360px); }
+  .app-carousel { justify-self: center; width: min(100%, 360px); margin-inline: auto; }
   .app-carousel-stage { position: relative; display: grid; place-items: center; min-height: 620px; }
   .app-carousel-stage::before { content: ""; position: absolute; inset: 3% 0; z-index: 0; border-radius: 46% 46% 38% 38%; background: var(--color-bg-peach); }
   .app-slide { position: relative; z-index: 1; margin: 0; text-align: center; }

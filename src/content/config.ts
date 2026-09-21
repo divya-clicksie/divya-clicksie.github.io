@@ -25,6 +25,7 @@ const blog = defineCollection({
     author: z.string().default('Nubo Team'),
     category: z.enum(['sleep', 'feeding', 'tracking', 'caregiver', 'privacy', 'product', 'gifts']),
     primaryKeyword: z.string(),
+    hideNextStep: z.boolean().optional(),
     heroImage: z.string().optional(),
     ogImage: z.string().optional(),
     excerpt: z.string().optional(),

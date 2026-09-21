@@ -4,31 +4,12 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import AttentionLine from '../components/AttentionLine.astro';
 import AppCarousel from '../components/AppCarousel.astro';
-import { free, plus } from '../data/appFeatureComparison';
+import AppFeatureComparison from '../components/AppFeatureComparison.astro';
 
 const title = 'Free Baby Tracker App for iPhone and Android | Nubo';
 const description = 'Download the free Nubo baby tracker app for iPhone and Android. Log feeds, sleep, diapers, voice catch-up, and caregiver sync with no ads.';
 const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
 const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
-
-const featureRows = [
-  ...free.map((feature) => ({
-    feature,
-    free: 'included',
-    plus: 'included'
-  })),
-  ...plus.map((feature) => ({
-    feature,
-    free: 'unavailable',
-    plus: 'included'
-  }))
-];
-
-const statusLabels = {
-  included: 'Included',
-  readonly: 'Read only without Nubo Plus',
-  unavailable: 'Not available'
-};
 
 const faqItems = [
   {
@@ -127,64 +108,9 @@ const jsonLd = [
       </div>
     </section>
 
-    <section class="feature-table-section" aria-labelledby="feature-table-title">
-      <div class="container">
-        <div class="section-intro">
-          <p class="overline">Free app vs Nubo Plus</p>
-          <h2 id="feature-table-title">See what is included before you download.</h2>
-          <p class="section-sub">Start free, then add Nubo Plus only when your routine needs it.</p>
-        </div>
-        <div class="feature-table-wrap">
-          <table class="feature-table">
-            <caption>Free app and Nubo Plus feature availability</caption>
-            <colgroup>
-              <col class="feature-name-col" />
-              <col class="feature-status-col" />
-              <col class="feature-status-col" />
-            </colgroup>
-            <thead>
-              <tr>
-                <th scope="col">Feature name</th>
-                <th scope="col">Nubo Free</th>
-                <th scope="col">Nubo Plus</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="feature-table-intro">
-                <th scope="row" colspan="3">
-                  <div class="feature-table-intro-grid">
-                    <span>Built for</span>
-                    <strong>Fast logging · Shared care · Everyday tracking</strong>
-                    <strong>More convenience · More insight · More control</strong>
-                  </div>
-                </th>
-              </tr>
-              {featureRows.map((row) => (
-                <tr>
-                  <th scope="row">{row.feature}</th>
-                  <td>
-                    {row.free === 'unavailable' ? (
-                      <span class="feature-mark feature-mark-unavailable" aria-label={statusLabels.unavailable}>
-                        <span aria-hidden="true">X</span>
-                      </span>
-                    ) : (
-                      <span class:list={['feature-mark', row.free === 'readonly' ? 'feature-mark-readonly' : 'feature-mark-included']} aria-label={statusLabels[row.free]}>
-                        <span aria-hidden="true">✓</span>
-                      </span>
-                    )}
-                  </td>
-                  <td>
-                    <span class="feature-mark feature-mark-included" aria-label={statusLabels[row.plus]}>
-                      <span aria-hidden="true">✓</span>
-                    </span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
+    <div class="feature-table-section container">
+      <AppFeatureComparison />
+    </div>
 
     <section class="proof-section" id="app-downloads">
       <div class="container">
@@ -234,25 +160,6 @@ const jsonLd = [
 
   .feature-table-section, .faq-section, .proof-section { padding: 5rem 0; }
   .feature-table-section { background: #fff; }
-  .feature-table-wrap { overflow-x: auto; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); background: #fff; box-shadow: 0 16px 38px rgba(31, 41, 55, 0.06); }
-  .feature-table { width: 100%; min-width: 720px; border-collapse: collapse; }
-  .feature-name-col { width: 64%; }
-  .feature-status-col { width: 18%; }
-  .feature-table caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
-  .feature-table th, .feature-table td { padding: 1rem 1.25rem; border-bottom: 1px solid #ececec; vertical-align: middle; }
-  .feature-table thead th { background: var(--color-bg-soft); color: var(--color-text); font-size: 0.84rem; font-weight: 800; line-height: 1.2; text-align: center; text-transform: uppercase; letter-spacing: 0.04em; }
-  .feature-table thead th:first-child { text-align: left; }
-  .feature-table tbody th { width: 64%; min-width: 360px; color: var(--color-text); font-size: 1rem; font-weight: 700; line-height: 1.45; text-align: left; overflow-wrap: anywhere; }
-  .feature-table tbody td { width: 18%; text-align: center; }
-  .feature-table-intro th { width: 100% !important; min-width: 0 !important; padding: 0 !important; }
-  .feature-table-intro-grid { display: grid; grid-template-columns: 64% 18% 18%; align-items: center; }
-  .feature-table-intro-grid > * { padding: 1rem 1.25rem; }
-  .feature-table-intro-grid strong { text-align: center; }
-  .feature-table tbody tr:last-child th, .feature-table tbody tr:last-child td { border-bottom: 0; }
-  .feature-mark { display: inline-grid; width: 1.75rem; height: 1.75rem; place-items: center; border-radius: 999px; font-weight: 900; line-height: 1; }
-  .feature-mark-included { background: rgba(61, 179, 173, 0.16); color: var(--color-brand-dark); }
-  .feature-mark-readonly { border: 1px solid #d5d5d5; background: #f1f1f1; color: #858585; }
-  .feature-mark-unavailable { border: 1px solid #d5d5d5; background: #f7f7f7; color: #8d8d8d; }
 
   .proof-section { scroll-margin-top: 1rem; }
   .proof-section, .faq-section { background: var(--color-bg-soft); }
@@ -280,19 +187,6 @@ const jsonLd = [
     .live-activity-grid { grid-template-columns: 1fr; }
     .live-activity-grid img { max-width: 300px; justify-self: center; }
     .feature-table-section, .faq-section, .proof-section { padding: 4rem 0; }
-    .feature-table { min-width: 0; table-layout: fixed; }
-    .feature-name-col { width: 58%; }
-    .feature-status-col { width: 21%; }
-    .feature-table th, .feature-table td { padding: 0.8rem 0.5rem; }
-    .feature-table thead th { font-size: 0.7rem; letter-spacing: 0.03em; }
-    .feature-table tbody th { width: 58%; min-width: 0; font-size: 0.86rem; line-height: 1.35; }
-    .feature-table tbody td { width: 21%; }
-    .feature-table-intro-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .feature-table-intro-grid > * { padding: 0.75rem 0.8rem; }
-    .feature-table-intro-grid span { grid-column: 1 / -1; background: var(--color-bg-soft); }
-    .feature-table-intro-grid strong { font-size: 0.85rem; line-height: 1.4; }
-    .feature-table-intro-grid strong:first-of-type { border-right: 1px solid #ececec; }
-    .feature-mark { width: 1.45rem; height: 1.45rem; }
     .app-faq-grid { grid-template-columns: 1fr; }
     .hero-store-links img { height: 46px; }
     .store-links a, .store-links img { width: 100%; height: auto; }

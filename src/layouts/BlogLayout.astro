@@ -10,6 +10,7 @@ interface Props {
   dateModified: string;
   author: string;
   category: string;
+  hideNextStep?: boolean;
   heroImage?: string;
   ogImage?: string;
   tags?: string[];
@@ -22,6 +23,7 @@ const {
   dateModified,
   author,
   category,
+  hideNextStep = false,
   heroImage,
   ogImage,
   tags = [],
@@ -138,12 +140,14 @@ const jsonLd = {
         <div class="prose">
           <slot />
         </div>
-        <aside class="article-next-step" aria-label="Recommended next step">
-          <p class="article-next-step-eyebrow">{nextStep.eyebrow}</p>
-          <h2>{nextStep.title}</h2>
-          <p>{nextStep.copy}</p>
-          <a href={nextStep.href}>{nextStep.cta}</a>
-        </aside>
+        {!hideNextStep && (
+          <aside class="article-next-step" aria-label="Recommended next step">
+            <p class="article-next-step-eyebrow">{nextStep.eyebrow}</p>
+            <h2>{nextStep.title}</h2>
+            <p>{nextStep.copy}</p>
+            <a href={nextStep.href}>{nextStep.cta}</a>
+          </aside>
+        )}
         <aside class="article-brand-line" aria-label="Why Nubo">
           <p class="article-brand-line-lead">Not more screen time. Better caregiving coordination.</p>
           <p class="article-brand-line-support">Nubo is built for the kind of tracking pediatric guidance can live with: private, minimal, shared, and designed to keep attention on the baby.</p>

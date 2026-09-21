@@ -1640,6 +1640,10 @@ status: "draft | review | published"
 
 [2026-09-20] BONUS: DONE. Added src/content/blog/baby-care-at-a-glance-shared-live-activity.mdx for caregiver handoffs and Nubo Plus Live Activities on iPhone. Updated app, pricing, caregiver, and related blog copy to describe recent feed and diaper details from the shared timeline after caregiver or device sync. No clinical claims or external citations. Build and browser review: pass.
 
+[2026-09-20] BONUS: REVISED. Reduced src/content/blog/free-nara-baby-alternative.mdx to a search-intent page for Nubo's free app. Removed Nara pricing, comparison, and migration guidance. Added the Nubo App carousel and direct app-page CTA. Build and browser review: pass.
+
+[2026-09-20] BONUS: DONE. Added free-alternative search-intent pages for Huckleberry and Baby Tracker by Nighp. These pages, and the existing Nara page, show the Nubo App carousel and the free-versus-Plus feature table. Removed the pricing-oriented blog sidebar from all three pages. Build and browser review: pass.
+
 ---
 
 ## Summary Tracker

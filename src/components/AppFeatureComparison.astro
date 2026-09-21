@@ -1,0 +1,115 @@
+---
+import { free, plus } from '../data/appFeatureComparison';
+
+interface Props {
+  heading?: string;
+  intro?: string;
+}
+
+const {
+  heading = 'See what is included before you download.',
+  intro = 'Start free, then add Nubo Plus only when your routine needs it.',
+} = Astro.props;
+
+const featureRows = [
+  ...free.map((feature) => ({ feature, free: 'included', plus: 'included' })),
+  ...plus.map((feature) => ({ feature, free: 'unavailable', plus: 'included' })),
+];
+
+const statusLabels = {
+  included: 'Included',
+  unavailable: 'Not available',
+};
+---
+
+<section class="app-feature-comparison" aria-labelledby="app-feature-comparison-title">
+  <div class="section-intro">
+    <p class="overline">Free app vs Nubo Plus</p>
+    <h2 id="app-feature-comparison-title">{heading}</h2>
+    <p class="section-sub">{intro}</p>
+  </div>
+  <div class="feature-table-wrap">
+    <table class="feature-table">
+      <caption>Free app and Nubo Plus feature availability</caption>
+      <colgroup>
+        <col class="feature-name-col" />
+        <col class="feature-status-col" />
+        <col class="feature-status-col" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">Feature name</th>
+          <th scope="col">Nubo Free</th>
+          <th scope="col">Nubo Plus</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="feature-table-intro">
+          <th scope="row" colspan="3">
+            <div class="feature-table-intro-grid">
+              <span>Built for</span>
+              <strong>Fast logging · Shared care · Everyday tracking</strong>
+              <strong>More convenience · More insight · More control</strong>
+            </div>
+          </th>
+        </tr>
+        {featureRows.map((row) => (
+          <tr>
+            <th scope="row">{row.feature}</th>
+            <td>
+              <span class:list={['feature-mark', row.free === 'included' ? 'feature-mark-included' : 'feature-mark-unavailable']} aria-label={statusLabels[row.free]}>
+                <span aria-hidden="true">{row.free === 'included' ? '✓' : 'X'}</span>
+              </span>
+            </td>
+            <td>
+              <span class="feature-mark feature-mark-included" aria-label={statusLabels.included}>
+                <span aria-hidden="true">✓</span>
+              </span>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<style>
+  .app-feature-comparison { margin: 3rem 0; }
+  .app-feature-comparison .section-intro { margin-bottom: 1.5rem; text-align: left; }
+  .app-feature-comparison .section-intro h2 { margin: 0.4rem 0 0.65rem; font-size: clamp(1.5rem, 3vw, 2rem); }
+  .app-feature-comparison .section-sub { margin: 0; color: var(--color-text-secondary); line-height: 1.7; }
+  .feature-table-wrap { overflow-x: auto; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); background: #fff; box-shadow: 0 16px 38px rgba(31, 41, 55, 0.06); }
+  .feature-table { width: 100%; min-width: 720px; border-collapse: collapse; }
+  .feature-name-col { width: 64%; }
+  .feature-status-col { width: 18%; }
+  .feature-table caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+  .feature-table th, .feature-table td { padding: 1rem 1.25rem; border-bottom: 1px solid #ececec; vertical-align: middle; }
+  .feature-table thead th { background: var(--color-bg-soft); color: var(--color-text); font-size: 0.84rem; font-weight: 800; line-height: 1.2; text-align: center; text-transform: uppercase; letter-spacing: 0.04em; }
+  .feature-table thead th:first-child { text-align: left; }
+  .feature-table tbody th { width: 64%; min-width: 360px; color: var(--color-text); font-size: 1rem; font-weight: 700; line-height: 1.45; text-align: left; overflow-wrap: anywhere; }
+  .feature-table tbody td { width: 18%; text-align: center; }
+  .feature-table-intro th { width: 100% !important; min-width: 0 !important; padding: 0 !important; }
+  .feature-table-intro-grid { display: grid; grid-template-columns: 64% 18% 18%; align-items: center; }
+  .feature-table-intro-grid > * { padding: 1rem 1.25rem; }
+  .feature-table-intro-grid strong { text-align: center; }
+  .feature-table tbody tr:last-child th, .feature-table tbody tr:last-child td { border-bottom: 0; }
+  .feature-mark { display: inline-grid; width: 1.75rem; height: 1.75rem; place-items: center; border-radius: 999px; font-weight: 900; line-height: 1; }
+  .feature-mark-included { background: rgba(61, 179, 173, 0.16); color: var(--color-brand-dark); }
+  .feature-mark-unavailable { border: 1px solid #d5d5d5; background: #f7f7f7; color: #8d8d8d; }
+
+  @media (max-width: 640px) {
+    .feature-table { min-width: 0; table-layout: fixed; }
+    .feature-name-col { width: 58%; }
+    .feature-status-col { width: 21%; }
+    .feature-table th, .feature-table td { padding: 0.8rem 0.5rem; }
+    .feature-table thead th { font-size: 0.7rem; letter-spacing: 0.03em; }
+    .feature-table tbody th { width: 58%; min-width: 0; font-size: 0.86rem; line-height: 1.35; }
+    .feature-table tbody td { width: 21%; }
+    .feature-table-intro-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .feature-table-intro-grid > * { padding: 0.75rem 0.8rem; }
+    .feature-table-intro-grid span { grid-column: 1 / -1; background: var(--color-bg-soft); }
+    .feature-table-intro-grid strong { font-size: 0.85rem; line-height: 1.4; }
+    .feature-table-intro-grid strong:first-of-type { border-right: 1px solid #ececec; }
+    .feature-mark { width: 1.45rem; height: 1.45rem; }
+  }
+</style>
