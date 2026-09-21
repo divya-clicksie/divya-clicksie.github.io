@@ -11,8 +11,8 @@ const { compact = false } = Astro.props;
 <div class:list={['app-carousel', { 'app-carousel-compact': compact }]} data-app-carousel aria-roledescription="carousel" aria-label="Nubo app screenshots">
   <div class="app-carousel-stage">
     {appScreenshots.map(([label, src, alt], index) => (
-      <figure class:list={['app-slide', { 'is-active': index === 0 }]} data-app-slide hidden={index !== 0}>
-        <img src={src} alt={alt} width="642" height="1389" loading={compact || index === 0 ? 'eager' : 'lazy'} fetchpriority={index === 0 ? 'auto' : 'low'} decoding="async" />
+      <figure class:list={['app-slide', { 'is-active': index === 0 }]} data-app-slide aria-hidden={index === 0 ? 'false' : 'true'}>
+        <img src={src} alt={alt} width="642" height="1389" loading="eager" fetchpriority={index === 0 ? 'high' : 'low'} decoding="async" />
       </figure>
     ))}
   </div>
@@ -42,8 +42,8 @@ const { compact = false } = Astro.props;
 
       slides.forEach((slide, index) => {
         const active = index === activeIndex;
-        slide.hidden = !active;
         slide.classList.toggle('is-active', active);
+        slide.setAttribute('aria-hidden', active ? 'false' : 'true');
       });
 
       dots.forEach((dot, index) => {
@@ -95,8 +95,8 @@ const { compact = false } = Astro.props;
   .app-carousel { justify-self: center; width: min(100%, 360px); margin-inline: auto; }
   .app-carousel-stage { position: relative; display: grid; place-items: center; min-height: 620px; }
   .app-carousel-stage::before { content: ""; position: absolute; inset: 3% 0; z-index: 0; border-radius: 46% 46% 38% 38%; background: var(--color-bg-peach); }
-  .app-slide { position: relative; z-index: 1; margin: 0; text-align: center; }
-  .app-slide[hidden] { display: none; }
+  .app-slide { position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; margin: 0; opacity: 0; text-align: center; pointer-events: none; transition: opacity 280ms ease-in-out; }
+  .app-slide.is-active { z-index: 2; opacity: 1; }
   .app-slide img { display: block; max-height: 620px; width: auto; max-width: 100%; border-radius: 30px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.14); }
   .app-carousel-controls { display: grid; grid-template-columns: 2.25rem 1fr 2.25rem; align-items: center; gap: 0.75rem; margin-top: 1rem; }
   .app-carousel-btn { position: relative; width: 2.25rem; height: 2.25rem; border: 1px solid rgba(61, 179, 173, 0.28); border-radius: 999px; background: #fff; color: var(--color-brand-dark); cursor: pointer; }
@@ -117,6 +117,10 @@ const { compact = false } = Astro.props;
   .app-carousel-compact .app-carousel-dots { gap: 0.24rem; }
   .app-carousel-compact .app-carousel-dot { width: 0.3rem; height: 0.3rem; }
   .app-carousel-compact .app-carousel-dot.is-active { width: 0.8rem; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .app-slide { transition: none; }
+  }
 
   @media (max-width: 640px) {
     .app-carousel:not(.app-carousel-compact) { width: min(100%, 300px); }
