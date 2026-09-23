@@ -1644,6 +1644,10 @@ status: "draft | review | published"
 
 [2026-09-20] BONUS: DONE. Added free-alternative search-intent pages for Huckleberry and Baby Tracker by Nighp. These pages, and the existing Nara page, show the Nubo App carousel and the free-versus-Plus feature table. Removed the pricing-oriented blog sidebar from all three pages. Build and browser review: pass.
 
+[2026-09-22] BONUS: REVISED. Reworked src/content/blog/free-nara-baby-alternative.mdx into a Nara-to-Nubo decision page. Added the new Nara import, clear Free/Plus/Nara recommendations, verified Nara pricing and feature tradeoffs, and direct app-store CTAs. Kept the indexed URL. Build and browser review: pass.
+
+[2026-09-22] BONUS: REVISED. Reworked src/content/blog/free-huckleberry-alternative.mdx and src/content/blog/free-nighp-baby-tracker-alternative.mdx into decision pages. Compared current free and paid features using official Huckleberry pages and Nighp's App Store listing, explained where each competitor remains a good fit, and added direct app-store CTAs. Kept both indexed URLs. Build and browser review: pass.
+
 ---
 
 ## Summary Tracker

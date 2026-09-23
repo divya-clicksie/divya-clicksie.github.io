@@ -33,6 +33,15 @@ const youtubeURL = 'https://www.youtube.com/@NuboBabyTracker';
         </div>
 
         <div class="footer-col">
+          <h3>Compare</h3>
+          <ul>
+            <li><a href="/blog/tracking/free-nara-baby-alternative/">vs Nara Baby</a></li>
+            <li><a href="/blog/tracking/free-huckleberry-alternative/">vs Huckleberry</a></li>
+            <li><a href="/blog/tracking/free-nighp-baby-tracker-alternative/">vs Nighp Baby Tracker</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
           <h3>Trust</h3>
           <ul>
             <li><a href="/caregivers/">Caregivers</a></li>
@@ -112,12 +121,12 @@ const youtubeURL = 'https://www.youtube.com/@NuboBabyTracker';
   .footer-top {
     display: flex;
     justify-content: space-between;
-    gap: 4rem;
+    gap: 2rem;
     padding-bottom: 3rem;
   }
 
   .footer-brand {
-    flex-shrink: 0;
+    flex: 0 0 180px;
   }
 
   .footer-logo {
@@ -138,9 +147,10 @@ const youtubeURL = 'https://www.youtube.com/@NuboBabyTracker';
   }
 
   .footer-columns {
-    display: flex;
-    gap: 2.5rem;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1rem;
+    flex: 1;
   }
 
   .footer-col h3 {
@@ -226,15 +236,25 @@ const youtubeURL = 'https://www.youtube.com/@NuboBabyTracker';
     color: #999;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .footer-top {
       flex-direction: column;
       gap: 2.5rem;
     }
 
+    .footer-brand {
+      flex-basis: auto;
+    }
+
     .footer-columns {
-      flex-direction: column;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 2rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer-columns {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 </style>
