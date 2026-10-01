@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const title = 'Privacy Policy | Nubo Baby Tracker';
-const description = 'Nubo is privacy-first. Your baby\'s data stays on your phone, not our servers. No account required. No data sold. Read our full privacy policy.';
+const description = 'Read how Nubo handles local tracking, encrypted caregiver sharing, private backups, and Nubo Care server processing with zero retention afterward.';
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -36,17 +36,18 @@ const jsonLd = {
 
     <section class="policy-content">
       <div class="container policy-inner">
-        <p class="policy-updated">Last updated: March 30, 2026</p>
+        <p class="policy-updated">Last updated: September 30, 2026</p>
 
         <div class="policy-summary">
           <h2>The short version</h2>
           <ul class="summary-list">
             <li>No account is required to use the Nubo device or app</li>
             <li>Activity data (feedings, sleep, diapers) is stored locally on your phone</li>
-            <li>We do not have access to your baby's tracking data</li>
+            <li>Ordinary caregiver sync uses encrypted data that Nubo cannot read</li>
+            <li>Nubo Care processes selected visit content on the server with zero retention after processing</li>
             <li>Caregiver sharing works across iOS and Android and uses end-to-end encryption</li>
             <li>Backups go to your own iCloud or Google Drive, not our servers</li>
-            <li>We never sell, rent, or share your personal information</li>
+            <li>We never sell or rent your personal information</li>
             <li>No third-party advertising or tracking SDKs in the app</li>
           </ul>
         </div>
@@ -71,7 +72,7 @@ const jsonLd = {
             <li>Transient encrypted activity data (shared between linked caregivers during syncing)</li>
           </ul>
           <p>
-            We do not collect your location, contacts, photos, or any other personal data beyond what is listed above.
+            We do not collect your location, contacts, or photos. Selected visit content for Nubo Care is processed as described below.
           </p>
 
           <h2>3. Where is data stored?</h2>
@@ -90,6 +91,11 @@ const jsonLd = {
             When you invite a caregiver, a secure sharing link is generated. Activity data shared between caregivers can sync across iOS and Android devices and is encrypted end-to-end. Nubo servers act only as a relay and cannot decrypt or access the content of shared data.
           </p>
 
+          <h2>Nubo Care</h2>
+          <p>Nubo Care is a Plus feature. When you choose to process a recorded visit, selected visit content is sent to the server to produce summaries, answers to your questions, and to-dos. Care processing has zero data retention after processing. This is separate from everyday in-app voice logging, which runs on your phone.</p>
+          <p>Visit records are stored on phones and backed up to users' private backups. Summaries, answers, to-dos, and other visit records sync to invited caregivers. Audio is available on the recording phone and is not synced to caregivers. Each answer extracted from a recording refers to its actual audio timestamps.</p>
+          <p>Recording is optional. Obtain permission from everyone participating and follow the clinic's policy. You can take notes instead. Processing providers are subject to the same zero-retention-after-processing requirement.</p>
+
           <h2>5. Analytics and tracking</h2>
           <p>
             The Nubo app does not include third-party advertising SDKs. We may collect anonymous,
@@ -104,7 +110,7 @@ const jsonLd = {
 
           <h2>6. Data retention and deletion</h2>
           <p>
-            You can delete all your data at any time from within the Nubo app. If you delete your account, all associated data (including backups on iCloud and Google Drive) is permanently removed from our systems within 30 days. 
+            You can delete records from within the Nubo app. Account information is removed from our systems within 30 days of account deletion. Private backup copies are stored in your own iCloud or Google Drive account; manage retained backups through your backup provider. Deleting a record does not remove copies you have exported or separately retained.
           </p>
 
           <h2>7. Children's privacy</h2>
@@ -120,10 +126,10 @@ const jsonLd = {
           </p>
           <ul>
             <li><strong>Apple iCloud / Google Drive</strong> for optional backup</li>
+            <li><strong>Nubo Care processing providers</strong> for requested visit processing, with zero data retention after processing</li>
           </ul>
           <p>
-            Each of these services is governed by its own privacy policy. Nubo does not share your
-            data with any other third parties.
+            Backup services are governed by their own privacy policies. Nubo Care sends selected visit content for requested processing under the zero-retention requirement described above.
           </p>
 
           <h2>9. Changes to this policy</h2>

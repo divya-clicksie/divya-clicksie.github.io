@@ -3,26 +3,29 @@ interface Props {
   ctaHref?: string;
   ctaLabel?: string;
   ctaExternal?: boolean;
+  photoHero?: boolean;
 }
 
 const {
   ctaHref = '/app/#app-downloads',
   ctaLabel = 'Download free app',
-  ctaExternal = false
+  ctaExternal = false,
+  photoHero = false
 } = Astro.props;
 
 const ctaAttrs = ctaExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {};
 ---
 
-<header class="site-header" id="site-header">
+<header class:list={['site-header', { 'photo-hero-header': photoHero }]} id="site-header">
   <div class="container header-inner">
     <a href="/" class="logo" aria-label="Nubo Baby Tracker Home">
       <img src="/images/nubo-logo.svg" alt="nubo" width="90" height="28" />
     </a>
 
     <nav class="nav-links" aria-label="Main navigation">
-      <a href="/device/">Device</a>
+      <a href="/care/">Doctor visits</a>
       <a href="/app/">App</a>
+      <a href="/device/">Device</a>
       <a href="/pricing/">Pricing</a>
       <a href="/compare/">Compare</a>
       <a href="/resources/">Resources</a>
@@ -41,8 +44,9 @@ const ctaAttrs = ctaExternal ? { target: '_blank', rel: 'noopener noreferrer' } 
 
   <div class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
     <nav class="mobile-nav-links">
-      <a href="/device/">Device</a>
+      <a href="/care/">Doctor visits</a>
       <a href="/app/">App</a>
+      <a href="/device/">Device</a>
       <a href="/pricing/">Pricing</a>
       <a href="/resources/">Resources</a>
       <a href="/faq/">FAQ</a>
@@ -73,6 +77,8 @@ const ctaAttrs = ctaExternal ? { target: '_blank', rel: 'noopener noreferrer' } 
     -webkit-backdrop-filter: blur(24px);
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
   }
+
+  .site-header.photo-hero-header { background: rgba(255, 250, 247, 0.96); }
 
   .header-inner {
     display: flex;
@@ -171,7 +177,7 @@ const ctaAttrs = ctaExternal ? { target: '_blank', rel: 'noopener noreferrer' } 
     display: none;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .nav-links { display: none; }
     .header-cta { display: none; }
     .header-inner { height: 60px; }

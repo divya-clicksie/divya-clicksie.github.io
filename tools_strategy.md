@@ -1,23 +1,23 @@
 # Nubo Tools Strategy and Execution Tracker
 
-> **IMPORTANT:** This document is the single source of truth for Nubo's public calculators and practical tools. Read it in full before creating, changing, or retiring a tool. The public product position in [Why Nubo does not predict your baby](/blog/product/why-nubo-does-not-predict-your-baby/) takes precedence over search-volume opportunity.
+> **IMPORTANT:** This document is the single source of truth for Nubo's public website calculators and practical tools. Read it in full before creating, changing, or retiring a tool. Planned in-app feed and nap forecasts are a separate product feature with their own release review. See the internal [homepage redesign plan](homepage-benefit-redesign-plan.md) for the forecast principles.
 
 ---
 
 ## Purpose
 
-Nubo's tools should make the early months easier to understand and easier to coordinate. They can do transparent date or time arithmetic, show broad evidence-based reference ranges, and organize facts that a parent has entered. They must not predict a baby's behavior, turn normal variation into a score, or act as a medical advisor.
+Nubo's public website tools should make the early months easier to understand and easier to coordinate. They can do transparent date or time arithmetic, show broad evidence-based reference ranges, and organize facts that a parent has entered. The no-login tools in this backlog do not use a baby's private app history and therefore should not present personalized feed or nap forecasts. They must not turn normal variation into a score or act as a medical advisor.
 
 The program has two complementary goals:
 
 1. Give expecting and new parents a genuinely useful, no-login answer to a specific practical question.
-2. Show why a private, shared record of what actually happened is more useful than a confident prediction of what will happen next.
+2. Show why a private, shared record of what actually happened is valuable for caregiver coordination and, when the in-app feature is ready, flexible planning.
 
 The desired parent outcome is: "I understand the context, I can see what happened, and I know what to bring to the people helping care for my baby." It is not: "The website told me what my baby should do."
 
 ---
 
-## Nubo's non-prediction standard
+## Public website tool standard
 
 ### Tools may
 
@@ -30,7 +30,7 @@ The desired parent outcome is: "I understand the context, I can see what happene
 
 ### Tools may not
 
-- Predict a baby's next nap, bedtime, feed, developmental outcome, behavior, or health status.
+- Present a personalized next nap or feed forecast without the app history and product review needed to support it. Forecasts belong in the planned in-app experience, not a standalone website calculator in this backlog.
 - Calculate an "optimal" wake window, a sleep score, a sleep debt, a schedule grade, or a likelihood that a baby will sleep.
 - Tell a parent that a baby should eat, sleep, develop, or react at a precise time.
 - Assess feeding adequacy, milk supply, growth velocity, allergy risk, or vaccine eligibility.
@@ -65,7 +65,7 @@ Do not use language such as:
 - Detail pages: `/tools/[slug]/`
 - Methodology and sources: `/tools/methodology/`
 
-The Resources page at `/resources/` should include a prominent **Free baby calculators and practical tools** callout after the current "Start here" section. It should feature six launch tools, link to `/tools/`, and state: "No predictions, scores, or pressure."
+The Resources page at `/resources/` should include a prominent **Free baby calculators and practical tools** callout after the current "Start here" section. It should feature six launch tools, link to `/tools/`, and state: "Clear calculations and useful records, without scores or pressure."
 
 The `/tools/` directory should support category filters and short plain-language descriptions. It should use progressive disclosure: show featured tools first, then category groups. Do not place a wall of every tool card on `/resources/`.
 
@@ -218,19 +218,19 @@ Do not start these from the normal backlog. Each one needs a separate scope deci
 
 | Idea | Status | Reason |
 |---|---|---|
-| Next nap calculator | `[−] EXCLUDED` | Predicts exact future sleep timing and conflicts with Nubo's product position. |
-| Bedtime calculator | `[−] EXCLUDED` | Converts a broad sleep reference into an implied rule for an individual baby. |
-| Personalized nap schedule | `[−] EXCLUDED` | Prediction-driven, high-pressure, and incompatible with the no-prediction standard. |
+| Standalone next nap calculator | `[−] EXCLUDED` | A public form lacks the app history and controls needed for Nubo's planned flexible forecast. |
+| Standalone bedtime calculator | `[−] EXCLUDED` | A public form can turn a broad sleep reference into an implied rule for an individual baby. |
+| Standalone personalized nap schedule | `[−] EXCLUDED` | Keep personalized planning inside the reviewed app experience, where recent logs and corrections can update it. |
 | Sleep score, sleep debt, or schedule grade | `[−] EXCLUDED` | Creates a scorecard and can reward compulsive checking. |
 | Bottle-volume or intake-adequacy calculator | `[−] EXCLUDED` | Risks inappropriate feeding guidance and clinical interpretation. |
-| Next-feed calculator | `[−] EXCLUDED` | Implies a specific feeding time for an individual baby. |
+| Standalone next-feed calculator | `[−] EXCLUDED` | A public form lacks the recent care history needed for Nubo's planned flexible forecast. |
 | Sleep regression diagnostic quiz | `[−] EXCLUDED` | Treats normal variability as diagnosis. |
 | Formula mixing calculator | `[−] EXCLUDED` | Product-specific preparation errors can be unsafe. Follow the formula label and professional guidance. |
 | Milk-supply predictor | `[−] EXCLUDED` | Makes unsupported clinical and emotional claims. |
 | Growth velocity assessment | `[−] EXCLUDED` | Requires clinical interpretation of a trajectory. |
 | Allergy-risk calculator | `[−] EXCLUDED` | Clinical-risk determination is outside Nubo's role. |
 | Medication, fever, jaundice, dehydration, or symptom calculators | `[−] EXCLUDED` | High-stakes medical triage or dosing is out of scope. |
-| AI parenting or medical advisor | `[−] EXCLUDED` | Conflicts directly with the no-AI-medical-advice position. |
+| AI parenting or medical advisor | `[−] EXCLUDED` | Nubo does not offer medical diagnosis, triage, or treatment advice. |
 
 ---
 
@@ -254,7 +254,7 @@ Do not start these from the normal backlog. Each one needs a separate scope deci
 
 ## Implementation workflow for each tool
 
-1. Confirm the tool is still consistent with the non-prediction standard.
+1. Confirm the tool is still consistent with the public website tool standard and does not imply that planned in-app forecasts have shipped.
 2. Verify the search intent, related content, exact source material, and source update cadence.
 3. Write the input, calculation, result, limitation, and escalation copy before implementation.
 4. Define at least five test cases, including boundary dates, invalid inputs, and mobile interaction checks.
@@ -266,7 +266,7 @@ Do not start these from the normal backlog. Each one needs a separate scope deci
 
 ### Minimum acceptance checklist
 
-- [ ] Result is deterministic, transparent, and does not make a prediction.
+- [ ] Result is transparent and does not present an unsupported personalized forecast.
 - [ ] No result uses normative, alarmist, or scorekeeping language.
 - [ ] Inputs are not sent to a server by default.
 - [ ] Valid inputs restore automatically in the same browser, and the result recalculates from them.
@@ -305,4 +305,4 @@ Success is not maximum tool engagement. A successful tool gives a parent a bound
 
 ---
 
-*Document version: 1.0 · Created: 2026-08-04 · Strategy anchor: Nubo provides transparent guidance, practical organization, and caregiver coordination. It does not predict a baby or provide medical advice.*
+*Document version: 1.1 · Created: 2026-08-04 · Updated: 2026-09-28 · Strategy anchor: Nubo provides transparent guidance, practical organization, and caregiver coordination. Personalized feed and nap forecasts are planned for the app, with flexible and actionable guidance. Nubo does not provide medical advice.*

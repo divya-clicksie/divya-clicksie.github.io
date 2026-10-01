@@ -5,7 +5,7 @@ interface Props {
 
 const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
 const { variant = 'device' } = Astro.props;
-const appHref = Astro.url.pathname === '/app/' ? '#app-downloads' : '/app/#app-downloads';
+const appHref = ['/', '/app/'].includes(Astro.url.pathname) ? '#app-downloads' : '/app/#app-downloads';
 const cta = variant === 'app'
   ? {
       href: appHref,

@@ -108,6 +108,16 @@ const jsonLd = [
       </div>
     </section>
 
+    <section class="app-care-section" aria-labelledby="app-care-title">
+      <div class="container">
+        <p class="overline">Nubo Care · Included in Nubo Plus</p>
+        <h2 id="app-care-title">Back home, remember what your pediatrician said.</h2>
+        <p>Before the visit, save the things you want to ask. During it, tap record with permission and listen. Afterward, return to what your pediatrician said, with answers, original audio references, and next steps to share with caregivers.</p>
+        <p>Included in everyone's 14-day Plus preview and with every Nubo device. Your preview starts when you confirm your child is here. Available worldwide, in English.</p>
+        <a href="/care/" class="text-link">Explore Nubo Care <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
     <div class="feature-table-section container">
       <AppFeatureComparison />
     </div>
@@ -158,6 +168,11 @@ const jsonLd = [
   .live-activity-grid p { color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 1rem; }
   .live-activity-grid img { width: 100%; height: auto; border-radius: var(--radius-xl); box-shadow: 0 16px 38px rgba(31, 41, 55, 0.12); }
 
+  .app-care-section { padding: 4rem 0; background: var(--color-brand-light); }
+  .app-care-section .container { max-width: 900px; }
+  .app-care-section h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); line-height: 1.2; }
+  .app-care-section p:not(.overline) { margin-top: 1rem; color: var(--color-text-secondary); }
+  .app-care-section .text-link { display: inline-block; margin-top: 1.25rem; }
   .feature-table-section, .faq-section, .proof-section { padding: 5rem 0; }
   .feature-table-section { background: #fff; }
 

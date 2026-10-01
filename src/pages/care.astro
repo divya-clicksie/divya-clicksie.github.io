@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CareRecapPreview from '../components/CareRecapPreview.astro';
+
+const title = 'Doctor Visit Summaries and Preparation | Nubo Care';
+const description = 'Bring your questions, tap record, and revisit what your pediatrician said. Nubo Care helps you listen during the visit and remember afterward. Included in Plus.';
+const questions = [
+  { question: 'What is Nubo Care?', answer: 'Nubo Care helps you listen to your pediatrician without trying to take notes at the same time. Save questions before the visit, record with permission during it, and return to a recap, answers, and next steps afterward. It is included in Nubo Plus.' },
+  { question: 'Should I download before my baby arrives?', answer: 'Yes. Get familiar with Nubo before the first busy days. Downloading and creating a profile do not start your Plus preview. The 14-day preview starts when you confirm your child is here.' },
+  { question: 'Is Nubo Care included in the Plus preview and with the device?', answer: 'Yes. Nubo Care is part of Nubo Plus, including everyone’s 14-day Plus preview and the Plus access included with every Nubo device. Your preview starts when you confirm your child is here.' },
+  { question: 'Where is Nubo Care available?', answer: 'Nubo Care is available worldwide. Visit recording and recaps support English.' },
+  { question: 'Do I have to record the appointment?', answer: 'No. Prepare your questions and selected observations, then take notes if you prefer. If you record, get permission from everyone taking part and follow the clinic’s policy.' },
+  { question: 'How can I check an answer against the conversation?', answer: 'Every answer extracted from a recording refers to its actual audio timestamps. On the phone that recorded the visit, you can replay the relevant passage and recollect what was said. Manually entered notes do not have an audio reference.' },
+  { question: 'What do caregivers see?', answer: 'Invited caregivers receive synced summaries, question answers, to-dos, and other visit records. The audio recording is available on the recording phone and is not synced to caregivers.' },
+  { question: 'Where does processing happen, and what is retained?', answer: 'Care processing happens on the server with zero data retention after processing. Summaries, answers, to-dos, and other visit records are stored on phones and backed up to users’ private backups. Audio remains available on the recording phone.' },
+  { question: 'Can I prepare without a tracking history?', answer: 'Yes. Start with your own questions and observations. Select relevant logs when you have them; a long logging history is not required.' },
+];
+const jsonLd = { '@context': 'https://schema.org', '@type': 'WebPage', name: title, description, url: 'https://www.nubotracker.com/care/', about: { '@id': 'https://www.nubotracker.com/app/#application' } };
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd} ogImage="/images/appscreens/01_onetouch.webp">
+  <Header />
+  <main id="main-content">
+    <section class="care-hero" aria-labelledby="care-title">
+      <div class="container care-grid">
+        <div>
+          <p class="overline">Nubo Care · Included in Nubo Plus</p>
+          <h1 id="care-title">Remember what your pediatrician said.<span>Without taking notes.</span></h1>
+          <p class="hero-sub">Your child needs you. Your pediatrician is explaining what to do next. Taking notes shouldn't mean missing the conversation. Save your questions, tap record with permission, and return to what was said when you're home.</p>
+          <div class="care-actions"><a href="#care-journey" class="btn-primary">Explore the visit journey</a><a href="/pricing/" class="text-link">See Nubo Plus <span aria-hidden="true">→</span></a></div>
+          <p class="access-note">Your 14-day Plus preview starts when you confirm your child is here. Nubo Care is included in Plus and with every Nubo device.</p>
+          <p class="availability">Available worldwide. Visit recording and recaps in English.</p>
+        </div>
+        <CareRecapPreview />
+      </div>
+    </section>
+
+    <section class="journey-section" id="care-journey" aria-labelledby="journey-title">
+      <div class="container">
+        <div class="section-intro"><p class="overline">Before, during, and after</p><h2 id="journey-title">Less to hold in your head.</h2><p class="section-sub">Bring the questions. Listen to the answers. Take the conversation home.</p></div>
+        <div class="journey-grid">
+          <article><span class="step-number">01 · Before the appointment</span><h3>Things I want to ask.</h3><p>That feeding question from last night. The change you've noticed this week. Save them as they come to you, so they're there when the pediatrician asks.</p><p class="detail-note">Add selected daily logs if they're useful. You can start with just your questions.</p></article>
+          <article><span class="step-number">02 · During the appointment</span><h3>Tap record.</h3><p>With everyone's permission, start recording. Give your attention to your pediatrician and your child, without trying to write everything down.</p><p class="detail-note">Prefer to take notes? You can save those instead.</p></article>
+          <article><span class="step-number">03 · After the appointment</span><h3>Here's what your pediatrician said.</h3><p>Review a recap, answers to your questions, and next steps. Replay the moment behind an answer on the recording phone. Your caregivers get the recap, too.</p><p class="detail-note">Review next steps before acting on them. Keep open questions for the next visit.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="source-section" aria-labelledby="source-title">
+      <div class="container care-grid">
+        <div><p class="overline">The original conversation, close by</p><h2 id="source-title">A clear answer.<br />A way to hear it again.</h2><p>A summary helps you find the important parts. Audio timestamps help you return to what was actually said, with the surrounding conversation available on your phone.</p></div>
+        <div class="source-details"><article><h3>Answers to the questions you brought</h3><p>Find the discussion relevant to a specific question. Each extracted answer keeps its source audio reference.</p></article><article><h3>Room for what needs clarification</h3><p>If an answer is missing, unclear, or conflicting, it stays a question to review. Nubo Care organizes the visit rather than supplying a medical answer.</p></article><article><h3>Your review before the next action</h3><p>Check the recap and confirm next steps before creating reminders or saving tracking entries. Your review is distinct from a clinician-verified record.</p></article></div>
+      </div>
+    </section>
+
+    <section class="shared-section" aria-labelledby="shared-title">
+      <div class="container care-grid"><div><p class="overline">Shared care after the appointment</p><h2 id="shared-title">The answers make it home to the other caregiver.</h2><p>A partner who couldn't attend can see the visit summary, answers to your questions, and to-dos. Keep the follow-up connected to the people logging everyday care.</p><a href="/caregivers/" class="text-link">Explore caregiver sharing <span aria-hidden="true">→</span></a></div><div class="shared-records"><p class="small-heading">Synced to invited caregivers</p><ul><li>Visit summaries</li><li>Answers to specific questions</li><li>To-dos and other visit records</li></ul><p class="recording-boundary">The audio recording remains on the phone that recorded it.</p></div></div>
+    </section>
+
+    <section class="privacy-section" aria-labelledby="care-privacy-title">
+      <div class="container care-grid"><div><p class="overline">The same privacy promise</p><h2 id="care-privacy-title">Processed, then cleared.</h2><p>Nubo Care processes selected visit content on the server with zero data retention after processing. Your summaries, answers, and to-dos live on your phones and in your private backups. Audio remains available on the recording phone.</p><a href="/privacy/" class="text-link">Read how Nubo handles privacy <span aria-hidden="true">→</span></a></div><div class="privacy-details"><article><h3>You choose to record</h3><p>Get permission from everyone participating. Taking notes remains an option.</p></article><article><h3>Care processing is a separate step</h3><p>Selected content leaves the phone for server processing. Everyday in-app voice logging runs on your phone.</p></article><article><h3>Your records stay useful</h3><p>Keep visit records on your phones, with backups in your own private storage.</p></article></div></div>
+    </section>
+
+    <section class="care-faq" aria-labelledby="care-questions-title"><div class="container faq-inner"><div><p class="overline">A few practical answers</p><h2 id="care-questions-title">Before your next visit.</h2><p>How to prepare, record, and return to what your pediatrician said.</p></div><div>{questions.map((item) => <details><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div></div></section>
+    <section class="care-close"><div class="container"><p class="overline">Bring Nubo to your next appointment</p><h2>You listen. Nubo remembers.</h2><p>Start with the things you want to ask. Leave with your pediatrician's words to return to.</p><a href="/app/#app-downloads" class="btn-primary">Download the free app</a><p class="close-note">Nubo Care is included in Plus, your 14-day Plus preview, and device-owner Plus access.</p></div></section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  section[id] { scroll-margin-top: 96px; }
+  .care-hero { padding: 8rem 0 4.5rem; background: var(--color-bg-ivory); }
+  .care-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 4rem; }
+  .care-grid > * { min-width: 0; }
+  h1 { font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.13; }
+  h1 span { display: block; color: var(--color-brand); margin-top: 0.2em; }
+  h2 { font-size: clamp(1.9rem, 3.3vw, 2.65rem); line-height: 1.2; }
+  .care-hero .overline { font-size: 0.75rem; letter-spacing: 0.05em; }
+  .hero-sub { margin-top: 1.3rem; font-size: 1.05rem; color: var(--color-text-secondary); }
+  .care-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem; margin-top: 1.75rem; }
+  .access-note, .availability { font-size: 0.8125rem; color: var(--color-text-secondary); margin-top: 1rem; }
+  .availability { margin-top: 0.35rem; font-weight: 700; color: var(--color-brand-dark); }
+  .journey-section, .source-section, .shared-section, .privacy-section, .care-faq { padding: 5rem 0; }
+  .journey-section { background: #fff; }
+  .section-intro { margin-bottom: 2.5rem; }
+  .journey-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+  .journey-grid article { border: 1px solid #dce5e2; border-radius: 20px; padding: 1.75rem; }
+  .step-number { color: var(--color-brand-dark); font-weight: 700; font-size: 0.8125rem; }
+  .journey-grid h3 { margin-top: 1rem; font-size: 1.25rem; line-height: 1.35; }
+  .journey-grid p { margin-top: 0.85rem; color: var(--color-text-secondary); font-size: 0.9375rem; }
+  .journey-grid .detail-note { border-top: 1px solid #e1e9e5; padding-top: 0.85rem; font-size: 0.8125rem; }
+  .source-section { background: var(--color-bg-warm); }
+  .care-grid > div > p:not(.overline):not(.availability) { margin-top: 1.1rem; color: var(--color-text-secondary); }
+  .care-grid .text-link { display: inline-block; margin-top: 1.2rem; }
+  .source-details, .privacy-details { display: grid; gap: 1.2rem; }
+  .source-details article, .privacy-details article { border-bottom: 1px solid #dce5e2; padding-bottom: 1.2rem; }
+  .source-details h3, .privacy-details h3 { font-size: 1.0625rem; }
+  .source-details p, .privacy-details p { margin-top: 0.5rem; color: var(--color-text-secondary); font-size: 0.9375rem; }
+  .shared-records { padding: 2rem; border-radius: 20px; background: #f1f6f3; border: 1px solid #dce5e2; }
+  .small-heading { font-weight: 700; color: var(--color-brand-dark) !important; margin-top: 0 !important; }
+  .shared-records ul { list-style: none; padding: 0; margin-top: 1rem; }
+  .shared-records li { padding: 0.8rem 0; border-bottom: 1px solid #dce5e2; font-weight: 600; }
+  .recording-boundary { font-size: 0.8125rem; }
+  .privacy-section { background: var(--color-brand-light); }
+  .faq-inner { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 4rem; }
+  .faq-inner > div > p:not(.overline) { margin-top: 1rem; color: var(--color-text-secondary); }
+  details { border-bottom: 1px solid #dce5e2; }
+  summary { padding: 1.2rem 0; cursor: pointer; font-size: 0.9375rem; font-weight: 700; }
+  details p { padding-bottom: 1.2rem; font-size: 0.9375rem; color: var(--color-text-secondary); }
+  .care-close { padding: 4rem 0; text-align: center; background: var(--color-bg-ivory); }
+  .care-close p:not(.overline) { max-width: 540px; margin: 1rem auto; color: var(--color-text-secondary); }
+  .care-close .btn-primary { margin-top: 0.5rem; }
+  .close-note { font-size: 0.8125rem; }
+  a:focus-visible, summary:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 5px; }
+  @media (max-width: 900px) { .care-grid { gap: 2rem; } .journey-grid { gap: 0.75rem; } .journey-grid article { padding: 1.25rem; } }
+  @media (max-width: 680px) { .care-hero { padding-top: 7rem; } .care-grid, .journey-grid, .faq-inner { grid-template-columns: 1fr; gap: 2rem; } .journey-section, .source-section, .shared-section, .privacy-section, .care-faq { padding-block: 3.5rem; } .hero-sub { font-size: 0.9375rem; } .care-actions { gap: 1rem; } .journey-grid article, .shared-records { padding: 1.5rem; } }
+</style>

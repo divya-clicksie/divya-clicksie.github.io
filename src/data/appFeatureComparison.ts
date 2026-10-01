@@ -20,6 +20,7 @@ export const free = [
 ];
 
 export const plus = [
+  'Nubo Care: doctor visits, answers, and synced next steps',
   'Personalized Insights',
   'Live Activities for timers and recent caregiver updates (iOS)',
   'Care Vault for standing handoff details',

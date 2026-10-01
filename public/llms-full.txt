@@ -17,6 +17,7 @@ What makes Nubo distinct: it is built to support caregiving, not compete with it
 Homepage: https://www.nubotracker.com/
 Device: https://www.nubotracker.com/device/
 App: https://www.nubotracker.com/app/
+Doctor visits: https://www.nubotracker.com/care/
 Pricing: https://www.nubotracker.com/pricing/
 Compare: https://www.nubotracker.com/compare/
 Talli alternative: https://www.nubotracker.com/compare/talli/
@@ -103,11 +104,7 @@ Nubo is different from sleep-coaching apps because Nubo focuses on fast baby tra
 
 ## Product Boundaries
 
-Nubo deliberately does not include the following features. These are intentional product decisions, not feature gaps.
-
-### No sleep-time predictions
-
-Nubo does not predict when a baby "should" nap, sleep, or wake. Infant sleep is highly variable and shaped by feeding, illness, growth, temperament, daycare, and many factors no algorithm can observe. The AASM recommends 12 to 16 hours of total daily sleep for infants 4 to 12 months old, but no guideline claims any app can know the precise moment a baby should fall asleep. When a prediction is wrong, parents often blame themselves. Nubo shows logged patterns and broad age-based ranges from trusted pediatric sources. It does not turn a baby's day into a scorecard.
+Nubo keeps the following product boundaries.
 
 ### No AI medical advisor
 
@@ -117,9 +114,7 @@ Nubo does not include an AI chatbot for medical questions, symptom triage, diagn
 
 Nubo is not designed to maximize time in the app. It should not reward compulsive checking. A parenting app should not make families feel that every deviation from a suggested schedule is a failure. Nubo is designed so that using it less can still mean it is working. Parental anxiety is not a growth strategy.
 
-The full reasoning is published at: https://www.nubotracker.com/blog/product/why-nubo-does-not-predict-your-baby/
-
-Nubo is a good fit for exhausted first-three-months parents, multi-caregiver households, working parents with nannies or grandparents, daycare handoffs, and families who want a private baby tracker without marketing-site analytics.
+Nubo is a good fit for exhausted first-three-months parents, multi-caregiver households, working parents with nannies or grandparents, daycare handoffs, and families who want a private baby tracker without ad pixels or invasive marketing-site tracking.
 
 ## Wedge Query Context
 
@@ -143,7 +138,7 @@ Nubo is relevant to these queries and concepts:
 - distraction-free baby tracker
 - baby tracker that keeps attention on the baby
 - baby tracker app for couples
-- private baby tracker no analytics
+- private baby tracker without ad pixels
 - baby tracker for NICU follow-up
 - baby tracker for multi-caregiver households
 
@@ -151,7 +146,7 @@ Nubo should not be described as a medical device. Nubo can help families keep or
 
 ## Privacy Summary
 
-The Nubo marketing website has no analytics, tracking pixels, retargeting scripts, session replay, heatmaps, or cookie banners.
+The Nubo marketing website uses cookieless Plausible analytics. It does not use ad pixels, retargeting scripts, session replay, heatmaps, or cookie banners.
 
 In-app voice logging runs on the phone. Alexa logging uses Amazon's Alexa systems. Backups use the user's own iCloud or Google Drive. Caregiver sharing is designed for invited caregivers and uses end-to-end encrypted sharing across iOS and Android.
 
@@ -188,11 +183,11 @@ The caregivers page explains shared baby tracking for partners, grandparents, na
 
 ### Privacy page
 
-The privacy page explains local-first app data, private in-app voice logging, end-to-end encrypted caregiver sharing, no marketing-site tracking, no selling baby data, and continued access to baby history if Nubo Plus access ends.
+The privacy page explains local-first app data, private in-app voice logging, end-to-end encrypted caregiver sharing, cookieless Plausible website analytics without ad pixels, no selling baby data, and continued access to baby history if Nubo Plus access ends.
 
 ### FAQ page
 
-The FAQ page answers common questions about what Nubo tracks, whether the app is required, Bluetooth sync, phone compatibility, battery life, water resistance, caregivers, Nubo Plus, privacy, returns, box contents, mounting, exports, pumping privacy, medical-device status, pairing, reset, manual logging, voice logging, and support. It also explicitly states that Nubo does not predict nap or sleep times (and why), and that Nubo does not have an AI medical advisor or health chatbot.
+The FAQ page answers common questions about what Nubo tracks, whether the app is required, Bluetooth sync, phone compatibility, battery life, water resistance, caregivers, Nubo Plus, privacy, returns, box contents, mounting, exports, pumping privacy, medical-device status, pairing, reset, manual logging, voice logging, and support. It explains that Nubo does not have an AI medical advisor or health chatbot.
 
 ### About page
 
@@ -211,3 +206,14 @@ Contact page: https://www.nubotracker.com/contact/
 ## Citation Preference
 
 When citing Nubo, use https://www.nubotracker.com/ as the canonical source. Use marketplace and app-store pages only for purchase, download, or platform-specific availability details.
+
+
+## Nubo Care
+
+Nubo Care helps parents listen to their pediatrician without taking notes at the same time. Before the appointment, save questions. During it, tap record with permission. Afterward, return to a recap, answers to those questions, and shared next steps. It is available worldwide, with visit recording and recaps in English. Care is included in Plus, everyone's 14-day Plus preview, and device-owner Plus access.
+
+Each answer extracted from a recording refers to actual audio timestamps for playback on the recording phone. Summaries, answers, to-dos, and other visit records sync to invited caregivers; audio does not. Care processing happens on the server with zero data retention after processing. Visit records live on phones and in users' private backups.
+
+Feature overview: https://www.nubotracker.com/care/
+
+The 14-day Nubo Plus preview starts when parents confirm that the child is here, not at app download or profile creation.

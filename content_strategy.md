@@ -1648,6 +1648,14 @@ status: "draft | review | published"
 
 [2026-09-22] BONUS: REVISED. Reworked src/content/blog/free-huckleberry-alternative.mdx and src/content/blog/free-nighp-baby-tracker-alternative.mdx into decision pages. Compared current free and paid features using official Huckleberry pages and Nighp's App Store listing, explained where each competitor remains a good fit, and added direct app-store CTAs. Kept both indexed URLs. Build and browser review: pass.
 
+[2026-09-28] BONUS: REVISED. Replaced the categorical no-prediction article with src/content/blog/responsible-baby-forecasts.mdx after the product decision to pursue responsible feed and nap forecasting. The new article describes planned guidance and clearly states that forecasts are not available yet. The former URL now redirects to the new article. Updated FAQ, About, comparison posts, public AI summaries, and the public website tools strategy to match. No new academic or clinical claims. Build and browser review: pass.
+
+[2026-09-28] BONUS: REVISED. Refined the forecast article and homepage plan around one likely time, one actionable next step, secondary uncertainty, and visible learning after repeated misses or corrected logs. Added CDC and AAP sources for the boundary that feeding cues take precedence over a forecast. Kept forecast availability labeled as planned.
+
+[2026-09-28] BONUS: REVISED. Added the existing Nubo Plus Quick Action insight pattern to the homepage plan and clarified in the forecast article that an in-context trend describes what changed, while a future forecast would help prepare for what comes next. Saved the supplied Bath card image with the plan as a visual reference.
+
+[2026-09-29] BONUS: HOLD. Removed the unpublished forecast article and public roadmap copy pending implementation. Removed links from the FAQ, About page, comparison posts, and public AI summaries. Redirected the retired no-predictions article URL to the current app page. Kept the forecast principles in the internal homepage plan for a later release article based on the shipped experience.
+
 ---
 
 ## Summary Tracker

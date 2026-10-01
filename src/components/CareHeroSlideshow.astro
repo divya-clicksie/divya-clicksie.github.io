@@ -1,0 +1,125 @@
+---
+const scenes = [
+  { key: 'hospital-phone-v2', short: 'Newborn', label: 'First days at the hospital', alt: 'Concept photo of a mother holding her newborn during a reassuring conversation with a woman doctor, with an iPhone on her lap' },
+  { key: 'baby-visit-v3', short: 'Baby', label: 'A visit with an unwell baby', alt: 'Concept photo of a concerned father comforting his subdued baby while a man doctor explains next steps, with an iPhone nearby' },
+  { key: 'toddler-visit-v2', short: 'Toddler', label: 'A cheerful toddler checkup', alt: 'Concept photo of a cheerful toddler and mother talking with a smiling woman doctor, with an iPhone on the exam bed' },
+  { key: 'child-visit-v4', short: 'Child', label: 'Growing through childhood', alt: 'Concept photo of a young child looking attentively at a man doctor with a neutral expression, alongside both parents and a nearby iPhone' },
+];
+---
+
+<div class="care-gallery" data-care-gallery role="region" aria-roledescription="carousel" aria-label="Care conversations as your child grows">
+  {scenes.map((scene, index) => <div class:list={['care-scene', { 'is-active': index === 0 }]} data-scene data-label={scene.label} data-short={scene.short} aria-hidden={index === 0 ? 'false' : 'true'}>
+    <img src={index === 0 ? `/images/nubo-care-${scene.key}.webp` : undefined} srcset={index === 0 ? `/images/nubo-care-${scene.key}-960.webp 960w, /images/nubo-care-${scene.key}.webp 1774w` : undefined} data-src={`/images/nubo-care-${scene.key}.webp`} data-srcset={`/images/nubo-care-${scene.key}-960.webp 960w, /images/nubo-care-${scene.key}.webp 1774w`} sizes="100vw" alt={scene.alt} width="1774" height="887" fetchpriority={index === 0 ? 'high' : 'low'} decoding="async" />
+  </div>)}
+  <span class="concept-label">Concept photography</span>
+  <button type="button" class="gallery-toggle" data-gallery-toggle aria-label="Pause background slideshow" hidden>
+    <svg class="pause-icon" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M6 4v12M14 4v12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" /></svg>
+    <svg class="play-icon" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="m6 3 11 7-11 7Z" fill="currentColor" /></svg>
+  </button>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-care-gallery]').forEach((gallery) => {
+    const scenes = Array.from(gallery.querySelectorAll<HTMLElement>('[data-scene]'));
+    const toggle = gallery.querySelector<HTMLButtonElement>('[data-gallery-toggle]');
+    if (!toggle || scenes.length < 2) return;
+
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const hover = window.matchMedia('(hover: hover)');
+    let current = 0;
+    let paused = motion.matches;
+    let inView = true;
+    let pointerInside = false;
+    let timer: number | undefined;
+    let request = 0;
+
+    const stop = () => {
+      if (timer !== undefined) window.clearInterval(timer);
+      timer = undefined;
+    };
+    const updateToggle = () => {
+      gallery.dataset.paused = String(paused);
+      toggle.setAttribute('aria-label', paused ? 'Play background slideshow' : 'Pause background slideshow');
+    };
+    const load = async (index: number) => {
+      const image = scenes[index].querySelector<HTMLImageElement>('img');
+      if (!image) return false;
+      if (!image.getAttribute('src')) {
+        image.srcset = image.dataset.srcset || '';
+        image.src = image.dataset.src || '';
+      }
+      try { await image.decode(); return image.naturalWidth > 0; }
+      catch { return false; }
+    };
+    const select = async (index: number) => {
+      const selectedRequest = ++request;
+      if (!await load(index) || selectedRequest !== request) return;
+      scenes[current].classList.remove('is-active');
+      scenes[current].setAttribute('aria-hidden', 'true');
+      current = index;
+      scenes[current].classList.add('is-active');
+      scenes[current].setAttribute('aria-hidden', 'false');
+      void load((current + 1) % scenes.length);
+    };
+    const schedule = () => {
+      stop();
+      if (!paused && inView && !document.hidden && !pointerInside) {
+        timer = window.setInterval(() => { void select((current + 1) % scenes.length); }, 8000);
+      }
+    };
+    toggle.addEventListener('click', () => {
+      ++request;
+      paused = !paused;
+      updateToggle();
+      schedule();
+    });
+    gallery.addEventListener('mouseenter', () => {
+      if (!hover.matches) return;
+      pointerInside = true;
+      ++request;
+      stop();
+    });
+    gallery.addEventListener('mouseleave', () => { pointerInside = false; schedule(); });
+    document.addEventListener('visibilitychange', () => { ++request; schedule(); });
+    motion.addEventListener('change', () => {
+      if (motion.matches) { ++request; paused = true; }
+      updateToggle();
+      schedule();
+    });
+    const observer = new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting && entry.intersectionRatio >= 0.3;
+      if (!inView) ++request;
+      schedule();
+    }, { threshold: [0, 0.3] });
+    observer.observe(gallery);
+    toggle.hidden = false;
+    updateToggle();
+    schedule();
+    const firstImage = scenes[0].querySelector<HTMLImageElement>('img');
+    if (firstImage?.complete) void load(1);
+    else firstImage?.addEventListener('load', () => { void load(1); }, { once: true });
+  });
+</script>
+
+<style>
+  .care-gallery { position: absolute; inset: 0; }
+  .care-scene { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity 1s ease, visibility 1s; }
+  .care-scene.is-active { opacity: 1; visibility: visible; }
+  .care-scene img { width: 100%; height: 100%; object-fit: cover; object-position: 68% center; }
+  .concept-label { position: absolute; top: 92px; right: 1.5rem; border-radius: 20px; padding: .35rem .7rem; background: rgba(19,39,35,.75); color: #fff; font-size: .625rem; z-index: 3; }
+  .gallery-toggle { position: absolute; bottom: 16px; left: 16px; z-index: 3; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid rgba(255,255,255,.3); border-radius: 50%; background: rgba(17,40,37,.6); color: #fff; cursor: pointer; }
+  .gallery-toggle[hidden] { display: none; }
+  .gallery-toggle:hover { background: rgba(17,40,37,.85); }
+  .gallery-toggle:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+  .play-icon { display: none; }
+  [data-paused="true"] .play-icon { display: block; }
+  [data-paused="true"] .pause-icon { display: none; }
+  @media (prefers-reduced-motion: reduce) { .care-scene { transition: none; } }
+  @media (max-width: 680px) {
+    .care-gallery { position: relative; height: 215px; }
+    .care-scene img { object-position: 78% center; }
+    .concept-label { top: 8px; right: 8px; font-size: .5625rem; }
+    .gallery-toggle { bottom: 8px; left: 8px; }
+  }
+  @media (max-width: 360px) { .care-gallery { height: 195px; } }
+</style>

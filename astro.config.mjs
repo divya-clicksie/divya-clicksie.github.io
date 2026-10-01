@@ -8,7 +8,10 @@ export default defineConfig({
   site: 'https://www.nubotracker.com',
   integrations: [
     sitemap({
-      filter: (page) => page !== 'https://www.nubotracker.com/how-it-works/',
+      filter: (page) => ![
+        'https://www.nubotracker.com/how-it-works/',
+        'https://www.nubotracker.com/blog/product/why-nubo-does-not-predict-your-baby/',
+      ].includes(page),
     }),
     mdx(),
   ],

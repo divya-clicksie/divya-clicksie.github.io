@@ -30,6 +30,7 @@ const ogImageHref = absoluteURL(ogImage);
 const labelOverrides: Record<string, string> = {
   alexa: 'Alexa Skill',
   app: 'App',
+  care: 'Doctor visits',
   blog: 'Blog',
   caregivers: 'Caregivers',
   compare: 'Compare',
@@ -108,7 +109,7 @@ const jsonLdGraph = {
 
     <!-- Preload LCP image on the home page -->
     {Astro.url.pathname === '/' && (
-      <link rel="preload" as="image" href="/images/nubo-instant-tracker-640.webp" imagesrcset="/images/nubo-instant-tracker-640.webp 640w, /images/nubo-instant-tracker-900.webp 900w, /images/nubo-instant-tracker-1400.webp 1400w" imagesizes="(max-width: 768px) 72vw, (max-width: 900px) 88vw, 48vw" fetchpriority="high" />
+      <link rel="preload" as="image" href="/images/nubo-care-hospital-phone-v2.webp" imagesrcset="/images/nubo-care-hospital-phone-v2-960.webp 960w, /images/nubo-care-hospital-phone-v2.webp 1774w" imagesizes="100vw" fetchpriority="high" />
     )}
 
     <!-- Open Graph -->
