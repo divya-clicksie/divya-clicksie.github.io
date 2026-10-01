@@ -34,3 +34,7 @@ export const plus = [
   'Midnight Ember theme',
   'Colorful mode',
 ];
+
+export const plusComingSoon = [
+  'Actionable sleep and feeding forecasts',
+];

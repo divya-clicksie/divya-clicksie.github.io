@@ -2,9 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { plusComingSoon } from '../data/appFeatureComparison';
 
 const title = 'Pricing | Nubo Free App, Plus, and Device';
-const description = 'Compare Nubo pricing: free baby tracker app, Nubo Plus app upgrade for $39.99/year, and the Nubo physical tracker device for $89, reduced from a $109 retail price.';
+const description = 'Compare Nubo pricing: free baby tracker app, Nubo Plus app upgrade for $59.99/year, and the Nubo physical tracker device for $89, reduced from a $109 retail price.';
 
 const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
 const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
@@ -32,7 +33,8 @@ const plusFeatures = [
   'CSV exports',
   'Alexa logging',
   'Private pumping tracker for exclusive pumping and milk output',
-  'Advanced views for patterns and totals'
+  'Advanced views for patterns and totals',
+  ...plusComingSoon.map((feature) => `${feature} (coming soon)`)
 ];
 
 const deviceFeatures = [
@@ -84,7 +86,7 @@ const jsonLd = {
       description: 'Free baby tracker app with quick logs, voice catch-up, caregiver sync, offline mode, and private baby timeline tools.',
       offers: [
         { '@type': 'Offer', name: 'Nubo free app', price: '0', priceCurrency: 'USD', url: appStoreURL },
-        { '@type': 'Offer', name: 'Nubo Plus', price: '39.99', priceCurrency: 'USD', url: appStoreURL }
+        { '@type': 'Offer', name: 'Nubo Plus', price: '59.99', priceCurrency: 'USD', url: appStoreURL }
       ],
       installUrl: [appStoreURL, playStoreURL],
       downloadUrl: [appStoreURL, playStoreURL]
@@ -104,7 +106,7 @@ const jsonLd = {
         {
           '@type': 'Offer',
           name: 'Nubo Plus app upgrade',
-          price: '39.99',
+          price: '59.99',
           priceCurrency: 'USD',
           url: appStoreURL,
           itemOffered: { '@type': 'SoftwareApplication', name: 'Nubo Plus' }
@@ -133,7 +135,7 @@ const jsonLd = {
         <p class="page-hero-sub">Start with the free app, add Nubo Plus for advanced app tools, or buy the physical tracker device for one-tap logging.</p>
         <div class="hero-price-row" aria-label="Nubo pricing summary">
           <span>Free app: $0</span>
-          <span>Nubo Plus: $39.99/year</span>
+          <span>Nubo Plus: $59.99/year</span>
           <span>Device: <del>$109</del> $89</span>
         </div>
       </div>
@@ -163,7 +165,8 @@ const jsonLd = {
             <div class="plan-heading">
               <p class="plan-label">Nubo Plus</p>
               <h2>Nubo Plus</h2>
-              <p class="price">$39.99<span>/year</span></p>
+              <p class="price">$59.99<span>/year</span></p>
+              <p class="billing-note">Billed through the App Store or Google Play. Prices may vary by region.</p>
               <p class="tagline">Deeper insights, helpful reminders, private pumping, and Nubo Care for doctor visits and follow-through.</p>
             </div>
             <ul class="feature-list" aria-label="Nubo Plus features">
@@ -192,7 +195,7 @@ const jsonLd = {
           </article>
         </div>
 
-        <p class="pricing-note"><a href="/care/" class="text-link">Explore Nubo Care</a>. Everyone gets a 14-day Nubo Plus preview, starting when parents confirm the child is here. Downloading and creating a profile do not start it. Nubo Care is included in Plus, the preview, and device-owner Plus access. The preview is separate from a subscription. Nubo Plus prices are handled by the App Store or Google Play. Device price, shipping, availability, and returns follow the current Amazon listing.</p>
+        <p class="pricing-note"><a href="/#nubo-care" class="text-link">Explore Nubo Care</a>. Everyone gets a 14-day Nubo Plus preview, starting when parents confirm the child is here. Downloading and creating a profile do not start it. Nubo Care is included in Plus, the preview, and device-owner Plus access. The preview is separate from a subscription. Nubo Plus subscriptions are billed through the App Store on iPhone or Google Play billing on Android. Prices may vary by region; check your local price in the app before subscribing. Device price, shipping, availability, and returns follow the current Amazon listing.</p>
       </div>
     </section>
   </main>
@@ -200,6 +203,7 @@ const jsonLd = {
 </BaseLayout>
 
 <style>
+  .billing-note { margin-top: .75rem; color: var(--color-text-secondary); font-size: .8125rem; line-height: 1.6; }
   .pricing-hero {
     padding-bottom: 4rem;
   }

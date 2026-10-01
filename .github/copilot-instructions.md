@@ -108,7 +108,7 @@ Prefer existing shared components and global classes before introducing new abst
 - Position Nubo as an ecosystem: device tap, app Quick Log, in-app voice catch-up, caregiver sync, and Alexa support all feed one baby timeline.
 - Avoid hard-coding the number of ways to log. Use flexible language like "use what fits the moment" or "tap as it happens, talk to catch up".
 - The app is free on iOS and Android. It includes routine tracking, unlimited caregivers, cloud backup, offline mode, quick logs, and in-app voice logging.
-- Premium is an app upgrade for advanced tools such as reminders, exports, Alexa, Live Activities, private pumping, and advanced views. Current site copy uses `$39.99/year`.
+- Premium is an app upgrade for advanced tools such as reminders, exports, Alexa, Live Activities, private pumping, and advanced views. Current site copy uses `$59.99/year`. Subscriptions are billed through the App Store on iPhone or Google Play billing on Android. Prices may vary by region.
 - The Nubo device is sold through Amazon. Current site copy uses `$89.99` and says each phone that syncs with the device receives a refreshed 30-day Premium window.
 - Nubo is not a medical device. Do not imply diagnosis, treatment, cure, prevention, or clinical monitoring.
 - Use reassuring wording. Avoid copy that plants doubt about app or device reliability.

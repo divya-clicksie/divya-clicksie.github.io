@@ -1,5 +1,7 @@
 # Nubo Site Rearchitecture — Implementation Plan
 
+Pricing update, October 1, 2026: Nubo Plus is $59.99/year. Subscriptions are billed through the App Store on iPhone or Google Play billing on Android. Prices may vary by region. Dated execution logs retain the prices recorded at the time.
+
 *Single working document for the design and engineering team. Phased rollout with task-level acceptance criteria, page specs, asset plan, and measurement.*
 
 ---
@@ -19,7 +21,7 @@ Still intentionally deferred: email capture and nurture flows until an email ser
 Improve total conversion across three paths, weighted by leadership as equally valid:
 
 - **Buy the device** ($89.99 one-time, grants Premium to every phone that pairs with it) — highest LTV
-- **Subscribe to Premium** ($39.99/year, store-account subscription) — recurring revenue, app-first segment
+- **Subscribe to Premium** ($59.99/year, store-account subscription) — recurring revenue, app-first segment
 - **Install the free app** (free) — top of funnel, future Premium and device upsell
 
 The current site over-narrows to the device CTA, buries the strongest pricing argument, and runs a single 14-section homepage with no dedicated URLs for any product page. This plan fixes all three problems.
@@ -76,10 +78,10 @@ Only show payback where it is a natural buying argument:
 
 | Household setup with non-family caregivers | Annual Premium cost without device | Device payback |
 |---|---|---|
-| Two parents + nanny | $79.98 (2 plans) | **~13 months** |
-| Two parents + nanny + 1 grandparent (separate plan) | $119.97 (3 plans) | **~9 months** |
-| Two parents + nanny + 2 grandparents (separate plans) | $159.96 (4 plans) | **~7 months** |
-| Two parents + daycare staff logging on their own devices | $79.98+ | **~13 months+** |
+| Two parents + nanny | $119.98 (2 plans) | **~9 months** |
+| Two parents + nanny + 1 grandparent (separate plan) | $179.97 (3 plans) | **~6 months** |
+| Two parents + nanny + 2 grandparents (separate plans) | $239.96 (4 plans) | **~4 months** |
+| Two parents + daycare staff logging on their own devices | $119.98+ | **~9 months+** |
 
 Method: device cost ($89.99) ÷ annual Premium cost the household would otherwise pay across separate store accounts.
 
@@ -346,7 +348,7 @@ Five visitor profiles, each mapped to a recommended path:
 
 - **Free** ($0): full feature list as currently shown. CTA: Download free.
 
-- **Premium** ($39.99/yr):
+- **Premium** ($59.99/yr):
   - Full feature list.
   - **Disclosure:** *"Standard App Store / Google Play subscription managed by the store account that buys it. Caregivers on separate store accounts, like nannies, grandparents, or daycare staff, usually need their own Premium subscription, or you can buy the device once and Premium follows the device for everyone who uses it."*
   - CTA: Try Premium free for 7 days.
@@ -510,7 +512,7 @@ This honesty is what converts comparison shoppers.
 
 6. **Caregiver sync** — caregiver hub diagram + one paragraph explaining "Premium follows the use." Links to `/caregivers/`.
 
-7. **Pricing teaser** — three condensed cards with the LTV note: "Two caregivers + a nanny? The device pays for itself in 13 months." Links to `/pricing/`.
+7. **Pricing teaser** — three condensed cards with the LTV note: "Two caregivers + a nanny? The device pays for itself in 9 months." Links to `/pricing/`.
 
 8. **Reviews** — keep existing four testimonials.
 

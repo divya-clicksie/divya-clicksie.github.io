@@ -1,5 +1,7 @@
 # Nubo website positioning and organic search proposal
 
+Pricing update, October 1, 2026: Nubo Plus is $59.99/year. Subscriptions are billed through the App Store on iPhone or Google Play billing on Android. Prices may vary by region. Dated execution logs retain the prices recorded at the time.
+
 Rewritten September 29, 2026. Status: proposal for implementation, with an audit of the current site.
 
 October 1, 2026: the homepage positioning and visual hierarchy below are superseded by the [Nubo Care homepage and hospital to home proposal](/Users/guru/Projects/Nubo/nubo-web/homepage-nubo-care-plan.md). Retain this document's useful audit context; use the newer proposal for the next homepage revision.
@@ -129,7 +131,7 @@ For comparison and answer passages, publish a concise factual explanation: **“
 | Log without reaching for a phone | A real device tap and subsequent app entry. | The device is optional, uses Bluetooth, and is purchased directly on Amazon. |
 | Keep family information private | Plain-language explanation of voice processing, sharing, backup, and private pumping. | No “100% private” promise. Alexa uses Amazon's systems; privacy is not a claim of medical security certification. |
 
-Use “Nubo Plus” in current public copy, matching the implementation. Older documents call the upgrade Premium. Confirm the naming and current entitlements with the released app, then keep the website and both stores consistent. The source currently shows $39.99/year and a device offer of $89, reduced from $109; older instructions say $89.99. Verify the actual offer rather than silently treating either document as authoritative pricing.
+Use “Nubo Plus” in current public copy, matching the implementation. Older documents call the upgrade Premium. Confirm the naming and current entitlements with the released app, then keep the website and both stores consistent. The source currently shows $59.99/year and a device offer of $89, reduced from $109; older instructions say $89.99. Verify the actual offer rather than silently treating either document as authoritative pricing.
 
 ## Search strategy: earn relevance before claiming leadership
 

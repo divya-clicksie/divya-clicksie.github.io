@@ -1,6 +1,6 @@
 # Nubo Baby Tracker Full AI Summary
 
-Last updated: August 9, 2026
+Last updated: October 1, 2026
 
 ## Core Description
 
@@ -17,7 +17,7 @@ What makes Nubo distinct: it is built to support caregiving, not compete with it
 Homepage: https://www.nubotracker.com/
 Device: https://www.nubotracker.com/device/
 App: https://www.nubotracker.com/app/
-Doctor visits: https://www.nubotracker.com/care/
+Doctor visits: https://www.nubotracker.com/#nubo-care
 Pricing: https://www.nubotracker.com/pricing/
 Compare: https://www.nubotracker.com/compare/
 Talli alternative: https://www.nubotracker.com/compare/talli/
@@ -45,7 +45,7 @@ Google Play: https://play.google.com/store/apps/details?id=com.clicksie.nuboapp
 
 ### Nubo Plus
 
-Nubo Plus is an optional app upgrade. Current public site copy lists the price as $39.99 per year. Nubo Plus adds Live Activities for active timers on iOS and advanced tools such as reminders, exports, Alexa, private pumping, advanced views, Sleep Sounds, and Care Vault.
+Nubo Plus is an optional app upgrade. Current public site copy lists the price as $59.99 per year. Subscriptions are billed through the App Store on iPhone or Google Play billing on Android. Prices may vary by region; check your local price in the app before subscribing. Nubo Plus adds Live Activities for active timers on iOS and advanced tools such as reminders, exports, Alexa, private pumping, advanced views, Sleep Sounds, and Care Vault.
 
 Nubo Plus subscriptions are managed by the App Store or Google Play account that buys them. The Nubo device refreshes a 30-day Nubo Plus access window for active caregiver phones when those phones sync with the device.
 
@@ -171,7 +171,7 @@ The app page explains the free Nubo app for iOS and Android. It covers one-tap q
 
 ### Pricing page
 
-The pricing page compares the free app, Nubo Plus, and the Nubo device. The free app is $0. Nubo Plus is listed at $39.99 per year. The Nubo device is listed at $89, reduced from a $109 retail price. The page explains when each setup makes sense and how the device can be a strong value for multi-caregiver households.
+The pricing page compares the free app, Nubo Plus, and the Nubo device. The free app is $0. Nubo Plus is listed at $59.99 per year. Subscriptions are billed through the App Store on iPhone or Google Play billing on Android. Prices may vary by region; check your local price in the app before subscribing. The Nubo device is listed at $89, reduced from a $109 retail price. The page explains when each setup makes sense and how the device can be a strong value for multi-caregiver households.
 
 ### Compare page
 
@@ -214,6 +214,6 @@ Nubo Care helps parents listen to their pediatrician without taking notes at the
 
 Each answer extracted from a recording refers to actual audio timestamps for playback on the recording phone. Summaries, answers, to-dos, and other visit records sync to invited caregivers; audio does not. Care processing happens on the server with zero data retention after processing. Visit records live on phones and in users' private backups.
 
-Feature overview: https://www.nubotracker.com/care/
+Feature overview: https://www.nubotracker.com/#nubo-care
 
 The 14-day Nubo Plus preview starts when parents confirm that the child is here, not at app download or profile creation.

@@ -1,5 +1,5 @@
 ---
-import { free, plus } from '../data/appFeatureComparison';
+import { free, plus, plusComingSoon } from '../data/appFeatureComparison';
 
 interface Props {
   heading?: string;
@@ -11,15 +11,11 @@ const {
   intro = 'Everyday tracking stays free. Your 14-day Nubo Plus preview starts when you confirm your child is here. Every Nubo device includes Plus. Nubo Care is included in Plus.',
 } = Astro.props;
 
-const featureRows = [
-  ...free.map((feature) => ({ feature, free: 'included', plus: 'included' })),
-  ...plus.map((feature) => ({ feature, free: 'unavailable', plus: 'included' })),
+const featureGroups = [
+  { label: 'Everyday tracking, included in both plans', features: free, freeIncluded: true, comingSoon: false },
+  { label: 'Optional tools with Nubo Plus', features: plus, freeIncluded: false, comingSoon: false },
+  { label: 'Coming soon with Nubo Plus', features: plusComingSoon, freeIncluded: false, comingSoon: true },
 ];
-
-const statusLabels = {
-  included: 'Included',
-  unavailable: 'Not available',
-};
 ---
 
 <section class="app-feature-comparison" aria-labelledby="app-feature-comparison-title">
@@ -38,39 +34,40 @@ const statusLabels = {
       </colgroup>
       <thead>
         <tr>
-          <th scope="col">Feature name</th>
-          <th scope="col">Nubo Free</th>
-          <th scope="col">Nubo Plus</th>
+          <th scope="col">Feature</th>
+          <th scope="col">Nubo Free<span class="plan-price">$0</span></th>
+          <th scope="col">Nubo Plus<span class="plan-price">$59.99<wbr />/year</span></th>
         </tr>
       </thead>
       <tbody>
-        <tr class="feature-table-intro">
-          <th scope="row" colspan="3">
-            <div class="feature-table-intro-grid">
-              <span>Built for</span>
-              <strong>Fast logging · Shared care · Everyday tracking</strong>
-              <strong>More convenience · More insight · More control</strong>
-            </div>
-          </th>
-        </tr>
-        {featureRows.map((row) => (
+        {featureGroups.map((group) => <>
+          <tr class="feature-group"><th colspan="3">{group.label}</th></tr>
+          {group.features.map((feature) => (
           <tr>
-            <th scope="row">{row.feature}</th>
+            <th scope="row">{feature}</th>
             <td>
-              <span class:list={['feature-mark', row.free === 'included' ? 'feature-mark-included' : 'feature-mark-unavailable']} aria-label={statusLabels[row.free]}>
-                <span aria-hidden="true">{row.free === 'included' ? '✓' : 'X'}</span>
+              <span class:list={['feature-mark', group.freeIncluded ? 'feature-mark-included' : 'feature-mark-unavailable']}>
+                <span class="sr-only">{group.freeIncluded ? 'Included' : 'Not included'}</span>
+                <span aria-hidden="true">{group.freeIncluded ? '✓' : '−'}</span>
               </span>
             </td>
             <td>
-              <span class="feature-mark feature-mark-included" aria-label={statusLabels.included}>
+              {group.comingSoon ? <span class="feature-coming-soon">Coming soon</span> : <span class="feature-mark feature-mark-included">
+                <span class="sr-only">Included</span>
                 <span aria-hidden="true">✓</span>
-              </span>
+              </span>}
             </td>
           </tr>
-        ))}
+          ))}
+        </>)}
       </tbody>
     </table>
   </div>
+  <div class="access-notes">
+    <article><h3>Try Plus after baby arrives.</h3><p>Everyone gets a 14-day Plus preview, starting when you confirm your child is here. Downloading and creating a profile do not start it. The preview is separate from a subscription. Core tracking stays free after it ends.</p></article>
+    <article><h3>Plus comes with the device.</h3><p>Every Nubo device includes Plus access. Each phone that syncs with the device receives a refreshed 30-day window, including Nubo Care. <a href="/device/" class="text-link">Explore the optional device <span aria-hidden="true">→</span></a></p></article>
+  </div>
+  <p class="pricing-note">Nubo Plus subscriptions are billed through the App Store on iPhone or Google Play billing on Android. Prices may vary by region; check your local price in the app before subscribing. <a href="/pricing/" class="text-link">See pricing and access details <span aria-hidden="true">→</span></a></p>
 </section>
 
 <style>
@@ -79,23 +76,28 @@ const statusLabels = {
   .app-feature-comparison .section-intro h2 { margin: 0.4rem 0 0.65rem; font-size: clamp(1.5rem, 3vw, 2rem); }
   .app-feature-comparison .section-sub { margin: 0; color: var(--color-text-secondary); line-height: 1.7; }
   .feature-table-wrap { overflow-x: auto; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); background: #fff; box-shadow: 0 16px 38px rgba(31, 41, 55, 0.06); }
-  .feature-table { width: 100%; min-width: 720px; border-collapse: collapse; }
+  .feature-table { width: 100%; table-layout: fixed; border-collapse: collapse; }
   .feature-name-col { width: 64%; }
   .feature-status-col { width: 18%; }
   .feature-table caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
   .feature-table th, .feature-table td { padding: 1rem 1.25rem; border-bottom: 1px solid #ececec; vertical-align: middle; }
   .feature-table thead th { background: var(--color-bg-soft); color: var(--color-text); font-size: 0.84rem; font-weight: 800; line-height: 1.2; text-align: center; text-transform: uppercase; letter-spacing: 0.04em; }
   .feature-table thead th:first-child { text-align: left; }
+  .plan-price { display: block; font-size: .875rem; letter-spacing: 0; text-transform: none; color: var(--color-brand-dark); margin-top: .6rem; }
   .feature-table tbody th { width: 64%; min-width: 360px; color: var(--color-text); font-size: 1rem; font-weight: 700; line-height: 1.45; text-align: left; overflow-wrap: anywhere; }
   .feature-table tbody td { width: 18%; text-align: center; }
-  .feature-table-intro th { width: 100% !important; min-width: 0 !important; padding: 0 !important; }
-  .feature-table-intro-grid { display: grid; grid-template-columns: 64% 18% 18%; align-items: center; }
-  .feature-table-intro-grid > * { padding: 1rem 1.25rem; }
-  .feature-table-intro-grid strong { text-align: center; }
+  .feature-table .feature-group th { width: auto; min-width: 0; background: #eef7f4; color: var(--color-brand-dark); font-size: .8125rem; padding-block: .85rem; }
   .feature-table tbody tr:last-child th, .feature-table tbody tr:last-child td { border-bottom: 0; }
   .feature-mark { display: inline-grid; width: 1.75rem; height: 1.75rem; place-items: center; border-radius: 999px; font-weight: 900; line-height: 1; }
   .feature-mark-included { background: rgba(61, 179, 173, 0.16); color: var(--color-brand-dark); }
   .feature-mark-unavailable { border: 1px solid #d5d5d5; background: #f7f7f7; color: #8d8d8d; }
+  .feature-coming-soon { color: var(--color-brand-dark); font-size: .8125rem; font-weight: 700; }
+  .access-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+  .access-notes article { border-top: 2px solid #cce8e5; padding-top: 1rem; }
+  .access-notes h3 { font-size: 1rem; }
+  .access-notes p { font-size: .875rem; color: var(--color-text-secondary); margin-top: .6rem; }
+  .access-notes .text-link, .pricing-note .text-link { font-size: inherit; }
+  .pricing-note { font-size: .8125rem; color: var(--color-text-secondary); margin-top: 1.5rem; }
 
   @media (max-width: 640px) {
     .feature-table { min-width: 0; table-layout: fixed; }
@@ -105,11 +107,9 @@ const statusLabels = {
     .feature-table thead th { font-size: 0.7rem; letter-spacing: 0.03em; }
     .feature-table tbody th { width: 58%; min-width: 0; font-size: 0.86rem; line-height: 1.35; }
     .feature-table tbody td { width: 21%; }
-    .feature-table-intro-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .feature-table-intro-grid > * { padding: 0.75rem 0.8rem; }
-    .feature-table-intro-grid span { grid-column: 1 / -1; background: var(--color-bg-soft); }
-    .feature-table-intro-grid strong { font-size: 0.85rem; line-height: 1.4; }
-    .feature-table-intro-grid strong:first-of-type { border-right: 1px solid #ececec; }
+    .plan-price { font-size: .7rem; line-height: 1.4; }
+    .access-notes { grid-template-columns: 1fr; gap: 1.5rem; }
     .feature-mark { width: 1.45rem; height: 1.45rem; }
+    .feature-coming-soon { font-size: .7rem; line-height: 1.4; }
   }
 </style>

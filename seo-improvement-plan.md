@@ -1,5 +1,7 @@
 # Nubo SEO Improvement Plan
 
+Pricing update, October 1, 2026: Nubo Plus is $59.99/year. Subscriptions are billed through the App Store on iPhone or Google Play billing on Android. Prices may vary by region. Dated execution logs retain the prices recorded at the time.
+
 Updated: 2026-06-20, after first commercial-page implementation pass
 
 ## Executive take
@@ -514,7 +516,7 @@ Status: first-pass implementation complete.
 Completed changes:
 
 - Rebuilt the page around three plans: Free app, Premium, and Nubo Device.
-- Put `$0`, `$39.99/year`, and `$89.99` in the first decision area.
+- Put `$0`, `$59.99/year`, and `$89.99` in the first decision area.
 - Listed the feature set for each tier.
 - Removed Caregiver Economics, Premium Follows Device, second-baby value copy, long FAQ content, and broad decision-guide copy.
 - Added simplified Product, MobileApplication, and OfferCatalog JSON-LD without unsupported aggregate rating.

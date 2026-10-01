@@ -2,16 +2,45 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import AttentionLine from '../components/AttentionLine.astro';
 import AppCarousel from '../components/AppCarousel.astro';
 import AppFeatureComparison from '../components/AppFeatureComparison.astro';
 
 const title = 'Free Baby Tracker App for iPhone and Android | Nubo';
-const description = 'Download the free Nubo baby tracker app for iPhone and Android. Log feeds, sleep, diapers, voice catch-up, and caregiver sync with no ads.';
+const description = 'Track feeds, sleep, and diapers with free quick taps, AI voice logging, and caregiver sharing on iPhone and Android. Compare Nubo Free and Plus features.';
 const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
 const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
 
+const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
+const stores = [
+  { href: appStoreURL, image: '/images/appstore-badge.webp', label: 'Download on the App Store' },
+  { href: playStoreURL, image: '/images/playstore-badge.webp', label: 'Get it on Google Play' },
+];
+const benefits = [
+  ['One-tap logging', '#one-tap-logging'],
+  ['AI voice logging', '#voice-logging'],
+  ['Forecasts', '#forecasts'],
+  ['Helpful insights', '#insights'],
+  ['Shared care', '#caregivers'],
+  ['Free vs Plus', '#plans'],
+];
+const trackingDetails = [
+  { number: '01', title: 'Feeds, naps, and changes', copy: 'Log nursing, formula, expressed milk, sleep, and diapers. Quick Action cards keep the last event and daily totals close.', href: '#one-tap-logging', label: 'Explore quick logging' },
+  { number: '02', title: 'Growth and milestones', copy: 'Keep growth measurements and milestones together, with WHO and preemie/Fenton growth charts and CDC Act Early milestone tracking in the free app.', href: '#growth', label: 'See growth tracking' },
+  { number: '03', title: 'The details you want to remember', copy: 'Record medicine, vaccines, allergens, and care notes alongside your everyday logs. Switch between child profiles as your family grows.', href: '#plans', label: 'See all free features' },
+  { number: '04', title: 'Care at a glance', copy: 'Nubo Plus on iPhone brings sleep and nursing timers, recent feeds, and diaper updates to your Lock Screen with Live Activities.', href: '#live-activities', label: 'See Live Activities' },
+  { number: '05', title: 'Your pumping, kept private', copy: 'With Plus, track pumping and milk collection separately. Baby intake stays on the shared timeline; your pumping logs stay private.', href: '/exclusive-pumping/', label: 'Explore private pumping' },
+  { number: '06', title: 'Use what fits the moment', copy: 'Tap in the app, talk to catch up, or use the optional Nubo device. Alexa logging with Plus joins the same baby timeline, too.', href: '/alexa/', label: 'Explore Alexa logging' },
+];
+
 const faqItems = [
+  {
+    q: 'When does my 14-day Nubo Plus preview start?',
+    a: 'Your preview starts when you confirm your child is here. Downloading Nubo and creating a profile do not start it. The preview is separate from a subscription, and everyday tracking, in-app voice logging, and caregiver sharing stay free after it ends.'
+  },
+  {
+    q: 'Do I need the Nubo device?',
+    a: 'No. The free app works on its own. The optional device adds dedicated buttons for common care events, which sync over Bluetooth with a nearby paired caregiver phone. Each phone that syncs with the device receives a refreshed 30-day Nubo Plus access window.'
+  },
   {
     q: 'Is Nubo really a free baby tracker app?',
     a: 'Yes. The free Nubo app covers everyday baby tracking for feeds, sleep, diapers, medicine, growth, notes, voice catch-up, caregiver sync, offline mode, and private storage. Nubo Plus and the Nubo device are optional upgrades.'
@@ -55,7 +84,7 @@ const jsonLd = [
     ],
     offers: [
       { '@type': 'Offer', name: 'Nubo free app', price: '0', priceCurrency: 'USD', url: appStoreURL },
-      { '@type': 'Offer', name: 'Nubo Plus', price: '39.99', priceCurrency: 'USD', url: appStoreURL }
+      { '@type': 'Offer', name: 'Nubo Plus', price: '59.99', priceCurrency: 'USD', url: appStoreURL }
     ],
     installUrl: [appStoreURL, playStoreURL],
     downloadUrl: [appStoreURL, playStoreURL]
@@ -75,135 +104,287 @@ const jsonLd = [
 ];
 ---
 
-<BaseLayout title={title} description={description} jsonLd={jsonLd}>
-  <Header />
+<BaseLayout title={title} description={description} ogImage="/images/hero-mother-baby.webp" jsonLd={jsonLd}>
+  <Header ctaHref="#app-downloads" />
   <main>
-    <section class="app-hero">
-      <div class="container app-hero-inner">
-        <div>
-          <p class="overline">All-in-one baby tracker</p>
-          <h1>Free baby tracker app for newborn feeds, sleep, and diapers.</h1>
-          <p>Log feeds, sleep, diapers, medicine, growth, and notes with quick taps. Remembered something later? Say it in plain English. Sharing care with another parent, grandparent, or nanny? Keep every caregiver on the same timeline, then compare the optional <a href="/device/" class="text-link">screen-free baby tracker device</a> if phone logging starts to get in the way.</p>
-          <div class="hero-store-links" aria-label="Download Nubo app">
-            <a href={appStoreURL} target="_blank" rel="noopener noreferrer"><img src="/images/appstore-badge.webp" alt="Download on the App Store" width="160" height="56" /></a>
-            <a href={playStoreURL} target="_blank" rel="noopener noreferrer"><img src="/images/playstore-badge.webp" alt="Get it on Google Play" width="160" height="56" /></a>
+    <section class="app-hero" aria-labelledby="app-title">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="overline">Free baby tracker app for iPhone and Android</p>
+          <h1 id="app-title">A modern baby tracker.<br /><span>Beautifully simple.</span></h1>
+          <p class="hero-sub">Long days. Short nights. A lot to remember. Log with a tap or your voice, keep caregivers in sync, and see helpful insights at a glance.</p>
+          <div class="store-links hero-actions" aria-label="Download Nubo app">
+            {stores.map((store) => <a href={store.href} target="_blank" rel="noopener noreferrer"><img src={store.image} alt={store.label} width="160" height="56" /></a>)}
           </div>
+          <a href="#plans" class="text-link">Compare Free and Plus <span aria-hidden="true">→</span></a>
         </div>
-        <AppCarousel />
+        <div class="hero-visual">
+          <div class="hero-photo-frame">
+            <img class="hero-photo" src="/images/hero-mother-baby.webp" srcset="/images/hero-mother-baby-800.webp 800w, /images/hero-mother-baby.webp 1500w" sizes="(max-width: 900px) 100vw, 54vw" alt="Mother holding her sleeping newborn" width="1500" height="1255" loading="eager" fetchpriority="high" decoding="async" />
+          </div>
+          <div class="hero-app"><AppCarousel compact /></div>
+        </div>
       </div>
     </section>
 
-    <AttentionLine lead="Baby care changes fast. Nubo keeps up." variant="plain" />
+    <nav class="benefit-strip" aria-label="Explore baby tracking features">
+      <div class="container benefit-links">{benefits.map(([label, href]) => <a href={href}>{label}</a>)}</div>
+    </nav>
 
-    <section class="live-activity-section" aria-labelledby="live-activity-title">
-      <div class="container live-activity-grid">
-        <div>
-          <p class="overline">Nubo Plus on iPhone</p>
-          <h2 id="live-activity-title">See the last feed or diaper at a glance.</h2>
-          <p>"When did the baby last feed?" The answer can be on your Lock Screen, without opening the app. Nubo Live Activities show recent care details alongside active sleep and nursing timers.</p>
-          <p>When another caregiver logs an event, or a Nubo device log syncs, the shared timeline and your Live Activity update. It is a quick way to get oriented before you take over care.</p>
-          <a href="/blog/caregiver/baby-care-at-a-glance-shared-live-activity/" class="text-link">Read how it helps with handoffs &rarr;</a>
+    <section class="feature-section" id="one-tap-logging" aria-labelledby="quick-title">
+      <div class="container feature-grid visual-left">
+        <div class="feature-copy">
+          <p class="overline">Free one-tap logging in the app</p>
+          <h2 id="quick-title">Log at the speed<br />of thought.</h2>
+          <p>Another feed, another change, another nap. Use the app's quick-log buttons to record everyday care as it happens, and see each event join your baby's timeline.</p>
+          <p>Quick Action cards show the last event and daily totals beside the buttons, so you can get oriented before the next feed or nap.</p>
+          <p class="feature-note">Included in the free app on iPhone and Android.</p>
+          <a href="#plans" class="text-link">See everything included free <span aria-hidden="true">→</span></a>
         </div>
-        <img src="/images/appscreens/04_liveactivities.webp" alt="Nubo iPhone Lock Screen showing the time since the baby's last feed and diaper" width="642" height="1389" loading="lazy" decoding="async" />
+        <figure class="screenshot-visual peach-visual">
+          <img src="/images/appscreens/01_onetouch.webp" alt="Nubo Quick Actions with logging buttons, last-event times, and daily totals for feeds, sleep, and diapers" width="642" height="1389" loading="lazy" decoding="async" />
+          <figcaption>Everyday care, with quick taps.</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="app-care-section" aria-labelledby="app-care-title">
+    <section class="feature-section" id="voice-logging" aria-labelledby="voice-title">
+      <div class="container feature-grid">
+        <div class="feature-copy">
+          <p class="overline">Free AI voice logging</p>
+          <h2 id="voice-title">Baby finally settled?<br />Talk to catch up.</h2>
+          <p>Catch up on the feeds, naps, and changes you remember. Say it softly. Watch each log appear, then keep going. Nubo puts each entry at the time it happened.</p>
+          <blockquote>“Ella had a 4 oz bottle about ten minutes ago.”</blockquote>
+          <p class="feature-note">In-app voice processing runs on your phone in real time, including offline.</p>
+          <a href="/blog/tracking/catch-up-baby-logging-after-the-fact/" class="text-link">See how to catch up on missed logs <span aria-hidden="true">→</span></a>
+        </div>
+        <figure class="screenshot-visual teal-visual">
+          <img src="/images/appscreens/02_voicelogging.webp" alt="Nubo voice logging screen for adding remembered baby care events" width="642" height="1389" loading="lazy" decoding="async" />
+          <figcaption>Say what happened. Review each result. Keep going.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="feature-section warm-section" id="forecasts" aria-labelledby="forecast-title">
+      <div class="container feature-grid visual-left">
+        <div class="feature-copy">
+          <p class="overline">Nubo Plus · Coming soon</p>
+          <h2 id="forecast-title">Actionable sleep<br />and feeding forecasts.</h2>
+          <p>Know when to start winding down or prepare a feed. Nubo will use your baby's recent routine to forecast sleep and feeding, with one clear next step.</p>
+          <p>As your baby's routine changes, Nubo will learn from new logs and adjust its forecasts.</p>
+          <p class="feature-note">Coming soon with Nubo Plus.</p>
+          <a href="#plans" class="text-link">See the full Free and Plus comparison <span aria-hidden="true">→</span></a>
+        </div>
+        <figure class="forecast-visual">
+          <p class="visual-label">Coming soon · Illustrative forecast</p>
+          <div class="forecast-card"><span class="forecast-symbol" aria-hidden="true">☾</span><p>Sleep in about 18 minutes</p><strong>Start winding down soon.</strong></div>
+          <div class="forecast-flow"><span>Recent routine</span><span aria-hidden="true">→</span><span>A useful next step</span></div>
+          <figcaption>A preview of the idea, with timing that adapts to recent logs.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="feature-section" id="insights" aria-labelledby="insights-title">
+      <div class="container feature-grid">
+        <div class="feature-copy">
+          <p class="overline">Nubo Plus · Personalized insights</p>
+          <h2 id="insights-title">A helpful pattern.<br />Right where you log.</h2>
+          <p>When the days blur together, a useful pattern can be hard to spot. Nubo Plus surfaces the most important insights for caregivers on the Quick Actions screen.</p>
+          <p>Review all insights on the Charts screen whenever you want a closer look. Insights help you review recorded care; forecasts are a separate, upcoming feature.</p>
+          <a href="#plans" class="text-link">Compare the Free and Plus tools <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="insight-visual" aria-label="Where to find personalized insights in Nubo Plus">
+          <p class="visual-label">Your insights, in context</p>
+          <article><span class="step-number">01</span><div><h3>Quick Actions</h3><p>The most important caregiver insights, where you already log.</p></div></article>
+          <article><span class="step-number">02</span><div><h3>Charts</h3><p>All your insights together when you want a closer look.</p></div></article>
+          <p class="visual-note">Personalized insights are included in Nubo Plus.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-section warm-section" id="caregivers" aria-labelledby="caregiver-title">
+      <div class="container feature-grid visual-left">
+        <div class="feature-copy">
+          <p class="overline">Unlimited caregivers. Free.</p>
+          <h2 id="caregiver-title">Pick up where the last<br />caregiver left off.</h2>
+          <p>Your partner logged a bottle. You can see it before taking over. Invite a grandparent, nanny, or another trusted helper to the same baby timeline.</p>
+          <p>Everyone can log from iPhone or Android, with updates shared when phones sync and have connectivity. Caregiver attribution shows who recorded each event.</p>
+          <a href="/caregivers/" class="text-link">See how caregiver sharing works <span aria-hidden="true">→</span></a>
+        </div>
+        <figure class="screenshot-visual teal-visual">
+          <img src="/images/appscreens/03_collaboration.webp" alt="Nubo shared timeline with baby care entries from different caregivers" width="642" height="1389" loading="lazy" decoding="async" />
+          <figcaption>One baby timeline for the people you invite.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="tracking-section" aria-labelledby="tracking-title">
       <div class="container">
-        <p class="overline">Nubo Care · Included in Nubo Plus</p>
-        <h2 id="app-care-title">Back home, remember what your pediatrician said.</h2>
-        <p>Before the visit, save the things you want to ask. During it, tap record with permission and listen. Afterward, return to what your pediatrician said, with answers, original audio references, and next steps to share with caregivers.</p>
-        <p>Included in everyone's 14-day Plus preview and with every Nubo device. Your preview starts when you confirm your child is here. Available worldwide, in English.</p>
-        <a href="/care/" class="text-link">Explore Nubo Care <span aria-hidden="true">→</span></a>
+        <div class="section-intro"><p class="overline">Built for the day you are actually having</p><h2 id="tracking-title">One timeline.<br />Room for the whole routine.</h2><p class="section-sub">Less effort to record care. Useful context when you need it.</p></div>
+        <div class="tracking-grid">{trackingDetails.map((item) => <article><span class="step-number">{item.number}</span><h3>{item.title}</h3><p>{item.copy}</p><a href={item.href} class="text-link">{item.label} <span aria-hidden="true">→</span></a></article>)}</div>
+        <p class="compare-prompt">Choosing between baby trackers? <a href="/compare/" class="text-link">Compare your tracking options <span aria-hidden="true">→</span></a></p>
       </div>
     </section>
 
-    <div class="feature-table-section container">
-      <AppFeatureComparison />
-    </div>
-
-    <section class="proof-section" id="app-downloads">
-      <div class="container">
-        <div class="store-links store-links-centered" aria-label="Download Nubo app">
-          <a href={appStoreURL} target="_blank" rel="noopener noreferrer"><img src="/images/appstore-badge.webp" alt="Download on the App Store" width="160" height="56" loading="lazy" /></a>
-          <a href={playStoreURL} target="_blank" rel="noopener noreferrer"><img src="/images/playstore-badge.webp" alt="Get it on Google Play" width="160" height="56" loading="lazy" /></a>
-        </div>
+    <section class="feature-section warm-section" id="growth" aria-labelledby="growth-title">
+      <div class="container feature-grid">
+        <div class="feature-copy"><p class="overline">Growth and milestones · Free</p><h2 id="growth-title">Watch the little<br />changes add up.</h2><p>Keep weight, length, and head circumference measurements in one place. Review WHO and preemie/Fenton growth charts alongside the milestones you record.</p><p>The free app includes growth and milestone tracking. Plus adds advanced growth metrics when you want more detail.</p><a href="#plans" class="text-link">Compare growth features <span aria-hidden="true">→</span></a></div>
+        <figure class="screenshot-visual peach-visual"><img src="/images/appscreens/05_growth.webp" alt="Nubo growth charts showing recorded baby measurements over time" width="642" height="1389" loading="lazy" decoding="async" /><figcaption>Growth measurements, kept together.</figcaption></figure>
       </div>
     </section>
 
-    <section class="faq-section">
-      <div class="container">
-        <div class="section-intro">
-          <p class="overline">App questions</p>
-          <h2>Quick answers about the Nubo app.</h2>
-        </div>
-        <div class="app-faq-grid">
-          {faqItems.map((faq) => (
-            <article>
-              <h3>{faq.q}</h3>
-              <p>{faq.a}</p>
-            </article>
-          ))}
-        </div>
+    <section class="feature-section" id="live-activities" aria-labelledby="live-title">
+      <div class="container feature-grid visual-left">
+        <div class="feature-copy"><p class="overline">Nubo Plus on iPhone</p><h2 id="live-title">The last feed or diaper.<br />At a glance.</h2><p>“When did the baby last feed?” The answer can be on your Lock Screen, without opening the app. Live Activities show recent care details alongside active sleep and nursing timers.</p><p>When another caregiver logs an event, or a Nubo device log syncs, the shared timeline and your Live Activity update.</p><a href="/blog/caregiver/baby-care-at-a-glance-shared-live-activity/" class="text-link">Read how it helps with handoffs <span aria-hidden="true">→</span></a></div>
+        <figure class="screenshot-visual teal-visual"><img src="/images/appscreens/04_liveactivities.webp" alt="Nubo iPhone Lock Screen showing the time since the baby's last feed and diaper" width="642" height="1389" loading="lazy" decoding="async" /><figcaption>Live Activities are included in Plus on iPhone.</figcaption></figure>
       </div>
     </section>
+
+    <section class="device-section" id="device" aria-labelledby="device-title">
+      <div class="container feature-grid">
+        <div class="feature-copy"><p class="overline">Optional Nubo device</p><h2 id="device-title">Leave the phone<br />where it is.</h2><p>A feed in the dark. A change with both hands busy. Use dedicated buttons for feeds, sleep, and diapers when reaching for your phone is inconvenient.</p><p>Device entries join the same timeline when they sync with a nearby paired phone. Each phone that syncs gets Nubo Plus, with a refreshed 30-day access window.</p><div class="device-actions"><a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a><a href="/device/" class="text-link">See the device <span aria-hidden="true">→</span></a></div><p class="feature-note">Start with the free app. Add the device when it fits your routine.</p></div>
+        <img class="device-photo" src="/images/nubo-device-hand.webp" srcset="/images/nubo-device-hand-720.webp 720w, /images/nubo-device-hand.webp 1280w" sizes="(max-width: 680px) 100vw, 46vw" alt="Nubo device held in one hand, with dedicated baby care buttons" width="1280" height="800" loading="lazy" decoding="async" />
+      </div>
+    </section>
+
+    <section class="privacy-section" aria-labelledby="privacy-title">
+      <div class="container feature-grid"><div><p class="overline">Private by design</p><h2 id="privacy-title">Your family's care stays<br />your family's business.</h2></div><div class="privacy-copy"><p>In-app AI voice logging runs on your phone. Backups use your own iCloud or Google Drive. Caregiver sharing is encrypted between invited people. No ads or selling baby data.</p><a href="/privacy/" class="text-link">How Nubo handles privacy <span aria-hidden="true">→</span></a></div></div>
+    </section>
+
+    <div class="comparison-section" id="plans"><div class="container"><AppFeatureComparison heading="Free for everyday care. Plus for the extras." intro="Quick taps, AI voice logging, and unlimited caregivers stay free. Compare Free and Plus, including upcoming forecasts, then choose the tools that fit your family." /></div></div>
+
+    <section class="care-section" aria-labelledby="care-title">
+      <div class="container care-inner"><div><p class="overline">Nubo Care · Included in Plus</p><h2 id="care-title">Bring your tracking<br />to the next doctor visit.</h2></div><div class="feature-copy"><p>Save the things you want to ask and choose the observations to bring along. During the visit, record with permission. Afterward, return to your pediatrician's answers and share the next steps with caregivers.</p><a href="/#nubo-care" class="text-link">Explore Nubo Care <span aria-hidden="true">→</span></a></div></div>
+    </section>
+
+    <section class="faq-section" id="questions" aria-labelledby="questions-title">
+      <div class="container faq-inner"><div class="faq-intro"><p class="overline">A few practical answers</p><h2 id="questions-title">Before you start.</h2><p>Start free, then choose the extras that fit your family.</p><a href="/faq/" class="text-link">Read all Nubo FAQs <span aria-hidden="true">→</span></a></div><div class="faq-list">{faqItems.map((faq) => <details><summary>{faq.q}<span aria-hidden="true">+</span></summary><p>{faq.a}</p></details>)}</div></div>
+    </section>
+
+    <section class="final-cta" id="app-downloads" aria-labelledby="download-title"><div class="container"><p class="overline">Free on iPhone and Android</p><h2 id="download-title">Start with the free app.</h2><p>Try an ordinary day of logging with the people who help care for your baby.</p><div class="store-links" aria-label="Choose where to download Nubo">{stores.map((store) => <a href={store.href} target="_blank" rel="noopener noreferrer"><img src={store.image} alt={store.label} width="160" height="56" loading="lazy" /></a>)}</div><p class="final-note">No device required. AI voice logging and caregiver sharing included.</p></div></section>
   </main>
   <Footer />
 </BaseLayout>
 
 <style>
-  .app-hero { padding: 10rem 0 5rem; background: var(--color-bg-ivory); overflow: hidden; }
-  .app-hero-inner { display: grid; grid-template-columns: 1fr 0.75fr; gap: 4rem; align-items: center; }
-  .app-hero-inner > div, .section-intro, .app-faq-grid article { min-width: 0; }
-  .app-hero h1 { font-size: clamp(2.35rem, 5vw, 4rem); line-height: 1.08; margin-bottom: 1rem; overflow-wrap: break-word; }
-  .app-hero p, .app-faq-grid p { color: var(--color-text-secondary); line-height: 1.7; }
-  .hero-store-links { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; margin-top: 2rem; }
-  .hero-store-links img { height: 52px; width: auto; border-radius: 0; box-shadow: none; }
-  .hero-trust { margin-top: 1rem; font-weight: 800; color: var(--color-brand-dark) !important; }
-  :global(.app-hero + .attention-line) { padding-top: 0; padding-bottom: 3.5rem; background: var(--color-bg-ivory); }
-
-  .live-activity-section { padding: 5rem 0; background: var(--color-bg-soft); }
-  .live-activity-grid { display: grid; grid-template-columns: 1fr minmax(220px, 340px); align-items: center; gap: 4rem; }
-  .live-activity-grid h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; margin-bottom: 1.25rem; }
-  .live-activity-grid p { color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 1rem; }
-  .live-activity-grid img { width: 100%; height: auto; border-radius: var(--radius-xl); box-shadow: 0 16px 38px rgba(31, 41, 55, 0.12); }
-
-  .app-care-section { padding: 4rem 0; background: var(--color-brand-light); }
-  .app-care-section .container { max-width: 900px; }
-  .app-care-section h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); line-height: 1.2; }
-  .app-care-section p:not(.overline) { margin-top: 1rem; color: var(--color-text-secondary); }
-  .app-care-section .text-link { display: inline-block; margin-top: 1.25rem; }
-  .feature-table-section, .faq-section, .proof-section { padding: 5rem 0; }
-  .feature-table-section { background: #fff; }
-
-  .proof-section { scroll-margin-top: 1rem; }
-  .proof-section, .faq-section { background: var(--color-bg-soft); }
-  .store-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-  .store-links-centered { justify-content: center; align-items: center; }
-  .store-links img { height: 48px; width: auto; }
-
-  .app-faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-  .app-faq-grid article { background: #fff; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); padding: 1.75rem; }
-  .app-faq-grid h3 { font-size: 1.125rem; line-height: 1.3; margin-bottom: 0.75rem; color: var(--color-text); }
-
-  @media (max-width: 980px) {
-    .app-hero { padding: 8rem 0 4rem; }
-    .app-hero-inner { grid-template-columns: 1fr; }
-    .live-activity-grid { gap: 2rem; }
-    .app-faq-grid { grid-template-columns: 1fr 1fr; }
+  main [id] { scroll-margin-top: 92px; }
+  .app-hero { background: var(--color-bg-ivory); overflow: hidden; }
+  .hero-inner { max-width: 1320px; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 1rem; padding-top: 140px; padding-bottom: 100px; }
+  .hero-copy, .feature-grid > *, .care-inner > * { min-width: 0; }
+  h1 { font-size: clamp(2.5rem, 4.2vw, 3.7rem); line-height: 1.14; letter-spacing: -.025em; }
+  .hero-copy h1 { max-width: 10.5em; }
+  h1 span { display: inline-block; color: var(--color-brand); margin-top: .15em; }
+  .hero-sub { margin-top: 1.5rem; color: var(--color-text-secondary); font-size: 1.0625rem; max-width: 510px; }
+  .hero-actions { margin-top: 1.8rem; }
+  .store-links { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+  .store-links a { display: inline-flex; border-radius: 9px; }
+  .store-links img { width: 160px; height: 56px; object-fit: contain; }
+  .hero-copy > .text-link { display: inline-block; margin-top: 1rem; }
+  .hero-visual { position: relative; padding: 3rem 2rem 2rem 0; transform: translateX(-2rem); }
+  .hero-visual::before { content: ''; position: absolute; inset: 0 1rem 0 0; border: 2px solid #cee0db; border-radius: 48% 51% 44% 47%; transform: rotate(-8deg); }
+  .hero-photo-frame { position: relative; width: 100%; aspect-ratio: 1500 / 1255; overflow: hidden; border-radius: 47% 49% 42% 45%; }
+  .hero-photo { position: absolute; right: 0; top: 50%; width: 118%; max-width: none; height: auto; transform: translateY(-50%) scaleX(-1); }
+  .hero-app { position: absolute; right: 0; bottom: -.5rem; width: 42%; max-width: 260px; }
+  .hero-app :global(.app-carousel-compact) { width: 100%; }
+  .benefit-strip { background: #fff; border-block: 1px solid #e0e7e3; }
+  .benefit-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.6rem; padding-block: 1.2rem; }
+  .benefit-links a { color: var(--color-brand-dark); font-size: .8125rem; font-weight: 700; }
+  .feature-section, .tracking-section, .device-section, .comparison-section, .faq-section { padding: 5rem 0; }
+  .feature-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 4rem; }
+  .visual-left .feature-copy { grid-column: 2; grid-row: 1; }
+  .visual-left > :last-child { grid-column: 1; grid-row: 1; }
+  h2 { font-size: clamp(1.9rem, 3.2vw, 2.8rem); line-height: 1.2; letter-spacing: -.015em; }
+  .feature-copy > p:not(.overline) { margin-top: 1.1rem; color: var(--color-text-secondary); }
+  .feature-copy > .text-link { display: inline-block; margin-top: 1.3rem; }
+  .feature-copy .feature-note, .feature-note, .final-note { font-size: .8125rem; line-height: 1.6; }
+  .screenshot-visual { margin: 0; padding: 2rem; border-radius: 32px; text-align: center; }
+  .screenshot-visual img { width: min(100%, 230px); height: auto; border-radius: 20px; margin-inline: auto; box-shadow: 0 14px 32px rgba(27,72,76,.12); }
+  figcaption { color: var(--color-text-secondary); font-size: .75rem; margin-top: 1rem; }
+  .peach-visual { background: var(--color-bg-peach); }
+  .teal-visual { background: #eef7f4; }
+  blockquote { background: #eef7f4; border-left: 3px solid var(--color-brand); padding: 1rem 1.3rem; margin-top: 1.3rem; font-size: 1.0625rem; color: var(--color-brand-dark); font-weight: 600; }
+  .warm-section { background: var(--color-bg-warm); }
+  .forecast-visual, .insight-visual { margin: 0; padding: 2rem; border: 1px solid #d4e1db; border-radius: 24px; background: #eef7f4; }
+  .visual-label { text-transform: uppercase; font-size: .6875rem; letter-spacing: .055em; font-weight: 700; color: #50675d; }
+  .forecast-card { margin-top: 1.8rem; border-radius: 20px; background: #fff; padding: 1.8rem; border: 1px solid #d4e1db; }
+  .forecast-symbol { font-size: 2rem; color: var(--color-brand-dark); }
+  .forecast-card p { margin-top: .5rem; font-size: .875rem; color: var(--color-text-secondary); }
+  .forecast-card strong { display: block; font-size: 1.35rem; line-height: 1.4; margin-top: .4rem; }
+  .forecast-flow { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin-top: 1.4rem; font-size: .75rem; color: var(--color-brand-dark); font-weight: 700; }
+  .insight-visual article { display: flex; gap: 1rem; margin-top: 1.5rem; padding: 1.4rem; background: #fff; border: 1px solid #d4e1db; border-radius: 16px; }
+  .insight-visual h3 { font-size: 1.125rem; }
+  .insight-visual article p { color: var(--color-text-secondary); font-size: .875rem; margin-top: .5rem; }
+  .visual-note { color: var(--color-text-secondary); font-size: .75rem; margin-top: 1.2rem; }
+  .section-intro { margin-bottom: 2.5rem; }
+  .section-intro h2 { font-size: clamp(1.9rem,3.2vw,2.8rem); line-height: 1.2; }
+  .section-sub { font-size: 1rem; }
+  .tracking-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+  .tracking-grid article { border: 1px solid #e0e7e3; border-radius: 20px; padding: 1.6rem; display: flex; flex-direction: column; align-items: flex-start; }
+  .step-number { color: var(--color-brand-dark); font-size: .8125rem; font-weight: 700; }
+  .tracking-grid h3 { font-size: 1.125rem; line-height: 1.4; margin-top: 1rem; }
+  .tracking-grid p { font-size: .875rem; color: var(--color-text-secondary); margin: .8rem 0 1.1rem; }
+  .tracking-grid .text-link { margin-top: auto; font-size: .8125rem; }
+  .compare-prompt { text-align: center; margin-top: 2rem; color: var(--color-text-secondary); font-size: .875rem; }
+  .compare-prompt a { display: inline-block; }
+  .device-section { background: var(--color-bg-ivory); }
+  .device-photo { border-radius: 24px; }
+  .device-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.3rem; margin-top: 1.5rem; }
+  .device-actions .btn-primary { padding: .8rem 1.4rem; font-size: .875rem; }
+  .privacy-section { padding: 4rem 0; background: var(--color-brand-light); border-block: 1px solid #cce8e5; }
+  .privacy-copy p { color: var(--color-text-secondary); }
+  .privacy-copy .text-link { display: inline-block; margin-top: 1.2rem; }
+  .comparison-section :global(.app-feature-comparison) { margin: 0; }
+  .care-section { padding: 3.5rem 0; background: #eef7f4; }
+  .care-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .care-inner .feature-copy p { margin-top: 0; }
+  .faq-inner { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 4rem; }
+  .faq-intro p:not(.overline) { color: var(--color-text-secondary); margin: 1rem 0; }
+  .faq-list details { border-bottom: 1px solid #e0e7e3; }
+  .faq-list summary { display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-weight: 700; font-size: .9375rem; padding: 1.2rem 0; cursor: pointer; list-style: none; }
+  .faq-list summary::-webkit-details-marker { display: none; }
+  .faq-list summary span { color: var(--color-brand-dark); font-size: 1.4rem; flex-shrink: 0; }
+  .faq-list details[open] summary span { transform: rotate(45deg); }
+  .faq-list details p { color: var(--color-text-secondary); font-size: .9375rem; padding-bottom: 1.2rem; }
+  .final-cta { padding: 4.5rem 0; text-align: center; background: var(--color-bg-ivory); }
+  .final-cta p:not(.overline) { color: var(--color-text-secondary); max-width: 540px; margin: 1rem auto 0; }
+  .final-cta .store-links { justify-content: center; margin-top: 1.6rem; }
+  a:focus-visible, summary:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 5px; }
+  @media (max-width: 1100px) { .hero-visual { transform: translateX(-.75rem); } .feature-grid, .care-inner, .faq-inner { gap: 2.5rem; } }
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; padding-top: 105px; padding-bottom: 80px; }
+    .hero-copy { text-align: center; max-width: 610px; margin-inline: auto; }
+    .hero-copy h1 { margin-inline: auto; }
+    .hero-sub { margin-inline: auto; }
+    .hero-actions { justify-content: center; }
+    .hero-visual { width: min(100%, 580px); margin-inline: auto; transform: none; }
+    .tracking-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
-
-  @media (max-width: 640px) {
-    .app-hero { padding-top: 7rem; }
-    .app-hero h1 { font-size: clamp(2rem, 10vw, 2.45rem); overflow-wrap: anywhere; }
-    .app-hero .overline { font-size: 0.72rem; letter-spacing: 0.04em; overflow-wrap: anywhere; }
-    .app-hero p, .section-intro h2, .section-sub { overflow-wrap: anywhere; }
-    .live-activity-section { padding: 4rem 0; }
-    .live-activity-grid { grid-template-columns: 1fr; }
-    .live-activity-grid img { max-width: 300px; justify-self: center; }
-    .feature-table-section, .faq-section, .proof-section { padding: 4rem 0; }
-    .app-faq-grid { grid-template-columns: 1fr; }
-    .hero-store-links img { height: 46px; }
-    .store-links a, .store-links img { width: 100%; height: auto; }
+  @media (max-width: 680px) {
+    .container { padding-inline: 1.25rem; }
+    .hero-inner { padding-top: 100px; padding-bottom: 70px; }
+    h1 { font-size: clamp(2.15rem, 8vw, 3rem); }
+    .hero-copy .overline { font-size: .6875rem; }
+    .hero-sub { font-size: .9375rem; }
+    .hero-visual { display: grid; width: 95%; padding: 1rem 1rem 2rem 0; }
+    .hero-photo-frame { grid-area: 1 / 1; align-self: center; }
+    .hero-app { position: relative; grid-area: 1 / 1; justify-self: end; align-self: center; right: -1rem; bottom: auto; width: 48%; }
+    .store-links { gap: .65rem; }
+    .store-links img { width: 150px; height: 52.5px; }
+    .benefit-links { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem 1rem; text-align: center; }
+    .feature-section, .tracking-section, .device-section, .comparison-section, .faq-section { padding-block: 3.5rem; }
+    .feature-grid, .care-inner, .faq-inner, .tracking-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .visual-left .feature-copy, .visual-left > :last-child { grid-column: auto; grid-row: auto; }
+    .screenshot-visual { padding: 1.5rem; }
+    .screenshot-visual img { width: min(100%, 215px); }
+    .feature-copy > p:not(.overline) { font-size: .9375rem; }
+    .feature-copy .feature-note { font-size: .8125rem; }
+    .forecast-visual, .insight-visual { padding: 1.5rem; }
+    .privacy-section, .care-section { padding-block: 3.5rem; }
+    .tracking-grid article { padding: 1.5rem; }
+  }
+  @media (max-width: 360px) {
+    .store-links img { width: 134px; height: 47px; }
+    h1 { font-size: 2.05rem; }
+    .insight-visual article, .forecast-card { padding: 1rem; }
   }
 </style>

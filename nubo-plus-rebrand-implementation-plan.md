@@ -1,5 +1,7 @@
 # Nubo Plus Website Implementation Plan
 
+Pricing update, October 1, 2026: Nubo Plus is $59.99/year. Subscriptions are billed through the App Store on iPhone or Google Play billing on Android. Prices may vary by region. Dated execution logs retain the prices recorded at the time.
+
 **Status:** Website implementation complete
 
 **Scope:** Standardize the customer-facing paid and access tier as **Nubo Plus** across `www.nubotracker.com`, without changing prices, eligibility, subscription terms, the 30-day device access window, marketplace destinations, or URL structure.
@@ -33,7 +35,7 @@ The phrase “free app” remains correct when comparing prices. It is a price d
 
 The completed website implementation preserves these rules:
 
-1. Nubo Plus remains listed at `$39.99/year`.
+1. Nubo Plus remains listed at `$59.99/year`.
 2. Device sync refreshes a 30-day Nubo Plus access window for active phones.
 3. The app, device, pricing, FAQ, legal, and indexed URLs remain unchanged.
 4. App Store, Google Play, Amazon, and Alexa links remain direct external destinations with `target="_blank"` and `rel="noopener noreferrer"`.

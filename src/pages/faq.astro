@@ -3,30 +3,57 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const title = 'FAQ | Nubo Baby Tracker | Common Questions Answered';
-const description = 'Frequently asked questions about the Nubo baby activity tracker. Learn about setup, battery life, caregiver sharing, app compatibility, and more.';
+const title = 'FAQ | Nubo Care, Baby Tracker App, and Device';
+const description = 'Answers about Nubo Care doctor visits, recording, recaps, privacy, and Plus access, along with the free baby tracker app, caregivers, and optional device.';
 
-const faqs = [
+const careFaqs = [
   {
-    q: "What is Nubo Care?",
-    a: "Nubo Care helps you listen to your pediatrician without taking notes at the same time. Save questions before the appointment, tap record with permission during it, and return to a recap, answers, and next steps afterward. Recorded answers link to the original audio on the recording phone. Care is included in Nubo Plus. Read the <a href=\"/care/\">Nubo Care overview</a>."
+    "q": "What is Nubo Care?",
+    "a": "Nubo Care helps you listen to your pediatrician without trying to take notes at the same time. Save questions before the visit, record with permission during it, and return to a recap, answers, and next steps afterward. It is included in Nubo Plus. See the <a href=\"/#nubo-care\">Nubo Care overview</a>."
   },
   {
-    q: "Is Nubo Care included in the Plus preview and with a device?",
-    a: "Yes. Nubo Care is included in Nubo Plus, everyone's 14-day Plus preview, and the Plus access every device owner receives. The preview starts when parents confirm the child is here. Downloading and creating a profile do not start it. The core tracking app remains free after the preview."
+    "q": "Should I download before my baby arrives?",
+    "a": "Yes. Get familiar with Nubo before the first busy days. Downloading and creating a profile do not start your Plus preview. The 14-day preview starts when you confirm your child is here."
   },
   {
-    q: "Where is Nubo Care available, and in which languages?",
-    a: "Nubo Care is available worldwide, with visit recording and recaps in English."
+    "q": "Can I use Nubo Care at the first hospital conversation?",
+    "a": "Yes. Start with your questions and record with your care team’s permission. You do not need a tracking history. Nubo Care is included in Plus, including your 14-day preview, and is available worldwide with recording and recaps in English."
   },
   {
-    q: "Do caregivers get the doctor visit recap?",
-    a: "Yes. Nubo Care syncs summaries, answers, to-dos, and other visit records to invited caregivers. The audio recording remains on the recording phone and is not synced to caregivers."
+    "q": "Is Nubo Care included in the Plus preview and with the device?",
+    "a": "Yes. Nubo Care is part of Nubo Plus, including everyone’s 14-day Plus preview and the Plus access included with every Nubo device. Your preview starts when you confirm your child is here."
   },
   {
-    q: "How does Nubo Care process and store a visit?",
-    a: "Care processing happens on the server with zero data retention after processing. Summaries, answers, to-dos, and other visit records are stored on phones and backed up to users' private backups. Audio remains available on the recording phone."
+    "q": "Where is Nubo Care available?",
+    "a": "Nubo Care is available worldwide. Visit recording and recaps support English."
   },
+  {
+    "q": "Do I have to record the appointment?",
+    "a": "No. Prepare your questions and selected observations, then take notes if you prefer. If you record, get permission from everyone taking part and follow the clinic’s policy."
+  },
+  {
+    "q": "How can I check an answer against the conversation?",
+    "a": "Every answer extracted from a recording refers to its actual audio timestamps. On the phone that recorded the visit, you can replay the relevant passage and recollect what was said. Manually entered notes do not have an audio reference."
+  },
+  {
+    "q": "What do caregivers see?",
+    "a": "Invited caregivers receive synced summaries, question answers, to-dos, and other visit records. The audio recording is available on the recording phone and is not synced to caregivers."
+  },
+  {
+    "q": "Where does processing happen, and what is retained?",
+    "a": "Care processing happens on the server with zero data retention after processing. Summaries, answers, to-dos, and other visit records are stored on phones and backed up to users’ private backups. Audio remains available on the recording phone."
+  },
+  {
+    "q": "Can I prepare without a tracking history?",
+    "a": "Yes. Start with your own questions and observations. Select relevant logs when you have them; a long logging history is not required."
+  },
+  {
+    "q": "Do I need the Nubo device for doctor visits?",
+    "a": "No. Nubo Care works in the app on its own. The optional device adds dedicated buttons for everyday feeds, sleep, and diapers. Each phone that syncs with the device receives Plus access, refreshed for 30 days with each sync."
+  }
+];
+
+const trackerFaqs = [
   {
     q: "Who is Nubo best for?",
     a: "Nubo is best for families who want baby tracking to be fast, shared, and forgiving. It works well for newborn parents managing night feeds, forgotten logs, hands-full moments, and multiple caregivers. You can use the free app on its own, add Nubo Plus for advanced tools, or add the quick-log device when opening your phone is inconvenient."
@@ -74,6 +101,10 @@ const faqs = [
   {
     q: "Can multiple caregivers use Nubo?",
     a: "Yes. Anyone can tap Nubo device buttons to log activities. In the app, you can invite caregivers like a partner, grandparents, or nanny so everyone sees the same activity log. Learn more on the <a href=\"/caregivers/\">caregiver page</a>."
+  },
+  {
+    q: "How much does Nubo Plus cost, and how is it billed?",
+    a: "Nubo Plus is $59.99/year. Subscriptions are billed through the App Store on iPhone or Google Play billing on Android. Prices may vary by region; check your local price in the app before subscribing. The free app remains available without a subscription."
   },
   {
     q: "How does Nubo Plus work with the Nubo device?",
@@ -193,6 +224,8 @@ const faqs = [
   }
 ];
 
+const faqs = [...careFaqs, ...trackerFaqs];
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -212,8 +245,8 @@ const jsonLd = {
   <main>
     <section class="page-hero">
       <div class="container">
-        <p class="overline">Baby tracker FAQ</p>
-        <h1>Frequently asked questions about the Nubo baby tracker app and device.</h1>
+        <p class="overline">Nubo FAQ</p>
+        <h1>Your questions about Nubo Care, the app, and the device.</h1>
         <p class="page-hero-sub">
           Everything you need to know about Nubo. Can't find your answer?
           <a href="/contact/" class="hero-link">Reach out to us</a>.
@@ -231,17 +264,29 @@ const jsonLd = {
       </div>
     </section>
 
-    <section class="faq-content">
+    <section class="faq-content" id="doctor-visits" aria-labelledby="care-faq-title">
       <div class="container faq-inner">
-        {faqs.map((faq) => (
+        <p class="overline">Nubo Care</p>
+        <h2 id="care-faq-title">Doctor visits</h2>
+        <p class="faq-section-intro">Preparing, recording, revisiting answers, and sharing next steps.</p>
+        {careFaqs.map((faq) => (
           <details class="faq-item">
-            <summary class="faq-question">
-              <span>{faq.q}</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-answer">
-              <p set:html={faq.a} />
-            </div>
+            <summary class="faq-question"><span>{faq.q}</span><span class="faq-icon" aria-hidden="true">+</span></summary>
+            <div class="faq-answer"><p set:html={faq.a} /></div>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="faq-content" id="app-and-device" aria-labelledby="tracker-faq-title">
+      <div class="container faq-inner">
+        <p class="overline">Everyday care</p>
+        <h2 id="tracker-faq-title">App and device</h2>
+        <p class="faq-section-intro">Tracking, caregiver sharing, Plus, and device setup.</p>
+        {trackerFaqs.map((faq) => (
+          <details class="faq-item">
+            <summary class="faq-question"><span>{faq.q}</span><span class="faq-icon" aria-hidden="true">+</span></summary>
+            <div class="faq-answer"><p set:html={faq.a} /></div>
           </details>
         ))}
       </div>
@@ -249,7 +294,7 @@ const jsonLd = {
 
     <section class="faq-cta">
       <div class="container faq-cta-inner">
-        <h2>Still have questions about newborn feeding, sleep, diaper, or caregiver tracking?</h2>
+        <h2>Still have a question about Nubo?</h2>
         <p>We'd love to hear from you.</p>
         <a href="/contact/" class="btn-primary">Contact us</a>
       </div>
@@ -260,6 +305,8 @@ const jsonLd = {
 
 
 <style>
+  section[id] { scroll-margin-top: 96px; }
+  .faq-section-intro { color: var(--color-text-secondary); margin: 1rem 0 1.5rem; }
   .faq-paths {
     padding: 0 0 1rem;
     background: #fff;

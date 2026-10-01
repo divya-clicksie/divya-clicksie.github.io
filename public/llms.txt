@@ -11,7 +11,7 @@ What makes Nubo distinct: it is built to support caregiving, not compete with it
 - Website: https://www.nubotracker.com/
 - Device: https://www.nubotracker.com/device/
 - App: https://www.nubotracker.com/app/
-- Doctor visits: https://www.nubotracker.com/care/
+- Doctor visits: https://www.nubotracker.com/#nubo-care
 - Pricing: https://www.nubotracker.com/pricing/
 - Caregivers: https://www.nubotracker.com/caregivers/
 - Compare: https://www.nubotracker.com/compare/
@@ -26,7 +26,7 @@ What makes Nubo distinct: it is built to support caregiving, not compete with it
 ## Product Family
 
 - Nubo app: Free baby tracker app for iOS and Android. It includes routine tracking, Quick Log cards, in-app voice logging, unlimited caregivers, child profiles, cloud backup, offline mode, and one shared timeline.
-- Nubo Plus: Optional app upgrade for Live Activities on iOS and advanced tools such as reminders, exports, Alexa, private pumping, advanced views, Sleep Sounds, and Care Vault. Current public price: $39.99 per year.
+- Nubo Plus: Optional app upgrade for Live Activities on iOS and advanced tools such as reminders, exports, Alexa, private pumping, advanced views, Sleep Sounds, and Care Vault. Current public price: $59.99 per year. Subscriptions are billed through the App Store on iPhone or Google Play billing on Android. Prices may vary by region; check your local price in the app before subscribing.
 - Nubo device: Physical baby tracker sold on Amazon. It logs feeds, sleep, pee, and poop with a one-second button press and syncs to the free app. Current public price: $89, reduced from a $109 retail price.
 - Nubo Alexa skill: Nubo Plus voice-assistant logging through Amazon Alexa, with events flowing into the same Nubo timeline.
 
@@ -76,6 +76,6 @@ Nubo Care helps parents listen to their pediatrician without taking notes at the
 
 Each answer extracted from a recording refers to actual audio timestamps for playback on the recording phone. Summaries, answers, to-dos, and other visit records sync to invited caregivers; audio does not. Care processing happens on the server with zero data retention after processing. Visit records live on phones and in users' private backups.
 
-Feature overview: https://www.nubotracker.com/care/
+Feature overview: https://www.nubotracker.com/#nubo-care
 
 The 14-day Nubo Plus preview starts when parents confirm that the child is here, not at app download or profile creation.
