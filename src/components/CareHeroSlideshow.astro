@@ -1,15 +1,15 @@
 ---
 const scenes = [
-  { key: 'hospital-phone-v4', short: 'Newborn', label: 'First days at the hospital', alt: 'Concept photo of a mother looking lovingly at her newborn while a woman doctor sits beside her, with an iPhone on her lap' },
-  { key: 'baby-visit-v4', short: 'Baby', label: 'A visit with an unwell baby', alt: 'Concept photo of a concerned father comforting his subdued baby while a man doctor explains next steps, with an iPhone nearby' },
-  { key: 'toddler-visit-v2', short: 'Toddler', label: 'A cheerful toddler checkup', alt: 'Concept photo of a cheerful toddler and mother talking with a smiling woman doctor, with an iPhone on the exam bed' },
-  { key: 'child-visit-v4', short: 'Child', label: 'Growing through childhood', alt: 'Concept photo of a young child looking attentively at a man doctor with a neutral expression, alongside both parents and a nearby iPhone' },
+  { key: 'hospital-phone-v5', width: 1774, short: 'Newborn', label: 'First days at the hospital', alt: 'Concept photo of a mother looking lovingly at her newborn while a woman doctor sits beside her, with an iPhone on her lap' },
+  { key: 'baby-visit-v5', width: 1774, short: 'Baby', label: 'A visit with an unwell baby', alt: 'Concept photo of a concerned father comforting his subdued baby while a man doctor explains next steps, with an iPhone nearby' },
+  { key: 'toddler-visit-v5', width: 1586, short: 'Toddler', label: 'A cheerful toddler checkup', alt: 'Concept photo of a cheerful toddler and mother talking with a smiling woman doctor, with an iPhone on the exam bed' },
+  { key: 'child-visit-v5', width: 1774, short: 'Child', label: 'Growing through childhood', alt: 'Concept photo of a young child looking attentively at a man doctor with a neutral expression, alongside both parents and a nearby iPhone' },
 ];
 ---
 
 <div class="care-gallery" data-care-gallery role="region" aria-roledescription="carousel" aria-label="Care conversations as your child grows">
   {scenes.map((scene, index) => <div class:list={['care-scene', { 'is-active': index === 0 }]} data-scene data-label={scene.label} data-short={scene.short} aria-hidden={index === 0 ? 'false' : 'true'}>
-    <img src={index === 0 ? `/images/nubo-care-${scene.key}.webp` : undefined} srcset={index === 0 ? `/images/nubo-care-${scene.key}-960.webp 960w, /images/nubo-care-${scene.key}.webp 1774w` : undefined} data-src={`/images/nubo-care-${scene.key}.webp`} data-srcset={`/images/nubo-care-${scene.key}-960.webp 960w, /images/nubo-care-${scene.key}.webp 1774w`} sizes="100vw" alt={scene.alt} width="1774" height="887" fetchpriority={index === 0 ? 'high' : 'low'} decoding="async" />
+    <img src={index === 0 ? `/images/nubo-care-${scene.key}.webp` : undefined} srcset={index === 0 ? `/images/nubo-care-${scene.key}-960.webp 960w, /images/nubo-care-${scene.key}.webp ${scene.width}w` : undefined} data-src={`/images/nubo-care-${scene.key}.webp`} data-srcset={`/images/nubo-care-${scene.key}-960.webp 960w, /images/nubo-care-${scene.key}.webp ${scene.width}w`} sizes="100vw" alt={scene.alt} width={scene.width} height={scene.width / 2} fetchpriority={index === 0 ? 'high' : 'low'} decoding="async" />
   </div>)}
 </div>
 
