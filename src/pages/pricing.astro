@@ -2,52 +2,38 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { plusComingSoon } from '../data/appFeatureComparison';
+import NuboProductGuide from '../components/NuboProductGuide.astro';
+import AppFeatureComparison from '../components/AppFeatureComparison.astro';
+import SiteIcon from '../components/SiteIcon.astro';
+import { nuboAccess, nuboStory } from '../data/nuboMessaging';
 
 const title = 'Pricing | Nubo Free App, Plus, and Device';
-const description = 'Compare Nubo pricing: free baby tracker app, Nubo Plus app upgrade for $59.99/year, and the Nubo physical tracker device for $89, reduced from a $109 retail price.';
+const description = 'Everyday tracking and caregivers stay free. Compare Nubo Plus for pediatrician visits and more app tools, plus the optional device for hands-full days.';
 
 const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
 const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
 const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
 
 const appFeatures = [
-  'Routine tracking for feeds, sleep, diapers, medicine, growth, vaccines, allergens, milestones, and notes',
-  'Quick-log cards for fast app entries',
-  'In-app voice catch-up when you need to add several events at once',
-  'Unlimited caregivers on the shared baby timeline',
-  'Cross-platform caregiver sync for iPhone and Android',
-  'Offline mode when the connection is spotty',
-  'Cloud backup with your own iCloud or Google Drive account',
-  'Multiple child profiles',
-  'No ads, no credit card, and no deadline on core tracking'
+  'Everyday tracking and Quick Log',
+  'On-device voice logging and observations',
+  'Unlimited caregivers, iPhone and Android',
+  'Multiple children, offline mode, private backup',
+  'Nubo Noticed, free on Mondays',
 ];
-
 const plusFeatures = [
-  'Everything in the free app',
-  'Nubo Care for doctor visit preparation, audio-linked answers, and synced next steps',
-  'Live Activities for timers and recent caregiver updates on iPhone',
-  'Automatic and smart reminders for feeds, bottles, naps, and care events',
-  'Sleep Sounds, including calming shush sounds for settling',
-  'Care Vault for standing handoff details',
-  'CSV exports',
-  'Alexa logging',
-  'Private pumping tracker for exclusive pumping and milk output',
-  'Advanced views for patterns and totals',
-  ...plusComingSoon.map((feature) => `${feature} (coming soon)`)
+  'Everything in Free',
+  'Nubo Care for doctor visits and next steps',
+  'Nubo Noticed throughout the week',
+  'Reminders, charts, exports, and Alexa',
+  'Private pumping and iPhone Live Activities',
 ];
-
 const deviceFeatures = [
-  'Everything in the free app',
-  'Physical one-tap tracker for screen-free logging',
-  'Dedicated buttons for bottle feeds, nursing, sleep, pee, and poop',
-  'Bluetooth sync with the Nubo app',
-  'Works with iPhone and Android caregivers through the app',
-  'Nubo Plus access refresh for active phones that sync with the device',
-  'Nubo Plus app tools during the active device-access window, including Nubo Care',
-  'Magnetic mount for a crib rail, nightstand, or changing area',
-  'Lanyard for keeping the tracker close',
-  'Battery included, designed for months of everyday use'
+  'Dedicated buttons for feeds, sleep, and diapers',
+  'Bluetooth sync to a nearby paired phone',
+  'Plus access for each phone that syncs',
+  'Magnetic mount and lanyard',
+  'Battery included, designed to last months',
 ];
 
 const jsonLd = {
@@ -83,10 +69,10 @@ const jsonLd = {
       name: 'Nubo Baby Tracker App',
       operatingSystem: 'iOS, Android',
       applicationCategory: 'HealthApplication',
-      description: 'Free baby tracker app with quick logs, voice catch-up, caregiver sync, offline mode, and private baby timeline tools.',
+      description: `${nuboStory.description} ${nuboStory.plus}`,
       offers: [
         { '@type': 'Offer', name: 'Nubo free app', price: '0', priceCurrency: 'USD', url: appStoreURL },
-        { '@type': 'Offer', name: 'Nubo Plus', price: '59.99', priceCurrency: 'USD', url: appStoreURL }
+        { '@type': 'Offer', name: 'Nubo Plus annual subscription', price: '59.99', priceCurrency: 'USD', url: appStoreURL }
       ],
       installUrl: [appStoreURL, playStoreURL],
       downloadUrl: [appStoreURL, playStoreURL]
@@ -105,11 +91,11 @@ const jsonLd = {
         },
         {
           '@type': 'Offer',
-          name: 'Nubo Plus app upgrade',
+          name: 'Nubo Plus annual subscription',
           price: '59.99',
           priceCurrency: 'USD',
           url: appStoreURL,
-          itemOffered: { '@type': 'SoftwareApplication', name: 'Nubo Plus' }
+          itemOffered: { '@type': 'MobileApplication', name: 'Nubo Baby Tracker App' }
         },
         {
           '@type': 'Offer',
@@ -127,335 +113,62 @@ const jsonLd = {
 
 <BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <Header />
-  <main>
-    <section class="page-hero pricing-hero">
-      <div class="container">
-        <p class="overline">Nubo pricing</p>
-        <h1>Choose your Nubo plan.</h1>
-        <p class="page-hero-sub">Start with the free app, add Nubo Plus for advanced app tools, or buy the physical tracker device for one-tap logging.</p>
-        <div class="hero-price-row" aria-label="Nubo pricing summary">
-          <span>Free app: $0</span>
-          <span>Nubo Plus: $59.99/year</span>
-          <span>Device: <del>$109</del> $89</span>
-        </div>
+  <main id="main-content">
+    <section class="page-hero pricing-hero" aria-labelledby="pricing-title"><div class="container"><p class="overline">Nubo pricing</p><h1 id="pricing-title">Start free.<br />Add what helps.</h1><p class="page-hero-sub">Quick Log, voice logging, observations, and unlimited caregivers stay free. Add Plus for Nubo Care and more app tools, or the optional device for hands-full moments.</p></div></section>
+
+    <section class="plans-section" id="plans" aria-label="Nubo plans and optional device"><div class="container">
+      <div class="pricing-grid">
+        <article class="pricing-card"><span class="plan-mark"><SiteIcon name="leaf" size={30} /></span><p class="plan-label">The everyday app</p><h2>Nubo Free</h2><p class="price">$0</p><p class="price-context">Free on iPhone and Android</p><p class="tagline">Keep the day's care together.</p><ul class="feature-list" aria-label="Free app features">{appFeatures.map((feature) => <li><SiteIcon name="check" size={17} /><span>{feature}</span></li>)}</ul><div class="card-actions"><a href={appStoreURL} target="_blank" rel="noopener noreferrer"><img src="/images/appstore-badge.webp" alt="Download on the App Store" width="160" height="56" /></a><a href={playStoreURL} target="_blank" rel="noopener noreferrer"><img src="/images/playstore-badge.webp" alt="Get it on Google Play" width="160" height="56" /></a></div></article>
+        <article class="pricing-card featured-card"><span class="plan-mark"><SiteIcon name="sparkles" size={30} /></span><p class="plan-label">The paid app plan</p><h2>Nubo Plus</h2><p class="price">$4.99<span>/month</span></p><p class="price-context">$59.99 billed annually</p><p class="tagline">Pediatrician visits, recorded patterns, and more.</p><ul class="feature-list" aria-label="Nubo Plus features">{plusFeatures.map((feature) => <li><SiteIcon name="check" size={17} /><span>{feature}</span></li>)}</ul><div class="card-actions"><a href={appStoreURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Upgrade in the iPhone app</a><a href={playStoreURL} class="text-link" target="_blank" rel="noopener noreferrer">Upgrade in the Android app <span aria-hidden="true">↗</span></a></div></article>
+        <article class="pricing-card device-card"><span class="device-mark"><img src="/images/hero-device.webp" alt="Nubo device with dedicated care buttons" width="520" height="1077" loading="lazy" decoding="async" /></span><p class="plan-label">Optional physical tracker</p><h2>Nubo Device</h2><p class="price"><del>$109</del> $89</p><p class="price-context">One-time purchase on Amazon</p><p class="tagline">Screen-free logging, close at hand.</p><ul class="feature-list" aria-label="Nubo device features">{deviceFeatures.map((feature) => <li><SiteIcon name="check" size={17} /><span>{feature}</span></li>)}</ul><div class="card-actions"><a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a><a href="/device/" class="text-link">Explore the device <span aria-hidden="true">→</span></a></div></article>
       </div>
-    </section>
-
-    <section class="plans-section" id="plans">
-      <div class="container">
-        <div class="pricing-grid">
-          <article class="pricing-card">
-            <div class="plan-heading">
-              <p class="plan-label">App</p>
-              <h2>Free</h2>
-              <p class="price">$0</p>
-              <p class="tagline">Core baby tracking for iPhone, Android, and shared caregivers.</p>
-            </div>
-            <ul class="feature-list" aria-label="Free app features">
-              {appFeatures.map((feature) => <li>{feature}</li>)}
-            </ul>
-            <div class="card-actions">
-              <a href={appStoreURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Download on the App Store</a>
-              <a href={playStoreURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
-            </div>
-          </article>
-
-          <article class="pricing-card pricing-card-featured">
-            <div class="plan-badge">App upgrade</div>
-            <div class="plan-heading">
-              <p class="plan-label">Nubo Plus</p>
-              <h2>Nubo Plus</h2>
-              <p class="price">$59.99<span>/year</span></p>
-              <p class="billing-note">Billed through the App Store or Google Play. Prices may vary by region.</p>
-              <p class="tagline">Deeper insights, helpful reminders, private pumping, and Nubo Care for doctor visits and follow-through.</p>
-            </div>
-            <ul class="feature-list" aria-label="Nubo Plus features">
-              {plusFeatures.map((feature) => <li>{feature}</li>)}
-            </ul>
-            <div class="card-actions">
-              <a href={appStoreURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Upgrade in the iPhone app</a>
-              <a href={playStoreURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">Upgrade in the Android app</a>
-            </div>
-          </article>
-
-          <article class="pricing-card pricing-card-device">
-            <div class="plan-badge plan-badge-dark">Physical tracker</div>
-            <div class="plan-heading">
-              <p class="plan-label">Device</p>
-              <h2>Nubo Device</h2>
-              <p class="price price-sale"><del>$109</del><span class="sale-price">$89</span></p>
-              <p class="tagline">A one-time Amazon purchase for screen-free logging and caregiver-friendly routines.</p>
-            </div>
-            <ul class="feature-list" aria-label="Nubo device features">
-              {deviceFeatures.map((feature) => <li>{feature}</li>)}
-            </ul>
-            <div class="card-actions">
-              <a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
-            </div>
-          </article>
-        </div>
-
-        <p class="pricing-note"><a href="/#nubo-care" class="text-link">Explore Nubo Care</a>. Everyone gets a 14-day Nubo Plus preview, starting when parents confirm the child is here. Downloading and creating a profile do not start it. Nubo Care is included in Plus, the preview, and device-owner Plus access. The preview is separate from a subscription. Nubo Plus subscriptions are billed through the App Store on iPhone or Google Play billing on Android. Prices may vary by region; check your local price in the app before subscribing. Device price, shipping, availability, and returns follow the current Amazon listing.</p>
-      </div>
-    </section>
+      <p class="billing-note">Plus subscriptions use App Store or Google Play billing. Prices may vary by region. Device price, shipping, availability, and returns follow the current Amazon listing.</p>
+      <details class="comparison-details"><summary>Compare every Free and Plus feature <span aria-hidden="true">+</span></summary><AppFeatureComparison heading="Find the tools that fit your day." intro="Feature access and device requirements, all in one place." /></details>
+      <div class="access-grid" aria-label="Other ways to explore Plus"><article><div class="access-number">14<span>days</span></div><div><h3>Explore Plus for 14 days.</h3><p>Starts when you confirm your child is here. Downloading early won't use it up. The preview is separate from a subscription.</p></div></article><article><div class="access-number">30<span>days</span></div><div><h3>Plus follows your device.</h3><p>Each phone that syncs with the Nubo device gets a refreshed 30-day Plus window, including Nubo Care.</p></div></article></div>
+      <details class="access-details"><summary>Feature availability and access questions <span aria-hidden="true">+</span></summary><div><p>{nuboAccess.noticed}</p><p>{nuboAccess.notetaker}</p><p>Nubo Care is included in Plus, the preview, and active device access. It supports recording and recaps in English.</p><a href="/faq/#nubo-intelligence" class="text-link">Intelligence and access FAQs <span aria-hidden="true">→</span></a></div></details>
+    </div></section>
+    <NuboProductGuide />
   </main>
   <Footer />
 </BaseLayout>
 
 <style>
-  .billing-note { margin-top: .75rem; color: var(--color-text-secondary); font-size: .8125rem; line-height: 1.6; }
-  .pricing-hero {
-    padding-bottom: 4rem;
-  }
-
-  .pricing-hero .container {
-    max-width: 980px;
-  }
-
-  .pricing-hero h1,
-  .pricing-hero .page-hero-sub {
-    overflow-wrap: anywhere;
-  }
-
-  .hero-price-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem;
-    margin-top: 2rem;
-  }
-
-  .hero-price-row span {
-    max-width: 100%;
-    border: 1px solid #e8e8e8;
-    border-radius: 999px;
-    background: #fff;
-    color: var(--color-text);
-    padding: 0.7rem 1rem;
-    font-weight: 800;
-    line-height: 1.2;
-    overflow-wrap: anywhere;
-  }
-
-  .plans-section {
-    padding: 4rem 0 6rem;
-    background: var(--color-bg-warm);
-  }
-
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.5rem;
-    align-items: stretch;
-  }
-
-  .pricing-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    background: #fff;
-    border: 1px solid #e8e8e8;
-    border-radius: var(--radius-xl);
-    padding: 1.75rem;
-    box-shadow: 0 16px 38px rgba(31, 41, 55, 0.06);
-    overflow: hidden;
-  }
-
-  .pricing-card-featured {
-    border: 2px solid var(--color-brand);
-    box-shadow: 0 18px 44px rgba(19, 188, 195, 0.14);
-  }
-
-  .pricing-card-device {
-    border: 2px solid #1d1d1f;
-    box-shadow: 0 18px 44px rgba(31, 41, 55, 0.11);
-  }
-
-
-  .plan-badge {
-    position: absolute;
-    top: 0;
-    right: 1.5rem;
-    border-radius: 0 0 10px 10px;
-    background: var(--color-brand);
-    color: #fff;
-    padding: 0.4rem 0.85rem;
-    font-size: 0.72rem;
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: 0;
-    text-transform: uppercase;
-  }
-
-  .plan-badge-dark {
-    background: #1d1d1f;
-  }
-
-  .plan-heading {
-    padding-top: 0.45rem;
-  }
-
-  .plan-label {
-    margin: 0 0 0.45rem;
-    color: var(--color-brand-dark);
-    font-size: 0.78rem;
-    font-weight: 800;
-    line-height: 1.2;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .pricing-card h2 {
-    margin: 0;
-    color: var(--color-text);
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    line-height: 1.1;
-    overflow-wrap: anywhere;
-  }
-
-  .price {
-    margin: 0.85rem 0 0.65rem;
-    color: var(--color-text);
-    font-size: clamp(2.4rem, 5vw, 3.25rem);
-    font-weight: 800;
-    line-height: 1;
-    overflow-wrap: anywhere;
-  }
-
-  .price span {
-    color: var(--color-text-secondary);
-    font-size: 1rem;
-    font-weight: 700;
-  }
-
-  .price-sale { display: flex; align-items: baseline; gap: 0.55rem; }
-  .price-sale del { color: var(--color-text-secondary); font-size: 1.25rem; font-weight: 700; text-decoration-thickness: 1.5px; }
-  .price-sale .sale-price { color: var(--color-text); font-size: inherit; font-weight: inherit; }
-
-  .tagline {
-    min-height: 5.4rem;
-    margin: 0;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-  }
-
-  .feature-list {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    gap: 0.85rem;
-    list-style: none;
-    margin: 1.6rem 0;
-    padding: 0;
-  }
-
-  .feature-list li {
-    position: relative;
-    min-width: 0;
-    padding-left: 1.55rem;
-    color: var(--color-text-secondary);
-    line-height: 1.55;
-    overflow-wrap: anywhere;
-  }
-
-  .feature-list li::before {
-    position: absolute;
-    left: 0;
-    top: 0.1rem;
-    color: var(--color-brand-dark);
-    font-weight: 900;
-    content: '+';
-  }
-
-  .card-actions {
-    display: grid;
-    gap: 0.75rem;
-    margin-top: auto;
-  }
-
-  .card-actions .btn-primary,
-  .card-actions .btn-ghost {
-    width: 100%;
-    min-height: 3.1rem;
-    padding-right: 1rem;
-    padding-left: 1rem;
-    text-align: center;
-    white-space: normal;
-  }
-
-  .pricing-note {
-    max-width: 820px;
-    margin: 1.75rem auto 0;
-    color: var(--color-text-secondary);
-    font-weight: 700;
-    line-height: 1.6;
-    text-align: center;
-  }
-
-  @media (max-width: 1120px) {
-    .pricing-grid {
-      grid-template-columns: 1fr;
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .tagline {
-      min-height: 0;
-    }
-  }
-
-  @media (max-width: 680px) {
-    .pricing-hero {
-      padding-bottom: 3rem;
-    }
-
-    .pricing-hero h1 {
-      max-width: 340px;
-      margin-right: auto;
-      margin-left: auto;
-      font-size: clamp(2.15rem, 9vw, 2.6rem);
-    }
-
-    .pricing-hero .page-hero-sub {
-      max-width: 340px;
-      font-size: 1rem;
-    }
-
-    .plans-section {
-      padding: 3rem 0 4rem;
-    }
-
-    .hero-price-row {
-      justify-content: stretch;
-    }
-
-    .hero-price-row span {
-      width: 100%;
-      text-align: center;
-    }
-
-    .pricing-card {
-      padding: 1.35rem;
-    }
-
-    .pricing-card h2 {
-      font-size: 1.65rem;
-    }
-
-    .price {
-      font-size: 2.65rem;
-    }
-
-    .plan-badge {
-      position: static;
-      align-self: flex-start;
-      border-radius: 999px;
-      margin-bottom: 1rem;
-    }
-
-    .plan-heading {
-      padding-top: 0;
-    }
-  }
+  #plans { scroll-margin-top: 96px; }
+  .pricing-hero { padding-top: 128px; padding-bottom: 2.5rem; }
+  .pricing-hero h1 { font-size: clamp(2.8rem,5vw,4rem); line-height: 1.08; letter-spacing: -.04em; }
+  .pricing-hero .page-hero-sub { max-width: 510px; font-size: 1rem; margin-top: 1.25rem; }
+  .plans-section { padding-block: 1rem 4rem; background: var(--color-bg-ivory); }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.1rem; align-items: stretch; }
+  .pricing-card { display: flex; flex-direction: column; min-width: 0; position: relative; background: #fff; border: 1px solid #e3e5de; border-radius: 26px; padding: 1.75rem; }
+  .featured-card { background: #f0f7f3; border-color: #9bbfae; }
+  .device-card { background: #f7f4ed; border-color: #e4dfd3; }
+  .plan-mark { color: var(--color-brand-dark); width: 48px; height: 62px; display: flex; align-items: center; margin-bottom: 1rem; }
+  .device-mark { height: 62px; display: block; margin-bottom: 1rem; } .device-mark img { height: 62px; width: auto; transform: rotate(12deg); }
+  .plan-label { font-size: .625rem; color: var(--color-brand-dark); text-transform: uppercase; font-weight: 700; letter-spacing: .06em; margin-bottom: .4rem; }
+  h2 { font-size: 1.5rem; line-height: 1.2; letter-spacing: -.025em; }
+  .price { font-size: clamp(2.3rem,3.7vw,3rem); line-height: 1.15; letter-spacing: -.04em; font-weight: 700; margin-top: 1.1rem; }
+  .price > span { font-size: .875rem; letter-spacing: 0; font-weight: 500; }
+  .price del { font-size: 1.125rem; color: var(--color-text-secondary); font-weight: 500; letter-spacing: 0; }
+  .price-context { color: var(--color-text-secondary); font-size: .6875rem; margin-top: .4rem; }
+  .tagline { color: var(--color-text-secondary); font-size: .875rem; margin-top: 1.25rem; min-height: 2.8rem; }
+  .feature-list { list-style: none; display: grid; align-content: start; gap: .85rem; margin-block: 1.5rem 2rem; flex: 1; }
+  .feature-list li { display: flex; align-items: start; gap: .5rem; font-size: .75rem; line-height: 1.65; }
+  .feature-list svg { color: var(--color-brand-dark); flex-shrink: 0; margin-top: 2px; }
+  .card-actions { display: flex; flex-direction: column; gap: .7rem; align-items: flex-start; }
+  .card-actions img { width: 140px; height: 49px; object-fit: contain; }
+  .card-actions .btn-primary { padding: .8rem 1rem; font-size: .75rem; width: 100%; text-align: center; justify-content: center; }
+  .card-actions .text-link { display: inline-block; font-size: .6875rem; }
+  .billing-note { color: var(--color-text-secondary); font-size: .6875rem; line-height: 1.7; margin-block: 1.5rem; text-align: center; }
+  .comparison-details, .access-details { border-block: 1px solid #e1e5db; }
+  summary { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-block: 1.1rem; font-size: .875rem; color: var(--color-brand-dark); cursor: pointer; list-style: none; font-weight: 700; }
+  summary::-webkit-details-marker { display: none; } summary > span { font-size: 1.4rem; } details[open] > summary > span { transform: rotate(45deg); }
+  .access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-block: 2.5rem; }
+  .access-grid article { display: flex; gap: 1.25rem; align-items: flex-start; }
+  .access-number { font-size: 2.8rem; color: var(--color-brand-dark); font-weight: 700; line-height: 1; letter-spacing: -.04em; }
+  .access-number span { display: block; text-transform: uppercase; font-size: .625rem; line-height: 1.6; letter-spacing: .06em; margin-top: .4rem; }
+  .access-grid h3 { font-size: 1rem; line-height: 1.4; } .access-grid p { color: var(--color-text-secondary); font-size: .8125rem; margin-top: .55rem; }
+  .access-details > div { display: grid; gap: .8rem; padding-bottom: 1.5rem; color: var(--color-text-secondary); font-size: .875rem; }
+  a:focus-visible, summary:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 5px; }
+  @media (max-width: 900px) { .pricing-grid { gap: .8rem; } .pricing-card { padding: 1.3rem; } .card-actions .btn-primary { padding-inline: .7rem; font-size: .6875rem; } }
+  @media (max-width: 680px) { .container { padding-inline: 1.25rem; } .pricing-hero { padding-top: 100px; padding-bottom: 2rem; } .pricing-hero .page-hero-sub { font-size: .9375rem; } .pricing-grid { grid-template-columns: 1fr; gap: 1.25rem; } .pricing-card { padding: 1.5rem; } .plan-mark, .device-mark { position: absolute; top: 1.5rem; right: 1.5rem; height: 48px; margin: 0; } .device-mark img { height: 48px; } .price { font-size: 2.7rem; } .tagline { min-height: 0; } .feature-list { margin-block: 1.25rem 1.5rem; } .feature-list li { font-size: .8125rem; } .card-actions { flex-direction: row; flex-wrap: wrap; gap: .75rem; align-items: center; } .card-actions .btn-primary { font-size: .8125rem; } .card-actions .text-link { font-size: .75rem; } .billing-note { font-size: .6875rem; text-align: left; } .access-grid { grid-template-columns: 1fr; gap: 1.75rem; } summary { font-size: .8125rem; } }
 </style>

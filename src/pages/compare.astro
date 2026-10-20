@@ -1,83 +1,33 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-
+import MarketingLayout from '../layouts/MarketingLayout.astro';
+import SiteIcon from '../components/SiteIcon.astro';
+import FaqList from '../components/FaqList.astro';
 const title = 'Compare Baby Tracker App, Device, Plus, and Paper Logs | Nubo';
-const description = 'Compare baby tracker options: free app, Nubo Plus, physical device, paper logs, shared notes, and caregiver tracking. Choose the right Nubo setup.';
+const description = 'Find what fits your care routine. Compare the free Nubo app, Plus visit tools, the optional device, paper logs, and shared notes.';
 const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
 const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
 const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
 
 const setupOptions = [
-  {
-    label: 'Start here',
-    title: 'Free app',
-    body: 'Best if your phone is usually nearby and you want baby tracking for feeds, sleep, diapers, voice catch-up, and caregivers on iPhone and Android.',
-    href: '/app/',
-    cta: 'Explore the free app'
-  },
-  {
-    label: 'App upgrade',
-    title: 'Nubo Plus',
-    body: 'Best if you already like app tracking and want advanced app tools. The pricing page lists the full Nubo Plus feature set.',
-    href: '/pricing/#plans',
-    cta: 'Compare pricing'
-  },
-  {
-    label: 'Physical tracker',
-    title: 'Nubo Device',
-    body: 'Best if night care, hands-full moments, grandparents, nannies, or partner handoffs make phone logging unreliable.',
-    href: '/device/',
-    cta: 'See the device'
-  }
-];
-
+ { title: 'Nubo Free', label: 'Start with the app', icon: 'phone', body: 'Quick Log, voice logging, observations, and unlimited caregivers.', href: '/app/', cta: 'Explore the app' },
+ { title: 'Nubo Plus', label: 'The paid app plan', icon: 'sparkles', body: 'Nubo Care for pediatrician visits, Noticed all week, reminders, private pumping, and more.', href: '/pricing/#plans', cta: 'Explore Plus' },
+ { title: 'Nubo Device', label: 'Keep a button close', icon: 'bluetooth', body: 'Physical buttons for hands-full care, with Plus refreshed for each syncing phone.', href: '/device/', cta: 'Meet the device' },
+] as const;
 const decisionRows = [
-  ['Phone usually in hand', 'Free app'],
-  ['Want advanced app tools', 'Nubo Plus'],
-  ['Want less phone around the baby', 'Device'],
-  ['Two parents sharing care', 'Free app or Device'],
-  ['Nanny, sitter, or grandparent helps', 'Buttons are easier'],
-  ['Exclusively pumping or tracking milk output', 'Nubo Plus'],
-  ['Want exports for handoffs or appointments', 'Nubo Plus'],
-  ['Want paper as a backup', 'Paper log plus app']
+ ['Your phone is usually in hand', 'Free app'],
+ ['You want doctor visit recaps and more tools', 'Nubo Plus'],
+ ['You want to log without picking up a phone', 'Nubo device'],
+ ['You want to share with caregivers', 'Free with every setup'],
+ ['You want private pumping or exports', 'Nubo Plus'],
 ];
-
 const alternatives = [
-  {
-    title: 'Paper baby log',
-    body: 'Simple and private, but hard to share, search, total, export, or keep current when care moves between people.',
-    best: 'Best as a backup or hospital habit.'
-  },
-  {
-    title: 'Shared notes',
-    body: 'Flexible, but feeds, diapers, naps, and medicine quickly become messy text instead of a structured baby timeline.',
-    best: 'Best for loose notes, not routine tracking.'
-  },
-  {
-    title: 'Free baby tracker apps',
-    body: 'A good fit when caregivers are comfortable using phones. Nubo starts here with a free iPhone and Android app.',
-    best: 'Best first step for most families.'
-  },
-  {
-    title: 'Sleep-focused apps',
-    body: 'Useful if sleep coaching is the main job. Nubo is broader routine tracking for feeds, sleep, diapers, care handoffs, and caregivers.',
-    best: 'Best when sleep is the only decision.'
-  },
-  {
-    title: 'Physical baby tracker devices',
-    body: 'Useful when the phone is not in hand. Nubo adds a free app-first path, Bluetooth sync, and physical buttons for common care events.',
-    best: 'Best for screen-free logging and helpers.'
-  },
-  {
-    title: 'Nubo vs Talli',
-    body: 'If you were looking at Talli hardware, compare Nubo as an available physical baby tracker with Bluetooth sync, caregiver sharing, and iPhone and Android apps.',
-    best: 'Best if you want a Talli alternative with physical buttons.',
-    href: '/compare/talli/',
-    cta: 'Compare Nubo as a Talli alternative'
-  }
-];
+ { title: 'Paper logs', icon: 'questions', body: 'A simple backup. Sharing, searching, and adding up the day take more work.' },
+ { title: 'Shared notes', icon: 'users', body: 'Flexible for loose details. Less structured for feeds, naps, and diapers.' },
+ { title: 'Baby tracker apps', icon: 'phone', body: 'A practical starting point for people comfortable logging on a phone.' },
+ { title: 'Sleep-focused apps', icon: 'moon', body: 'Consider these when sleep coaching is your main goal.' },
+ { title: 'Physical trackers', icon: 'bluetooth', body: 'A button for the moments a phone is out of reach.' },
+ { title: 'Nubo and Talli', icon: 'check', body: 'Compare connection, portability, and the way a device fits your routine.', href: '/compare/talli/' },
+] as const;
 
 const faqItems = [
   {
@@ -86,7 +36,7 @@ const faqItems = [
   },
   {
     q: 'Is a physical baby tracker worth it?',
-    a: 'A physical baby tracker is most useful when phone logging breaks down: night feeds, hands-full changes, contact naps, partner handoffs, grandparents, nannies, or sitters. If your phone is always nearby, start with the free app.'
+    a: 'A physical baby tracker can help during night feeds, hands-full changes, contact naps, or caregiver handoffs. Nubo adds dedicated buttons for those moments and syncs with the same app. If phone logging suits your day, start free.'
   },
   {
     q: 'Should I use a baby tracker app or paper log?',
@@ -133,379 +83,16 @@ const jsonLd = [
 ];
 ---
 
-<BaseLayout title={title} description={description} jsonLd={jsonLd}>
-  <Header />
-  <main>
-    <section class="page-hero compare-hero">
-      <div class="container">
-        <p class="overline">Compare baby tracker options</p>
-        <h1>Compare baby tracker app, caregiver, and screen-free device options.</h1>
-        <p class="page-hero-sub">Compare the free Nubo app, Nubo Plus, the physical tracker device, paper logs, shared notes, and caregiver tracking so the next step is obvious.</p>
-        <div class="hero-actions-inline">
-          <a href="/pricing/" class="btn-primary">See pricing</a>
-          <a href={appStoreURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">Download free app</a>
-          <a href={amazonURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">Buy device</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="setup-section">
-      <div class="container">
-        <div class="setup-grid">
-          {setupOptions.map((option) => (
-            <article class="setup-card">
-              <p class="card-label">{option.label}</p>
-              <h2>{option.title}</h2>
-              <p>{option.body}</p>
-              <a href={option.href} class="btn-primary" target={option.external ? '_blank' : undefined} rel={option.external ? 'noopener noreferrer' : undefined}>{option.cta}</a>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="decision-section">
-      <div class="container decision-inner">
-        <div>
-          <p class="overline">Fast decision</p>
-          <h2>Match the baby tracker app or device to the care problem.</h2>
-          <p>The best baby tracker is not the one with the longest feature list. It is the one your family can keep using when everyone is tired, switching shifts, or holding the baby. For app-first families, start with the <a href="/app/" class="text-link">free baby tracker app</a>. For phone-free moments, compare the <a href="/device/" class="text-link">screen-free baby tracker device</a>.</p>
-        </div>
-        <div class="decision-list" aria-label="Baby tracker setup recommendations">
-          {decisionRows.map(([need, recommendation]) => (
-            <div>
-              <span>{need}</span>
-              <strong>{recommendation}</strong>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="alternatives-section">
-      <div class="container">
-        <div class="section-intro">
-          <p class="overline">Compare by option</p>
-          <h2>Baby tracker apps, devices, notes, and paper each solve a different problem.</h2>
-          <p class="section-sub">Use this page to choose the simplest setup that still covers your real household.</p>
-        </div>
-        <div class="alternative-grid">
-          {alternatives.map((item) => (
-            <article>
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-              <p class="best-fit">{item.best}</p>
-              {item.href && <a href={item.href} class="text-link">{item.cta} &rarr;</a>}
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="caregiver-section">
-      <div class="container caregiver-inner">
-        <div>
-          <p class="overline">Caregiver households</p>
-          <h2>If more than one person helps, compare baby trackers for caregivers.</h2>
-        </div>
-        <div>
-          <p>For one phone-first caregiver, a free app may be enough. For a partner, grandparent, nanny, sitter, or overnight helper, the question becomes simpler: can everyone log the same baby timeline without extra explaining? The <a href="/caregivers/" class="text-link">caregiver baby tracker page</a> walks through shared care in more detail.</p>
-          <div class="caregiver-actions">
-            <a href="/caregivers/" class="btn-primary">Compare caregiver tracking</a>
-            <a href="/pricing/" class="btn-ghost">Compare plans</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="faq-section">
-      <div class="container">
-        <div class="section-intro">
-          <p class="overline">Comparison FAQ</p>
-          <h2>Quick answers about choosing a baby tracker app or device.</h2>
-        </div>
-        <div class="faq-grid">
-          {faqItems.map((faq) => (
-            <article>
-              <h3>{faq.q}</h3>
-              <p>{faq.a}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  </main>
-  <Footer />
-</BaseLayout>
-
+<MarketingLayout title={title} description={description} jsonLd={jsonLd}>
+  <section class="m-hero m-title"><div class="container"><p class="overline">Compare Nubo setups</p><h1>Find your way<br />to keep track.</h1><p class="m-lead">A quick log, a question for the pediatrician, a handoff to a grandparent. Start with the free app and add what helps your family.</p></div></section>
+  <section class="m-section setup-section"><div class="container m-grid three">{setupOptions.map((option) => <article class="m-card setup-card"><span class="m-icon"><SiteIcon name={option.icon} size={28} /></span><p class="m-label">{option.label}</p><h2>{option.title}</h2><p>{option.body}</p><a href={option.href} class="text-link">{option.cta} <span aria-hidden="true">→</span></a></article>)}</div></section>
+  <section class="m-section m-warm"><div class="container m-split"><div class="m-copy"><p class="overline">Start with your routine</p><h2>What would make<br />today easier?</h2><p>The most useful setup is the one your household can reach for when everyone is tired.</p><a href="/pricing/" class="text-link">See prices and feature access <span aria-hidden="true">→</span></a></div><div class="decision-list" role="table" aria-label="Nubo setup by daily need"><div class="decision-heading" role="row"><span role="columnheader">If you want…</span><span role="columnheader">Start with</span></div>{decisionRows.map(([need, recommendation]) => <div role="row"><span role="cell">{need}</span><strong role="cell">{recommendation}</strong></div>)}</div></div></section>
+  <section class="m-section"><div class="container"><div class="m-heading center"><p class="overline">Other ways to keep a record</p><h2>Choose for the care you do.</h2></div><div class="m-grid three">{alternatives.map((item) => <article class="option-card"><span class="m-icon"><SiteIcon name={item.icon} /></span><h3>{item.title}</h3><p>{item.body}</p>{'href' in item && <a href={item.href} class="text-link">Compare devices <span aria-hidden="true">→</span></a>}</article>)}</div></div></section>
+  <section class="m-section m-teal"><div class="container m-split"><img src="/images/caregiver-hub.webp" alt="Nubo app and device connected across caregiver phones" width="1940" height="1173" loading="lazy" /><div class="m-copy"><p class="overline">For everyone lending a hand</p><h2>Shared care is<br />part of every setup.</h2><p>Unlimited caregivers on iPhone and Android stay free. Add a device when physical buttons make handoffs easier.</p><a href="/caregivers/" class="text-link">See shared care <span aria-hidden="true">→</span></a></div></div></section>
+  <section class="m-section"><div class="container m-split"><div class="m-heading"><p class="overline">Before you choose</p><h2>A few practical answers.</h2></div><FaqList items={faqItems} /></div></section>
+</MarketingLayout>
 <style>
-  .compare-hero .container {
-    max-width: 980px;
-  }
-
-  .compare-hero h1,
-  .compare-hero .page-hero-sub {
-    overflow-wrap: anywhere;
-  }
-
-  .hero-actions-inline {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-
-  .setup-section,
-  .decision-section,
-  .alternatives-section,
-  .caregiver-section,
-  .faq-section {
-    padding: 6rem 0;
-  }
-
-  .setup-section,
-  .faq-section {
-    background: #fff;
-  }
-
-  .decision-section,
-  .caregiver-section {
-    background: var(--color-bg-warm);
-  }
-
-  .alternatives-section {
-    background: var(--color-bg-soft);
-  }
-
-  .setup-grid,
-  .alternative-grid,
-  .faq-grid {
-    display: grid;
-    gap: 1.5rem;
-  }
-
-  .setup-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .alternative-grid,
-  .faq-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .setup-card,
-  .alternative-grid article,
-  .faq-grid article {
-    min-width: 0;
-    border: 1px solid #e8e8e8;
-    border-radius: var(--radius-xl);
-    background: #fff;
-    padding: 1.75rem;
-    overflow: hidden;
-  }
-
-  .setup-card {
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 16px 38px rgba(31, 41, 55, 0.06);
-  }
-
-  .card-label {
-    margin-bottom: 0.6rem;
-    color: var(--color-brand-dark);
-    font-size: 0.78rem;
-    font-weight: 800;
-    line-height: 1.2;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .setup-card h2,
-  .alternative-grid h3,
-  .faq-grid h3 {
-    margin-bottom: 0.75rem;
-    color: var(--color-text);
-    font-size: 1.25rem;
-    line-height: 1.2;
-    overflow-wrap: anywhere;
-  }
-
-  .setup-card p:not(.card-label),
-  .alternative-grid p,
-  .caregiver-inner p,
-  .faq-grid p,
-  .decision-inner p {
-    color: var(--color-text-secondary);
-    line-height: 1.7;
-    overflow-wrap: anywhere;
-  }
-
-  .setup-card .btn-primary {
-    width: 100%;
-    margin-top: auto;
-  }
-
-  .setup-card p + .btn-primary {
-    margin-top: 1.5rem;
-  }
-
-  .decision-inner,
-  .caregiver-inner {
-    display: grid;
-    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
-    gap: 4rem;
-    align-items: start;
-  }
-
-  .decision-inner > *,
-  .caregiver-inner > * {
-    min-width: 0;
-  }
-
-  .decision-inner h2,
-  .caregiver-inner h2 {
-    max-width: 560px;
-    font-size: clamp(1.9rem, 4vw, 3.2rem);
-    line-height: 1.1;
-    overflow-wrap: anywhere;
-  }
-
-  .decision-inner > div > p,
-  .caregiver-inner > div > p {
-    margin-top: 1rem;
-    font-size: 1.05rem;
-  }
-
-  .decision-list {
-    display: grid;
-    gap: 0.75rem;
-  }
-
-  .decision-list div {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 1rem;
-    align-items: center;
-    border: 1px solid #e8e8e8;
-    border-radius: 18px;
-    background: #fff;
-    padding: 1rem;
-  }
-
-  .decision-list span {
-    color: var(--color-text-secondary);
-    line-height: 1.35;
-  }
-
-  .decision-list strong {
-    color: var(--color-text);
-    line-height: 1.35;
-  }
-
-  .best-fit {
-    margin-top: 1rem;
-    color: var(--color-text) !important;
-    font-weight: 800;
-  }
-
-  .alternative-grid .text-link {
-    display: inline-flex;
-    margin-top: 1rem;
-  }
-
-  .caregiver-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 1.5rem;
-  }
-
-  @media (max-width: 1080px) {
-    .setup-grid,
-    .alternative-grid,
-    .faq-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .decision-inner,
-    .caregiver-inner {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-  }
-
-  @media (max-width: 680px) {
-    .setup-section,
-    .decision-section,
-    .alternatives-section,
-    .caregiver-section,
-    .faq-section {
-      padding: 4rem 0;
-    }
-
-    .compare-hero h1,
-    .section-intro h2,
-    .decision-inner h2,
-    .caregiver-inner h2 {
-      max-width: 340px;
-      margin-right: auto;
-      margin-left: auto;
-      font-size: clamp(2rem, 9vw, 2.45rem);
-    }
-
-    .compare-hero .page-hero-sub,
-    .section-intro .section-sub {
-      max-width: 340px;
-    }
-
-    .hero-actions-inline,
-    .caregiver-actions {
-      width: 100%;
-      max-width: 340px;
-      margin-right: auto;
-      margin-left: auto;
-    }
-
-    .hero-actions-inline .btn-primary,
-    .hero-actions-inline .btn-ghost,
-    .caregiver-actions .btn-primary,
-    .caregiver-actions .btn-ghost {
-      width: 100%;
-      max-width: 340px;
-      padding-right: 1rem;
-      padding-left: 1rem;
-      white-space: normal;
-    }
-
-    .setup-grid,
-    .alternative-grid,
-    .faq-grid {
-      grid-template-columns: 1fr;
-      max-width: 340px;
-      margin-right: auto;
-      margin-left: auto;
-    }
-
-    .setup-card,
-    .alternative-grid article,
-    .faq-grid article {
-      width: 100%;
-      max-width: 340px;
-      padding: 1.35rem;
-    }
-
-    .setup-card .btn-primary {
-      width: 100%;
-      max-width: 100%;
-      padding-right: 1rem;
-      padding-left: 1rem;
-      white-space: normal;
-    }
-
-    .decision-list div {
-      grid-template-columns: 1fr;
-      gap: 0.35rem;
-    }
-  }
+  .setup-section { padding-top: 1.5rem !important; } .setup-card { display: flex; flex-direction: column; align-items: start; } .setup-card:nth-child(2) { background: #f0f7f2; } .setup-card:nth-child(3) { background: #fff6ec; } .setup-card h2 { font-size: 1.6rem; } .setup-card .text-link { margin-top: auto; padding-top: 1.25rem; }
+  .decision-list { border: 1px solid #e0e6db; border-radius: 20px; background: #fff; overflow: hidden; } .decision-list > div { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1rem; padding: 1rem 1.25rem; border-bottom: 1px solid #e8ece4; font-size: .8125rem; } .decision-list > div:last-child { border: 0; } .decision-heading { background: #eaf3ed; color: var(--color-brand-dark); font-weight: 700; font-size: .6875rem !important; text-transform: uppercase; } .decision-list strong { color: var(--color-brand-dark); }
+  .option-card { padding: .5rem .25rem; } .option-card p { color: var(--color-text-secondary); font-size: .875rem; margin-top: .7rem; } .option-card a { display: inline-block; font-size: .8125rem; margin-top: .9rem; }
 </style>

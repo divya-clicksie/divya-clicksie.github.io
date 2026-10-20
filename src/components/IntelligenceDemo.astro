@@ -1,0 +1,85 @@
+---
+const initialExample = 2;
+const examples = [
+  {
+    label: 'A bottle',
+    said: 'She had 90 mL of formula 20 minutes ago.',
+    events: [{ type: 'Formula', amount: '90 mL', time: '20 minutes ago', color: 'bottle' }],
+  },
+  {
+    label: 'A nap',
+    said: 'Sam slept from 1 to 2:30 this afternoon.',
+    events: [{ type: 'Sleep', amount: '1 hr 30 min', time: '1:00 PM to 2:30 PM', color: 'sleep' }],
+  },
+  {
+    label: 'A busy morning',
+    said: 'Sam had 90 mL of formula at 8 and a wet diaper at 8:20 this morning.',
+    events: [
+      { type: 'Formula', amount: '90 mL', time: '8:00 AM', color: 'bottle' },
+      { type: 'Wet diaper', amount: '', time: '8:20 AM', color: 'diaper' },
+    ],
+  },
+];
+---
+
+<figure class="intelligence-demo" data-intelligence-demo aria-labelledby="voice-demo-caption">
+  <div class="demo-heading"><span class="intelligence-label"><span aria-hidden="true">✦</span> Nubo Intelligence</span><span class="sample-label">Voice logging · Free</span></div>
+  <div class="example-buttons" aria-label="Choose a voice logging example">
+    {examples.map((example, index) => <button type="button" data-example-button={index} aria-pressed={index === initialExample ? 'true' : 'false'} aria-controls={`voice-example-${index}`}>{example.label}</button>)}
+  </div>
+  <div class="example-stage" aria-live="polite" aria-atomic="true">
+    {examples.map((example, index) => <div id={`voice-example-${index}`} data-example-panel={index} hidden={index !== initialExample}>
+      <div class="spoken-update"><p class="small-label">You say</p><blockquote>“{example.said}”</blockquote><div class="waveform" aria-hidden="true">{[10, 20, 14, 30, 40, 24, 46, 34, 20, 30, 14, 22, 10].map((height) => <i style={`height: ${height}px`}></i>)}</div></div>
+      <div class="result-heading"><span aria-hidden="true">↓</span><p>Ready to review</p><span>{example.events.length} {example.events.length === 1 ? 'event' : 'events'}</span></div>
+      <div class="event-list">{example.events.map((event) => <div class:list={['event-result', event.color]}><span class="event-mark" aria-hidden="true">{event.color === 'sleep' ? '☾' : event.color === 'diaper' ? '✓' : '♡'}</span><div><strong>{event.type}</strong><span>{event.time}</span></div>{event.amount && <b>{event.amount}</b>}</div>)}</div>
+    </div>)}
+  </div>
+  <figcaption id="voice-demo-caption">Illustrative examples. In the app, review and edit events before saving.</figcaption>
+</figure>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-intelligence-demo]').forEach((demo) => {
+    const buttons = Array.from(demo.querySelectorAll<HTMLButtonElement>('[data-example-button]'));
+    const panels = Array.from(demo.querySelectorAll<HTMLElement>('[data-example-panel]'));
+    buttons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        buttons.forEach((item, itemIndex) => item.setAttribute('aria-pressed', String(itemIndex === index)));
+        panels.forEach((panel, panelIndex) => { panel.hidden = panelIndex !== index; });
+      });
+    });
+  });
+</script>
+
+<style>
+  .intelligence-demo { width: 100%; margin: 0; border: 1px solid #c9ded8; border-radius: 28px; padding: 1.5rem; background: #f0f6f2; box-shadow: 0 24px 60px rgba(35, 65, 55, .09); }
+  .demo-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .5rem; }
+  .intelligence-label { color: var(--color-brand-dark); font-size: .875rem; font-weight: 700; }
+  .intelligence-label > span { margin-right: .3rem; }
+  .sample-label { color: #56665f; font-size: .6875rem; }
+  .example-buttons { display: flex; flex-wrap: wrap; gap: .4rem; margin-block: 1.25rem; }
+  .example-buttons button { border: 1px solid #c9ded8; border-radius: 999px; background: transparent; padding: .6rem .85rem; font-size: .75rem; color: #40564b; font-weight: 700; min-height: 40px; }
+  .example-buttons button[aria-pressed="true"] { background: var(--color-brand-dark); border-color: var(--color-brand-dark); color: #fff; }
+  .example-buttons button:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 3px; }
+  .example-stage { display: grid; }
+  .example-stage > div { grid-area: 1 / 1; }
+  .example-stage > [hidden] { display: block; visibility: hidden; pointer-events: none; }
+  .spoken-update { background: #fff; border: 1px solid #e0e7e2; border-radius: 18px; padding: 1.3rem; }
+  .small-label { font-size: .6875rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #56665f; }
+  blockquote { font-size: clamp(1.1rem, 1.7vw, 1.4rem); line-height: 1.45; font-weight: 600; margin: .6rem 0 0; }
+  .waveform { display: flex; align-items: center; gap: 4px; height: 48px; margin-top: .75rem; }
+  .waveform i { width: 3px; border-radius: 3px; background: var(--color-brand); opacity: .65; }
+  .result-heading { display: flex; align-items: center; gap: .6rem; margin: 1rem .25rem .75rem; color: #4f6358; font-size: .75rem; }
+  .result-heading p { font-weight: 700; }
+  .result-heading > span:last-child { margin-left: auto; font-size: .6875rem; }
+  .event-list { display: grid; gap: .5rem; }
+  .event-result { display: flex; align-items: center; gap: .75rem; padding: .9rem 1rem; border-radius: 14px; background: #fff0e1; border: 1px solid #ecd8c0; }
+  .event-result.sleep { background: #eee9f9; border-color: #d8ceed; }
+  .event-result.diaper { background: #fcf5d9; border-color: #e7dca6; }
+  .event-mark { display: grid; place-items: center; width: 32px; height: 32px; flex-shrink: 0; background: rgba(255,255,255,.8); border-radius: 50%; color: #725334; }
+  .event-result strong { display: block; font-size: .875rem; }
+  .event-result div > span { display: block; margin-top: .2rem; color: #5e5c56; font-size: .75rem; }
+  .event-result b { margin-left: auto; font-size: 1rem; white-space: nowrap; }
+  figcaption { border-top: 1px solid #d6e3db; padding-top: .85rem; margin-top: .75rem; font-size: .6875rem; color: #56665f; line-height: 1.6; }
+  @media (max-width: 680px) { .intelligence-demo { padding: 1.1rem; border-radius: 22px; } blockquote { font-size: 1.2rem; } .spoken-update { padding: 1.1rem; } }
+  @media (max-width: 360px) { .example-buttons button { padding-inline: .6rem; } .event-result { padding-inline: .75rem; gap: .5rem; } }
+</style>

@@ -1,0 +1,302 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import IntelligenceDemo from '../components/IntelligenceDemo.astro';
+import CareRecapPreview from '../components/CareRecapPreview.astro';
+import NaraImportVideo from '../components/NaraImportVideo.astro';
+import AppFeatureComparison from '../components/AppFeatureComparison.astro';
+
+const title = 'Free Baby Tracker App with Nubo Intelligence | Nubo';
+const description = 'Log naturally, capture observations, and notice changes with Nubo Intelligence. Free voice logging and unlimited caregivers on iPhone and Android.';
+const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
+const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
+const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
+const stores = [
+  { href: appStoreURL, image: '/images/appstore-badge.webp', label: 'Download on the App Store' },
+  { href: playStoreURL, image: '/images/playstore-badge.webp', label: 'Get it on Google Play' },
+];
+const benefits = [
+  ['Nubo Intelligence', '#intelligence'],
+  ['Quick logging', '#one-tap-logging'],
+  ['Nubo Notetaker', '#notetaker'],
+  ['Nubo Noticed', '#insights'],
+  ['Shared care', '#caregivers'],
+  ['Free and Plus', '#plans'],
+];
+const routineFeatures = [
+  { title: 'Feeds, naps, and changes', copy: 'Nursing, formula, pumped milk bottles, sleep, and diapers. Recent events and daily totals stay close to the logging buttons.' },
+  { title: 'Growing, at their own pace', copy: 'Record measurements and milestones. WHO and preemie/Fenton growth charts give your measurements context; Plus adds advanced growth views.' },
+  { title: 'The details between the logs', copy: 'Keep medicine, vaccines, allergens, and observations in the same history. Multiple child profiles give each child their own record.' },
+  { title: 'Helpful little automations', copy: 'With Plus, Auto Reminders update as you log, using the timing and active hours you choose. Allergen SafeStart tracks introduction progress from your entries.' },
+];
+const faqItems = [
+  { q: 'What is Nubo Intelligence?', a: 'Nubo Intelligence brings together machine learning, on-device AI, statistics, and useful automation across everyday tracking. It helps turn speech into events, organize observations, suggest editable values while logging, and highlight supported patterns in your records. Access varies by feature; it is not a separate subscription.' },
+  { q: 'What stays free?', a: 'Everyday baby tracking, in-app voice logging, observations, unlimited caregivers, offline mode, and private backup stay free. Nubo Noticed is included with Plus and is free for everyone on Mondays. Nubo Plus adds tools such as Nubo Care, Auto Reminders, Rhythm charts, Live Activities on iPhone, and private pumping.' },
+  { q: 'Does Nubo Notetaker work on every phone?', a: 'You can keep observations without AI enrichment. AI-generated titles and tags require iOS 26 or later with Apple Intelligence available. Otherwise, your note keeps its text and receives a simpler title without AI tags. Typed observations can receive the same enrichment on supported devices.' },
+  { q: 'When does my 14-day Nubo Plus preview start?', a: 'Your preview starts when you confirm your child is here. Downloading Nubo and creating a profile do not start it. The preview is separate from a subscription. Everyday tracking, in-app voice logging, and caregiver sharing stay free after it ends.' },
+  { q: 'Do I need the Nubo device?', a: 'No. The free app works on its own on iPhone and Android, including shared care across both platforms. The optional device adds dedicated care buttons and syncs over Bluetooth with a nearby paired caregiver phone. Each phone that syncs receives a refreshed 30-day Nubo Plus access window.' },
+  { q: 'Can I bring my Nara Baby history?', a: 'Yes. Export your child’s history from Nara Baby as a CSV file, then use Nubo’s Nara import. You can keep your existing history as you try Nubo. The switching guide on this page includes a recording and instructions.' },
+  { q: 'What do the insights tell me?', a: 'Nubo Noticed compares recorded sleep, feeding, nursing, and diaper patterns across recent and earlier completed days. Findings appear when the records support them. Missing logs are not treated as proof that no care happened. Insights describe your records; they do not diagnose conditions or establish causes.' },
+];
+const jsonLd = [
+  {
+    '@context': 'https://schema.org', '@type': 'MobileApplication', name: 'Nubo Baby Tracker',
+    operatingSystem: 'iOS, Android', applicationCategory: 'HealthApplication',
+    url: 'https://www.nubotracker.com/app/', description,
+    image: 'https://www.nubotracker.com/images/appscreens/quick-actions-current.webp',
+    featureList: ['Nubo Intelligence for easier logging and useful context', 'Free on-device voice logging with event review', 'Nubo Notetaker observations with AI titles and tags on supported iPhones', 'Nubo Noticed recorded-pattern insights with Plus, free for everyone on Mondays', 'Unlimited caregivers across iPhone and Android', 'Offline tracking and private backup', 'Nubo Care visit preparation and audio-linked answers with Plus'],
+    offers: [
+      { '@type': 'Offer', name: 'Nubo free app', price: '0', priceCurrency: 'USD', url: appStoreURL },
+      { '@type': 'Offer', name: 'Nubo Plus annual subscription', price: '59.99', priceCurrency: 'USD', url: appStoreURL },
+    ],
+    installUrl: [appStoreURL, playStoreURL], downloadUrl: [appStoreURL, playStoreURL],
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqItems.map((faq) => ({ '@type': 'Question', name: faq.q, acceptedAnswer: { '@type': 'Answer', text: faq.a } })) },
+];
+---
+
+<BaseLayout title={title} description={description} ogImage="/images/hero-mother-baby.webp" jsonLd={jsonLd}>
+  <Header ctaHref="#app-downloads" />
+  <main id="main-content">
+    <section class="app-hero" aria-labelledby="app-title">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="overline">Free baby tracker for iPhone and Android</p>
+          <h1 id="app-title">You have enough<br />to remember.<br /><span>Let Nubo keep track.</span></h1>
+          <p class="hero-sub">Long days, short nights, and all the little details in between. Log with quick taps or talk to catch up once baby settles. Everyone caring for your baby can follow the same timeline.</p>
+          <p class="hero-intelligence"><span aria-hidden="true">✦</span> Introducing <a href="#intelligence">Nubo Intelligence</a>. Less effort to log. More context when you need it.</p>
+          <div class="store-links hero-actions" aria-label="Download the free Nubo app">{stores.map((store) => <a href={store.href} target="_blank" rel="noopener noreferrer"><img src={store.image} alt={store.label} width="160" height="56" /></a>)}</div>
+          <p class="hero-note">Voice logging and unlimited caregivers included. No device required.</p>
+        </div>
+        <div class="hero-visual" id="voice-logging"><IntelligenceDemo /><p class="demo-benefit">Say what happened. Nubo picks out the details.<br /><span>Free voice logging, processed on your phone, even offline.</span></p></div>
+      </div>
+    </section>
+
+    <nav class="benefit-strip" aria-label="Explore the Nubo app"><div class="container benefit-links">{benefits.map(([label, href]) => <a href={href}>{label}</a>)}</div></nav>
+
+    <section class="intelligence-section" id="intelligence" aria-labelledby="intelligence-title">
+      <div class="container">
+        <div class="intelligence-intro"><p class="overline">Meet Nubo Intelligence</p><h2 id="intelligence-title">A little less effort.<br /><span>A clearer picture.</span></h2><p>From the words you say to the changes you notice, Nubo Intelligence helps with the small tasks throughout your day. Machine learning and on-device AI work alongside statistics and useful automation to make logging easier and your records more useful.</p></div>
+        <div class="intelligence-steps">
+          <a href="#voice-logging"><span class="step-number">01 / Say it</span><h3>Everyday words.<br />The details, in place.</h3><p>Amounts, times, durations, even several events from one spoken update. Review and edit before saving.</p><span class="text-link">Try the voice examples <span aria-hidden="true">↑</span></span></a>
+          <a href="#notetaker"><span class="step-number">02 / Capture it</span><h3>The little things<br />you want to remember.</h3><p>Nubo Notetaker keeps your observations in your words, with helpful titles and tags on supported devices.</p><span class="text-link">Meet Nubo Notetaker <span aria-hidden="true">↓</span></span></a>
+          <a href="#insights"><span class="step-number">03 / Understand it</span><h3>Notice what<br />has been changing.</h3><p>Nubo Noticed brings useful changes in your recorded sleep, feeding, and diaper patterns into view.</p><span class="text-link">See what Nubo Noticed <span aria-hidden="true">↓</span></span></a>
+        </div>
+        <p class="intelligence-access">Part of the Nubo app. Feature access varies between Free and Plus. <a href="#plans">See what's included.</a></p>
+      </div>
+    </section>
+
+    <section class="feature-section warm-section" id="one-tap-logging" aria-labelledby="quick-title">
+      <div class="container feature-grid visual-left">
+        <div class="feature-copy"><p class="overline">Quick logging · Free</p><h2 id="quick-title">A quick tap.<br />Back to your baby.</h2><p>Another feed, another change, another nap. Keep the latest event and today's totals beside the buttons you use to log.</p><p>Nubo Intelligence helps with the entry, too. Feed amounts can start from recent feeds of the same type, with similar times of day considered when there is enough history. You choose the amount to save.</p><a href="#app-downloads" class="text-link">Start with the free app <span aria-hidden="true">→</span></a></div>
+        <figure class="app-screen-figure"><div class="quick-screen-crop"><img src="/images/appscreens/quick-actions-current.webp" alt="Nubo Quick Actions showing Nubo Noticed, sleep, pumped milk, and nursing cards" width="1284" height="2778" loading="lazy" decoding="async" /></div><figcaption>Quick Actions in the app. Sample data; Nubo Noticed has its own Plus access.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="feature-section" id="notetaker" aria-labelledby="notetaker-title">
+      <div class="container feature-grid">
+        <div class="feature-copy"><p class="overline">Nubo Intelligence / Nubo Notetaker</p><h2 id="notetaker-title">Some things need<br />more than a log.</h2><p>A new bottle you tried. A question for the next checkup. A little first you don't want to forget. Speak freely or type an observation, and keep it in your own words.</p><p>On supported iPhones, Nubo Notetaker adds a short title and relevant tags, so those details are easier to find again.</p><p class="feature-note">AI titles and tags require iOS 26 or later with Apple Intelligence available. On other devices, your text is preserved with a simpler title and no AI tags.</p></div>
+        <figure class="note-preview"><div class="preview-top"><span>Nubo Notetaker</span><span>Illustrative example</span></div><div class="note-sheet"><p class="small-label">Your observation</p><h3>A new bottle to discuss</h3><blockquote>“She seemed more comfortable with the new bottle today. I want to ask about feeding at the next checkup.”</blockquote><div class="note-tags" aria-label="Example generated tags"><span>Feeding</span><span>Doctor visit</span></div><p class="original-words"><span aria-hidden="true">✓</span> Your original words, kept together.</p></div><figcaption>Example title and tags on a supported iPhone. Typed observations can receive the same enrichment.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="feature-section noticed-section" id="insights" aria-labelledby="noticed-title">
+      <div class="container feature-grid visual-left">
+        <div class="feature-copy"><p class="overline">Nubo Intelligence / Nubo Noticed</p><h2 id="noticed-title">The days blur.<br />The little changes<br />don't have to.</h2><p>Is bottle intake changing? Have sleep sessions been different lately? Nubo Noticed compares recent and earlier completed days, and highlights changes when your records support a finding.</p><p>Sleep, bottle feeds, nursing, wet diapers, and dirty diapers, with the comparison behind each finding.</p><p class="access-pill">Included in Plus. Free for everyone on Mondays.</p><p class="feature-note">Insights describe recorded patterns. They don't establish causes or diagnose conditions.</p></div>
+        <figure class="noticed-preview"><p class="small-label">A finding you can read at a glance</p><div class="noticed-source"><img src="/images/appscreens/nubo-noticed.webp" alt="Nubo Noticed: More milk from bottles. About 10.5 oz a day in the last 3 days, compared with 8 oz per day in the previous 7 days" width="1284" height="2778" loading="lazy" decoding="async" /></div><div class="period-comparison" aria-label="Illustrative comparison from the Nubo Noticed card"><div><span>Previous 7 days</span><strong>8 oz<span> / day</span></strong><i class="previous-bar" aria-hidden="true"></i></div><div><span>Last 3 days</span><strong>10.5 oz<span> / day</span></strong><i class="recent-bar" aria-hidden="true"></i></div></div><figcaption>Nubo Noticed card from the app, with sample data. The comparison below repeats the values shown above.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="feature-section" id="caregivers" aria-labelledby="caregiver-title">
+      <div class="container feature-grid">
+        <div class="feature-copy"><p class="overline">Unlimited caregivers · Free</p><h2 id="caregiver-title">Your turn to take over.<br />The details are here.</h2><p>Your partner logged the bottle. You can see the amount, the time, and who added it before you take over. Invite a grandparent, nanny, or another trusted helper to the same baby timeline.</p><p>Share care across iPhone and Android. Check the last feed in the app, or use Plus Live Activities on iPhone to keep recent feeds, diapers, and active timers on your Lock Screen.</p><a href="/caregivers/" class="text-link">See how shared care works <span aria-hidden="true">→</span></a></div>
+        <figure class="handoff-preview"><div class="preview-top"><span>Sam's shared timeline</span><span>Sample day</span></div><div class="handoff-event"><span class="caregiver-avatar" aria-hidden="true">D</span><div><strong>Dad logged a formula feed</strong><p>90 mL <span aria-hidden="true">·</span> 8:00 AM</p></div><span class="shared-label">Shared</span></div><div class="handoff-event"><span class="caregiver-avatar second-avatar" aria-hidden="true">M</span><div><strong>Mom logged a wet diaper</strong><p>8:20 AM</p></div><span class="shared-label">Shared</span></div><div class="handoff-note"><p class="small-label">Ready for the next caregiver</p><p>The last feed, the last change, and who was there.</p></div><figcaption>Illustrative timeline. Updates are shared when phones sync and have connectivity.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="feature-section warm-section" id="care" aria-labelledby="care-title">
+      <div class="container feature-grid visual-left">
+        <div class="feature-copy"><p class="overline">Nubo Care · Included in Plus</p><h2 id="care-title">From a question at home<br />to an answer you<br />can return to.</h2><p>Save the feeding question that came to you last night. Bring the observations you want to discuss. At the appointment, record with your care team's permission so you can give the conversation your attention.</p><p>Come home with a recap, answers linked to the original recording, and next steps to review and share with caregivers.</p><a href="/#nubo-care" class="text-link">Explore Nubo Care <span aria-hidden="true">→</span></a><p class="feature-note">Visit recaps sync to invited caregivers. Audio stays on the recording phone. Recording and recaps are in English.</p></div>
+        <CareRecapPreview id="app-care-recap" childName="Sam" />
+      </div>
+    </section>
+
+    <section class="routine-section" id="growth" aria-labelledby="routine-title"><div class="container"><div class="section-intro"><p class="overline">Room for the whole routine</p><h2 id="routine-title">The everyday essentials.<br />The details that matter to you.</h2></div><div class="routine-grid">{routineFeatures.map((feature) => <article><h3>{feature.title}</h3><p>{feature.copy}</p></article>)}</div><div class="routine-extras"><p><strong>A clearer view over time.</strong> Totals, averages, and typical ranges help you review your history. Plus Rhythm charts put care events on a shared timeline.</p><p><strong>Your pumping, kept private.</strong> Plus keeps milk output and pumping statistics separate. Caregivers see your baby's intake; your pumping record stays yours.</p></div><div class="routine-links"><a href="/resources/#your-family" class="text-link">Find a guide for your family <span aria-hidden="true">→</span></a><a href="/exclusive-pumping/" class="text-link">Explore private pumping <span aria-hidden="true">→</span></a></div></div></section>
+
+    <section class="privacy-section" aria-labelledby="privacy-title"><div class="container feature-grid"><div><p class="overline">Private by design</p><h2 id="privacy-title">Useful intelligence.<br />Thoughtful about<br />your family's privacy.</h2></div><div class="privacy-copy"><p>In-app speech recognition and voice event interpretation run on your phone. Optional caregiver sharing and backup are separate, with encrypted sharing and backups in your own iCloud or Google Drive.</p><p>Nubo Care uses separate server processing for selected visit content, with no visit data retained after processing. Original visit audio stays on the recording phone.</p><p><strong>No ads. No selling baby data.</strong></p><a href="/privacy/" class="text-link">How Nubo handles privacy <span aria-hidden="true">→</span></a></div></div></section>
+
+    <section class="switching-section" id="switching" aria-labelledby="switching-title"><div class="container feature-grid"><div class="feature-copy"><p class="overline">Already tracking in Nara Baby?</p><h2 id="switching-title">Bring the history<br />you've already kept.</h2><p>Those weeks of feeds, naps, and changes can come with you. Export your child's Nara Baby CSV, then use Nubo's Nara import.</p><p>Keep your existing history as you try a normal day in Nubo, with the people who help care for your baby.</p><a href="/blog/tracking/free-nara-baby-alternative/" class="text-link">See the Nara switching guide <span aria-hidden="true">→</span></a></div><NaraImportVideo /></div></section>
+
+    <section class="plans-section warm-section" id="plans" aria-labelledby="plans-title"><div class="container"><div class="section-intro"><p class="overline">Choose what fits your family</p><h2 id="plans-title">Start free.<br />Add the tools you want.</h2><p class="section-sub">Nubo Intelligence works throughout the app. Free and Plus give you access to different features.</p></div><div class="plan-grid"><article class="plan-card"><p class="plan-name">Nubo Free</p><h3>$0</h3><p>For the everyday care you want to keep together.</p><ul><li>Quick taps and on-device voice logging</li><li>Observations with Nubo Notetaker</li><li>Unlimited caregivers on iPhone and Android</li><li>Growth, milestones, offline mode, and private backup</li><li>Nubo Noticed, free for everyone on Mondays</li></ul><a href="#app-downloads" class="text-link">Download the free app <span aria-hidden="true">→</span></a></article><article class="plan-card plus-card"><p class="plan-name">Nubo Plus</p><h3>$4.99<span>/month</span></h3><p class="annual-billing">(billed annually)</p><p>More context, helpful automation, and your doctor's words to return to.</p><ul><li>Everything in Free</li><li>Nubo Noticed throughout the week</li><li>Nubo Care for visits, answers, and next steps</li><li>Auto Reminders, Rhythm, and advanced growth views</li><li>Private pumping, iPhone Live Activities, exports, and Alexa</li></ul><a href="/pricing/" class="text-link">See Plus and access details <span aria-hidden="true">→</span></a></article></div><p class="plan-note">Your 14-day Plus preview starts when you confirm your child is here, so downloading early won't use it up. The preview is separate from a subscription. Paid subscriptions use App Store or Google Play billing; prices may vary by region.</p><details class="full-comparison"><summary>Compare all Free and Plus features <span aria-hidden="true">+</span></summary><AppFeatureComparison heading="Everything included, at a glance." intro="Everyday tracking stays free. Nubo Intelligence powers features across both plans, with access and device requirements listed below." /></details></div></section>
+
+    <section class="device-section" aria-labelledby="device-title"><div class="container device-grid"><img src="/images/nubo-device-hand-720.webp" alt="Nubo device held in one hand, with dedicated baby care buttons" width="720" height="450" loading="lazy" decoding="async" /><div class="feature-copy"><p class="overline">Optional Nubo device</p><h2 id="device-title">Leave the phone<br />where it is.</h2><p>A feed in the dark. A change with both hands busy. Dedicated device buttons add another way to log to the same baby timeline when they sync with a nearby paired phone.</p><p class="feature-note">Each phone that syncs receives a refreshed 30-day Plus access window, including Nubo Care.</p><div class="device-actions"><a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a><a href="/device/" class="text-link">See the device <span aria-hidden="true">→</span></a></div></div></div></section>
+
+    <section class="faq-section" aria-labelledby="questions-title"><div class="container faq-inner"><div class="faq-intro"><p class="overline">A few practical answers</p><h2 id="questions-title">Before you start.</h2><a href="/faq/" class="text-link">Read all Nubo FAQs <span aria-hidden="true">→</span></a></div><div class="faq-list">{faqItems.map((faq) => <details><summary>{faq.q}<span aria-hidden="true">+</span></summary><p>{faq.a}</p></details>)}</div></div></section>
+
+    <section class="final-cta" id="app-downloads" aria-labelledby="download-title"><div class="container"><p class="overline">Free on iPhone and Android</p><h2 id="download-title">Start with the next<br />little thing to remember.</h2><p>A bottle. A nap. A question for later.<br />Keep it with Nubo, and get back to your day.</p><div class="store-links" aria-label="Choose where to download Nubo">{stores.map((store) => <a href={store.href} target="_blank" rel="noopener noreferrer"><img src={store.image} alt={store.label} width="160" height="56" loading="lazy" /></a>)}</div><p class="final-note">Free voice logging. Unlimited caregivers. No device required.</p></div></section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  main [id] { scroll-margin-top: 96px; }
+  .app-hero { background: var(--color-bg-ivory); }
+  .hero-inner { max-width: 1280px; display: grid; grid-template-columns: 1.08fr 1fr; align-items: center; gap: 4rem; padding-block: 136px 72px; }
+  .hero-copy, .feature-grid > *, .hero-visual, .device-grid > * { min-width: 0; }
+  h1 { font-size: clamp(2.7rem, 4.3vw, 3.8rem); line-height: 1.1; letter-spacing: -.035em; }
+  h1 span, .intelligence-intro h2 span { color: var(--color-brand); }
+  .hero-sub { margin-top: 1.6rem; color: var(--color-text-secondary); font-size: 1.0625rem; max-width: 530px; }
+  .hero-intelligence { margin-top: 1.2rem; font-size: .875rem; color: var(--color-brand-dark); max-width: 440px; }
+  .hero-intelligence a { font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+  .hero-intelligence > span { margin-right: .2rem; }
+  .store-links { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+  .store-links a { display: inline-flex; border-radius: 9px; }
+  .store-links img { width: 160px; height: 56px; object-fit: contain; }
+  .hero-actions { margin-top: 1.75rem; }
+  .hero-note { font-size: .75rem; color: var(--color-text-secondary); margin-top: .75rem; }
+  .demo-benefit { font-size: .875rem; text-align: center; color: var(--color-brand-dark); font-weight: 700; margin-top: 1.1rem; }
+  .demo-benefit > span { display: block; font-size: .6875rem; color: var(--color-text-secondary); font-weight: 500; margin-top: .25rem; }
+  .benefit-strip { border-block: 1px solid #dce6df; background: #fff; }
+  .benefit-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.65rem; padding-block: 1.2rem; }
+  .benefit-links a { color: var(--color-brand-dark); font-weight: 700; font-size: .8125rem; }
+  .intelligence-section, .routine-section, .plans-section, .faq-section { padding-block: 5rem; }
+  .intelligence-intro { max-width: 740px; margin-inline: auto; text-align: center; }
+  h2 { font-size: clamp(2rem, 3.4vw, 2.8rem); line-height: 1.16; letter-spacing: -.025em; }
+  .intelligence-intro > p:last-child { color: var(--color-text-secondary); margin-top: 1.3rem; }
+  .intelligence-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+  .intelligence-steps > a { display: flex; flex-direction: column; border-top: 2px solid #c6ded3; padding: 1.4rem .3rem 0; }
+  .step-number { color: var(--color-brand-dark); font-size: .75rem; font-weight: 700; }
+  .intelligence-steps h3 { font-size: 1.4rem; line-height: 1.3; margin-top: .8rem; }
+  .intelligence-steps p { color: var(--color-text-secondary); font-size: .875rem; margin-block: .9rem 1.2rem; }
+  .intelligence-steps .text-link { font-size: .8125rem; margin-top: auto; }
+  .intelligence-access { margin-top: 2rem; text-align: center; color: var(--color-text-secondary); font-size: .75rem; }
+  .intelligence-access a { text-decoration: underline; text-underline-offset: 3px; color: var(--color-brand-dark); }
+  .feature-section, .switching-section, .device-section { padding-block: 5rem; }
+  .warm-section { background: var(--color-bg-warm); }
+  .feature-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 4rem; }
+  .visual-left .feature-copy { grid-column: 2; grid-row: 1; }
+  .visual-left > :last-child { grid-column: 1; grid-row: 1; }
+  .feature-copy > p:not(.overline) { color: var(--color-text-secondary); margin-top: 1.1rem; }
+  .feature-copy > .text-link { display: inline-block; margin-top: 1.3rem; }
+  .feature-note, .feature-copy .feature-note { font-size: .75rem; line-height: 1.65; }
+  figure { margin: 0; }
+  figcaption { color: var(--color-text-secondary); font-size: .6875rem; line-height: 1.65; margin-top: .9rem; }
+  .app-screen-figure { display: flex; flex-direction: column; align-items: center; padding: 1.5rem; border-radius: 28px; background: #e8f1eb; }
+  .app-screen-figure figcaption { text-align: center; max-width: 300px; }
+  .quick-screen-crop { position: relative; width: min(100%, 300px); aspect-ratio: 686 / 1430; overflow: hidden; border-radius: 35px; background: #fff; box-shadow: 0 15px 35px rgba(28,60,48,.1); }
+  .quick-screen-crop img { position: absolute; width: 138%; max-width: none; left: -19.7%; top: -32.2%; }
+  .note-preview, .handoff-preview { padding: 1.5rem; border-radius: 24px; background: #f3f1eb; border: 1px solid #e2e0d5; }
+  .preview-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; color: #596255; font-size: .6875rem; font-weight: 700; margin-bottom: 1.2rem; }
+  .preview-top > span:last-child { font-weight: 500; }
+  .note-sheet { padding: 1.5rem; border: 1px solid #e2e0d5; border-radius: 14px; background: #fffefa; box-shadow: 0 12px 25px rgba(57,57,32,.04); }
+  .small-label { text-transform: uppercase; letter-spacing: .055em; font-size: .6875rem; font-weight: 700; color: #5f665b; }
+  .note-sheet h3 { font-size: 1.5rem; line-height: 1.35; margin-top: .7rem; }
+  .note-sheet blockquote { font-size: 1rem; line-height: 1.75; color: var(--color-text-secondary); margin: 1.1rem 0; }
+  .note-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .note-tags span { background: #f6e6d9; color: #765237; border-radius: 7px; padding: .3rem .65rem; font-size: .6875rem; font-weight: 700; }
+  .note-tags span:last-child { background: #e5edf1; color: #3b5b6d; }
+  .original-words { border-top: 1px solid #e5e3dc; padding-top: 1rem; margin-top: 1.4rem; color: #51634f; font-size: .75rem; }
+  .noticed-section { background: #f9f2e9; }
+  .noticed-preview { border: 1px solid #e6d8c5; padding: 1.5rem; border-radius: 24px; background: #fffaf4; }
+  .noticed-source { position: relative; margin-top: 1rem; aspect-ratio: 719 / 325; overflow: hidden; border-radius: 18px; background: #fff; }
+  .noticed-source img { position: absolute; width: 131.7%; max-width: none; left: -16.4%; top: -489.8%; }
+  .period-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.7rem; padding: 0 .5rem; }
+  .period-comparison div > span { color: #71624d; font-size: .75rem; }
+  .period-comparison strong { display: block; margin-top: .25rem; font-size: 1.6rem; }
+  .period-comparison strong span { font-size: .75rem; font-weight: 500; }
+  .period-comparison i { display: block; height: 7px; margin-top: .8rem; border-radius: 8px; }
+  .previous-bar { width: 76.19%; background: #bbac94; }
+  .recent-bar { width: 100%; background: #cb7831; }
+  .feature-copy .access-pill { display: inline-block; padding: .5rem .8rem; border: 1px solid #e2c6a0; border-radius: 8px; color: #79501e; font-size: .75rem; font-weight: 700; }
+  .handoff-preview { background: #edf4f0; border-color: #d7e3db; }
+  .handoff-event { display: flex; align-items: center; gap: .7rem; padding: 1.2rem 1rem; margin-top: .75rem; background: #fff; border: 1px solid #dce6df; border-radius: 13px; }
+  .caregiver-avatar { display: grid; place-items: center; width: 34px; height: 34px; background: #dce7ef; color: #3c5f7a; border-radius: 50%; font-size: .75rem; font-weight: 700; flex-shrink: 0; }
+  .second-avatar { background: #f5e4dc; color: #89563e; }
+  .handoff-event strong { font-size: .8125rem; }
+  .handoff-event p { margin-top: .3rem; color: var(--color-text-secondary); font-size: .75rem; }
+  .shared-label { margin-left: auto; color: var(--color-brand-dark); font-size: .625rem; }
+  .handoff-note { border-top: 1px solid #d7e3db; margin-top: 1.5rem; padding: 1.25rem .25rem .25rem; }
+  .handoff-note > p:last-child { color: var(--color-text-secondary); font-size: .9375rem; margin-top: .5rem; }
+  .routine-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem 3rem; margin-top: 2rem; }
+  .routine-grid article { border-top: 1px solid #dce6df; padding-top: 1.25rem; }
+  .routine-grid h3 { font-size: 1.125rem; }
+  .routine-grid p, .routine-extras p { margin-top: .65rem; color: var(--color-text-secondary); font-size: .875rem; }
+  .routine-links { display: flex; flex-wrap: wrap; gap: 1rem 2rem; }
+  .routine-extras { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; padding: 1.5rem 0; margin-top: 1rem; }
+  .routine-extras strong { color: var(--color-text); }
+  .routine-section .text-link { font-size: .8125rem; }
+  .privacy-section { padding-block: 4rem; background: var(--color-brand-light); border-block: 1px solid #cce8e5; }
+  .privacy-copy p { color: var(--color-text-secondary); margin-bottom: 1rem; font-size: .9375rem; }
+  .switching-section :global(.import-video) { margin: 0 auto; width: min(100%, 235px); }
+  .section-intro { margin-bottom: 2rem; }
+  .section-sub { max-width: 640px; margin-top: 1rem; font-size: 1rem; }
+  .plan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .plan-card { padding: 2rem; background: #fff; border: 1px solid #dce6df; border-radius: 22px; }
+  .plus-card { background: #edf5ef; border-color: #bdd8c7; }
+  .plan-name { color: var(--color-brand-dark); font-weight: 700; font-size: .875rem; }
+  .plan-card h3 { font-size: 2.75rem; margin-top: .4rem; line-height: 1.3; }
+  .plan-card h3 span { font-size: 1rem; font-weight: 500; }
+  .plan-card > p:not(.plan-name) { color: var(--color-text-secondary); font-size: .875rem; margin-top: .5rem; }
+  .plan-card ul { padding-left: 1.15rem; margin-block: 1.4rem; color: var(--color-text-secondary); font-size: .875rem; }
+  .plan-card li { margin-top: .65rem; padding-left: .15rem; }
+  .plan-note { margin-block: 1.5rem; color: var(--color-text-secondary); font-size: .75rem; }
+  .full-comparison { border-block: 1px solid #d8e3da; }
+  .full-comparison > summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1.25rem; cursor: pointer; font-weight: 700; color: var(--color-brand-dark); list-style: none; }
+  .full-comparison > summary::-webkit-details-marker { display: none; }
+  .full-comparison > summary span { font-size: 1.5rem; }
+  .full-comparison[open] > summary span { transform: rotate(45deg); }
+  .device-grid { display: grid; grid-template-columns: .8fr 1fr; gap: 4rem; align-items: center; }
+  .device-grid > img { border-radius: 22px; }
+  .device-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.4rem; margin-top: 1.5rem; }
+  .device-actions .btn-primary { padding: .8rem 1.3rem; font-size: .875rem; }
+  .faq-inner { display: grid; grid-template-columns: .75fr 1.25fr; gap: 4rem; }
+  .faq-intro .text-link { display: inline-block; margin-top: 1.2rem; }
+  .faq-list details { border-bottom: 1px solid #dce6df; }
+  .faq-list summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1.2rem; cursor: pointer; font-weight: 700; font-size: .9375rem; list-style: none; }
+  .faq-list summary::-webkit-details-marker { display: none; }
+  .faq-list summary span { color: var(--color-brand-dark); font-size: 1.4rem; flex-shrink: 0; }
+  .faq-list details[open] summary span { transform: rotate(45deg); }
+  .faq-list details p { padding-bottom: 1.2rem; color: var(--color-text-secondary); font-size: .875rem; }
+  .final-cta { padding-block: 4.5rem; background: var(--color-bg-ivory); text-align: center; }
+  .final-cta p:not(.overline) { margin: 1rem auto 0; color: var(--color-text-secondary); }
+  .final-cta .store-links { justify-content: center; margin-top: 1.6rem; }
+  .final-note { font-size: .75rem; }
+  a:focus-visible, summary:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 5px; }
+  @media (max-width: 1100px) { .hero-inner { gap: 2.5rem; } h1 { font-size: 3.15rem; } .feature-grid, .device-grid, .faq-inner { gap: 2.5rem; } }
+  @media (max-width: 900px) { .hero-inner { grid-template-columns: 1fr; padding-block: 112px 60px; } .hero-copy { max-width: 620px; margin-inline: auto; text-align: center; } .hero-sub, .hero-intelligence { margin-inline: auto; } .hero-actions { justify-content: center; } .hero-visual { width: min(100%, 530px); margin-inline: auto; } .intelligence-steps { gap: 1.4rem; } .intelligence-steps h3 { font-size: 1.2rem; } }
+  @media (max-width: 680px) {
+    .container { padding-inline: 1.25rem; }
+    .hero-inner { padding-block: 100px 48px; gap: 2rem; }
+    h1 { font-size: clamp(2.2rem, 8vw, 3.15rem); }
+    .hero-copy .overline { font-size: .6875rem; }
+    .hero-sub { font-size: .9375rem; margin-top: 1.25rem; }
+    .hero-intelligence { font-size: .8125rem; }
+    .hero-note { font-size: .6875rem; }
+    .store-links { gap: .65rem; }
+    .store-links img { width: 150px; height: 52.5px; }
+    .benefit-links { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem 1rem; text-align: center; }
+    .intelligence-section, .feature-section, .routine-section, .switching-section, .plans-section, .device-section, .faq-section, .privacy-section { padding-block: 3.5rem; }
+    .intelligence-intro { text-align: left; }
+    .intelligence-intro > p:last-child { font-size: .9375rem; }
+    .intelligence-steps, .feature-grid, .routine-grid, .routine-extras, .plan-grid, .device-grid, .faq-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .intelligence-steps { margin-top: 2rem; }
+    .intelligence-steps h3 { font-size: 1.4rem; }
+    .intelligence-access { text-align: left; }
+    .visual-left .feature-copy, .visual-left > :last-child { grid-column: auto; grid-row: auto; }
+    .feature-copy > p:not(.overline) { font-size: .9375rem; }
+    .feature-copy .feature-note { font-size: .75rem; }
+    .quick-screen-crop { width: min(100%, 270px); }
+    .note-preview, .noticed-preview, .handoff-preview { padding: 1.1rem; }
+    .note-sheet { padding: 1.2rem; }
+    .period-comparison { gap: 1rem; padding-inline: 0; }
+    .period-comparison strong { font-size: 1.4rem; }
+    .handoff-event { padding-inline: .8rem; }
+    .routine-extras { gap: 1rem; padding-top: .5rem; }
+    .switching-section :global(.import-video) { width: min(100%, 260px); }
+    .plan-card { padding: 1.5rem; }
+    .full-comparison > summary { font-size: .875rem; }
+    .privacy-copy p { font-size: .875rem; }
+  }
+  @media (max-width: 360px) { .store-links img { width: 134px; height: 47px; } .shared-label { display: none; } .period-comparison div > span { font-size: .6875rem; } }
+</style>

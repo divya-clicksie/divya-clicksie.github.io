@@ -1,0 +1,30 @@
+---
+import { nuboProducts } from '../data/nuboMessaging';
+import SiteIcon from './SiteIcon.astro';
+const icons = ['sparkles', 'questions', 'leaf'] as const;
+---
+
+<section class="product-guide" aria-labelledby="product-guide-title">
+  <div class="container">
+    <div class="guide-intro"><p class="overline">One app, connected care</p><h2 id="product-guide-title">A place for every part of your day.</h2></div>
+    <div class="guide-grid">{nuboProducts.map((product, index) => <article><span class="guide-icon"><SiteIcon name={icons[index]} /></span><p class="guide-label">{product.label}</p><h3>{product.name}</h3><p>{product.description}</p><a href={product.href} class="text-link">{product.link} <span aria-hidden="true">→</span></a></article>)}</div>
+  </div>
+</section>
+
+<style>
+  .product-guide { padding-block: 3.5rem; background: #fff; }
+  .guide-intro { max-width: 720px; margin-bottom: 2rem; }
+  .guide-intro h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); line-height: 1.2; }
+  .guide-intro > p:last-child { margin-top: .85rem; color: var(--color-text-secondary); font-size: .9375rem; }
+  .guide-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+  article { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; background: #f3f7f4; border: 1px solid #e2e8e0; border-radius: 20px; padding: 1.5rem; }
+  article:nth-child(2) { background: #fff5ec; border-color: #f0e3d7; }
+  article:nth-child(3) { background: #f2f0f8; border-color: #e4dfef; }
+  .guide-icon { color: var(--color-brand-dark); margin-bottom: 1rem; }
+  .guide-label { color: var(--color-brand-dark); font-size: .6875rem; font-weight: 700; }
+  h3 { font-size: 1.25rem; margin-top: .5rem; }
+  article > p:not(.guide-label) { margin-block: .75rem 1rem; color: var(--color-text-secondary); font-size: .875rem; }
+  .text-link { margin-top: auto; font-size: .8125rem; }
+  a:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 5px; }
+  @media (max-width: 680px) { .guide-grid { grid-template-columns: 1fr; gap: 1.75rem; } .container { padding-inline: 1.25rem; } }
+</style>

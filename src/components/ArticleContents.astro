@@ -1,0 +1,20 @@
+---
+interface Props { headings: { depth: number; slug: string; text: string }[]; label?: string; }
+const { headings, label = 'In this article' } = Astro.props;
+const sections = headings.filter((heading) => heading.depth === 2);
+---
+{sections.length > 1 && <aside class="article-contents">
+  <nav class="contents-desktop" aria-label={label}><p>{label}</p><ol>{sections.map((heading) => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ol></nav>
+  <details class="contents-mobile"><summary>{label} <span aria-hidden="true">+</span></summary><nav aria-label={label}><ol>{sections.map((heading) => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ol></nav></details>
+</aside>}
+<style>
+  .article-contents { position: sticky; top: 100px; align-self: start; }
+  .contents-desktop { border-left: 2px solid #cde0d6; padding-inline: 1.2rem .5rem; max-height: calc(100vh - 140px); overflow-y: auto; scrollbar-width: thin; }
+  p, summary { color: var(--color-brand-dark); font-weight: 700; font-size: .75rem; }
+  ol { list-style: none; display: grid; gap: .8rem; margin-top: 1rem; padding: 0; }
+  a { display: block; color: var(--color-text-secondary); font-size: .75rem; line-height: 1.6; }
+  a:hover { color: var(--color-brand-dark); text-decoration: underline; text-underline-offset: 3px; }
+  .contents-mobile { display: none; }
+  a:focus-visible, summary:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 4px; }
+  @media (max-width: 900px) { .article-contents { position: static; } .contents-desktop { display: none; } .contents-mobile { display: block; padding: 1rem 1.25rem; border: 1px solid #dce7dc; border-radius: 15px; background: #f4f8f3; } summary { display: flex; justify-content: space-between; gap: 1rem; list-style: none; cursor: pointer; } summary::-webkit-details-marker { display: none; } summary span { font-size: 1.2rem; line-height: 1; } details[open] summary span { transform: rotate(45deg); } }
+</style>

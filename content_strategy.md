@@ -1538,6 +1538,10 @@ These are natural minis (500-700 words). Interleave between full posts for publi
 
 ---
 
+- **Family and stage guides**: DONE 2026-10-19. Added four product workflow guides for preemie babies, twins and multiples, toddlers, and young kids (preschool years). Linked them from Resources, the app page, the guides index, and the footer.
+
+---
+
 ## Output File Naming Convention
 
 All post files should be named: `post-NNN-short-description.md`
@@ -1655,6 +1659,8 @@ status: "draft | review | published"
 [2026-09-28] BONUS: REVISED. Added the existing Nubo Plus Quick Action insight pattern to the homepage plan and clarified in the forecast article that an in-context trend describes what changed, while a future forecast would help prepare for what comes next. Saved the supplied Bath card image with the plan as a visual reference.
 
 [2026-09-29] BONUS: HOLD. Removed the unpublished forecast article and public roadmap copy pending implementation. Removed links from the FAQ, About page, comparison posts, and public AI summaries. Redirected the retired no-predictions article URL to the current app page. Kept the forecast principles in the internal homepage plan for a later release article based on the shipped experience.
+
+[2026-10-19] GUIDES: DONE. Added nubo-for-preemie-babies, nubo-for-twins, nubo-for-toddlers, and nubo-for-young-kids in src/content/guides/. Reworked the Resources introduction around family and stage, added guide discovery links, and updated public AI resource lists. Checked product details against the app source and linked verified AAP and CDC guidance for corrected age, preterm growth references, and developmental monitoring. Preserved the distinction between Nubo Intelligence, Nubo Care, and the Nubo Plus plan. Fixed guide mobile body padding, text-only index cards, and date formatting. Build and desktop/390px browser review: pass.
 
 ---
 

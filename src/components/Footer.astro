@@ -1,261 +1,32 @@
 ---
+import StoreLinks from './StoreLinks.astro';
+
 const currentYear = new Date().getFullYear();
 const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
-const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
-const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
-const alexaURL = 'https://www.amazon.com/Clicksie-LLC-Nubo-Baby-Tracker/dp/B0FJ2N8XKB';
 const instagramURL = 'https://www.instagram.com/nubo_baby_tracker';
 const youtubeURL = 'https://www.youtube.com/@NuboBabyTracker';
 ---
 
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="/" class="footer-logo" aria-label="Nubo Baby Tracker Home">
-          <img src="/images/nubo-logo.svg" alt="nubo" width="80" height="24" />
-        </a>
-        <p class="footer-tagline">Listen at the appointment. Remember at home. Nubo Care and everyday baby tracking keep your caregivers connected.</p>
-      </div>
-
-      <div class="footer-columns">
-        <div class="footer-col">
-          <h3>Product</h3>
-          <ul>
-            <li><a href="/device/">Device</a></li>
-            <li><a href="/app/">App</a></li>
-            <li><a href="/#nubo-care">Doctor visits</a></li>
-            <li><a href="/alexa/">Alexa Skill</a></li>
-            <li><a href="/pricing/">Pricing</a></li>
-            <li><a href="/compare/">Compare</a></li>
-            <li><a href="/exclusive-pumping/">Exclusive Pumping</a></li>
-            <li><a href="/gift/">Gift</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h3>Compare</h3>
-          <ul>
-            <li><a href="/blog/tracking/free-nara-baby-alternative/">vs Nara Baby</a></li>
-            <li><a href="/blog/tracking/free-huckleberry-alternative/">vs Huckleberry</a></li>
-            <li><a href="/blog/tracking/free-nighp-baby-tracker-alternative/">vs Nighp Baby Tracker</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h3>Trust</h3>
-          <ul>
-            <li><a href="/caregivers/">Caregivers</a></li>
-            <li><a href="/privacy/">Privacy</a></li>
-            <li><a href={appStoreURL} target="_blank" rel="noopener noreferrer">App Store reviews</a></li>
-            <li><a href="/about/">About</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h3>Resources</h3>
-          <ul>
-            <li><a href="/resources/">Resources hub</a></li>
-            <li><a href="/blog/">Blog</a></li>
-            <li><a href="/guides/">Guides</a></li>
-            <li><a href="/faq/">FAQ</a></li>
-            <li><a href="/contact/">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h3>Legal</h3>
-          <ul>
-            <li><a href="/privacy-policy/">Privacy Policy</a></li>
-            <li><a href="/terms-of-use/">Terms of Use</a></li>
-            <li><a href={amazonURL} target="_blank" rel="noopener noreferrer">Buy on Amazon</a></li>
-            <li><a href={appStoreURL} target="_blank" rel="noopener noreferrer">App Store</a></li>
-            <li><a href={playStoreURL} target="_blank" rel="noopener noreferrer">Google Play</a></li>
-            <li><a href={alexaURL} target="_blank" rel="noopener noreferrer">Alexa Skill</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h3>Follow Us</h3>
-          <div class="footer-social">
-            <a href={instagramURL} target="_blank" rel="noopener noreferrer" aria-label="Follow Nubo on Instagram" class="social-link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-              <span>Instagram</span>
-            </a>
-            <a href={youtubeURL} target="_blank" rel="noopener noreferrer" aria-label="Follow Nubo on YouTube" class="social-link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"></path>
-                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-              </svg>
-              <span>YouTube</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p class="footer-support">
-        Questions? <a href="mailto:support@clicksie.io">support@clicksie.io</a> &middot; We reply within 1 business day.
-      </p>
-      <p class="footer-disclaimer">
-        Nubo is not a medical device and is not intended to diagnose, treat, cure, or prevent medical conditions.
-      </p>
-      <p class="footer-legal">
-        Designed by Clicksie in USA &middot; &copy; {currentYear} Clicksie LLC
-      </p>
-    </div>
-  </div>
-</footer>
-
+<footer class="site-footer"><div class="container">
+  <div class="footer-top"><div class="footer-brand"><a href="/" aria-label="Nubo Baby Tracker Home"><img src="/images/nubo-logo.svg" alt="nubo" width="90" height="28" /></a><p>Everyday care. Doctor visits.<br />The details, together.</p><StoreLinks /></div><nav class="footer-columns" aria-label="Footer navigation"><div><h2>Product</h2><ul><li><a href="/app/">Free app</a></li><li><a href="/device/">Device</a></li><li><a href="/#nubo-care">Nubo Care</a></li><li><a href="/app/#intelligence">Nubo Intelligence</a></li><li><a href="/pricing/">Plus and pricing</a></li><li><a href="/alexa/">Alexa skill</a></li></ul></div><div><h2>Explore</h2><ul><li><a href="/caregivers/">Shared care</a></li><li><a href="/exclusive-pumping/">Private pumping</a></li><li><a href="/gift/">Gifts</a></li><li><a href="/compare/">Compare options</a></li><li><a href="/blog/">Blog</a></li><li><a href="/guides/">Family guides</a></li></ul></div><div><h2>Help and trust</h2><ul><li><a href="/resources/">Resources</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/contact/">Contact</a></li><li><a href="/about/">About Nubo</a></li><li><a href="/privacy/">Privacy at Nubo</a></li></ul></div></nav></div>
+  <div class="footer-connect"><a href="mailto:support@clicksie.io">support@clicksie.io</a><div><a href={amazonURL} target="_blank" rel="noopener noreferrer">Buy on Amazon <span aria-hidden="true">↗</span></a><a href={instagramURL} target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a><a href={youtubeURL} target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">↗</span></a></div></div>
+  <div class="footer-bottom"><p>Nubo is not a medical device and is not intended to diagnose, treat, cure, or prevent medical conditions.</p><div><p>© {currentYear} Clicksie LLC</p><nav aria-label="Legal"><a href="/privacy-policy/">Privacy policy</a><a href="/terms-of-use/">Terms of use</a></nav></div></div>
+</div></footer>
 <style>
-  .site-footer {
-    background: #fafafa;
-    padding: 4rem 0 2.5rem;
-    border-top: 1px solid #eee;
-  }
-
-  .footer-top {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    padding-bottom: 3rem;
-  }
-
-  .footer-brand {
-    flex: 0 0 180px;
-  }
-
-  .footer-logo {
-    display: block;
-    margin-bottom: 0.75rem;
-  }
-
-  .footer-logo img {
-    height: 22px;
-    width: auto;
-  }
-
-  .footer-tagline {
-    font-size: 0.875rem;
-    color: #888;
-    max-width: 260px;
-    line-height: 1.5;
-  }
-
-  .footer-columns {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 1rem;
-    flex: 1;
-  }
-
-  .footer-col h3 {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #999;
-    margin-bottom: 1rem;
-  }
-
-  .footer-col ul {
-    list-style: none;
-  }
-
-  .footer-col li + li {
-    margin-top: 0.6rem;
-  }
-
-  .footer-col a {
-    font-size: 0.875rem;
-    color: #555;
-    transition: color 0.2s;
-  }
-
-  .footer-col a:hover {
-    color: var(--color-brand);
-  }
-
-  .footer-social {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .social-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.875rem;
-    color: #555;
-    transition: color 0.2s;
-  }
-
-  .social-link:hover {
-    color: var(--color-brand);
-  }
-
-  .social-link svg {
-    flex-shrink: 0;
-  }
-
-  .footer-bottom {
-    padding-top: 2rem;
-    border-top: 1px solid #eee;
-    text-align: center;
-  }
-
-  .footer-support {
-    font-size: 0.8125rem;
-    color: #666;
-    margin-bottom: 0.75rem;
-  }
-
-  .footer-support a {
-    color: var(--color-brand-dark, #087a80);
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-  .footer-support a:hover {
-    text-decoration: underline;
-  }
-
-  .footer-disclaimer {
-    font-size: 0.75rem;
-    color: #bbb;
-    margin-bottom: 0.5rem;
-  }
-
-  .footer-legal {
-    font-size: 0.75rem;
-    color: #999;
-  }
-
-  @media (max-width: 900px) {
-    .footer-top {
-      flex-direction: column;
-      gap: 2.5rem;
-    }
-
-    .footer-brand {
-      flex-basis: auto;
-    }
-
-    .footer-columns {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 2rem;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .footer-columns {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
+  .site-footer { background: #f7f9f5; border-top: 1px solid #e1e7dc; padding-block: 3.5rem 1.75rem; }
+  .footer-top { display: grid; grid-template-columns: 280px minmax(0,1fr); gap: 3.5rem; padding-bottom: 2.5rem; }
+  .footer-brand > a { display: inline-flex; } .footer-brand > a img { width: 90px; height: auto; }
+  .footer-brand > p { font-size: 1.0625rem; line-height: 1.6; color: var(--color-text-secondary); margin-block: 1rem 1.25rem; }
+  .footer-brand :global(.store-badges img) { width: 128px; height: 45px; }
+  .footer-columns { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.5rem; }
+  .footer-columns h2 { font-size: .6875rem; text-transform: uppercase; letter-spacing: .06em; color: var(--color-brand-dark); margin-bottom: 1rem; }
+  .footer-columns ul { list-style: none; display: grid; gap: .65rem; padding: 0; } .footer-columns a { color: var(--color-text-secondary); font-size: .8125rem; }
+  .footer-connect { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding-block: 1.25rem; border-block: 1px solid #dfe6da; color: var(--color-brand-dark); font-size: .8125rem; font-weight: 700; }
+  .footer-connect > div { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+  .footer-bottom { padding-top: 1.25rem; } .footer-bottom > p { font-size: .6875rem; color: var(--color-text-secondary); line-height: 1.7; }
+  .footer-bottom > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem; font-size: .6875rem; color: var(--color-text-secondary); margin-top: 1rem; }
+  .footer-bottom nav { display: flex; gap: 1.5rem; }
+  a:hover { color: var(--color-brand-dark); text-decoration: underline; text-underline-offset: 3px; } a:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 4px; }
+  @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr; gap: 2rem; } }
+  @media (max-width: 600px) { .site-footer { padding-block: 2.5rem 1.5rem; } .footer-columns { grid-template-columns: 1fr 1fr; gap: 1.75rem; } .footer-columns > div:last-child { grid-column: 1 / -1; } .footer-columns > div:last-child ul { grid-template-columns: 1fr 1fr; } .footer-connect > div { gap: 1rem; } }
 </style>

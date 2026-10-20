@@ -1,0 +1,524 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Baby Tracker for Caregivers, Nannies, and Grandparents | Nubo';
+const description = 'Share one baby timeline with parents, nannies, grandparents, and other caregivers. Nubo works on iPhone and Android with free caregiver sync.';
+const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
+const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
+const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
+
+const caregiverTypes = [
+  {
+    title: 'Partner handoffs',
+    body: 'See the last feed, diaper, nap, medicine, and note without turning every handoff into a recap.'
+  },
+  {
+    title: 'Grandparents',
+    body: 'Keep occasional helpers in the same timeline, even when one person uses iPhone and another uses Android.'
+  },
+  {
+    title: 'Nannies and sitters',
+    body: 'Let the day stay structured while care happens normally, with logs parents can review later.'
+  },
+  {
+    title: 'Overnight help',
+    body: 'Reduce sleepy guesswork when someone else handled a bottle, diaper, or stretch of sleep.'
+  }
+];
+
+const sharedItems = [
+  'Feeds and bottles',
+  'Nursing sessions',
+  'Sleep',
+  'Wet and dirty diapers',
+  'Medicine',
+  'Growth',
+  'Vaccines',
+  'Allergens',
+  'Milestones',
+  'Notes'
+];
+
+const faqItems = [
+  {
+    q: 'Can multiple caregivers use Nubo?',
+    a: 'Yes. Nubo is built for shared baby tracking. Parents can invite partners, grandparents, nannies, sitters, and other trusted caregivers to the same baby timeline.'
+  },
+  {
+    q: 'Is caregiver sharing free?',
+    a: 'Yes. Unlimited caregivers are included in the free Nubo app. Nubo Plus and the physical tracker are optional upgrades.'
+  },
+  {
+    q: 'Do grandparents or nannies need the device?',
+    a: 'No. Caregivers can use the free app. The device is optional for helpers who prefer simple physical buttons for feeds, sleep, and diapers.'
+  },
+  {
+    q: 'Can caregivers see private pumping logs?',
+    a: 'No. Private pumping is a Nubo Plus app tool, and pumping data is not shared with caregivers on the baby timeline. For exclusive pumping families, caregivers can still log pumped milk bottles as baby feeds.'
+  },
+  {
+    q: 'Does the device require a Nubo Plus subscription?',
+    a: 'No. The device works with the free app, and device sync refreshes a 30-day Nubo Plus access window for active phones.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: title,
+    description,
+    url: 'https://www.nubotracker.com/caregivers/',
+    about: { '@type': 'SoftwareApplication', name: 'Nubo Baby Tracker App' }
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a
+      }
+    }))
+  }
+];
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd} stickyCtaVariant="app">
+  <Header />
+  <main>
+    <section class="caregiver-hero">
+      <div class="container caregiver-hero-grid">
+        <div class="caregiver-hero-copy">
+          <p class="overline">Baby tracker for shared care</p>
+          <h1>Baby tracker for caregivers, nannies, and grandparents.</h1>
+          <p class="hero-sub">Nubo helps parents, partners, grandparents, nannies, and sitters stay in sync without a group text full of feed times and diaper notes. Invite trusted caregivers, log from iPhone or Android, and keep the day in one shared timeline. Start with the <a href="/app/" class="text-link">free baby tracker app</a>, then add the device if helpers need simpler buttons.</p>
+          <div class="hero-actions-inline">
+            <a href={appStoreURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Download on the App Store</a>
+            <a href={playStoreURL} class="btn-ghost" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
+          </div>
+        </div>
+        <img src="/images/caregiver-hub.webp" alt="Nubo baby timeline shared across multiple caregiver phones" width="970" height="600" loading="eager" decoding="async" />
+      </div>
+    </section>
+
+    <section class="proof-strip-section" aria-label="Nubo caregiver sharing details">
+      <div class="container proof-strip">
+        <span>Unlimited caregivers in the free app</span>
+        <span>Works on iPhone and Android</span>
+        <span>Private caregiver invites</span>
+        <span>Exclusive pumping friendly</span>
+      </div>
+    </section>
+
+    <section class="handoff-section">
+      <div class="container">
+        <div class="section-intro">
+          <p class="overline">Less handoff friction</p>
+          <h2>A baby tracker for caregivers makes handoffs easier to trust.</h2>
+          <p class="section-sub">The goal is not to make caregivers document more. It is to make the few important details easier to trust when the baby moves from one set of arms to another.</p>
+        </div>
+        <div class="handoff-grid">
+          {caregiverTypes.map((item) => (
+            <article>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="logging-section">
+      <div class="container logging-inner">
+        <div>
+          <p class="overline">How caregivers log</p>
+          <h2>Use the caregiver app when it fits. Use the screen-free tracker when a tap is easier.</h2>
+          <p>Some caregivers are comfortable opening an app. Some are holding a baby, standing at the changing table, or helping at 3 a.m. Nubo supports both patterns without splitting the record.</p>
+          <p>With Nubo Plus on iPhone, Live Activities can also show the latest feed and diaper on your Lock Screen after a caregiver log or device event syncs. <a href="/blog/caregiver/baby-care-at-a-glance-shared-live-activity/" class="text-link">See how a quick glance helps with handoffs</a>.</p>
+        </div>
+        <div class="logging-cards">
+          <article>
+            <p class="card-label">Free app</p>
+            <h3>Caregivers can log from their own phones.</h3>
+            <p>Invite trusted helpers to the shared timeline on iPhone or Android. Nubo Intelligence helps with free voice catch-up and Nubo Notetaker observations. AI titles and tags have device requirements; Nubo Noticed is included with Plus and free for everyone on Mondays.</p>
+            <a href="/app/#intelligence" class="text-link">Explore Nubo Intelligence &rarr;</a>
+          </article>
+          <article>
+            <p class="card-label">Optional device</p>
+            <h3>Caregivers can tap physical buttons.</h3>
+            <p>The Nubo device is useful when a helper should not need to learn an app in the moment. Tap the feed, sleep, pee, or poop button, then sync later. See the <a href="/device/" class="text-link">screen-free baby tracker</a> for night feeds and hands-full changes.</p>
+            <a href={amazonURL} class="text-link" target="_blank" rel="noopener noreferrer">Buy the device on Amazon &rarr;</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sharing-section">
+      <div class="container sharing-grid">
+        <div>
+          <p class="overline">What caregivers can share</p>
+          <h2>Feeding, sleep, and diaper details that answer, “What happened?”</h2>
+          <p>Shared logs stay organized by baby, not by which adult happened to be holding the phone.</p>
+        </div>
+        <ul class="shared-list" aria-label="Baby tracking details caregivers can share">
+          {sharedItems.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="privacy-section">
+      <div class="container privacy-inner">
+        <div>
+          <p class="overline">Privacy boundaries</p>
+          <h2>Shared care does not mean everything is shared.</h2>
+        </div>
+        <div class="privacy-copy">
+          <p>Nubo is built for family care, not advertising. Caregiver sharing is designed for invited people who help with the baby.</p>
+          <p>For exclusive pumping families, caregivers often need to log pumped milk bottles. They do not need access to mom's milk output. Nubo keeps those records separate by design.</p>
+          <p>Private pumping is separate from the shared baby timeline. Partners, grandparents, nannies, sitters, and other caregivers cannot see private pumping logs.</p>
+          <a href="/privacy/" class="btn-primary">Read the privacy overview</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="logging-section" aria-labelledby="caregiver-care-title">
+      <div class="container logging-inner">
+        <div><p class="overline">Nubo Care · Included in Plus</p><h2 id="caregiver-care-title">The visit answers make it home to the other caregiver.</h2><p>A partner who couldn't attend can see the summary, answers to specific questions, and to-dos. Nubo Care syncs visit records to invited caregivers, so follow-through stays connected to everyday care.</p><p>The audio recording remains on the recording phone. There, each extracted answer links to the actual timestamps for replay.</p><a href="/#nubo-care" class="text-link">Explore doctor visits with Nubo Care <span aria-hidden="true">→</span></a></div>
+        <div class="logging-cards"><article><p class="card-label">Included in Nubo Plus</p><h3>Prepare, remember, and follow through together.</h3><p>Nubo Care is included in everyone's 14-day Plus preview and with every Nubo device. Available worldwide, in English.</p><a href="/pricing/" class="text-link">See Nubo Plus <span aria-hidden="true">→</span></a></article></div>
+      </div>
+    </section>
+
+    <section class="caregiver-faq-section">
+      <div class="container">
+        <div class="section-intro">
+          <p class="overline">Caregiver questions</p>
+          <h2>Quick answers about baby tracking for caregivers.</h2>
+        </div>
+        <div class="faq-grid">
+          {faqItems.map((faq) => (
+            <article>
+              <h3>{faq.q}</h3>
+              <p>{faq.a}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .caregiver-hero {
+    padding: 9rem 0 5rem;
+    background: var(--color-bg-warm);
+  }
+
+  .caregiver-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .caregiver-hero-copy,
+  .caregiver-hero-grid > img,
+  .logging-inner > *,
+  .sharing-grid > *,
+  .privacy-inner > *,
+  .handoff-grid article,
+  .faq-grid article {
+    min-width: 0;
+  }
+
+  .caregiver-hero h1 {
+    max-width: 680px;
+    font-size: clamp(2.45rem, 6vw, 4.75rem);
+    line-height: 1;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-sub,
+  .handoff-grid p,
+  .logging-section p,
+  .sharing-section p,
+  .privacy-section p,
+  .faq-grid p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .hero-sub {
+    max-width: 640px;
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    overflow-wrap: break-word;
+  }
+
+  .caregiver-hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .hero-actions-inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .proof-strip-section {
+    padding: 1.25rem 0;
+    background: #fff;
+  }
+
+  .proof-strip {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .proof-strip span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3.25rem;
+    border: 1px solid #e8e8e8;
+    border-radius: 999px;
+    background: var(--color-bg-soft);
+    padding: 0.65rem 0.9rem;
+    color: var(--color-text);
+    font-size: 0.88rem;
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .handoff-section,
+  .logging-section,
+  .sharing-section,
+  .privacy-section,
+  .caregiver-faq-section {
+    padding: 6rem 0;
+  }
+
+  .handoff-section,
+  .sharing-section,
+  .caregiver-faq-section {
+    background: #fff;
+  }
+
+  .logging-section,
+  .privacy-section {
+    background: var(--color-bg-soft);
+  }
+
+  .handoff-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .handoff-grid article,
+  .logging-cards article,
+  .faq-grid article {
+    border: 1px solid #e8e8e8;
+    border-radius: var(--radius-xl);
+    background: #fff;
+    padding: 1.75rem;
+  }
+
+  .handoff-grid h3,
+  .logging-cards h3,
+  .faq-grid h3 {
+    margin-bottom: 0.75rem;
+    font-size: 1.12rem;
+    line-height: 1.25;
+  }
+
+  .logging-inner,
+  .sharing-grid,
+  .privacy-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .logging-inner h2,
+  .sharing-grid h2,
+  .privacy-inner h2 {
+    max-width: 560px;
+    font-size: clamp(1.9rem, 4vw, 3.2rem);
+    line-height: 1.1;
+    overflow-wrap: anywhere;
+  }
+
+  .logging-inner > div > p:not(.overline),
+  .sharing-grid > div > p,
+  .privacy-copy p {
+    margin-top: 1rem;
+    font-size: 1.05rem;
+  }
+
+  .logging-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card-label {
+    margin-bottom: 0.65rem;
+    color: var(--color-brand-dark) !important;
+    font-size: 0.78rem;
+    font-weight: 800;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .logging-cards .text-link {
+    display: inline-flex;
+    margin-top: 1.25rem;
+  }
+
+  .shared-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .shared-list li {
+    position: relative;
+    min-height: 3.2rem;
+    border: 1px solid #e8e8e8;
+    border-radius: 16px;
+    background: var(--color-bg-soft);
+    padding: 0.85rem 1rem 0.85rem 2.3rem;
+    color: var(--color-text);
+    font-weight: 800;
+    line-height: 1.35;
+  }
+
+  .shared-list li::before {
+    position: absolute;
+    left: 1rem;
+    color: var(--color-brand-dark);
+    content: '+';
+  }
+
+  .privacy-copy .btn-primary {
+    margin-top: 1.5rem;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 1040px) {
+    .proof-strip,
+    .handoff-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 900px) {
+    .caregiver-hero-grid,
+    .logging-inner,
+    .sharing-grid,
+    .privacy-inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .caregiver-hero img {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .caregiver-hero {
+      padding: 7rem 0 4rem;
+    }
+
+    .caregiver-hero h1 {
+      max-width: 340px;
+      font-size: clamp(2rem, 9vw, 2.45rem);
+    }
+
+    .hero-sub {
+      max-width: 340px;
+      font-size: 1.05rem;
+    }
+
+    .caregiver-hero img {
+      width: 100%;
+      max-width: 340px;
+    }
+
+    .section-intro h2,
+    .logging-inner h2,
+    .sharing-grid h2,
+    .privacy-inner h2 {
+      max-width: 340px;
+      margin-right: auto;
+      margin-left: auto;
+      font-size: clamp(1.85rem, 8vw, 2.35rem);
+      overflow-wrap: anywhere;
+    }
+
+    .section-intro .section-sub {
+      max-width: 340px;
+    }
+
+    .hero-actions-inline {
+      width: 100%;
+      max-width: 340px;
+    }
+
+    .hero-actions-inline .btn-primary,
+    .hero-actions-inline .btn-ghost {
+      width: 100%;
+      max-width: 340px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+      text-align: center;
+      white-space: normal;
+    }
+
+    .proof-strip,
+    .handoff-grid,
+    .logging-cards,
+    .shared-list,
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .handoff-section,
+    .logging-section,
+    .sharing-section,
+    .privacy-section,
+    .caregiver-faq-section {
+      padding: 4rem 0;
+    }
+
+    .handoff-grid article,
+    .logging-cards article,
+    .faq-grid article {
+      padding: 1.35rem;
+    }
+  }
+</style>

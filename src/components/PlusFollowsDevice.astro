@@ -1,37 +1,22 @@
 ---
-interface Props {
-  showImage?: boolean;
-}
-
+interface Props { showImage?: boolean; }
 const { showImage = true } = Astro.props;
 ---
-
 <section class="plus-device-section">
-  <div class="container plus-device-inner">
-    {showImage && (
-      <img src="/images/caregiver-hub.webp" alt="Nubo device syncing baby tracking data with multiple caregiver phones" width="970" height="600" loading="lazy" decoding="async" />
-    )}
-    <div>
-      <p class="overline">Nubo Plus follows active device use</p>
-      <h2>Nubo Plus access for active caregiver phones that sync with the device.</h2>
-      <p>Each device sync refreshes a 30-day Nubo Plus access window for that active phone. It does not depend on which App Store or Google Play account bought Nubo Plus. Active caregivers stay covered as long as they keep using the device.</p>
-
-    </div>
+  <div class:list={['container', 'plus-device-inner', { 'without-image': !showImage }]}>
+    {showImage && <img src="/images/caregiver-hub.webp" alt="Nubo device and app connected across caregiver phones" width="970" height="600" loading="lazy" decoding="async" />}
+    <div><p class="overline">Plus follows your device</p><div class="access-window"><strong>30</strong><span>days of Plus<br />refreshed with each sync</span></div><h2>Each syncing phone gets Plus.</h2><p>Including Nubo Care and Nubo Noticed all week. Device access is separate from a store subscription.</p><a href="/pricing/" class="text-link">See Plus and access details <span aria-hidden="true">→</span></a></div>
   </div>
 </section>
-
 <style>
-  .plus-device-section { padding: 6rem 0; background: var(--color-bg-soft); }
+  .plus-device-section { padding-block: 3.5rem; background: var(--color-brand-light); }
   .plus-device-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-  .plus-device-inner img { width: 100%; height: auto; display: block; }
-  .plus-device-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; margin-bottom: 1rem; }
-  .plus-device-inner p { color: var(--color-text-secondary); line-height: 1.7; }
-  .plus-timeline { display: grid; gap: 1rem; margin: 1.75rem 0 1rem; }
-  .plus-timeline div { position: relative; min-height: 76px; padding: 1rem; background: #fff; border: 1px solid #e8e8e8; border-radius: 16px; overflow: hidden; }
-  .plus-timeline span { display: block; font-weight: 700; margin-bottom: 0.625rem; }
-  .plus-timeline i { position: absolute; left: var(--start); right: auto; bottom: 2.25rem; width: var(--width); height: 12px; background: var(--color-brand); border-radius: 999px; }
-  .plus-timeline small { display: block; color: var(--color-text-secondary); font-size: 0.8125rem; margin-top: 1.25rem; }
-  .plus-caption { font-size: 0.875rem; font-weight: 700; color: var(--color-brand-dark) !important; }
-  @media (max-width: 900px) { .plus-device-inner { grid-template-columns: 1fr; } }
-  @media (max-width: 640px) { .plus-device-section { padding: 4rem 0; } }
+  .plus-device-inner > * { min-width: 0; } .plus-device-inner img { width: 100%; height: auto; }
+  .without-image { grid-template-columns: 1fr; max-width: 800px; }
+  .access-window { display: flex; gap: 1rem; align-items: center; margin-block: 1.2rem; color: var(--color-brand-dark); }
+  .access-window strong { font-size: 4rem; line-height: 1; letter-spacing: -.05em; } .access-window span { font-size: .875rem; font-weight: 700; line-height: 1.5; }
+  h2 { font-size: clamp(1.5rem,2.7vw,2rem); line-height: 1.2; letter-spacing: -.025em; }
+  div > p:not(.overline) { margin-top: .85rem; max-width: 440px; color: var(--color-text-secondary); font-size: .9375rem; }
+  .text-link { display: inline-block; margin-top: 1.25rem; font-size: .875rem; }
+  @media (max-width: 680px) { .plus-device-inner { grid-template-columns: 1fr; gap: 1.5rem; } .plus-device-section { padding-block: 2.5rem; } .plus-device-inner img { max-width: 420px; margin-inline: auto; } .access-window strong { font-size: 3.5rem; } }
 </style>

@@ -2,9 +2,83 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ArticleContents from '../components/ArticleContents.astro';
+
+const policySections = [
+  {
+    "depth": 2,
+    "slug": "1-your-account-and-use-of-nubo",
+    "text": "1. Your Account and Use of Nubo"
+  },
+  {
+    "depth": 2,
+    "slug": "2-baby-profiles-logs-and-caregiver-sharing",
+    "text": "2. Baby Profiles, Logs, and Caregiver Sharing"
+  },
+  {
+    "depth": 2,
+    "slug": "3-subscriptions-and-nubo-plus-features",
+    "text": "3. Subscriptions and Nubo Plus Features"
+  },
+  {
+    "depth": 2,
+    "slug": "4-app-store-license-terms",
+    "text": "4. App Store License Terms"
+  },
+  {
+    "depth": 2,
+    "slug": "5-preview-and-device-based-nubo-plus-access",
+    "text": "5. Preview and Device-Based Nubo Plus Access"
+  },
+  {
+    "depth": 2,
+    "slug": "6-acceptable-use",
+    "text": "6. Acceptable Use"
+  },
+  {
+    "depth": 2,
+    "slug": "7-nubo-intelligence-and-nubo-care",
+    "text": "7. Nubo Intelligence and Nubo Care"
+  },
+  {
+    "depth": 2,
+    "slug": "8-privacy-and-third-party-services",
+    "text": "8. Privacy and Third-Party Services"
+  },
+  {
+    "depth": 2,
+    "slug": "9-no-medical-advice",
+    "text": "9. No Medical Advice"
+  },
+  {
+    "depth": 2,
+    "slug": "10-changes-to-nubo-or-these-terms",
+    "text": "10. Changes to Nubo or These Terms"
+  },
+  {
+    "depth": 2,
+    "slug": "11-account-deletion-and-termination",
+    "text": "11. Account Deletion and Termination"
+  },
+  {
+    "depth": 2,
+    "slug": "12-intellectual-property-and-user-content",
+    "text": "12. Intellectual Property and User Content"
+  },
+  {
+    "depth": 2,
+    "slug": "13-disclaimers-and-limitation-of-liability",
+    "text": "13. Disclaimers and Limitation of Liability"
+  },
+  {
+    "depth": 2,
+    "slug": "14-contact",
+    "text": "14. Contact"
+  }
+];
 
 const title = 'Terms of Use | Nubo Baby Tracker';
-const description = 'Terms of Use for the Nubo Baby Tracker app and device. Learn about your rights, subscriptions, acceptable use, and how we protect your data.';
+const description = 'Terms for the Nubo app and device, Nubo Intelligence, Nubo Care, Nubo Plus access, subscriptions, acceptable use, and privacy.';
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -22,7 +96,7 @@ const jsonLd = {
 
 <BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <Header />
-  <main>
+  <main id="main-content">
     <section class="page-hero">
       <div class="container">
         <p class="overline">Legal</p>
@@ -35,8 +109,8 @@ const jsonLd = {
     </section>
 
     <section class="policy-content">
-      <div class="container policy-inner">
-        <p class="policy-updated">Effective Jan 1, 2026</p>
+      <div class="container policy-grid"><ArticleContents headings={policySections} label="On this page" /><div class="policy-reading">
+        <p class="policy-updated">Effective Jan 1, 2026. Last updated October 19, 2026.</p>
 
         <div class="policy-summary">
           <p class="policy-notice">
@@ -47,7 +121,7 @@ const jsonLd = {
 
         <article class="policy-body">
 
-          <h2>1. Your Account and Use of Nubo</h2>
+          <h2 id="1-your-account-and-use-of-nubo">1. Your Account and Use of Nubo</h2>
           <p>
             You can use core Nubo features without creating an account. Some features, including
             caregiver collaboration and backup and restore, may require sign-in through Apple,
@@ -56,7 +130,7 @@ const jsonLd = {
             your device and account secure and for the activity that occurs through your account.
           </p>
 
-          <h2>2. Baby Profiles, Logs, and Caregiver Sharing</h2>
+          <h2 id="2-baby-profiles-logs-and-caregiver-sharing">2. Baby Profiles, Logs, and Caregiver Sharing</h2>
           <p>
             Nubo lets you create baby profiles and log care events such as feeding, sleep, diapers,
             health notes, milestones, and reminders. If you invite caregivers, you choose to share
@@ -65,12 +139,14 @@ const jsonLd = {
             people you trust and remove access when it is no longer needed.
           </p>
 
-          <h2>3. Subscriptions and Nubo Plus Features</h2>
+          <h2 id="3-subscriptions-and-nubo-plus-features">3. Subscriptions and Nubo Plus Features</h2>
           <p>
-            Nubo may offer optional Nubo Plus features. On iOS, Nubo may offer auto-renewable
-            subscriptions through the Apple App Store. Subscription options shown in the app
+            Nubo Plus is the optional paid app plan, including Nubo Care and additional tools.
+            Subscriptions are billed through the App Store on iPhone or Google Play billing on Android.
+            Subscription options shown in the app
             include the subscription title, duration, and price at the time of purchase.
           </p>
+          <p>The following billing details apply to App Store subscriptions. Manage Android subscriptions through Google Play under the terms shown there before subscribing.</p>
           <ul>
             <li>Payment is charged to your Apple ID account at confirmation of purchase.</li>
             <li>Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current period.</li>
@@ -78,7 +154,7 @@ const jsonLd = {
             <li>You can manage or cancel Apple subscriptions at <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener noreferrer">Apple subscription settings</a>.</li>
           </ul>
 
-          <h2>4. App Store License Terms</h2>
+          <h2 id="4-app-store-license-terms">4. App Store License Terms</h2>
           <p>
             Nubo is distributed through third-party app stores and platforms, including the Apple
             App Store and Google Play. Your use of Nubo may also be subject to the terms and
@@ -88,10 +164,10 @@ const jsonLd = {
             For the iOS app, Nubo uses Apple's standard Licensed Application End User License
             Agreement unless a separate custom EULA is provided in App Store Connect. You can
             review Apple's standard terms at
-            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple Standard EULA</a>.
+            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">Apple Standard EULA</a>.
           </p>
 
-          <h2>5. Preview and Device-Based Nubo Plus Access</h2>
+          <h2 id="5-preview-and-device-based-nubo-plus-access">5. Preview and Device-Based Nubo Plus Access</h2>
           <p>
             Nubo provides a 14-day Nubo Plus preview in the app to everyone, starting when parents confirm
             that the child is here. Downloading the app and creating a profile do not start the Preview. The Preview is separate from
@@ -102,27 +178,30 @@ const jsonLd = {
             unless you start or restore an eligible subscription. The free app remains available.
           </p>
 
-          <h2>6. Acceptable Use</h2>
+          <h2 id="6-acceptable-use">6. Acceptable Use</h2>
           <p>
             You agree not to misuse Nubo, interfere with its operation, attempt to access systems
             without permission, reverse engineer the app except where permitted by law, or use
             Nubo in a way that violates applicable law or the rights of others.
           </p>
 
-          <h2>7. Voice and AI-Assisted Features</h2>
+          <h2 id="7-nubo-intelligence-and-nubo-care">7. Nubo Intelligence and Nubo Care</h2>
           <p>
-            Nubo may include voice logging, text parsing, or AI-assisted features that help turn
-            your input into structured baby care logs. These features are provided to make tracking
-            easier, but you are responsible for reviewing entries for accuracy before relying on
-            them or sharing them with caregivers.
+            Nubo Intelligence combines machine learning, on-device AI, statistics, and automation
+            across everyday tracking. It includes voice event interpretation, observation titles
+            and tags on supported devices, editable entry suggestions, and recorded-pattern insights.
+            Feature access varies between Free and Nubo Plus; Intelligence is not a separate subscription.
+            Review generated entries and suggested values before saving or sharing them. Growth
+            estimates are starting points for entry and are not measured results.
           </p>
+          <p>Nubo Care helps you prepare visit questions, record with permission, and revisit your pediatrician's answers and next steps. It is included in Nubo Plus. Review visit recaps and extracted next steps against the conversation before acting on them. Original audio replay is available on the recording phone.</p>
 
-          <h2>8. Privacy and Third-Party Services</h2>
+          <h2 id="8-privacy-and-third-party-services">8. Privacy and Third-Party Services</h2>
           <p>
             Your use of Nubo is also governed by our
             <a href="/privacy-policy/">Privacy Policy</a>, which explains what information is
             stored on your device, what information may be processed when you use collaboration
-            or backup features, and how to contact us with privacy questions.
+            or backup features, how selected Nubo Care visit content is processed, and how to contact us with privacy questions.
           </p>
           <p>
             Nubo may rely on services from Apple, Google, Firebase, app stores, cloud providers,
@@ -134,7 +213,7 @@ const jsonLd = {
             services that we do not control.
           </p>
 
-          <h2>9. No Medical Advice</h2>
+          <h2 id="9-no-medical-advice">9. No Medical Advice</h2>
           <p>
             Nubo is a tracking and organization tool. Nubo does not provide medical advice,
             diagnosis, treatment, or emergency services. Information in Nubo, including baby care
@@ -144,7 +223,7 @@ const jsonLd = {
             your baby's health or medical care.
           </p>
 
-          <h2>10. Changes to Nubo or These Terms</h2>
+          <h2 id="10-changes-to-nubo-or-these-terms">10. Changes to Nubo or These Terms</h2>
           <p>
             We may update Nubo, add or remove features, change Nubo Plus offerings, or update these
             Terms of Use from time to time. If changes are material, we will take reasonable steps
@@ -152,7 +231,7 @@ const jsonLd = {
             the updated terms.
           </p>
 
-          <h2>11. Account Deletion and Termination</h2>
+          <h2 id="11-account-deletion-and-termination">11. Account Deletion and Termination</h2>
           <p>
             You may stop using Nubo at any time. You may delete baby profiles, logs, and
             account-related data through the app where those controls are available, or contact
@@ -161,7 +240,7 @@ const jsonLd = {
             Nubo, other users, or our services.
           </p>
 
-          <h2>12. Intellectual Property and User Content</h2>
+          <h2 id="12-intellectual-property-and-user-content">12. Intellectual Property and User Content</h2>
           <p>
             Nubo, including its design, software, features, trademarks, and content, is owned by
             Clicksie LLC or its licensors and is protected by intellectual property laws. You may
@@ -174,7 +253,7 @@ const jsonLd = {
             local tracking, caregiver collaboration, backup and restore, notifications, and support.
           </p>
 
-          <h2>13. Disclaimers and Limitation of Liability</h2>
+          <h2 id="13-disclaimers-and-limitation-of-liability">13. Disclaimers and Limitation of Liability</h2>
           <p>
             Nubo is provided on an "as is" and "as available" basis. To the maximum extent
             permitted by law, Clicksie LLC disclaims warranties of merchantability, fitness for a
@@ -183,7 +262,7 @@ const jsonLd = {
             punitive damages arising from your use of Nubo.
           </p>
 
-          <h2>14. Contact</h2>
+          <h2 id="14-contact">14. Contact</h2>
           <p>
             If you have questions about these Terms of Use, contact us at
             <a href="mailto:support@clicksie.io">support@clicksie.io</a>.
@@ -197,7 +276,7 @@ const jsonLd = {
             </p>
           </div>
         </article>
-      </div>
+      </div></div>
     </section>
   </main>
   <Footer />
@@ -297,4 +376,22 @@ const jsonLd = {
     color: #666;
     line-height: 2;
   }
+
+  .page-hero { padding-block: 128px 36px; background: var(--color-bg-ivory); }
+  .page-hero h1 { letter-spacing: -.035em; } .page-hero-sub { font-size: 1rem; }
+  .policy-content { padding-block: 2.5rem 4rem; }
+  .policy-grid { display: grid; grid-template-columns: 210px minmax(0,720px); gap: 3rem; align-items: start; }
+  .policy-reading { min-width: 0; }
+  .policy-updated { color: var(--color-text-secondary); font-size: .75rem; margin-bottom: 1.5rem; }
+  .policy-summary { padding: 1.5rem; background: #f1f7f3; border: 1px solid #dfe8dc; margin-bottom: 2rem; border-radius: 18px; }
+  .policy-summary summary { display: flex; justify-content: space-between; align-items: center; gap: 1rem; list-style: none; font-weight: 700; cursor: pointer; color: var(--color-brand-dark); font-size: .9375rem; }
+  .policy-summary summary::-webkit-details-marker { display: none; } .policy-summary summary span { font-size: 1.3rem; } .policy-summary[open] summary span { transform: rotate(45deg); }
+  .policy-summary .summary-list { margin-top: 1.25rem; } .policy-summary li { font-size: .875rem; }
+  .policy-body h2 { scroll-margin-top: 100px; border-top: 1px solid #e3e8df; padding-top: 1.5rem; line-height: 1.4; }
+  .policy-body h2:first-child { margin-top: 0; }
+  .policy-body a { text-decoration: underline; text-underline-offset: 3px; }
+  a:focus-visible, summary:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 4px; }
+  @media (max-width: 900px) { .policy-grid { grid-template-columns: minmax(0,720px); justify-content: center; gap: 2rem; } }
+  @media (max-width: 680px) { .page-hero { padding-block: 100px 30px; } .policy-content { padding-block: 2rem 3rem; } .policy-summary { padding: 1.25rem; } }
+
 </style>

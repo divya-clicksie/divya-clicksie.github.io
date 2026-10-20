@@ -11,7 +11,7 @@ export async function getStaticPaths() {
 }
 
 const { guide } = Astro.props;
-const { Content } = await guide.render();
+const { Content, headings } = await guide.render();
 const { title, description, datePublished, dateModified, author, heroImage, ogImage, tags } = guide.data;
 ---
 
@@ -24,6 +24,7 @@ const { title, description, datePublished, dateModified, author, heroImage, ogIm
   heroImage={heroImage}
   ogImage={ogImage}
   tags={tags}
+  headings={headings}
 >
   <Content />
 </GuideLayout>

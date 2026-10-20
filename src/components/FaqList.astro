@@ -1,0 +1,15 @@
+---
+interface Props { items: { q: string; a: string }[]; }
+const { items } = Astro.props;
+---
+<div class="compact-faq">{items.map((item) => <details><summary>{item.q}<span aria-hidden="true">+</span></summary><p>{item.a}</p></details>)}</div>
+<style>
+  details { border-bottom: 1px solid #dce5de; }
+  summary { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-block: 1.1rem; list-style: none; font-weight: 700; font-size: .9375rem; cursor: pointer; }
+  summary::-webkit-details-marker { display: none; }
+  summary span { color: var(--color-brand-dark); font-size: 1.3rem; flex-shrink: 0; }
+  details[open] summary span { transform: rotate(45deg); }
+  p { color: var(--color-text-secondary); font-size: .875rem; line-height: 1.75; padding-bottom: 1.25rem; max-width: 720px; }
+  summary:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 4px; }
+  @media (max-width: 680px) { summary { font-size: .875rem; } }
+</style>

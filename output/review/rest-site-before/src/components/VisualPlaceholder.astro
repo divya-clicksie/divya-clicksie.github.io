@@ -1,0 +1,95 @@
+---
+interface Props {
+  number: string;
+  title: string;
+  description: string;
+  kind: 'sequence' | 'cards' | 'insight' | 'sharing' | 'device';
+  labels: string[];
+  media?: 'screenshot' | 'video';
+  orientation?: 'landscape' | 'portrait';
+}
+const { number, title, description, kind, labels, media = 'screenshot', orientation = media === 'video' ? 'portrait' : 'landscape' } = Astro.props;
+---
+
+<figure class:list={['visual-placeholder', `placeholder-${kind}`, { 'placeholder-portrait': orientation === 'portrait', 'placeholder-landscape-video': media === 'video' && orientation === 'landscape' }]} aria-labelledby={`visual-${number}-title`}>
+  <div class="placeholder-meta"><span>Visual {number}</span><span>{media === 'video' ? 'Video placeholder' : 'Screenshot placeholder'}</span></div>
+  <div class="placeholder-stage" aria-hidden="true">
+    {orientation === 'portrait' ? <>
+      <div class="skeleton-screen portrait-screen">
+        <span class="skeleton-heading"></span>
+        <div class="skeleton-content"><span></span><span></span><span></span></div>
+        <span class="skeleton-action"></span>
+      </div>
+      <div class="portrait-labels">{labels.map((label) => <span class="capture-label">{label}</span>)}</div>
+    </> : media === 'video' ? <>
+      <div class="landscape-video-frame">
+        {labels.map(() => <div class="skeleton-screen">
+          <span class="skeleton-heading"></span>
+          <div class="skeleton-content"><span></span><span></span><span></span></div>
+          <span class="skeleton-action"></span>
+        </div>)}
+      </div>
+      <div class="portrait-labels">{labels.map((label) => <span class="capture-label">{label}</span>)}</div>
+    </> : labels.map((label, index) => <div class="capture-panel">
+      <div class="skeleton-screen">
+        <span class="skeleton-heading"></span>
+        <div class="skeleton-content">
+          {kind === 'insight' && index === 1
+            ? <div class="skeleton-bars"><i></i><i></i><i></i><i></i></div>
+            : <><span></span><span></span><span></span></>}
+        </div>
+        <span class="skeleton-action"></span>
+      </div>
+      <span class="capture-label">{label}</span>
+    </div>)}
+  </div>
+  <figcaption><p id={`visual-${number}-title`}>{title}</p><p>{description}</p></figcaption>
+</figure>
+
+<style>
+  .visual-placeholder { min-width: 0; width: 100%; margin: 0; padding: 1.5rem; border: 1.5px dashed #a9bab6; border-radius: 24px; background: #f3f6f5; }
+  .placeholder-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; color: #536762; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.035em; text-transform: uppercase; }
+  .placeholder-stage { display: flex; align-items: center; justify-content: center; gap: 1rem; min-height: 245px; padding: 1.5rem 0; }
+  .capture-panel { flex: 1; max-width: 155px; min-width: 0; text-align: center; }
+  .skeleton-screen { border: 1px solid #bfcac7; border-radius: 16px; padding: 14px 10px; background: #fff; min-height: 190px; display: flex; flex-direction: column; gap: 18px; }
+  .skeleton-heading, .skeleton-action, .skeleton-content > span { display: block; background: #e5ebe9; border-radius: 5px; }
+  .skeleton-heading { width: 60%; height: 8px; }
+  .skeleton-content { display: grid; gap: 10px; }
+  .skeleton-content > span { height: 28px; }
+  .skeleton-content > span:nth-child(2) { width: 85%; }
+  .skeleton-action { margin-top: auto; height: 15px; width: 70%; background: #d9e6e1; }
+  .capture-label { display: block; color: #536762; font-size: 0.6875rem; line-height: 1.4; margin-top: 0.75rem; }
+  .placeholder-portrait { width: min(100%, 320px); justify-self: center; }
+  .placeholder-portrait .placeholder-stage { display: block; min-height: 0; }
+  .placeholder-portrait .portrait-screen { aspect-ratio: 9 / 16; min-height: 0; padding: 1.5rem 1rem; }
+  .portrait-labels { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 0.75rem; }
+  .placeholder-landscape-video .placeholder-stage { display: block; min-height: 0; }
+  .landscape-video-frame { aspect-ratio: 16 / 9; display: flex; gap: 6%; padding: 5% 8%; border-radius: 16px; background: #e5ebe9; }
+  .landscape-video-frame .skeleton-screen { flex: 1; min-width: 0; min-height: 0; padding: 8px; gap: 8px; }
+  .landscape-video-frame .skeleton-heading { height: 6px; flex-shrink: 0; }
+  .landscape-video-frame .skeleton-content { display: flex; flex-direction: column; flex: 1; min-height: 0; gap: 6px; }
+  .landscape-video-frame .skeleton-content > span { flex: 1; height: auto; min-height: 0; }
+  .landscape-video-frame .skeleton-action { height: 10px; flex-shrink: 0; }
+  figcaption p:first-child { font-size: 0.9375rem; font-weight: 700; color: #364d46; }
+  figcaption p:last-child { color: #536762; font-size: 0.8125rem; line-height: 1.6; margin-top: 0.35rem; max-width: 420px; }
+  .placeholder-cards .skeleton-content { grid-template-columns: 1fr 1fr; }
+  .placeholder-cards .skeleton-content > span { width: 100%; height: 50px; }
+  .placeholder-cards .skeleton-content > span:last-child { grid-column: 1 / -1; }
+  .placeholder-insight .capture-panel { max-width: 170px; }
+  .skeleton-bars { display: flex; align-items: flex-end; gap: 10px; height: 95px; padding-bottom: 10px; }
+  .skeleton-bars i { width: 23%; height: 60%; background: #d4ded9; border-radius: 4px 4px 0 0; }
+  .skeleton-bars i:nth-child(2) { height: 90%; }
+  .skeleton-bars i:nth-child(3) { height: 45%; }
+  .skeleton-bars i:nth-child(4) { height: 70%; }
+  .placeholder-device .capture-panel:first-child .skeleton-screen { border-radius: 28px; max-width: 100px; margin: auto; min-height: 200px; }
+  .placeholder-device .capture-panel:first-child .skeleton-content { grid-template-columns: 1fr 1fr; }
+  .placeholder-device .capture-panel:first-child .skeleton-content > span { width: 100%; height: 28px; border-radius: 50%; }
+  @media (max-width: 680px) {
+    .visual-placeholder { padding: 1.15rem; }
+    .placeholder-stage { gap: 0.65rem; min-height: 220px; }
+    .skeleton-screen { min-height: 165px; padding: 12px 8px; gap: 14px; }
+    .skeleton-content { gap: 8px; }
+    .skeleton-content > span { height: 23px; }
+    .placeholder-meta { font-size: 0.625rem; }
+  }
+</style>

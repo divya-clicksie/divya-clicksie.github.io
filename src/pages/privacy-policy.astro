@@ -2,9 +2,74 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ArticleContents from '../components/ArticleContents.astro';
+import { nuboAccess, nuboProcessing } from '../data/nuboMessaging';
+
+const policySections = [
+  {
+    "depth": 2,
+    "slug": "1-what-data-does-the-nubo-device-collect",
+    "text": "1. What data does the Nubo device collect?"
+  },
+  {
+    "depth": 2,
+    "slug": "2-what-data-does-the-nubo-app-collect",
+    "text": "2. What data does the Nubo app collect?"
+  },
+  {
+    "depth": 2,
+    "slug": "3-where-is-data-stored",
+    "text": "3. Where is data stored?"
+  },
+  {
+    "depth": 2,
+    "slug": "4-caregiver-sharing-and-encryption",
+    "text": "4. Caregiver sharing and encryption"
+  },
+  {
+    "depth": 2,
+    "slug": "nubo-care",
+    "text": "Nubo Care"
+  },
+  {
+    "depth": 2,
+    "slug": "nubo-intelligence-and-alexa",
+    "text": "Nubo Intelligence and Alexa"
+  },
+  {
+    "depth": 2,
+    "slug": "5-analytics-and-tracking",
+    "text": "5. Analytics and tracking"
+  },
+  {
+    "depth": 2,
+    "slug": "6-data-retention-and-deletion",
+    "text": "6. Data retention and deletion"
+  },
+  {
+    "depth": 2,
+    "slug": "7-children-s-privacy",
+    "text": "7. Children's privacy"
+  },
+  {
+    "depth": 2,
+    "slug": "8-third-party-services",
+    "text": "8. Third-party services"
+  },
+  {
+    "depth": 2,
+    "slug": "9-changes-to-this-policy",
+    "text": "9. Changes to this policy"
+  },
+  {
+    "depth": 2,
+    "slug": "10-contact",
+    "text": "10. Contact"
+  }
+];
 
 const title = 'Privacy Policy | Nubo Baby Tracker';
-const description = 'Read how Nubo handles local tracking, encrypted caregiver sharing, private backups, and Nubo Care server processing with zero retention afterward.';
+const description = 'Read how Nubo handles Nubo Intelligence, on-device voice and notes, encrypted sharing, private backups, Alexa, and Nubo Care visit processing.';
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -22,7 +87,7 @@ const jsonLd = {
 
 <BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <Header />
-  <main>
+  <main id="main-content">
     <section class="page-hero">
       <div class="container">
         <p class="overline">Privacy by Design</p>
@@ -35,14 +100,14 @@ const jsonLd = {
     </section>
 
     <section class="policy-content">
-      <div class="container policy-inner">
-        <p class="policy-updated">Last updated: September 30, 2026</p>
+      <div class="container policy-grid"><ArticleContents headings={policySections} label="On this page" /><div class="policy-reading">
+        <p class="policy-updated">Last updated: October 19, 2026</p>
 
-        <div class="policy-summary">
-          <h2>The short version</h2>
+        <details class="policy-summary"><summary>The short version <span aria-hidden="true">+</span></summary>
           <ul class="summary-list">
             <li>No account is required to use the Nubo device or app</li>
             <li>Activity data (feedings, sleep, diapers) is stored locally on your phone</li>
+            <li>Nubo Intelligence in-app voice interpretation and supported AI note enrichment run on your phone</li>
             <li>Ordinary caregiver sync uses encrypted data that Nubo cannot read</li>
             <li>Nubo Care processes selected visit content on the server with zero retention after processing</li>
             <li>Caregiver sharing works across iOS and Android and uses end-to-end encryption</li>
@@ -50,17 +115,17 @@ const jsonLd = {
             <li>We never sell or rent your personal information</li>
             <li>No third-party advertising or tracking SDKs in the app</li>
           </ul>
-        </div>
+        </details>
 
         <article class="policy-body">
-          <h2>1. What data does the Nubo device collect?</h2>
+          <h2 id="1-what-data-does-the-nubo-device-collect">1. What data does the Nubo device collect?</h2>
           <p>
             The Nubo device records button presses (feeding, sleep, diaper events) with timestamps.
             This data is stored on the device until it syncs to the Nubo companion app via Bluetooth.
             The device does not connect to the internet and does not transmit data to any server.
           </p>
 
-          <h2>2. What data does the Nubo app collect?</h2>
+          <h2 id="2-what-data-does-the-nubo-app-collect">2. What data does the Nubo app collect?</h2>
           <p>
             The Nubo app stores your baby's activity logs locally on your phone. If you choose to
             create an optional account for caregiver sharing, we store only the minimum information
@@ -75,7 +140,7 @@ const jsonLd = {
             We do not collect your location, contacts, or photos. Selected visit content for Nubo Care is processed as described below.
           </p>
 
-          <h2>3. Where is data stored?</h2>
+          <h2 id="3-where-is-data-stored">3. Where is data stored?</h2>
           <p>
             Activity data is stored locally on your device by default. If you enable caregiver
             sharing, encrypted data is temporarily relayed through our servers to sync between
@@ -86,17 +151,23 @@ const jsonLd = {
             Nubo servers.
           </p>
 
-          <h2>4. Caregiver sharing and encryption</h2>
+          <h2 id="4-caregiver-sharing-and-encryption">4. Caregiver sharing and encryption</h2>
           <p>
             When you invite a caregiver, a secure sharing link is generated. Activity data shared between caregivers can sync across iOS and Android devices and is encrypted end-to-end. Nubo servers act only as a relay and cannot decrypt or access the content of shared data.
           </p>
 
-          <h2>Nubo Care</h2>
-          <p>Nubo Care is a Plus feature. When you choose to process a recorded visit, selected visit content is sent to the server to produce summaries, answers to your questions, and to-dos. Care processing has zero data retention after processing. This is separate from everyday in-app voice logging, which runs on your phone.</p>
+          <h2 id="nubo-care">Nubo Care</h2>
+          <p>Nubo Care is included in Nubo Plus, including the preview and active device-access windows. It produces visit summaries, answers to your questions, and to-dos. {nuboProcessing.care} This is separate from everyday in-app voice logging.</p>
           <p>Visit records are stored on phones and backed up to users' private backups. Summaries, answers, to-dos, and other visit records sync to invited caregivers. Audio is available on the recording phone and is not synced to caregivers. Each answer extracted from a recording refers to its actual audio timestamps.</p>
           <p>Recording is optional. Obtain permission from everyone participating and follow the clinic's policy. You can take notes instead. Processing providers are subject to the same zero-retention-after-processing requirement.</p>
 
-          <h2>5. Analytics and tracking</h2>
+          <h2 id="nubo-intelligence-and-alexa">Nubo Intelligence and Alexa</h2>
+          <p>Nubo Intelligence describes the machine learning, on-device AI, statistics, and automation used across everyday tracking. It is not a separate subscription. {nuboProcessing.voice} Generated events can be reviewed and edited before saving, then follow the storage, optional sharing, and backup practices described above.</p>
+          <p>Nubo Notetaker preserves the text of spoken or typed observations. {nuboAccess.notetaker} Supported title and tag generation runs on the device. Saved observations can be part of the history shared with invited caregivers.</p>
+          <p>Nubo Noticed and other statistics describe recorded care. Missing logs are not treated as proof that no care occurred. These features do not establish diagnoses, causes, or relationships between symptoms and care patterns.</p>
+          <p>{nuboProcessing.alexa} If you choose Alexa logging with Plus, Amazon processes the voice request and the resulting care event joins your baby timeline. This flow is separate from in-app on-device voice interpretation.</p>
+
+          <h2 id="5-analytics-and-tracking">5. Analytics and tracking</h2>
           <p>
             The Nubo app does not include third-party advertising SDKs. We may collect anonymous,
             aggregated usage statistics (such as which features are used most often) to improve
@@ -108,38 +179,39 @@ const jsonLd = {
             heatmaps, or cookie-banner-dependent tracking.
           </p>
 
-          <h2>6. Data retention and deletion</h2>
+          <h2 id="6-data-retention-and-deletion">6. Data retention and deletion</h2>
           <p>
             You can delete records from within the Nubo app. Account information is removed from our systems within 30 days of account deletion. Private backup copies are stored in your own iCloud or Google Drive account; manage retained backups through your backup provider. Deleting a record does not remove copies you have exported or separately retained.
           </p>
 
-          <h2>7. Children's privacy</h2>
+          <h2 id="7-children-s-privacy">7. Children's privacy</h2>
           <p>
             Nubo is a tool for parents and caregivers. We do not knowingly collect personal
             information from children. The app is intended for use by adults to track their
             baby's activities.
           </p>
 
-          <h2>8. Third-party services</h2>
+          <h2 id="8-third-party-services">8. Third-party services</h2>
           <p>
             Nubo integrates with the following third-party services only when you choose to use them:
           </p>
           <ul>
             <li><strong>Apple iCloud / Google Drive</strong> for optional backup</li>
+            <li><strong>Amazon Alexa</strong> for Alexa voice requests when you enable the skill</li>
             <li><strong>Nubo Care processing providers</strong> for requested visit processing, with zero data retention after processing</li>
           </ul>
           <p>
             Backup services are governed by their own privacy policies. Nubo Care sends selected visit content for requested processing under the zero-retention requirement described above.
           </p>
 
-          <h2>9. Changes to this policy</h2>
+          <h2 id="9-changes-to-this-policy">9. Changes to this policy</h2>
           <p>
             We may update this privacy policy from time to time. Significant changes will be
             communicated through the app or on this page. The "Last updated" date at the top
             reflects the most recent revision.
           </p>
 
-          <h2>10. Contact</h2>
+          <h2 id="10-contact">10. Contact</h2>
           <p>
             If you have questions about this privacy policy or how Nubo handles your data,
             please reach out at
@@ -154,7 +226,7 @@ const jsonLd = {
             </p>
           </div>
         </article>
-      </div>
+      </div></div>
     </section>
   </main>
   <Footer />
@@ -286,4 +358,22 @@ const jsonLd = {
     .page-hero { padding: 8rem 0 3rem; }
     .policy-summary { padding: 1.75rem; }
   }
+
+  .page-hero { padding-block: 128px 36px; background: var(--color-bg-ivory); }
+  .page-hero h1 { letter-spacing: -.035em; } .page-hero-sub { font-size: 1rem; }
+  .policy-content { padding-block: 2.5rem 4rem; }
+  .policy-grid { display: grid; grid-template-columns: 210px minmax(0,720px); gap: 3rem; align-items: start; }
+  .policy-reading { min-width: 0; }
+  .policy-updated { color: var(--color-text-secondary); font-size: .75rem; margin-bottom: 1.5rem; }
+  .policy-summary { padding: 1.5rem; background: #f1f7f3; border: 1px solid #dfe8dc; margin-bottom: 2rem; border-radius: 18px; }
+  .policy-summary summary { display: flex; justify-content: space-between; align-items: center; gap: 1rem; list-style: none; font-weight: 700; cursor: pointer; color: var(--color-brand-dark); font-size: .9375rem; }
+  .policy-summary summary::-webkit-details-marker { display: none; } .policy-summary summary span { font-size: 1.3rem; } .policy-summary[open] summary span { transform: rotate(45deg); }
+  .policy-summary .summary-list { margin-top: 1.25rem; } .policy-summary li { font-size: .875rem; }
+  .policy-body h2 { scroll-margin-top: 100px; border-top: 1px solid #e3e8df; padding-top: 1.5rem; line-height: 1.4; }
+  .policy-body h2:first-child { margin-top: 0; }
+  .policy-body a { text-decoration: underline; text-underline-offset: 3px; }
+  a:focus-visible, summary:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 4px; }
+  @media (max-width: 900px) { .policy-grid { grid-template-columns: minmax(0,720px); justify-content: center; gap: 2rem; } }
+  @media (max-width: 680px) { .page-hero { padding-block: 100px 30px; } .policy-content { padding-block: 2rem 3rem; } .policy-summary { padding: 1.25rem; } }
+
 </style>

@@ -1,5 +1,6 @@
 ---
-import { free, plus, plusComingSoon } from '../data/appFeatureComparison';
+import { free, plus } from '../data/appFeatureComparison';
+import { nuboAccess } from '../data/nuboMessaging';
 
 interface Props {
   heading?: string;
@@ -12,9 +13,8 @@ const {
 } = Astro.props;
 
 const featureGroups = [
-  { label: 'Everyday tracking, included in both plans', features: free, freeIncluded: true, comingSoon: false },
-  { label: 'Optional tools with Nubo Plus', features: plus, freeIncluded: false, comingSoon: false },
-  { label: 'Coming soon with Nubo Plus', features: plusComingSoon, freeIncluded: false, comingSoon: true },
+  { label: 'Everyday tracking, included in both plans', features: free, freeIncluded: true },
+  { label: 'Optional tools with Nubo Plus', features: plus, freeIncluded: false },
 ];
 ---
 
@@ -36,7 +36,7 @@ const featureGroups = [
         <tr>
           <th scope="col">Feature</th>
           <th scope="col">Nubo Free<span class="plan-price">$0</span></th>
-          <th scope="col">Nubo Plus<span class="plan-price">$59.99<wbr />/year</span></th>
+          <th scope="col">Nubo Plus<span class="plan-price">$4.99<wbr />/month</span><span class="plan-billing">(billed annually)</span></th>
         </tr>
       </thead>
       <tbody>
@@ -52,10 +52,10 @@ const featureGroups = [
               </span>
             </td>
             <td>
-              {group.comingSoon ? <span class="feature-coming-soon">Coming soon</span> : <span class="feature-mark feature-mark-included">
+              <span class="feature-mark feature-mark-included">
                 <span class="sr-only">Included</span>
                 <span aria-hidden="true">✓</span>
-              </span>}
+              </span>
             </td>
           </tr>
           ))}
@@ -63,6 +63,7 @@ const featureGroups = [
       </tbody>
     </table>
   </div>
+  <p class="availability-note">{nuboAccess.noticed} {nuboAccess.notetaker}</p>
   <div class="access-notes">
     <article><h3>Try Plus after baby arrives.</h3><p>Everyone gets a 14-day Plus preview, starting when you confirm your child is here. Downloading and creating a profile do not start it. The preview is separate from a subscription. Core tracking stays free after it ends.</p></article>
     <article><h3>Plus comes with the device.</h3><p>Every Nubo device includes Plus access. Each phone that syncs with the device receives a refreshed 30-day window, including Nubo Care. <a href="/device/" class="text-link">Explore the optional device <span aria-hidden="true">→</span></a></p></article>
@@ -83,6 +84,7 @@ const featureGroups = [
   .feature-table th, .feature-table td { padding: 1rem 1.25rem; border-bottom: 1px solid #ececec; vertical-align: middle; }
   .feature-table thead th { background: var(--color-bg-soft); color: var(--color-text); font-size: 0.84rem; font-weight: 800; line-height: 1.2; text-align: center; text-transform: uppercase; letter-spacing: 0.04em; }
   .feature-table thead th:first-child { text-align: left; }
+  .plan-billing { display: block; margin-top: .35rem; color: var(--color-text-secondary); font-size: .7rem; font-weight: 500; letter-spacing: 0; text-transform: none; line-height: 1.4; }
   .plan-price { display: block; font-size: .875rem; letter-spacing: 0; text-transform: none; color: var(--color-brand-dark); margin-top: .6rem; }
   .feature-table tbody th { width: 64%; min-width: 360px; color: var(--color-text); font-size: 1rem; font-weight: 700; line-height: 1.45; text-align: left; overflow-wrap: anywhere; }
   .feature-table tbody td { width: 18%; text-align: center; }
@@ -91,7 +93,7 @@ const featureGroups = [
   .feature-mark { display: inline-grid; width: 1.75rem; height: 1.75rem; place-items: center; border-radius: 999px; font-weight: 900; line-height: 1; }
   .feature-mark-included { background: rgba(61, 179, 173, 0.16); color: var(--color-brand-dark); }
   .feature-mark-unavailable { border: 1px solid #d5d5d5; background: #f7f7f7; color: #8d8d8d; }
-  .feature-coming-soon { color: var(--color-brand-dark); font-size: .8125rem; font-weight: 700; }
+  .availability-note { font-size: .8125rem; color: var(--color-text-secondary); margin-top: 1rem; }
   .access-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
   .access-notes article { border-top: 2px solid #cce8e5; padding-top: 1rem; }
   .access-notes h3 { font-size: 1rem; }
@@ -110,6 +112,5 @@ const featureGroups = [
     .plan-price { font-size: .7rem; line-height: 1.4; }
     .access-notes { grid-template-columns: 1fr; gap: 1.5rem; }
     .feature-mark { width: 1.45rem; height: 1.45rem; }
-    .feature-coming-soon { font-size: .7rem; line-height: 1.4; }
   }
 </style>

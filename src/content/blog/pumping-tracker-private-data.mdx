@@ -2,7 +2,7 @@
 title: "Exclusive Pumping Data Is Yours Alone"
 description: "Nubo's private pumping tracker keeps exclusive pumping output in your account, never the shared baby log. See the privacy design."
 datePublished: "2026-05-08"
-dateModified: "2026-06-21"
+dateModified: "2026-10-19"
 author: "Nubo Team"
 category: "privacy"
 primaryKeyword: "private pumping tracker"
@@ -34,13 +34,13 @@ When you log a pumping session in Nubo, four things do not happen:
 
 **It is structurally separate, not just filtered.** The data is not in the shared schema with a visibility flag set to "hidden." It lives in a different store entirely. There is no edge case where a future caregiver feature could accidentally surface it.
 
-## Your pumping data never touches Nubo's servers
+## Private pumping stays out of caregiver sync
 
-Nubo is built on a local-first principle: your data lives on your phone, not on a server somewhere. Pumping data follows the same rule. When you log a session, it is written to local storage on your device. Nubo's servers never see it.
+Private pumping records start in local storage on your phone and do not enter the shared baby timeline or caregiver sync. This boundary applies to your pumping output; ordinary shared baby logs and selected Nubo Care visit content have their own processing flows.
 
-Backup works through your personal iCloud account, not Nubo's infrastructure. Apple's CloudKit stores a private copy in your own iCloud, accessible only to you, encrypted at rest, and protected by your Apple ID credentials. Nubo has no access to that backup. If Nubo's servers went offline tomorrow, your pumping history would be unaffected.
+Optional backup uses your own iCloud or Google Drive account. Your pumping history is separate from the baby intake entries that partners and other caregivers can see.
 
-This matters more for pumping data than for most other data types. Milk output is personal health information about your body. The right place for it is your phone and your iCloud account, not a third-party server database.
+Milk output is a record about your body. Keep it separate from the baby's shared intake history, with your phone and your private backup account holding the records you choose to keep.
 
 ## The difference between "pumped milk fed" and milk output
 
@@ -58,9 +58,9 @@ This is deliberate. A stash tracker draws on multiple data sources: what was pum
 
 ## If your subscription lapses
 
-The Pumping tool is available with Nubo Plus. If your subscription ends, you will not be able to log new sessions. Your existing data is not deleted. It stays in local storage on your phone and in your private CloudKit backup. Export remains available. The data is yours regardless of your subscription status.
+Private pumping is available with Nubo Plus, including active preview and device-access windows. If Plus access ends, your stored records are not deleted. CSV export is a Plus tool; your baby's shared timeline remains available in the free app. Check the [current access details](/pricing/) before choosing an export workflow.
 
-This matters for a sensitive data type. You should not have to rush an export under deadline pressure because a billing cycle lapsed.
+Keeping stored records and having access to additional tools are separate. Ending Plus access does not erase the record you have kept.
 
 ## What you can rely on
 
@@ -68,8 +68,8 @@ When you use Nubo's Pumping tool, the guarantees are:
 
 - Output data is visible only to you, on your own devices.
 - No caregiver or collaborator can see it, regardless of their access to the baby's log.
-- If your subscription lapses, the data is preserved locally and in CloudKit.
+- If Plus access ends, existing records remain stored locally and in any private backups you have kept.
 
 Pumping is personal data. The architecture treats it that way.
 
-For a full picture of how Nubo handles baby event data and caregiver sync, the [privacy architecture overview](/blog/privacy/nubo-privacy-architecture/) covers encryption, local-first storage, and the zero-knowledge server in detail. If you are planning a daily EP workflow, the [exclusive pumping tracker guide](/blog/feeding/exclusive-pumping-tracker/) covers what to log and what to keep private.
+For a full picture of Nubo Intelligence, Nubo Care, baby event sharing, and private backups, read the [processing comparison](/privacy/#processing) or the [privacy architecture overview](/blog/privacy/nubo-privacy-architecture/). If you are planning a daily EP workflow, the [exclusive pumping tracker guide](/blog/feeding/exclusive-pumping-tracker/) covers what to log and what to keep private.

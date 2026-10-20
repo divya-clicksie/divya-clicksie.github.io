@@ -1,12 +1,12 @@
 ---
 title: "Your Data Stays Yours: How Nubo's Privacy Architecture Works"
-description: "Baby tracker privacy and data security explained. How Nubo's local-first design, E2E encryption, and zero-knowledge server keep your child's data yours."
+description: "How Nubo handles baby tracker privacy: local records, encrypted caregiver sharing, private backups, and separate Nubo Care visit processing."
 datePublished: "2026-03-28"
-dateModified: "2026-03-28"
+dateModified: "2026-10-19"
 author: "Nubo Team"
 category: "privacy"
 primaryKeyword: "baby tracker privacy data security"
-excerpt: "Most baby apps upload your child's data the moment you create an account. Nubo stores everything locally, encrypts before syncing, and runs a server that cannot read what it relays."
+excerpt: "Everyday logs start on your phone. Caregiver sharing is encrypted, backups use your own cloud account, and Nubo Care has a separate visit-processing flow."
 tags: ["baby tracker privacy data security", "baby app data encryption", "local first baby tracker", "baby data privacy app", "baby tracker encryption"]
 ---
 
@@ -30,17 +30,17 @@ Before diving into Nubo's architecture, it helps to see how each tracking method
 
 **Phone apps** span a wide privacy spectrum. Some paid apps store data locally and encrypt it responsibly. Many free apps monetize through advertising partnerships, analytics SDKs, and data brokers. The business model matters: if you did not pay for the app, something else is funding it, and that something is often your data. For a broader look at what baby tracking apps typically collect, see our [guide to baby app data privacy](/blog/privacy/what-data-does-baby-tracking-app-collect/).
 
-**The Nubo ecosystem** takes a different approach at every layer. The physical device communicates only with your phone over Bluetooth. It has no Wi-Fi radio, no internet connection, and no way to send data anywhere except the paired phone sitting next to it. The app stores all events in a local database on your phone. When you share data with a caregiver, the app encrypts everything before it leaves your device. The server relays encrypted blobs it cannot read. At no point does Nubo see your baby's data on the server side.
+**The Nubo ecosystem** keeps everyday logs on your phone. The physical device communicates with a paired phone over Bluetooth, without a Wi-Fi or cellular connection. Optional caregiver sharing relays encrypted records that Nubo cannot read. Requested Nubo Care visit processing is a separate server operation, described below; it is not the encrypted relay used for ordinary sharing.
 
 That is the summary. Here is how each layer actually works.
 
 ## Layer 1: local-first storage
 
-Every event you log, whether it is a feed, a diaper, a nap, or a growth measurement, is stored in a local SQLite database on your iPhone. The app works fully offline. You can track for weeks without an internet connection and lose nothing.
+Everyday care events, such as feeds, diapers, sleep, and growth measurements, start in local storage on your phone. You can log daily care offline, then sync when connectivity returns. Nubo Care's requested server processing is separate from that offline tracking.
 
 Events are created with a sync flag set to false. They exist only on your phone until a sync cycle runs. The sync process batches up to 50 events at a time and sends them to the server, but only after encrypting them (more on that in the next section). If the network is unavailable, events stay local and sync later.
 
-A typical cloud-first app sends every event to a remote server immediately. Your data lives on their infrastructure, subject to their security practices, their retention policies, and their business decisions. If they get acquired, your baby's feeding history is part of the deal. With Nubo, your phone is the source of truth. The server is a relay, not a repository.
+With Nubo, your phone holds the everyday history you record. Ordinary caregiver sync uses an encrypted relay; private backup uses your own iCloud or Google Drive. This differs from the selected visit content you deliberately send for Nubo Care processing.
 
 ## Layer 2: end-to-end encrypted caregiver sync
 
@@ -68,13 +68,13 @@ Backup runs at three tiers:
 - **Foreground.** Automatic every two hours while the app is active.
 - **Scheduled.** A background task runs at approximately 2am via iOS BGTaskScheduler, backing up while you sleep.
 
-The encrypted package is stored in your personal iCloud account via CloudKit, which adds Apple's own encryption layer. The result: your backup is encrypted by Nubo's per-child key, then encrypted again by iCloud. Nubo cannot read your backup. Apple cannot read the inner layer.
+On iPhone, the backup is stored in your own iCloud account. Android backups use your own Google Drive. Backup is optional and separate from the local processing used for everyday voice logging and supported note enrichment.
 
 ## Layer 4: conflict resolution without server access
 
 When two caregivers log events on different devices and sync, conflicts are inevitable. Maybe both parents logged the same diaper change. Maybe events arrived out of order because one phone was offline.
 
-Nubo resolves conflicts using a Last-Write-Wins strategy, but the important part is where it happens: on the client side. The server does not inspect event data to resolve conflicts because it cannot read the events. Each device deduplicates and resolves ordering locally after decryption. This keeps the server completely out of the data path.
+Nubo resolves ordinary shared-log conflicts on participating phones after decryption. The sync relay does not need to read the events to resolve their order. This sharing flow is separate from requested Nubo Care visit processing.
 
 ## The Nubo device: Bluetooth only
 
@@ -86,17 +86,24 @@ The device adds a hardware input surface without adding a network attack surface
 
 ## The Alexa skill: voice in, encrypted pipeline out
 
-When you use the Nubo Alexa skill to log an event by voice ("Alexa, tell Newborn Tracker she had 4 ounces"), the voice command is processed by Amazon's Alexa service, which routes the structured event to Nubo's backend. From there, the event enters the same encrypted sync pipeline: encrypted with the child's key before being relayed to caregiver devices. Voice adds an input surface without changing the data architecture.
+Alexa logging is included with Nubo Plus. Amazon's Alexa systems process the voice request, and the resulting event joins your baby timeline. This is a separate flow from Nubo Intelligence's everyday in-app speech recognition and event interpretation, which run on your phone, including offline.
+
+## Nubo Intelligence and Nubo Care use different processing flows
+
+[Nubo Intelligence](/app/#intelligence) brings together machine learning, on-device AI, statistics, and useful automation across everyday care. In-app voice logging is free. Nubo Notetaker preserves spoken or typed observations; AI titles and tags require iOS 26 or later with Apple Intelligence available. Other devices keep the note text with a simpler title and no AI tags. Saving an observation and choosing to share or back it up are separate from local interpretation.
+
+[Nubo Care](/#nubo-care) is included in Nubo Plus. When you choose visit processing, selected visit content goes to the server to produce a recap, answers, and next steps. Nubo and its processing providers retain no visit data after processing. Saved visit records live on phones and in private backups; summaries, answers, and to-dos sync to invited caregivers. Original visit audio stays on the recording phone and is not synced to caregivers.
+
+You can compare these flows in the [feature-by-feature privacy overview](/privacy/#processing). Local everyday tracking, encrypted sharing, private backup, Alexa, and visit processing each have a specific role.
 
 ## What Nubo does not do
 
 Transparency means stating what you do not do as clearly as what you do.
 
 - **No account required for basic use.** You can track your baby locally without creating an account. An account is only needed for caregiver sync and backup.
-- **No server-side data access.** The server relays encrypted blobs. It does not decrypt, index, search, or analyze your data.
+- **Encrypted ordinary caregiver sharing.** The relay cannot read the shared records. Requested Nubo Care processing uses selected visit content separately, with no retention afterward.
 - **No advertising SDKs.** No third-party analytics that profile your behavior. No ad networks.
 - **No data sales.** Your baby's health data is not a revenue stream.
-- **No training data.** Your child's feeding patterns, sleep logs, and growth measurements are not used to train machine learning models.
 
 ## The encryption standard
 
@@ -112,7 +119,7 @@ When evaluating any baby tracking app, the relevant questions are not "does it h
 4. **What is the business model?** If the app is free, what funds it?
 5. **Can I export and delete my data?** Completely, with verification?
 
-Nubo's answers: stored on your device, readable only by your devices, not transferable because the server cannot read it, funded by device and app sales (not data), and yes to export and deletion.
+For Nubo, start with the feature you use. Everyday logs live on your phone, shared records are encrypted for invited caregivers, and backups use your own cloud account. Nubo Care deliberately sends selected content for processing with no retention afterward. Nubo is funded by the optional device and Plus plan, without selling baby data. CSV export is a Plus tool; your baby timeline remains available in the free app.
 
 For a broader comparison of how different tracking methods handle your information, the [physical tracker vs. app comparison](/blog/tracking/physical-baby-tracker-vs-app/) covers the practical trade-offs. If you want to understand what typical baby apps collect and why, start with [what data baby tracking apps actually gather](/blog/privacy/what-data-does-baby-tracking-app-collect/).
 
@@ -120,6 +127,6 @@ For a broader comparison of how different tracking methods handle your informati
 
 The best outcome for your child's health data is that it is useful to you, accessible to your caregivers, available for your pediatrician, and completely uninteresting to everyone else. No company should profit from it. No breach should expose it. No acquisition should redistribute it.
 
-That is the design goal behind every architectural decision described above. Local-first storage because your phone is the safest place for your data. End-to-end encryption because sharing should not mean surrendering. Encrypted backup because local-only is not safe enough. A zero-knowledge server because the easiest data to protect is data you never had.
+The practical choice is which features you want to use and which people you invite. Local everyday records, encrypted sharing, private backups, and Nubo Care's separate processing flow are explained together in the [privacy policy](/privacy-policy/).
 
 You can read the full [Nubo privacy policy](/privacy-policy/) for the legal specifics. This post is the technical companion: how the policy is enforced in code.

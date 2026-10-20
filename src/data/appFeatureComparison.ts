@@ -7,21 +7,22 @@ export const free = [
   'WHO growth tracking',
   'Preemie/Fenton growth tracking',
   'CDC Act Early milestone tracking',
-  'Robust statistics despite inconsistent logging',
+  'Statistics based on recorded days',
   'Works offline',
   'Private backup with your own cloud account',
   'Account-free logging',
   'Offline in-app voice logging',
-  'In-app AI for note-tagging',
+  'Nubo Notetaker: observations to bring up with your pediatrician, with AI titles and tags on supported iPhones',
+  'Nubo Noticed on Mondays',
   'Child-specific What To Expect guide',
   'Dark mode',
   'No ads or selling baby data',
   'Works with Nubo screen-free tracker'
 ];
-
 export const plus = [
   'Nubo Care: doctor visits, answers, and synced next steps',
-  'Personalized Insights',
+  'Nubo Noticed throughout the week',
+  'Rhythm charts',
   'Live Activities for timers and recent caregiver updates (iOS)',
   'Care Vault for standing handoff details',
   'Allergen SafeStart for guided allergen introduction',
@@ -33,8 +34,4 @@ export const plus = [
   'Amazon Alexa integration',
   'Midnight Ember theme',
   'Colorful mode',
-];
-
-export const plusComingSoon = [
-  'Actionable sleep and feeding forecasts',
 ];

@@ -1,0 +1,25 @@
+---
+import SiteIcon from './SiteIcon.astro';
+interface Props { title: string; href: string; label: string; category?: string; image?: string; excerpt?: string; headingLevel?: 'h2' | 'h3'; }
+const { title, href, label, category = 'tracking', image, excerpt, headingLevel: Heading = 'h3' } = Astro.props;
+const icons = { sleep: 'moon', feeding: 'bottle', tracking: 'check', caregiver: 'users', privacy: 'lock', product: 'sparkles', gifts: 'gift' } as const;
+const icon = icons[category as keyof typeof icons] ?? 'leaf';
+---
+<a href={href} class:list={['resource-card', `topic-${category}`]}>
+  {image && <div class="resource-image"><img src={image} alt="" width="600" height="360" loading="lazy" decoding="async" /></div>}
+  <div class="resource-text"><div class="resource-label"><span>{label}</span><SiteIcon name={icon} size={23} /></div><Heading>{title}</Heading>{excerpt && <p>{excerpt}</p>}<span class="resource-arrow" aria-hidden="true">→</span></div>
+</a>
+<style>
+  .resource-card { display: flex; flex-direction: column; min-width: 0; border: 1px solid #e0e7df; border-radius: 22px; overflow: hidden; background: #f3f7f3; transition: box-shadow .2s, border-color .2s; }
+  .topic-sleep { background: #f3eff8; border-color: #e7e0ee; } .topic-feeding, .topic-gifts { background: #fff6ec; border-color: #eee2d3; } .topic-privacy { background: #edf7f8; border-color: #dce9e9; }
+  .resource-text { padding: 1.5rem; display: flex; flex: 1; flex-direction: column; align-items: start; }
+  .resource-label { display: flex; align-items: center; justify-content: space-between; gap: .75rem; width: 100%; margin-bottom: 1.1rem; color: var(--color-brand-dark); font-size: .6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+  h2, h3 { font-size: 1.125rem !important; line-height: 1.4 !important; letter-spacing: -.02em; text-wrap: balance; }
+  p { color: var(--color-text-secondary); font-size: .8125rem; line-height: 1.65; margin-top: .75rem; }
+  .resource-arrow { display: block; color: var(--color-brand-dark); padding-top: 1.25rem; margin-top: auto; font-size: 1.15rem; }
+  .resource-image img { width: 100%; aspect-ratio: 5 / 3; object-fit: cover; }
+  .resource-card:hover { border-color: #81aa9a; box-shadow: 0 8px 25px #2148370d; }
+  .resource-card:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 5px; }
+  @media (max-width: 680px) { .resource-text { padding: 1.25rem; } }
+  @media (prefers-reduced-motion: reduce) { .resource-card { transition: none; } }
+</style>

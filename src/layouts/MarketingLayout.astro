@@ -1,0 +1,93 @@
+---
+import type { ComponentProps } from 'astro/types';
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+type Props = ComponentProps<typeof BaseLayout> & {
+  ctaHref?: string;
+  ctaLabel?: string;
+  ctaExternal?: boolean;
+};
+const { ctaHref, ctaLabel, ctaExternal, ...layoutProps } = Astro.props;
+---
+
+<BaseLayout {...layoutProps}>
+  <Header ctaHref={ctaHref} ctaLabel={ctaLabel} ctaExternal={ctaExternal} />
+  <main id="main-content" class="marketing-page"><slot /></main>
+  <Footer />
+</BaseLayout>
+
+<style is:global>
+  .marketing-page [id] { scroll-margin-top: 96px; }
+  .marketing-page h1, .marketing-page h2, .marketing-page h3 { text-wrap: balance; letter-spacing: -.03em; }
+  .marketing-page h1 { font-size: clamp(2.6rem,4.6vw,3.9rem); line-height: 1.08; }
+  .marketing-page h2 { font-size: clamp(1.9rem,3.4vw,2.7rem); line-height: 1.16; }
+  .marketing-page h3 { font-size: 1.25rem; line-height: 1.35; }
+  .marketing-page .m-hero { padding-block: 132px 64px; background: var(--color-bg-ivory); }
+  .marketing-page .m-hero .overline { font-size: .6875rem; }
+  .marketing-page .m-lead { color: var(--color-text-secondary); font-size: 1.0625rem; margin-top: 1.3rem; max-width: 470px; }
+  .marketing-page .m-split { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 3.5rem; align-items: center; }
+  .marketing-page .m-split > *, .marketing-page .m-grid > * { min-width: 0; }
+  .marketing-page .m-photo { width: 100%; height: auto; border-radius: 26px; }
+  .marketing-page .m-actions { display: flex; flex-wrap: wrap; gap: 1rem 1.25rem; align-items: center; margin-top: 1.6rem; }
+  .marketing-page .m-actions .btn-primary, .marketing-page .m-actions .btn-ghost { padding: .85rem 1.35rem; font-size: .875rem; }
+  .marketing-page .m-actions .text-link { font-size: .875rem; }
+  .marketing-page .m-note { font-size: .75rem; line-height: 1.65; color: var(--color-text-secondary); margin-top: 1rem; }
+  .marketing-page .m-section { padding-block: 4.5rem; }
+  .marketing-page .m-warm { background: var(--color-bg-warm); }
+  .marketing-page .m-ivory { background: var(--color-bg-ivory); }
+  .marketing-page .m-teal { background: var(--color-brand-light); }
+  .marketing-page .m-heading { margin-bottom: 2.25rem; }
+  .marketing-page .m-heading.center { text-align: center; }
+  .marketing-page .m-heading > p:last-child:not(.overline) { margin-top: 1rem; color: var(--color-text-secondary); font-size: .9375rem; max-width: 570px; }
+  .marketing-page .m-heading.center > p:last-child { margin-inline: auto; }
+  .marketing-page .m-copy > p:not(.overline):not(.m-note) { font-size: .9375rem; color: var(--color-text-secondary); margin-top: 1rem; }
+  .marketing-page .m-copy > .text-link { display: inline-block; margin-top: 1.25rem; font-size: .875rem; }
+  .marketing-page .m-grid { display: grid; gap: 1.25rem; }
+  .marketing-page .m-grid.two { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .marketing-page .m-grid.three { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .marketing-page .m-grid.four { grid-template-columns: repeat(4,minmax(0,1fr)); }
+  .marketing-page .m-card { padding: 1.75rem; border: 1px solid #e2e7df; border-radius: 24px; background: #fff; min-width: 0; }
+  .marketing-page .m-card > p:not(.overline):not(.m-label) { color: var(--color-text-secondary); font-size: .875rem; margin-top: .7rem; }
+  .marketing-page .m-card .text-link { display: inline-block; margin-top: 1.1rem; font-size: .8125rem; }
+  .marketing-page .m-icon { display: inline-grid; place-items: center; width: 48px; height: 48px; border-radius: 15px; background: #e9f5f1; color: var(--color-brand-dark); margin-bottom: 1rem; }
+  .marketing-page .m-icon.peach { background: #fff0e4; color: #8b5138; }
+  .marketing-page .m-icon.lilac { background: #f0edf8; color: #67518b; }
+  .marketing-page .m-label { color: var(--color-brand-dark); font-size: .6875rem; font-weight: 700; letter-spacing: .045em; text-transform: uppercase; margin-bottom: .5rem; }
+  .marketing-page .m-strip { padding-block: 1.1rem; background: var(--color-brand-light); }
+  .marketing-page .m-strip .container { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem 2rem; }
+  .marketing-page .m-strip span, .marketing-page .m-strip a { display: inline-flex; gap: .6rem; align-items: center; color: var(--color-brand-dark); font-size: .75rem; font-weight: 700; }
+  .marketing-page .m-steps { list-style: none; counter-reset: visit-step; padding: 0; }
+  .marketing-page .m-steps > li { counter-increment: visit-step; position: relative; padding-top: 1rem; border-top: 1px solid #cddfd8; }
+  .marketing-page .m-steps > li::before { content: '0' counter(visit-step); display: block; font-size: 2rem; line-height: 1; color: #6a9d90; margin-bottom: 1rem; font-weight: 700; }
+  .marketing-page .m-steps p { color: var(--color-text-secondary); font-size: .875rem; margin-top: .6rem; }
+  .marketing-page .m-title { text-align: center; }
+  .marketing-page .m-title .m-lead { margin-inline: auto; max-width: 530px; }
+  .marketing-page .m-title .m-actions { justify-content: center; }
+  .marketing-page .m-cta { text-align: center; padding-block: 3.5rem; background: var(--color-bg-ivory); }
+  .marketing-page .m-cta p:not(.overline) { margin: 1rem auto 0; max-width: 520px; font-size: .9375rem; color: var(--color-text-secondary); }
+  .marketing-page .m-cta .m-actions { justify-content: center; }
+  .marketing-page .m-pill-list { list-style: none; display: flex; flex-wrap: wrap; gap: .65rem; padding: 0; }
+  .marketing-page .m-pill-list li { border: 1px solid #d8e4dd; background: #fff; color: var(--color-brand-dark); border-radius: 20px; padding: .5rem .85rem; font-size: .8125rem; }
+  .marketing-page a:focus-visible, .marketing-page summary:focus-visible, .marketing-page [tabindex]:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 5px; }
+  @media (max-width: 1000px) { .marketing-page .m-split { gap: 2rem; } .marketing-page .m-card { padding: 1.5rem; } .marketing-page .m-grid.four { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media (max-width: 680px) {
+    .marketing-page .container { padding-inline: 1.25rem; }
+    .marketing-page h1 { font-size: clamp(2.25rem,8.5vw,3rem); }
+    .marketing-page h2 { font-size: clamp(1.8rem,7vw,2.3rem); }
+    .marketing-page h3 { font-size: 1.2rem; }
+    .marketing-page .m-hero { padding-block: 100px 40px; }
+    .marketing-page .m-split, .marketing-page .m-grid.two, .marketing-page .m-grid.three { grid-template-columns: 1fr; gap: 1.5rem; }
+    .marketing-page .m-lead { font-size: .9375rem; margin-top: 1rem; }
+    .marketing-page .m-section { padding-block: 3rem; }
+    .marketing-page .m-heading { margin-bottom: 1.75rem; }
+    .marketing-page .m-heading .overline { font-size: .6875rem; }
+    .marketing-page .m-strip .container { justify-content: flex-start; gap: .7rem 1.2rem; }
+    .marketing-page .m-strip span, .marketing-page .m-strip a { font-size: .6875rem; }
+    .marketing-page .m-steps > li::before { font-size: 1.6rem; }
+    .marketing-page .m-grid.four { gap: 1.5rem 1rem; }
+    .marketing-page .m-actions { margin-top: 1.25rem; }
+    .marketing-page .m-cta { padding-block: 3rem; }
+  }
+</style>

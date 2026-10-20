@@ -1,0 +1,36 @@
+---
+import { nuboProducts } from '../data/nuboMessaging';
+import SiteIcon from './SiteIcon.astro';
+const icons = ['questions', 'sparkles'] as const;
+---
+
+<section class="product-guide" aria-labelledby="product-guide-title">
+  <div class="container">
+    <div class="guide-intro"><p class="overline">One Nubo app</p><h2 id="product-guide-title">At the visit.<br />In the days between.</h2><p>Keep everyday care, the things you notice, and your pediatrician's answers close to hand.</p></div>
+    <div class="guide-grid">{nuboProducts.map((product, index) => <article><span class="guide-icon"><SiteIcon name={icons[index]} /></span><p class="guide-label">{product.label}</p><h3>{product.name}</h3><p>{product.description}</p><p class="guide-access">{product.access}</p><a href={product.href} class="text-link">{product.link} <span aria-hidden="true">→</span></a></article>)}</div>
+    <aside class="guide-plan" aria-label="Free and Plus access"><span class="guide-icon"><SiteIcon name="leaf" /></span><div><h3>Start free. Add Plus for more.</h3><p>Everyday tracking and unlimited caregivers stay free. Nubo Plus is the paid plan for Care, Noticed all week, and additional app tools.</p></div><a href="/pricing/#plans" class="text-link">Compare Free and Plus <span aria-hidden="true">→</span></a></aside>
+  </div>
+</section>
+
+<style>
+  .product-guide { padding-block: 3.5rem; background: #fff; }
+  .guide-intro { max-width: 720px; margin-bottom: 2rem; }
+  .guide-intro h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); line-height: 1.2; }
+  .guide-intro > p:last-child { margin-top: .85rem; color: var(--color-text-secondary); font-size: .9375rem; }
+  .guide-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+  article { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; background: #f3f7f4; border: 1px solid #e2e8e0; border-radius: 20px; padding: 1.5rem; }
+  article:first-child { background: #fff5ec; border-color: #f0e3d7; }
+  .guide-icon { color: var(--color-brand-dark); margin-bottom: 1rem; }
+  .guide-label { color: var(--color-brand-dark); font-size: .6875rem; font-weight: 700; }
+  h3 { font-size: 1.25rem; margin-top: .5rem; }
+  article > p:not(.guide-label) { margin-block: .75rem 1rem; color: var(--color-text-secondary); font-size: .875rem; }
+  article > .guide-access { font-size: .75rem; margin-top: 0; }
+  .guide-plan { display: flex; align-items: center; gap: 1.25rem; border-top: 1px solid #e2e8e0; margin-top: 1.75rem; padding-top: 1.75rem; }
+  .guide-plan .guide-icon { margin: 0; flex-shrink: 0; }
+  .guide-plan h3 { margin: 0; font-size: 1.0625rem; }
+  .guide-plan p { margin-top: .5rem; color: var(--color-text-secondary); font-size: .8125rem; max-width: 620px; }
+  .guide-plan .text-link { margin: 0 0 0 auto; flex-shrink: 0; }
+  .text-link { margin-top: auto; font-size: .8125rem; }
+  a:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 5px; }
+  @media (max-width: 680px) { .guide-grid { grid-template-columns: 1fr; gap: 1.75rem; } .container { padding-inline: 1.25rem; } .guide-plan { flex-wrap: wrap; align-items: flex-start; gap: .75rem; } .guide-plan > div { flex: 1; min-width: 0; } .guide-plan .text-link { flex-basis: 100%; margin-left: 0; } }
+</style>

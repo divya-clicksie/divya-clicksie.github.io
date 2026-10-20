@@ -1,15 +1,16 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import MarketingLayout from '../layouts/MarketingLayout.astro';
+import SiteIcon from '../components/SiteIcon.astro';
+import { nuboStory } from '../data/nuboMessaging';
 
-const title = 'FAQ | Nubo Care, Baby Tracker App, and Device';
-const description = 'Answers about Nubo Care doctor visits, recording, recaps, privacy, and Plus access, along with the free baby tracker app, caregivers, and optional device.';
+
+const title = 'FAQ | Nubo Care, Nubo Intelligence, App, and Device';
+const description = 'Answers about Nubo Care visits, Nubo Intelligence, voice logging, Notetaker, Noticed, privacy, Free and Plus access, and the optional baby tracker device.';
 
 const careFaqs = [
   {
     "q": "What is Nubo Care?",
-    "a": "Nubo Care helps you listen to your pediatrician without trying to take notes at the same time. Save questions before the visit, record with permission during it, and return to a recap, answers, and next steps afterward. It is included in Nubo Plus. See the <a href=\"/#nubo-care\">Nubo Care overview</a>."
+    "a": `${nuboStory.care} See the <a href="/#nubo-care">Nubo Care overview</a>.`
   },
   {
     "q": "Should I download before my baby arrives?",
@@ -53,6 +54,45 @@ const careFaqs = [
   }
 ];
 
+const intelligenceFaqs = [
+  {
+    q: "What is Nubo Intelligence?",
+    a: `${nuboStory.intelligence} Explore <a href="/app/#intelligence">Nubo Intelligence in the app</a>.`
+  },
+  {
+    q: "How do Nubo Intelligence, Nubo Care, and Nubo Plus fit together?",
+    a: `Intelligence helps with everyday logging, observations, and recorded patterns. Care helps you prepare for pediatrician visits and come back to the answers. Both are part of the Nubo app. ${nuboStory.plus} Voice logging and observations stay free. See <a href="/pricing/">Free and Plus access details</a>.`
+  },
+  {
+    q: "Can I log by voice in the app?",
+    a: "Yes. Say what happened in everyday language, such as 'She had 90 mL of formula 20 minutes ago.' Nubo Intelligence identifies supported events and extracts amounts, units, times, and durations, including several events from one spoken update. Review and edit the events before saving. In-app voice logging is free and unlimited, with no usage caps. <a href=\"/app/#voice-logging\">Try the voice logging examples</a>."
+  },
+  {
+    q: "How does Nubo Notetaker help between doctor visits?",
+    a: "When the days blur together, it can be hard to recall when something changed. Speak or type what you notice: a different feeding routine, earlier waking, or a question for the next checkup. Nubo Notetaker keeps those observations in your own words, so you can review them and choose the details to discuss with your pediatrician. Observations stay free. <a href=\"/app/#notetaker\">See how Nubo Notetaker keeps the context</a>."
+  },
+  {
+    q: "Which phones support Nubo Notetaker's AI titles and tags?",
+    a: "On iOS 26 or later with Apple Intelligence available, on-device AI can add a short title and relevant tags to spoken or typed observations while preserving your words. Otherwise, your note keeps its text and receives a simpler title without AI tags. You can keep observations without AI enrichment."
+  },
+  {
+    q: "What does Nubo Noticed show, and is it free?",
+    a: "Nubo Noticed highlights supported changes in recorded sleep, bottle intake, nursing, and wet and dirty diaper patterns. It compares recent and earlier completed days and appears when the records support a finding. Missing logs are not treated as proof that no care happened. Nubo Noticed is included with Nubo Plus and is free for everyone on Mondays. <a href=\"/app/#insights\">See a Nubo Noticed example</a>."
+  },
+  {
+    q: "How do suggestions while logging work?",
+    a: "Nubo can suggest a feed amount from recent entries of the same type, prioritizing similar times of day when enough history exists. Growth entry controls can start from an estimate based on a previous measurement and its growth-chart position at your baby's current age. Suggestions are editable starting points, and growth estimates are not measured results. You choose the values to save."
+  },
+  {
+    q: "Where does voice processing happen?",
+    a: "In-app speech recognition and voice event interpretation run on your phone, including offline. Nubo Notetaker AI titles and tags also run on the device when supported. Optional caregiver sharing and private backup are separate from local processing. Alexa logging uses Amazon's systems. Nubo Care uses separate server processing for selected visit content, with no visit data retained after processing; original visit audio stays on the recording phone. Read <a href=\"/privacy/\">how Nubo handles privacy</a>."
+  },
+  {
+    q: "Does Nubo have an AI medical advisor or health chatbot?",
+    a: "No. Nubo Intelligence helps you record care, organize observations, and review patterns in your logs. It does not diagnose conditions or establish causes or relationships between symptoms and care patterns. Nubo Care helps you return to your pediatrician's own guidance. Bring medical questions to your care team."
+  }
+];
+
 const trackerFaqs = [
   {
     q: "Who is Nubo best for?",
@@ -60,7 +100,7 @@ const trackerFaqs = [
   },
   {
     q: "How is Nubo different from other baby tracker apps?",
-    a: "Many baby tracker apps rely only on phone-based logging. Nubo combines a free baby tracker app, voice catch-up, caregiver sync, privacy-first design, and an optional device with dedicated event buttons. That means families can log in the app, say what happened later, share the timeline with caregivers, or tap the matching device button when their hands are full."
+    a: "Nubo brings doctor visits and everyday care together. Nubo Care helps you prepare questions and return to your pediatrician's words. Nubo Intelligence helps with natural logging, observations, and useful context between visits. Start with the free app, share care across iPhone and Android, and add the optional device when dedicated event buttons fit your routine."
   },
   {
     q: "Does using Nubo mean more screen time?",
@@ -76,7 +116,7 @@ const trackerFaqs = [
   },
   {
     q: "Can I use Nubo without buying the device?",
-    a: "Yes. The Nubo app is free on iPhone and Android and can be used without the device. The device is optional and adds dedicated physical buttons for moments when opening your phone is inconvenient. Start from the <a href=\"/app/\">free app page</a> to download."
+    a: `Yes. The Nubo app is free on iPhone and Android and works on its own. ${nuboStory.device} Start from the <a href="/app/">free app page</a> to download.`
   },
   {
     q: "Does the Nubo device need Wi-Fi or internet?",
@@ -104,7 +144,7 @@ const trackerFaqs = [
   },
   {
     q: "How much does Nubo Plus cost, and how is it billed?",
-    a: "Nubo Plus is $59.99/year. Subscriptions are billed through the App Store on iPhone or Google Play billing on Android. Prices may vary by region; check your local price in the app before subscribing. The free app remains available without a subscription."
+    a: "Nubo Plus is $4.99/month (billed annually). Subscriptions are billed through the App Store on iPhone or Google Play billing on Android. Prices may vary by region; check your local price in the app before subscribing. The free app remains available without a subscription."
   },
   {
     q: "How does Nubo Plus work with the Nubo device?",
@@ -136,7 +176,7 @@ const trackerFaqs = [
   },
   {
     q: "Is the free tier actually useful?",
-    a: "Yes. The <a href=\"/app/\">free Nubo app</a> includes routine tracking, unlimited caregivers, child profiles, cloud backup, offline mode, voice logging, quick logs, and the core timeline. Nubo Plus and the device are optional upgrades."
+    a: "Yes. The <a href=\"/app/\">free Nubo app</a> includes routine tracking, unlimited caregivers, child profiles, private backup, offline mode, voice logging, quick logs, and observations with Nubo Notetaker. Nubo Noticed is free for everyone on Mondays. Nubo Plus adds further tools, including Nubo Care and Nubo Noticed throughout the week. The device is optional."
   },
   {
     q: "Do I need to create an account?",
@@ -176,11 +216,7 @@ const trackerFaqs = [
   },
   {
     q: "How can Nubo help me see my baby's routine?",
-    a: "Nubo keeps recent feeds, naps, diapers, and other care on one timeline. Quick Action cards show the latest event and today's context, and Nubo Plus can remind you after a logged event."
-  },
-  {
-    q: "Does Nubo have an AI medical advisor or health chatbot?",
-    a: "No. A chatbot cannot examine your baby, check breathing or hydration, or take responsibility for a missed urgent symptom. It can sound confident even when the answer is incomplete or wrong. For medical concerns, Nubo directs you to qualified professionals. Nubo is a tracker, not a doctor."
+    a: "Quick Action cards show the latest event and today's totals. Nubo Noticed highlights supported changes across recent and earlier completed days, and Plus Rhythm charts put care events on a shared timeline. These are parts of Nubo Intelligence that help you review recorded care. See <a href=\"/app/#insights\">Nubo Noticed and its access details</a>."
   },
   {
     q: "Is Nubo a medical device?",
@@ -211,20 +247,12 @@ const trackerFaqs = [
     a: "Yes. Open the app and tap the + button to add any activity with a custom time. This is useful if you forgot to tap the device or want to add a past event. See the <a href=\"/app/\">app page</a> for quick logging and catch-up options."
   },
   {
-    q: "Can I log by voice in the app?",
-    a: "Yes. Open Nubo and speak naturally, like 'Sophie had 4 ounces at 3pm, right side' or 'She napped from 1 to 2:30'. Nubo turns it into a structured log instantly. You can also pin free-form voice notes to any moment. In-app voice logging is free and unlimited, with no usage caps. See more on the <a href=\"/app/\">app page</a>."
-  },
-  {
-    q: "Where does voice processing happen?",
-    a: "Everyday in-app voice logging runs on your phone. Alexa logging runs through Amazon’s servers. Nubo Care processes selected visit content on the server with zero retention after processing; the visit recording remains available on the recording phone."
-  },
-  {
     q: "Do I need the Nubo device to use voice logging?",
     a: "No. In-app voice logging works in the free Nubo app on its own. The device adds dedicated physical buttons for moments when your phone isn't within reach. The <a href=\"/compare/\">comparison page</a> shows where voice, Quick Log, and the device each fit."
   }
 ];
 
-const faqs = [...careFaqs, ...trackerFaqs];
+const faqs = [...careFaqs, ...intelligenceFaqs, ...trackerFaqs];
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -237,212 +265,20 @@ const jsonLd = {
       "text": faq.a.replace(/<[^>]*>/g, '')
     }
   }))
-};
----
+};---
 
-<BaseLayout title={title} description={description} jsonLd={jsonLd}>
-  <Header />
-  <main>
-    <section class="page-hero">
-      <div class="container">
-        <p class="overline">Nubo FAQ</p>
-        <h1>Your questions about Nubo Care, the app, and the device.</h1>
-        <p class="page-hero-sub">
-          Everything you need to know about Nubo. Can't find your answer?
-          <a href="/contact/" class="hero-link">Reach out to us</a>.
-        </p>
-      </div>
-    </section>
-
-    <section class="faq-paths" aria-label="Common next steps">
-      <div class="container faq-path-grid">
-        <a href="/device/"><span>Device</span><strong>Screen-free baby tracker</strong></a>
-        <a href="/app/"><span>App</span><strong>Free baby tracker app</strong></a>
-        <a href="/pricing/"><span>Pricing</span><strong>Free app, Nubo Plus, or device</strong></a>
-        <a href="/caregivers/"><span>Caregivers</span><strong>Baby tracker for caregivers</strong></a>
-        <a href="/privacy/"><span>Privacy</span><strong>Local-first baby data</strong></a>
-      </div>
-    </section>
-
-    <section class="faq-content" id="doctor-visits" aria-labelledby="care-faq-title">
-      <div class="container faq-inner">
-        <p class="overline">Nubo Care</p>
-        <h2 id="care-faq-title">Doctor visits</h2>
-        <p class="faq-section-intro">Preparing, recording, revisiting answers, and sharing next steps.</p>
-        {careFaqs.map((faq) => (
-          <details class="faq-item">
-            <summary class="faq-question"><span>{faq.q}</span><span class="faq-icon" aria-hidden="true">+</span></summary>
-            <div class="faq-answer"><p set:html={faq.a} /></div>
-          </details>
-        ))}
-      </div>
-    </section>
-
-    <section class="faq-content" id="app-and-device" aria-labelledby="tracker-faq-title">
-      <div class="container faq-inner">
-        <p class="overline">Everyday care</p>
-        <h2 id="tracker-faq-title">App and device</h2>
-        <p class="faq-section-intro">Tracking, caregiver sharing, Plus, and device setup.</p>
-        {trackerFaqs.map((faq) => (
-          <details class="faq-item">
-            <summary class="faq-question"><span>{faq.q}</span><span class="faq-icon" aria-hidden="true">+</span></summary>
-            <div class="faq-answer"><p set:html={faq.a} /></div>
-          </details>
-        ))}
-      </div>
-    </section>
-
-    <section class="faq-cta">
-      <div class="container faq-cta-inner">
-        <h2>Still have a question about Nubo?</h2>
-        <p>We'd love to hear from you.</p>
-        <a href="/contact/" class="btn-primary">Contact us</a>
-      </div>
-    </section>
-  </main>
-  <Footer />
-</BaseLayout>
-
-
+<MarketingLayout title={title} description={description} jsonLd={jsonLd}>
+  <section class="m-hero m-title"><div class="container"><p class="overline">Nubo FAQ</p><h1>A few answers.<br />A little less to figure out.</h1><p class="m-lead">Keeping track at home, bringing answers back from a visit, or choosing Free and Plus. Start with your question.</p></div></section>
+  <nav class="topic-nav" aria-label="FAQ topics"><div class="container m-grid three"><a href="#doctor-visits"><span class="m-icon peach"><SiteIcon name="questions" /></span><div><p class="m-label">Nubo Care</p><strong>Doctor visits</strong></div><span aria-hidden="true">↓</span></a><a href="#nubo-intelligence"><span class="m-icon lilac"><SiteIcon name="sparkles" /></span><div><p class="m-label">Nubo Intelligence</p><strong>Everyday logging</strong></div><span aria-hidden="true">↓</span></a><a href="#app-and-device"><span class="m-icon"><SiteIcon name="phone" /></span><div><p class="m-label">App and device</p><strong>Plans and setup</strong></div><span aria-hidden="true">↓</span></a></div></nav>
+  <section class="m-section" id="doctor-visits" aria-labelledby="care-faq-title"><div class="container faq-section"><div class="m-heading"><p class="overline">Nubo Care</p><h2 id="care-faq-title">Doctor visits.</h2><p>Prepare, record with permission, and come back to the answers.</p></div><div class="faq-list">{careFaqs.map((faq) => <details><summary>{faq.q}<span aria-hidden="true">+</span></summary><div class="faq-answer"><p set:html={faq.a} /></div></details>)}</div></div></section>
+  <section class="m-section m-warm" id="nubo-intelligence" aria-labelledby="intelligence-faq-title"><div class="container faq-section"><div class="m-heading"><p class="overline">Nubo Intelligence</p><h2 id="intelligence-faq-title">Everyday logging.</h2><p>Say what happened. Save what you notice. See supported patterns in your recorded days.</p></div><div class="faq-list">{intelligenceFaqs.map((faq) => <details><summary>{faq.q}<span aria-hidden="true">+</span></summary><div class="faq-answer"><p set:html={faq.a} /></div></details>)}</div></div></section>
+  <section class="m-section" id="app-and-device" aria-labelledby="tracker-faq-title"><div class="container faq-section"><div class="m-heading"><p class="overline">App and device</p><h2 id="tracker-faq-title">Plans and setup.</h2><p>Free and Plus, shared care, and your first device tap.</p></div><div class="faq-list">{trackerFaqs.map((faq) => <details><summary>{faq.q}<span aria-hidden="true">+</span></summary><div class="faq-answer"><p set:html={faq.a} /></div></details>)}</div></div></section>
+  <section class="m-cta"><div class="container"><h2>Still have a question?</h2><div class="m-actions"><a href="/contact/" class="btn-primary">Contact us</a></div></div></section>
+</MarketingLayout>
 <style>
-  section[id] { scroll-margin-top: 96px; }
-  .faq-section-intro { color: var(--color-text-secondary); margin: 1rem 0 1.5rem; }
-  .faq-paths {
-    padding: 0 0 1rem;
-    background: #fff;
-  }
-
-  .faq-path-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
-  }
-
-  .faq-path-grid a {
-    display: grid;
-    gap: 0.35rem;
-    min-height: 96px;
-    padding: 1rem;
-    border: 1px solid #e8e8e8;
-    border-radius: var(--radius-lg);
-    background: var(--color-bg-soft);
-    color: var(--color-text);
-    transition: border-color 0.2s ease, transform 0.2s ease;
-  }
-
-  .faq-path-grid a:hover {
-    border-color: var(--color-brand);
-    transform: translateY(-2px);
-  }
-
-  .faq-path-grid span {
-    color: var(--color-brand-dark);
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-
-  .faq-path-grid strong {
-    font-size: 0.95rem;
-    line-height: 1.35;
-  }
-
-  .faq-content {
-    padding: 4rem 0 2rem;
-  }
-
-  .faq-inner {
-    max-width: 720px;
-    margin: 0 auto;
-  }
-
-  .faq-item {
-    border-bottom: 1px solid #eee;
-  }
-
-  .faq-question {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 0;
-    cursor: pointer;
-    font-size: 1.0625rem;
-    font-weight: 600;
-    color: var(--color-text);
-    letter-spacing: 0;
-    list-style: none;
-    gap: 1.5rem;
-  }
-
-  .faq-question::-webkit-details-marker {
-    display: none;
-  }
-
-  .faq-icon {
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: var(--color-brand);
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
-    line-height: 1;
-  }
-
-  details[open] .faq-icon {
-    transform: rotate(45deg);
-  }
-
-  .faq-answer {
-    padding: 0 0 1.5rem;
-  }
-
-  .faq-answer p {
-    font-size: 0.9375rem;
-    color: #555;
-    line-height: 1.8;
-  }
-
-  .faq-answer a {
-    color: var(--color-brand);
-    font-weight: 600;
-    transition: color 0.2s;
-  }
-
-  .faq-answer a:hover {
-    color: var(--color-brand-dark);
-  }
-
-  .faq-cta {
-    padding: 4rem 0 6rem;
-  }
-
-  .faq-cta-inner {
-    text-align: center;
-    max-width: 480px;
-    margin: 0 auto;
-    background: var(--color-bg-soft);
-    border-radius: var(--radius-xl);
-    padding: 3rem;
-  }
-
-  .faq-cta-inner h2 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--color-text);
-    letter-spacing: 0;
-    margin-bottom: 0.5rem;
-  }
-
-  .faq-cta-inner p {
-    font-size: 1rem;
-    color: var(--color-text-secondary);
-    margin-bottom: 1.5rem;
-  }
-
-  @media (max-width: 768px) {
-    .page-hero { padding: 8rem 0 3rem; }
-    .faq-path-grid { grid-template-columns: 1fr; }
-    .faq-path-grid a { min-height: 0; }
-    .faq-question { font-size: 1rem; padding: 1.25rem 0; }
-    .faq-cta-inner { padding: 2rem; }
-  }
+  .topic-nav { padding-block: 1.5rem 0; } .topic-nav a { display: flex; align-items: center; gap: 1rem; padding: 1.25rem; border: 1px solid #e0e8df; border-radius: 22px; background: #f7faf5; } .topic-nav .m-icon { margin: 0; flex-shrink: 0; } .topic-nav a > span:last-child { margin-left: auto; color: var(--color-brand-dark); } .topic-nav strong { font-size: 1rem; } .topic-nav .m-label { font-size: .625rem; }
+  .faq-section { display: grid; grid-template-columns: .75fr 1.25fr; gap: 4rem; align-items: start; } .faq-section .m-heading { position: sticky; top: 110px; } .faq-section .m-heading p:last-child { font-size: .875rem; }
+  .faq-list details { border-bottom: 1px solid #dce5db; } .faq-list summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1.1rem; list-style: none; font-size: .9375rem; font-weight: 700; cursor: pointer; } .faq-list summary::-webkit-details-marker { display: none; } .faq-list summary > span { color: var(--color-brand-dark); flex-shrink: 0; font-size: 1.3rem; } .faq-list details[open] summary > span { transform: rotate(45deg); }
+  .faq-answer { padding-bottom: 1.25rem; color: var(--color-text-secondary); font-size: .875rem; line-height: 1.75; } .faq-answer :global(a) { color: var(--color-brand-dark); text-decoration: underline; text-underline-offset: 3px; }
+  @media (max-width: 680px) { .faq-section { grid-template-columns: 1fr; gap: 0; } .faq-section .m-heading { position: static; } .faq-list summary { font-size: .875rem; } .topic-nav .m-grid { gap: .75rem; } .topic-nav a { padding: 1rem; } }
 </style>

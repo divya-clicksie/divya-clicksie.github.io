@@ -1,8 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import Header from '../../../components/Header.astro';
-import Footer from '../../../components/Footer.astro';
+import MarketingLayout from '../../../layouts/MarketingLayout.astro';
+import ResourceCard from '../../../components/ResourceCard.astro';
+import SiteIcon from '../../../components/SiteIcon.astro';
+
 
 const categoryLabels: Record<string, string> = {
   sleep: 'Sleep',
@@ -90,65 +91,15 @@ const jsonLd = {
   name: title,
   description,
   url: `https://www.nubotracker.com/blog/${category}/`,
-};
----
+};---
 
-<BaseLayout title={title} description={description} jsonLd={jsonLd}>
-  <Header />
-  <main>
-    <section class="page-hero">
-      <div class="container">
-        <p class="overline">Resources</p>
-        <h1>{label} guides</h1>
-        <p class="page-hero-sub">{description}</p>
-      </div>
-    </section>
-
-    <section class="category-list">
-      <div class="container">
-        <div class="category-actions">
-          <a href="/resources/" class="text-link">Resources hub</a>
-          <a href="/blog/" class="text-link">All articles</a>
-        </div>
-        <aside class="category-cta" aria-label="Recommended next step">
-          <div>
-            <h2>{categoryCta.title}</h2>
-            <p>{categoryCta.copy}</p>
-          </div>
-          <a href={categoryCta.href}>{categoryCta.label}</a>
-        </aside>
-        <div class="post-grid">
-          {categoryPosts.map((post) => (
-            <a href={`/blog/${post.data.category}/${post.slug}/`} class="post-card">
-              {post.data.heroImage && <img src={post.data.heroImage} alt={post.data.title} width="600" height="300" loading="lazy" />}
-              <div>
-                <p>{label}</p>
-                <h2>{post.data.title}</h2>
-                <span>{post.data.excerpt || post.data.description}</span>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-  </main>
-  <Footer />
-</BaseLayout>
-
+<MarketingLayout title={title} description={description} jsonLd={jsonLd}>
+  <section class="m-hero m-title"><div class="container"><p class="overline">Nubo blog · {categoryPosts.length} articles</p><h1>{label} guides</h1><p class="m-lead">{description}</p></div></section>
+  <section class="m-section"><div class="container"><nav class="category-actions" aria-label="Article navigation"><a href="/blog/" class="text-link">All articles <span aria-hidden="true">←</span></a><a href="/resources/" class="text-link">Family guides <span aria-hidden="true">→</span></a></nav><div class="m-grid three">{categoryPosts.map((post) => <ResourceCard title={post.data.title} href={`/blog/${post.data.category}/${post.slug}/`} label={label} category={category} image={post.data.heroImage} headingLevel="h2" />)}</div></div></section>
+  <aside class="category-next"><div class="container"><span class="m-icon"><SiteIcon name="leaf" /></span><div><p class="m-label">A next step with Nubo</p><h2>{categoryCta.title}</h2></div><a href={categoryCta.href} class="text-link">{categoryCta.label} <span aria-hidden="true">→</span></a></div></aside>
+</MarketingLayout>
 <style>
-  .category-list { padding: 4rem 0 6rem; background: #fff; }
-  .category-actions { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2.5rem; }
-  .category-cta { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 1.5rem; max-width: 840px; margin: 0 auto 2.5rem; padding: 1.5rem; border: 1px solid rgba(61, 179, 173, 0.22); border-radius: var(--radius-xl); background: linear-gradient(150deg, #f0fafa 0%, #fff 76%); }
-  .category-cta h2 { font-size: clamp(1.35rem, 3vw, 1.9rem); line-height: 1.15; color: var(--color-text); letter-spacing: 0; }
-  .category-cta p { margin-top: 0.6rem; color: var(--color-text-secondary); line-height: 1.65; }
-  .category-cta a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0.75rem 1rem; border-radius: 999px; background: var(--color-brand); color: #fff; font-weight: 800; white-space: nowrap; }
-  .category-cta a:hover { background: var(--color-brand-dark); }
-  .post-grid { display: grid; gap: 2rem; max-width: 840px; margin: 0 auto; }
-  .post-card { display: grid; grid-template-columns: 220px 1fr; gap: 1.5rem; align-items: center; border: 1px solid #eee; border-radius: var(--radius-xl); padding: 1rem; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-  .post-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06); }
-  .post-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 18px; }
-  .post-card p { color: var(--color-brand-dark); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem; }
-  .post-card h2 { font-size: 1.25rem; line-height: 1.3; margin-bottom: 0.5rem; }
-  .post-card span { color: var(--color-text-secondary); line-height: 1.7; }
-  @media (max-width: 680px) { .post-card { grid-template-columns: 1fr; } .category-actions { flex-direction: column; align-items: center; gap: 0.75rem; } .category-cta { grid-template-columns: 1fr; align-items: start; border-radius: 18px; } .category-cta a { width: 100%; } }
+  .category-actions { display: flex; gap: 1.5rem; justify-content: space-between; margin-bottom: 1.5rem; font-size: .875rem; }
+  .category-next { background: var(--color-brand-light); padding-block: 2rem; } .category-next > .container { display: grid; grid-template-columns: auto 1fr auto; gap: 1.5rem; align-items: center; } .category-next .m-icon { margin: 0; background: #fff; } .category-next h2 { font-size: 1.4rem; max-width: 650px; } .category-next a { font-size: .8125rem; }
+  @media (max-width: 680px) { .category-next > .container { grid-template-columns: auto 1fr; gap: 1rem; } .category-next a { grid-column: 2; } }
 </style>

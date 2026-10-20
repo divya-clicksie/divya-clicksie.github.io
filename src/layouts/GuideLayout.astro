@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ArticleContents from '../components/ArticleContents.astro';
 
 interface Props {
   title: string;
@@ -12,6 +13,7 @@ interface Props {
   heroImage?: string;
   ogImage?: string;
   tags?: string[];
+  headings?: { depth: number; slug: string; text: string }[];
 }
 
 const {
@@ -23,6 +25,7 @@ const {
   heroImage,
   ogImage,
   tags = [],
+  headings = [],
 } = Astro.props;
 
 const jsonLd = {
@@ -50,14 +53,14 @@ const jsonLd = {
   jsonLd={jsonLd}
 >
   <Header />
-  <main>
+  <main id="main-content">
     <article class="guide">
       <header class="guide-hero">
         <div class="container">
           <p class="overline">Guide</p>
           <h1>{title}</h1>
           <p class="guide-meta">
-            <time datetime={datePublished}>{new Date(datePublished).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+            <time datetime={datePublished}>{new Date(datePublished).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</time>
             <span class="meta-sep">&middot;</span>
             <span>{author}</span>
           </p>
@@ -70,11 +73,12 @@ const jsonLd = {
         </div>
       )}
 
-      <div class="guide-body container">
+      <div class="guide-body container"><div class:list={['reading-grid', { 'no-contents': headings.filter((heading) => heading.depth === 2).length < 2 }]}><ArticleContents headings={headings} /><div class="reading-main">
         <div class="prose">
           <slot />
         </div>
-      </div>
+        <nav class="article-footlinks" aria-label="More reading"><a href="/guides/">All family guides</a><a href="/resources/">Resource hub</a></nav>
+      </div></div></div>
     </article>
   </main>
   <Footer />
@@ -121,7 +125,7 @@ const jsonLd = {
   }
 
   .guide-body {
-    padding: 3rem 0 6rem;
+    padding-block: 3rem 6rem;
   }
 
   .prose {
@@ -205,4 +209,28 @@ const jsonLd = {
     .guide-hero { padding: 8rem 0 2.5rem; }
     .guide-hero-image img { border-radius: 16px; }
   }
+
+  .reading-grid { display: grid; grid-template-columns: 210px minmax(0,720px); gap: 3rem; align-items: start; }
+  .reading-main { min-width: 0; }
+  .blog-body.container, .guide-body.container { padding-inline: 2rem; }
+  .reading-grid { justify-content: center; }
+  .article-next-step > a:hover { background: none; color: var(--color-brand-dark); text-decoration: underline; text-underline-offset: 3px; }
+  .reading-grid.no-contents { grid-template-columns: minmax(0,720px); justify-content: center; }
+  .prose { max-width: 720px; margin: 0; padding: 0; }
+  .blog-hero, .guide-hero { padding-block: 132px 44px; background: var(--color-bg-ivory); }
+  .blog-hero h1, .guide-hero h1 { line-height: 1.14; letter-spacing: -.03em; text-wrap: balance; }
+  .prose :global(h2), .prose :global(h3) { scroll-margin-top: 100px; text-wrap: balance; }
+  .prose :global(h2) { border-top: 1px solid #e3e8df; padding-top: 1.5rem; }
+  .prose :global(table) { display: block; overflow-x: auto; max-width: 100%; border: 1px solid #e1e6dd; border-radius: 14px; }
+  .prose :global(a) { text-decoration: underline; text-underline-offset: 3px; }
+  .article-footlinks { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem; border-top: 1px solid #e3e8df; padding-top: 1.25rem; color: var(--color-brand-dark); font-size: .8125rem; font-weight: 700; }
+  .article-next-step { display: grid; grid-template-columns: auto 1fr; gap: 1rem; margin: 2.5rem 0 0; padding: 1.5rem; background: #f0f7f2; }
+  .next-step-icon { color: var(--color-brand-dark); }
+  .article-next-step .article-next-step-eyebrow { font-size: .625rem; margin-bottom: .5rem; }
+  .article-next-step h2 { font-size: 1.2rem; line-height: 1.4; margin: 0; }
+  .article-next-step > a { grid-column: 2; font-size: .8125rem; padding: 0; background: none; color: var(--color-brand-dark); justify-self: start; }
+  a:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 4px; }
+  @media (max-width: 900px) { .reading-grid { grid-template-columns: minmax(0,720px); justify-content: center; gap: 2rem; } }
+  @media (max-width: 680px) { .blog-hero, .guide-hero { padding-block: 100px 32px; } .blog-body, .guide-body { padding-block: 2rem 3rem; } .blog-body.container, .guide-body.container { padding-inline: 1.25rem; } .prose :global(table) { font-size: .8125rem; } .prose :global(th), .prose :global(td) { padding: .7rem; } }
+
 </style>

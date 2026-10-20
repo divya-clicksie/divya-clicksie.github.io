@@ -2,6 +2,8 @@
 import BaseLayout from './BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ArticleContents from '../components/ArticleContents.astro';
+import SiteIcon from '../components/SiteIcon.astro';
 
 interface Props {
   title: string;
@@ -14,6 +16,7 @@ interface Props {
   heroImage?: string;
   ogImage?: string;
   tags?: string[];
+  headings?: { depth: number; slug: string; text: string }[];
 }
 
 const {
@@ -27,6 +30,7 @@ const {
   heroImage,
   ogImage,
   tags = [],
+  headings = [],
 } = Astro.props;
 
 const categoryLabels: Record<string, string> = {
@@ -42,15 +46,15 @@ const categoryLabels: Record<string, string> = {
 const categoryNextSteps: Record<string, { eyebrow: string; title: string; copy: string; href: string; cta: string }> = {
   sleep: {
     eyebrow: 'Track sleep without the scramble',
-    title: 'See how Nubo keeps nights simple.',
-    copy: 'Tap the device at the crib, catch up by voice later, and keep every caregiver on the same timeline.',
+    title: 'A tap. Then back to your baby.',
+    copy: 'Hands full in the night? Tap a dedicated button, or catch up by voice in the free app. The details join one shared baby timeline.',
     href: '/device/',
     cta: 'View the device',
   },
   feeding: {
     eyebrow: 'For feeds, pumping, and bottles',
     title: 'Start with the free app.',
-    copy: 'Log nursing, bottles, pumping, diapers, growth, allergens, and notes without ads or a credit card.',
+    copy: 'Log nursing, bottles, diapers, growth, and observations free. Nubo Plus adds private pumping and Nubo Care for doctor visits.',
     href: '/app/',
     cta: 'Explore the app',
   },
@@ -63,24 +67,24 @@ const categoryNextSteps: Record<string, { eyebrow: string; title: string; copy: 
   },
   caregiver: {
     eyebrow: 'Shared care, one timeline',
-    title: 'Coordinate with partners, grandparents, nannies, and daycare.',
-    copy: 'Nubo keeps handoffs clear, and device sync refreshes Nubo Plus access for active phones.',
+    title: 'Care changes hands. The details come along.',
+    copy: 'The last bottle, the morning nap, and who logged it. Unlimited caregivers share the free Nubo app across iPhone and Android.',
     href: '/caregivers/',
     cta: 'See caregiver sync',
   },
   privacy: {
     eyebrow: 'Private by design',
     title: 'Read the plain-English privacy promise.',
-    copy: 'Voice runs on your phone, backups use your iCloud or Google Drive, and there are no ads or tracking scripts on the site.',
+    copy: 'Everyday voice logging runs on your phone. Nubo Care uses separate visit processing with no retention afterward. Backups use your own cloud account.',
     href: '/privacy/',
     cta: 'Read privacy overview',
   },
   product: {
     eyebrow: 'Nubo product guide',
-    title: 'Compare the ways to log.',
-    copy: 'See how the free app, Nubo Plus, and the Nubo device differ by speed, privacy, and caregiver needs.',
-    href: '/compare/',
-    cta: 'Compare options',
+    title: 'The little things. The next conversation.',
+    copy: 'Say what happened, save what you notice, and review recorded patterns with Nubo Intelligence. Plus adds Nubo Care for pediatrician visits.',
+    href: '/app/#intelligence',
+    cta: 'Explore the app',
   },
   gifts: {
     eyebrow: 'A practical baby gift',
@@ -118,11 +122,11 @@ const jsonLd = {
   jsonLd={jsonLd}
 >
   <Header />
-  <main>
+  <main id="main-content">
     <article class="blog-post">
       <header class="blog-hero">
         <div class="container">
-          <a href="/blog/" class="overline blog-back">{categoryLabels[category] || category}</a>
+          <a href={`/blog/${category}/`} class="overline blog-back">{categoryLabels[category] || category}</a>
           <h1>{title}</h1>
           <p class="blog-meta">
             <span>{author}</span>
@@ -136,23 +140,19 @@ const jsonLd = {
         </div>
       )}
 
-      <div class="blog-body container">
+      <div class="blog-body container"><div class:list={['reading-grid', { 'no-contents': headings.filter((heading) => heading.depth === 2).length < 2 }]}><ArticleContents headings={headings} /><div class="reading-main">
         <div class="prose">
           <slot />
         </div>
         {!hideNextStep && (
-          <aside class="article-next-step" aria-label="Recommended next step">
+          <aside class="article-next-step" aria-label="Recommended next step"><span class="next-step-icon"><SiteIcon name="leaf" size={28} /></span><div>
             <p class="article-next-step-eyebrow">{nextStep.eyebrow}</p>
             <h2>{nextStep.title}</h2>
-            <p>{nextStep.copy}</p>
-            <a href={nextStep.href}>{nextStep.cta}</a>
+            </div><a href={nextStep.href}>{nextStep.cta} <span aria-hidden="true">→</span></a>
           </aside>
         )}
-        <aside class="article-brand-line" aria-label="Why Nubo">
-          <p class="article-brand-line-lead">Not more screen time. Better caregiving coordination.</p>
-          <p class="article-brand-line-support">Nubo is built for the kind of tracking pediatric guidance can live with: private, minimal, shared, and designed to keep attention on the baby.</p>
-        </aside>
-      </div>
+        <nav class="article-footlinks" aria-label="More reading"><a href="/blog/">All articles</a><a href="/guides/">Family guides</a></nav>
+      </div></div></div>
     </article>
   </main>
   <Footer />
@@ -396,4 +396,28 @@ const jsonLd = {
       -webkit-overflow-scrolling: touch;
     }
   }
+
+  .reading-grid { display: grid; grid-template-columns: 210px minmax(0,720px); gap: 3rem; align-items: start; }
+  .reading-main { min-width: 0; }
+  .blog-body.container, .guide-body.container { padding-inline: 2rem; }
+  .reading-grid { justify-content: center; }
+  .article-next-step > a:hover { background: none; color: var(--color-brand-dark); text-decoration: underline; text-underline-offset: 3px; }
+  .reading-grid.no-contents { grid-template-columns: minmax(0,720px); justify-content: center; }
+  .prose { max-width: 720px; margin: 0; padding: 0; }
+  .blog-hero, .guide-hero { padding-block: 132px 44px; background: var(--color-bg-ivory); }
+  .blog-hero h1, .guide-hero h1 { line-height: 1.14; letter-spacing: -.03em; text-wrap: balance; }
+  .prose :global(h2), .prose :global(h3) { scroll-margin-top: 100px; text-wrap: balance; }
+  .prose :global(h2) { border-top: 1px solid #e3e8df; padding-top: 1.5rem; }
+  .prose :global(table) { display: block; overflow-x: auto; max-width: 100%; border: 1px solid #e1e6dd; border-radius: 14px; }
+  .prose :global(a) { text-decoration: underline; text-underline-offset: 3px; }
+  .article-footlinks { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem; border-top: 1px solid #e3e8df; padding-top: 1.25rem; color: var(--color-brand-dark); font-size: .8125rem; font-weight: 700; }
+  .article-next-step { display: grid; grid-template-columns: auto 1fr; gap: 1rem; margin: 2.5rem 0 0; padding: 1.5rem; background: #f0f7f2; }
+  .next-step-icon { color: var(--color-brand-dark); }
+  .article-next-step .article-next-step-eyebrow { font-size: .625rem; margin-bottom: .5rem; }
+  .article-next-step h2 { font-size: 1.2rem; line-height: 1.4; margin: 0; }
+  .article-next-step > a { grid-column: 2; font-size: .8125rem; padding: 0; background: none; color: var(--color-brand-dark); justify-self: start; }
+  a:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 4px; }
+  @media (max-width: 900px) { .reading-grid { grid-template-columns: minmax(0,720px); justify-content: center; gap: 2rem; } }
+  @media (max-width: 680px) { .blog-hero, .guide-hero { padding-block: 100px 32px; } .blog-body, .guide-body { padding-block: 2rem 3rem; } .blog-body.container, .guide-body.container { padding-inline: 1.25rem; } .prose :global(table) { font-size: .8125rem; } .prose :global(th), .prose :global(td) { padding: .7rem; } }
+
 </style>

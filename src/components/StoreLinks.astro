@@ -1,0 +1,16 @@
+---
+interface Props { eager?: boolean; }
+const { eager = false } = Astro.props;
+---
+<div class="store-badges" aria-label="Download the free Nubo app">
+  <a href="https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158" target="_blank" rel="noopener noreferrer"><img src="/images/appstore-badge.webp" alt="Download on the App Store" width="160" height="56" loading={eager ? 'eager' : 'lazy'} /></a>
+  <a href="https://play.google.com/store/apps/details?id=com.clicksie.nuboapp" target="_blank" rel="noopener noreferrer"><img src="/images/playstore-badge.webp" alt="Get it on Google Play" width="160" height="56" loading={eager ? 'eager' : 'lazy'} /></a>
+</div>
+<style>
+  .store-badges { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+  a { display: inline-flex; border-radius: 9px; }
+  img { width: 160px; height: 56px; object-fit: contain; }
+  a:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 4px; }
+  @media (max-width: 680px) { img { width: 148px; height: 52px; } }
+  @media (max-width: 360px) { img { width: 134px; height: 47px; } }
+</style>

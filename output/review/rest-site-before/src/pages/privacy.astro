@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { nuboAccess, nuboProcessing } from '../data/nuboMessaging';
+
+const title = 'Privacy | Nubo Intelligence, Nubo Care, and Sharing';
+const description = 'See where Nubo Intelligence and Nubo Care process information, what stays on your phone, and how caregiver sharing, private backup, and Alexa work.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  description,
+  url: 'https://www.nubotracker.com/privacy/'
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+  <main>
+    <section class="page-hero privacy-hero">
+      <div class="container">
+        <p class="overline">Private baby tracker</p>
+        <h1>Baby data should serve the family caring for the baby.</h1>
+        <p class="page-hero-sub">A clear view of everyday tracking, Nubo Intelligence, and Nubo Care. Where processing happens depends on the feature you choose.</p>
+        <div class="hero-actions-inline"><a href="/privacy-policy/" class="btn-primary">Read the legal policy</a><a href="/contact/" class="btn-ghost">Ask a privacy question</a></div>
+      </div>
+    </section>
+
+    <section class="processing-section" id="processing" aria-labelledby="processing-title">
+      <div class="container">
+        <div class="processing-intro"><p class="overline">Feature by feature</p><h2 id="processing-title">Where your information goes.</h2><p>Nubo Intelligence combines on-device AI, machine learning, statistics, and useful automation for everyday care. Nubo Care has a separate visit-processing flow. Plus is the access plan for additional tools.</p></div>
+        <p class="processing-scroll-hint">Scroll the comparison sideways to read all columns.</p>
+        <div class="processing-table-wrap" tabindex="0" role="region" aria-label="Feature processing comparison, scroll horizontally on smaller screens">
+          <table><caption>Nubo feature processing and storage</caption><thead><tr><th scope="col">Feature</th><th scope="col">Processing</th><th scope="col">What you keep and share</th></tr></thead><tbody>
+            <tr><th scope="row">Nubo Intelligence: everyday voice logging</th><td>{nuboProcessing.voice}</td><td>Reviewed events join the baby timeline. Optional encrypted caregiver sharing and private backup are separate from voice processing.</td></tr>
+            <tr><th scope="row">Nubo Notetaker</th><td>Observations keep your words. AI titles and tags run on supported iPhones.</td><td>{nuboAccess.notetaker} Observations can become part of the baby history you share.</td></tr>
+            <tr><th scope="row">Nubo Care</th><td>{nuboProcessing.care}</td><td>{nuboProcessing.careRecords} Saved visit records can be kept in your private backup.</td></tr>
+            <tr><th scope="row">Alexa logging with Plus</th><td>{nuboProcessing.alexa}</td><td>Logged events join the same baby timeline. Amazon's handling of Alexa requests is separate from on-device logging.</td></tr>
+          </tbody></table>
+        </div>
+        <p class="processing-note"><a href="/faq/#nubo-intelligence" class="text-link">Read the Intelligence FAQs</a>.</p>
+      </div>
+    </section>
+
+    <section class="privacy-principles">
+      <div class="container">
+        <div class="principle-grid">
+          <article><h2>Local-first app data</h2><p>Your baby history starts on your phone. Backups use your own iCloud or Google Drive rather than a marketing data warehouse.</p></article>
+          <article><h2>Private everyday processing</h2><p>{nuboProcessing.voice} AI note titles and tags also run on the device when supported.</p></article>
+          <article><h2>End-to-end encrypted sharing</h2><p>Caregiver sharing works across iOS and Android while staying limited to invited helpers, not public links or ad targeting.</p></article>
+          <article><h2>Private pumping stays private</h2><p>Exclusive pumping families can share pumped milk bottles in the baby timeline while milk output stays separate from caregiver sync.</p></article>
+          <article><h2>Privacy-friendly site analytics</h2><p>This website uses cookieless Plausible analytics. It does not use tracking pixels, session replay, heatmaps, or retargeting scripts.</p></article>
+          <article><h2>No selling baby data</h2><p>Nubo is not built around selling or sharing baby activity data with advertisers.</p></article>
+          <article><h2>Nubo Care processing</h2><p>{nuboProcessing.care} Summaries, answers, and to-dos live on phones and in users' private backups.</p></article>
+          <article><h2>Shared recaps, local audio</h2><p>Nubo Care syncs visit records to invited caregivers, except the audio recording. Audio remains on the recording phone, with each extracted answer linked to the original timestamps.</p></article>
+          <article><h2>You keep your history</h2><p>If Nubo Plus access ends, your baby history remains available in the free app.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="privacy-deep-dive">
+      <div class="container privacy-deep-inner">
+        <div><p class="overline">What this means in practice</p><h2>Caregivers get the context they need. Advertisers do not.</h2></div>
+        <div>
+          <p>Nubo exists to help families answer ordinary questions: when did the baby eat, how long did the nap last, was the diaper wet, and what should the next caregiver know. For exclusive pumping moms, that boundary matters in a second way: the bottle a caregiver gave the baby can be shared, but the pumping session that produced milk belongs to the person who pumped.</p>
+          <p>Shared tracking can cross Apple and Google ecosystems, but the baby's timeline stays end-to-end encrypted for the people you invite. Private pumping logs do not enter that caregiver timeline.</p>
+          <p>Nubo Intelligence features have different Free and Plus access. Nubo Care is included in Plus, including the preview and active device-access windows. The plan determines access to tools; it does not turn everyday in-app voice logging into server processing.</p>
+          <p><a href="/#care-privacy">Explore Nubo Care's visit workflow and privacy</a>.</p>
+          <p>For formal terms, retention details, support contact, and legal language, use the full <a href="/privacy-policy/">privacy policy</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .processing-section { padding-block: 3.5rem; background: var(--color-bg-ivory); scroll-margin-top: 96px; }
+  .processing-intro { max-width: 780px; margin-bottom: 1.75rem; }
+  .processing-intro h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.2; }
+  .processing-intro > p:last-child { margin-top: 1rem; color: var(--color-text-secondary); }
+  .processing-table-wrap { overflow-x: auto; border: 1px solid #dce5df; border-radius: 18px; background: #fff; }
+  table { width: 100%; min-width: 680px; border-collapse: collapse; table-layout: fixed; }
+  caption { text-align: left; padding: 1rem 1.25rem; font-size: .8125rem; color: var(--color-text-secondary); }
+  th, td { padding: 1.1rem 1.25rem; text-align: left; vertical-align: top; border-top: 1px solid #dce5df; font-size: .875rem; line-height: 1.65; }
+  thead th { background: #edf5ef; color: var(--color-brand-dark); font-size: .8125rem; }
+  th:first-child { width: 24%; }
+  td { color: var(--color-text-secondary); }
+  .processing-note { color: var(--color-text-secondary); font-size: .75rem; margin-top: 1rem; }
+  .processing-scroll-hint { display: none; color: var(--color-text-secondary); font-size: .8125rem; margin-bottom: .75rem; }
+  @media (max-width: 680px) { .processing-scroll-hint { display: block; } }
+  a:focus-visible, .processing-table-wrap:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 4px; }
+  .privacy-hero .hero-actions-inline { justify-content: center; margin-top: 2rem; }
+  .hero-actions-inline { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .privacy-principles, .privacy-deep-dive { padding: 6rem 0; }
+  .privacy-principles { background: #fff; }
+  .privacy-deep-dive { background: var(--color-bg-soft); }
+  .principle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .principle-grid article { background: var(--color-bg-soft); border: 1px solid #e8e8e8; border-radius: var(--radius-xl); padding: 1.75rem; }
+  .principle-grid h2 { font-size: 1.125rem; line-height: 1.25; margin-bottom: 0.75rem; }
+  .principle-grid p, .privacy-deep-inner p { color: var(--color-text-secondary); line-height: 1.7; }
+  .privacy-deep-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .privacy-deep-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; }
+  .privacy-deep-inner a { color: var(--color-brand-dark); font-weight: 700; }
+  @media (max-width: 900px) { .principle-grid { grid-template-columns: 1fr 1fr; } .privacy-deep-inner { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { .privacy-principles, .privacy-deep-dive { padding: 4rem 0; } .principle-grid { grid-template-columns: 1fr; } }
+</style>

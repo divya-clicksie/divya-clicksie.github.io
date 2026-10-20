@@ -1,15 +1,28 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import MarketingLayout from '../layouts/MarketingLayout.astro';
+import ResourceCard from '../components/ResourceCard.astro';
+import SiteIcon from '../components/SiteIcon.astro';
 
-const title = 'Resources | One-Tap Baby Tracker Guides and Articles';
-const description = 'Start here for baby tracking guides on night feeds, sleep, diapers, caregivers, privacy, and choosing the right one-tap Nubo setup.';
+
+const title = 'Nubo Resources | Preemies, Twins, Toddlers, and Young Kids';
+const description = 'Find practical Nubo guides for premature babies, twins, toddlers, and young kids, plus everyday tracking, caregiver sharing, and visit preparation.';
+
+const guides = await getCollection('guides');
+const familyGuides = [
+  { slug: 'nubo-for-preemie-babies', stage: 'Born early' },
+  { slug: 'nubo-for-twins', stage: 'Twins and multiples' },
+  { slug: 'nubo-for-toddlers', stage: 'The toddler years' },
+  { slug: 'nubo-for-young-kids', stage: 'The preschool years' },
+].map(({ slug, stage }) => {
+  const guide = guides.find((entry) => entry.slug === slug);
+  if (!guide) throw new Error(`Missing family guide: ${slug}`);
+  return { guide, stage };
+});
 
 const posts = (await getCollection('blog'))
   .sort((a, b) => new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime())
-  .slice(0, 9);
+  .slice(0, 6);
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -19,125 +32,47 @@ const jsonLd = {
   url: 'https://www.nubotracker.com/resources/',
   mainEntity: {
     '@type': 'ItemList',
-    itemListElement: posts.map((post, index) => ({
+    itemListElement: [
+      ...familyGuides.map(({ guide }) => ({
+        url: `https://www.nubotracker.com/guides/${guide.slug}/`,
+        name: guide.data.title,
+      })),
+      ...posts.map((post) => ({
+        url: `https://www.nubotracker.com/blog/${post.data.category}/${post.slug}/`,
+        name: post.data.title,
+      })),
+    ].map((resource, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      url: `https://www.nubotracker.com/blog/${post.data.category}/${post.slug}/`,
-      name: post.data.title,
+      ...resource,
     })),
   },
 };
 
-const categoryCopy = [
-  ['Sleep', 'Wake windows, regressions, night tracking, and the logs that make patterns visible.', '/blog/sleep/'],
-  ['Feeding', 'Breastfeeding, bottles, exclusive pumping, allergens, and pediatrician-ready intake notes.', '/blog/feeding/'],
-  ['Tracking', 'Daily logging routines for diapers, pediatrician visits, catch-up entries, and patterns.', '/blog/tracking/'],
-  ['Caregivers', 'Handoffs for partners, grandparents, nannies, and returning to work.', '/blog/caregiver/'],
-  ['Privacy', 'Plain-English guidance on baby data, backups, sharing, and voice logging.', '/blog/privacy/'],
-  ['Product', 'Nubo setup, app features, Alexa, Nubo Plus, and how the ecosystem fits together.', '/blog/product/'],
-  ['Gifts', 'Practical baby shower ideas for the newborn weeks and the people helping.', '/blog/gifts/']
-];
-
-const intentLinks = [
-  ['I want to start tracking today', 'Download the free app, then read the first 12 weeks guide when you need a simple routine.', '/app/#app-downloads', 'Download free app'],
-  ['I am choosing app, Nubo Plus, or device', 'Compare setup paths before you commit to hardware or Nubo Plus.', '/pricing/', 'Compare setups'],
-  ['My caregiver routine is getting messy', 'Start with handoff guidance for partners, grandparents, nannies, and returning to work.', '/blog/caregiver/', 'Read caregiver guides'],
-  ['I am exclusively pumping', 'See how Nubo separates shared pumped milk bottles from private milk output tracking.', '/exclusive-pumping/', 'View EP setup'],
-  ['I care most about privacy', 'Review how voice, backups, sharing, and private pumping are handled.', '/privacy/', 'Read privacy overview'],
-];
+const topics = [
+ ['Sleep', '/blog/sleep/', 'moon'], ['Feeding', '/blog/feeding/', 'bottle'],
+ ['Tracking', '/blog/tracking/', 'check'], ['Caregivers', '/blog/caregiver/', 'users'],
+ ['Privacy', '/blog/privacy/', 'lock'], ['Product', '/blog/product/', 'sparkles'], ['Gifts', '/blog/gifts/', 'gift'],
+] as const;
+const familyCopy: Record<string, string> = {
+ 'nubo-for-preemie-babies': 'Care records, growth context, and questions for follow-ups.',
+ 'nubo-for-twins': 'Separate records, shared caregivers, and a day with more than one baby.',
+ 'nubo-for-toddlers': 'Changing routines, little observations, and the next checkup.',
+ 'nubo-for-young-kids': 'Everyday details to bring to the next conversation.',
+};
+const familyTopics = ['tracking', 'caregiver', 'feeding', 'product'];
 ---
 
-<BaseLayout title={title} description={description} jsonLd={jsonLd}>
-  <Header />
-  <main>
-    <section class="page-hero">
-      <div class="container">
-        <p class="overline">One-tap baby tracker resources</p>
-        <h1>Baby tracker app guides for feeding, sleep, diapers, and caregivers.</h1>
-        <p class="page-hero-sub">Start with the first 12 weeks, then explore newborn feeding tracking, baby sleep and diaper logs, caregiver handoffs, privacy, and product decisions.</p>
-      </div>
-    </section>
-
-    <section class="start-section">
-      <div class="container start-inner">
-        <div>
-          <p class="overline">Start here</p>
-          <h2>Newborn feeding tracker, sleep, and diaper guidance for the first 12 weeks.</h2>
-          <p>A practical guide for the stretch when nobody remembers exactly when the last feed, nap, or diaper happened. Pair it with the <a href="/app/" class="text-link">free baby tracker app</a> or the <a href="/device/" class="text-link">screen-free baby tracker</a> if phone logging is hard at night.</p>
-          <a href="/guides/track-feeding-sleep-diapers-first-12-weeks/" class="btn-primary">Read the guide</a>
-        </div>
-        <img src="/images/nubo-instant-tracker-900.webp" alt="Hand pressing the Nubo instant tracker beside a sleeping baby" width="900" height="900" loading="lazy" decoding="async" />
-      </div>
-    </section>
-
-    <section class="category-section">
-      <div class="container">
-        <div class="section-intro"><p class="overline">Start here if</p><h2>Choose the baby tracker resource by what you need.</h2></div>
-        <div class="intent-grid">
-          {intentLinks.map(([label, copy, href, cta]) => (
-            <article>
-              <h3>{label}</h3>
-              <p>{copy}</p>
-              <a href={href}>{cta}</a>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="category-section category-section-alt">
-      <div class="container">
-        <div class="section-intro"><p class="overline">Browse by topic</p><h2>Find feeding, sleep, diaper, caregiver, and privacy help.</h2></div>
-        <div class="category-grid">
-          {categoryCopy.map(([label, copy, href]) => (
-            <a href={href} class="category-card"><h3>{label}</h3><p>{copy}</p></a>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="latest-section">
-      <div class="container">
-        <div class="section-intro"><p class="overline">Latest articles</p><h2>Baby tracker guides for tired families and the people helping them.</h2></div>
-        <div class="post-grid">
-          {posts.map((post) => (
-            <article>
-              <p class="post-category">{post.data.category}</p>
-              <h3><a href={`/blog/${post.data.category}/${post.slug}/`}>{post.data.title}</a></h3>
-              <p>{post.data.excerpt ?? post.data.description}</p>
-            </article>
-          ))}
-        </div>
-        <div class="all-posts"><a href="/blog/" class="btn-ghost">View all articles</a></div>
-      </div>
-    </section>
-  </main>
-  <Footer />
-</BaseLayout>
-
+<MarketingLayout title={title} description={description} jsonLd={jsonLd}>
+  <section class="m-hero"><div class="container m-split"><div><p class="overline">Nubo resources</p><h1>Help for the<br />stage you're in.</h1><p class="m-lead">When the days are full, a useful guide can help. Find practical ways to keep track, share care, and prepare for your child's next visit, from newborn days to preschool.</p><div class="m-actions"><a href="#your-family" class="btn-primary">Find your family guide</a><a href="/blog/" class="text-link">Browse all articles <span aria-hidden="true">→</span></a></div></div><img class="m-photo resource-hero-image" src="/images/nubo-care-toddler-visit-v6-960.webp" alt="Concept photo of a parent and toddler talking with a doctor at a checkup" width="960" height="480" fetchpriority="high" /></div></section>
+  <section class="m-section" id="your-family"><div class="container"><div class="m-heading"><p class="overline">Your family, your stage</p><h2>Start where you are.</h2></div><div class="m-grid two">{familyGuides.map(({ guide, stage }, index) => <ResourceCard title={guide.data.title} href={`/guides/${guide.slug}/`} label={stage} category={familyTopics[index]} excerpt={familyCopy[guide.slug]} />)}</div></div></section>
+  <section class="m-section m-warm"><div class="container m-split"><img class="m-photo newborn-guide-image" src="/images/hero-mother-baby-800.webp" alt="A parent holding their newborn close" width="800" height="669" loading="lazy" /><div class="m-copy"><p class="overline">New here?</p><h2>The first 12 weeks.<br />One useful place to start.</h2><p>A practical guide to keeping track of feeds, sleep, and diapers when the days blur together.</p><a href="/guides/track-feeding-sleep-diapers-first-12-weeks/" class="text-link">Read the newborn guide <span aria-hidden="true">→</span></a></div></div></section>
+  <section class="m-section"><div class="container"><div class="m-heading"><p class="overline">Browse by topic</p><h2>What would help today?</h2></div><nav class="topic-links" aria-label="Resource topics">{topics.map(([label, href, icon]) => <a href={href}><SiteIcon name={icon} size={22} /><span>{label}</span><span aria-hidden="true">↗</span></a>)}</nav><div class="quick-links"><a href="/app/#app-downloads">Explore everyday tracking <span aria-hidden="true">→</span></a><a href="/pricing/">Compare Free and Plus <span aria-hidden="true">→</span></a><a href="/exclusive-pumping/">Private pumping <span aria-hidden="true">→</span></a><a href="/faq/#nubo-intelligence">Nubo questions <span aria-hidden="true">→</span></a></div></div></section>
+  <section class="m-section m-ivory"><div class="container"><div class="m-heading"><p class="overline">From the Nubo blog</p><h2>A little help for everyday care.</h2></div><div class="m-grid three">{posts.map((post) => <ResourceCard title={post.data.title} href={`/blog/${post.data.category}/${post.slug}/`} label={post.data.category} category={post.data.category} image={post.data.heroImage} />)}</div><div class="m-actions"><a href="/blog/" class="text-link">View all articles <span aria-hidden="true">→</span></a></div></div></section>
+</MarketingLayout>
 <style>
-  .start-section, .category-section, .latest-section { padding: 6rem 0; }
-  .start-section, .latest-section { background: #fff; }
-  .category-section { background: var(--color-bg-soft); }
-  .category-section-alt { background: #fff; }
-  .start-inner { display: grid; grid-template-columns: 1fr 0.65fr; gap: 4rem; align-items: center; }
-  .start-inner h2 { font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.12; margin-bottom: 1rem; }
-  .start-inner p, .category-card p, .post-grid p { color: var(--color-text-secondary); line-height: 1.7; }
-  .start-inner .btn-primary { margin-top: 1.5rem; }
-  .start-inner img { max-height: 520px; width: auto; justify-self: center; border-radius: var(--radius-xl); }
-  .intent-grid, .category-grid, .post-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-  .intent-grid { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
-  .post-grid { grid-template-columns: repeat(3, 1fr); }
-  .intent-grid article, .category-card, .post-grid article { background: #fff; border: 1px solid #e8e8e8; border-radius: var(--radius-xl); padding: 1.75rem; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-  .intent-grid article { display: flex; flex-direction: column; }
-  .category-section-alt .category-card { background: var(--color-bg-soft); }
-  .category-card:hover, .post-grid article:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06); }
-  .intent-grid h3, .category-card h3, .post-grid h3 { font-size: 1.125rem; line-height: 1.3; margin-bottom: 0.625rem; }
-  .intent-grid p { color: var(--color-text-secondary); line-height: 1.7; flex: 1; }
-  .intent-grid a { display: inline-flex; margin-top: 1rem; color: var(--color-brand-dark); font-weight: 800; }
-  .post-category { color: var(--color-brand-dark) !important; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem; }
-  .post-grid h3 a:hover { color: var(--color-brand-dark); }
-  .all-posts { margin-top: 2.5rem; text-align: center; }
-  @media (max-width: 980px) { .start-inner { grid-template-columns: 1fr; } .intent-grid, .category-grid, .post-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 640px) { .start-section, .category-section, .latest-section { padding: 4rem 0; } .intent-grid, .category-grid, .post-grid { grid-template-columns: 1fr; } .start-inner img { max-height: 420px; } }
+  .resource-hero-image { min-height: 300px; object-fit: cover; object-position: 70% center; } .newborn-guide-image { max-height: 340px; object-fit: cover; }
+  .topic-links { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: .75rem; } .topic-links a { display: flex; align-items: center; gap: .7rem; padding: 1.1rem; background: #f3f7f4; border: 1px solid #e1e7dd; border-radius: 16px; color: var(--color-brand-dark); font-size: .875rem; font-weight: 700; } .topic-links a > span:last-child { margin-left: auto; font-size: .75rem; }
+  .quick-links { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 1.75rem; font-size: .8125rem; color: var(--color-brand-dark); font-weight: 700; }
+  @media (max-width: 850px) { .topic-links { grid-template-columns: 1fr 1fr; } } @media (max-width: 680px) { .resource-hero-image { min-height: 220px; max-height: 260px; } .topic-links a { padding: 1rem; font-size: .8125rem; } }
 </style>
