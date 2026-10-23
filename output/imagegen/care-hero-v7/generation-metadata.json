@@ -1,0 +1,122 @@
+{
+  "hospital-phone": {
+    "requested_model": "gpt-image-2.5-sunburst",
+    "requested_quality": "max",
+    "actual_dimensions": [
+      3840,
+      1920
+    ],
+    "sha256": "c5bad93d84107fca37415f01eff2f150889b2a68c928eb2ab7bdd05aeea3055c",
+    "response": {
+      "created": 1792788366,
+      "background": "opaque",
+      "output_format": "png",
+      "quality": "max",
+      "safety_identifier": null,
+      "size": "3840x1920",
+      "usage": {
+        "input_tokens": 705,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 705
+        },
+        "output_tokens": 10798,
+        "output_tokens_details": {
+          "image_tokens": 10798,
+          "text_tokens": 0
+        },
+        "total_tokens": 11503
+      }
+    }
+  },
+  "baby-visit": {
+    "requested_model": "gpt-image-2.5-sunburst",
+    "requested_quality": "max",
+    "actual_dimensions": [
+      3840,
+      1920
+    ],
+    "sha256": "0bc66ba3a15c1f2ca68b061eb7e4575f1e860a2777300c6d8d87172669d7671c",
+    "response": {
+      "created": 1792788364,
+      "background": "opaque",
+      "output_format": "png",
+      "quality": "max",
+      "safety_identifier": null,
+      "size": "3840x1920",
+      "usage": {
+        "input_tokens": 673,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 673
+        },
+        "output_tokens": 10798,
+        "output_tokens_details": {
+          "image_tokens": 10798,
+          "text_tokens": 0
+        },
+        "total_tokens": 11471
+      }
+    }
+  },
+  "toddler-visit": {
+    "requested_model": "gpt-image-2.5-sunburst",
+    "requested_quality": "max",
+    "actual_dimensions": [
+      3840,
+      1920
+    ],
+    "sha256": "0cf5d1d68de882ec5d4d4625054eb16663f701a5b28ef16b4849fe24816e95ec",
+    "response": {
+      "created": 1792788365,
+      "background": "opaque",
+      "output_format": "png",
+      "quality": "max",
+      "safety_identifier": null,
+      "size": "3840x1920",
+      "usage": {
+        "input_tokens": 678,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 678
+        },
+        "output_tokens": 10798,
+        "output_tokens_details": {
+          "image_tokens": 10798,
+          "text_tokens": 0
+        },
+        "total_tokens": 11476
+      }
+    }
+  },
+  "child-visit": {
+    "requested_model": "gpt-image-2.5-sunburst",
+    "requested_quality": "max",
+    "actual_dimensions": [
+      3840,
+      1920
+    ],
+    "sha256": "2aff7f817474ab0c1a30f20835f8abfb4fd595644f7d2f04501d448e9c9c3e2d",
+    "response": {
+      "created": 1792788365,
+      "background": "opaque",
+      "output_format": "png",
+      "quality": "max",
+      "safety_identifier": null,
+      "size": "3840x1920",
+      "usage": {
+        "input_tokens": 687,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 687
+        },
+        "output_tokens": 10798,
+        "output_tokens_details": {
+          "image_tokens": 10798,
+          "text_tokens": 0
+        },
+        "total_tokens": 11485
+      }
+    }
+  }
+}
