@@ -1,17 +1,138 @@
 ---
-const redirectURL = '/';
+import MarketingLayout from '../layouts/MarketingLayout.astro';
+import CareRecapPreview from '../components/CareRecapPreview.astro';
+import CareWalkthrough from '../components/CareWalkthrough.astro';
+import FaqList from '../components/FaqList.astro';
+import SiteIcon from '../components/SiteIcon.astro';
+import StoreLinks from '../components/StoreLinks.astro';
+import { nuboAccess, nuboProcessing, nuboStory } from '../data/nuboMessaging';
+
+const title = 'Nubo Care | Pediatrician Visit Questions, Recording & Recaps';
+const description = 'Prepare pediatrician questions, record visits with permission, and revisit answers with invited caregivers. Nubo Care is included in the paid Nubo Plus plan.';
+const faqItems = [
+  {
+    q: 'Is Nubo Care free?',
+    a: 'Nubo Care is included in Nubo Plus, the paid app plan. It is also available during your 14-day Plus preview and active device-access windows. Everyday baby tracking, voice logging, observations, and unlimited caregivers stay free.',
+  },
+  {
+    q: 'Do I need tracking history or a Nubo device?',
+    a: 'No. Start with your own questions, even at your first hospital conversation. You can use Nubo Care in the app without a device or a history of activity logs. Saved observations and relevant logs can add context when you have them.',
+  },
+  {
+    q: 'Do I have to record the appointment?',
+    a: 'No. You can prepare questions and take notes instead. If you choose to record, get permission from everyone taking part and follow the clinic’s policy.',
+  },
+  {
+    q: 'How do I return to an answer in the recording?',
+    a: 'Answers extracted from a recording link to their actual audio timestamps. On the phone that recorded the visit, replay the relevant passage to hear the original conversation. Manually entered notes do not have an audio reference.',
+  },
+  {
+    q: 'What can invited caregivers see?',
+    a: nuboProcessing.careRecords,
+  },
+  {
+    q: 'Where is visit content processed?',
+    a: `${nuboProcessing.care} Saved visit records stay on phones, can sync to invited caregivers, and can be backed up to your own iCloud or Google Drive.`,
+  },
+  {
+    q: 'What languages does Nubo Care support?',
+    a: 'Nubo Care is available worldwide. Visit recording and recaps support English.',
+  },
+];
+const jsonLd = [
+  {
+    '@context': 'https://schema.org', '@type': 'WebPage',
+    name: title, description, url: 'https://www.nubotracker.com/care/',
+    about: { '@type': 'MobileApplication', name: 'Nubo Baby Tracker', url: 'https://www.nubotracker.com/app/', operatingSystem: 'iOS, Android' },
+  },
+  {
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: faqItems.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+  },
+];
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content={`0; url=${redirectURL}`} />
-    <meta name="robots" content="noindex,follow" />
-    <link rel="canonical" href="https://www.nubotracker.com/" />
-    <title>Redirecting to Nubo</title>
-  </head>
-  <body>
-    <p>Redirecting to <a href={redirectURL}>Nubo</a>...</p>
-  </body>
-</html>
+<MarketingLayout title={title} description={description} jsonLd={jsonLd} ogImage="/images/nubo-care-baby-visit-v7-960.webp" ctaHref="#care-downloads" ctaLabel="Get the Nubo app">
+  <section class="m-hero" aria-labelledby="care-title">
+    <div class="container m-split">
+      <div>
+        <p class="overline">Nubo Care · Included in Plus</p>
+        <h1 id="care-title">Bring your questions.<br />Take the answers home.</h1>
+        <p class="m-lead">Between short nights and a busy appointment, there’s a lot to remember. Prepare your questions, record with permission, and come back to your pediatrician’s answers together.</p>
+        <div class="m-actions"><a href="#how-care-works" class="btn-primary">See how Care works</a><a href="/pricing/" class="text-link">See Plus pricing <span aria-hidden="true">→</span></a></div>
+        <p class="m-note">Part of the Nubo app on iPhone and Android. No device or tracking history needed. Recording and recaps in English.</p>
+      </div>
+      <CareRecapPreview id="care-hero-recap" />
+    </div>
+  </section>
+
+  <aside class="m-strip" aria-label="Nubo Care essentials"><div class="container"><span><SiteIcon name="mic" size={19} />Record with permission</span><span><SiteIcon name="phone" size={19} />Original audio stays on the recording phone</span><a href="/privacy/"><SiteIcon name="lock" size={19} />Trust &amp; Privacy <span aria-hidden="true">→</span></a></div></aside>
+
+  <section class="m-section" id="how-care-works" aria-labelledby="walkthrough-title">
+    <div class="container">
+      <div class="m-heading"><p class="overline">Before, during, and after the visit</p><h2 id="walkthrough-title">From what you notice<br />to what you want to ask.</h2><p>Keep the little things between appointments. Bring the questions that matter to you. Then revisit the conversation and share the next steps.</p></div>
+      <CareWalkthrough />
+      <p class="m-note">Illustrative examples. Observations and activity logging stay free. Visit preparation, recording, and recaps are included in Plus.</p>
+    </div>
+  </section>
+
+  <section class="m-section m-warm" aria-labelledby="starting-title">
+    <div class="container">
+      <div class="m-heading"><p class="overline">Start with the conversation ahead</p><h2 id="starting-title">A first visit.<br />Or the next question.</h2></div>
+      <div class="m-grid two">
+        <article class="m-card"><span class="m-icon"><SiteIcon name="questions" /></span><h3>You can start without a history.</h3><p>At the hospital or your first checkup, you may have questions before you have any logs. Add what’s on your mind. Later, bring selected observations and activity records when they help explain the days at home.</p></article>
+        <article class="m-card"><span class="m-icon peach"><SiteIcon name="mic" /></span><h3>You choose whether to record.</h3><p>Ask everyone taking part for permission and follow the clinic’s policy. You can prepare questions and take notes instead. Answers from recordings include timestamps so you can return to the original words.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="m-section" aria-labelledby="one-app-title">
+    <div class="container m-split">
+      <div class="tracker-visual"><img src="/images/appscreens/quick-actions-current.webp" alt="Nubo baby tracker Quick Actions with sleep, feeding, and nursing logs" width="1284" height="2778" loading="lazy" decoding="async" /></div>
+      <div class="m-copy">
+        <p class="overline">One Nubo app</p><h2 id="one-app-title">The everyday details.<br />Ready for the next visit.</h2>
+        <p>The free baby tracker keeps feeds, sleep, diapers, and observations in one shared timeline. Tap as it happens or talk to catch up. With Care, review what you’ve noticed and prepare questions for your pediatrician.</p>
+        <p>Care is a feature of the same app, included in Plus. {nuboStory.device} It is optional for both tracking and visits.</p>
+        <a href="/app/" class="text-link">Explore the free baby tracker <span aria-hidden="true">→</span></a>
+        <p class="m-note">Sample app data. Nubo Noticed is included in Plus and is free for everyone on Mondays.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="m-section m-teal" aria-labelledby="care-privacy-title">
+    <div class="container m-split">
+      <div class="m-copy"><p class="overline">Your visit information</p><h2 id="care-privacy-title">Share the recap.<br />Keep the audio on your phone.</h2><p>Your partner couldn’t make the appointment. Invited caregivers can read the synced recap, answers, and to-dos. Original visit audio stays on the phone that recorded it.</p><a href="/privacy/#processing" class="text-link">See how visit data is handled <span aria-hidden="true">→</span></a></div>
+      <div class="visit-boundaries"><article><SiteIcon name="cloud" /><div><h3>Selected content is processed, then cleared.</h3><p>{nuboProcessing.care}</p></div></article><article><SiteIcon name="users" /><div><h3>Saved records stay useful together.</h3><p>Recaps sync to invited caregivers with end-to-end encrypted sharing. Optional backups use your own iCloud or Google Drive.</p></div></article></div>
+    </div>
+  </section>
+
+  <section class="m-section" id="care-access" aria-labelledby="access-title">
+    <div class="container">
+      <div class="m-heading"><p class="overline">Nubo Care access</p><h2 id="access-title">Included in the paid Plus plan.</h2><p>Everyday tracking stays free. Plus adds Care for visit preparation, recordings, answers, and next steps, alongside other app tools.</p></div>
+      <div class="m-grid three">
+        <article class="m-card"><span class="m-icon"><SiteIcon name="sparkles" /></span><h3>Nubo Plus</h3><p>Subscribe in the Nubo app through the App Store or Google Play. Care is part of Plus, with no separate Care subscription.</p><a href="/pricing/" class="text-link">Compare Free and Plus <span aria-hidden="true">→</span></a></article>
+        <article class="m-card"><span class="m-icon peach"><SiteIcon name="leaf" /></span><h3>Your 14-day preview</h3><p>{nuboAccess.preview}</p><a href="/privacy/#free-and-paid" class="text-link">Why Care is paid <span aria-hidden="true">→</span></a></article>
+        <article class="m-card"><span class="m-icon lilac"><SiteIcon name="bluetooth" /></span><h3>Access with the device</h3><p>{nuboAccess.device}</p><a href="/device/" class="text-link">How the device works <span aria-hidden="true">→</span></a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="m-section m-ivory" id="care-questions" aria-labelledby="questions-title"><div class="container m-split faq-grid"><div class="m-heading"><p class="overline">A few practical answers</p><h2 id="questions-title">Before your next visit.</h2><p>Nubo helps you keep and revisit information. It is not a medical device or a substitute for your care team’s advice.</p><a href="/faq/#doctor-visits" class="text-link">More Nubo Care questions <span aria-hidden="true">→</span></a></div><FaqList items={faqItems} /></div></section>
+
+  <section class="m-cta" id="care-downloads" aria-labelledby="download-title"><div class="container"><p class="overline">On iPhone and Android</p><h2 id="download-title">Bring one question.<br />Keep the answers close.</h2><p>Download the free Nubo app. Nubo Care is included in Plus, your preview, and active device access.</p><div class="care-stores"><StoreLinks /></div><div class="m-actions"><a href="/pricing/" class="text-link">See pricing and access details <span aria-hidden="true">→</span></a></div></div></section>
+</MarketingLayout>
+
+<style>
+  .tracker-visual { height: 435px; overflow: hidden; padding: 2rem 2rem 0; border-radius: 28px; background: #edf6f0; }
+  .tracker-visual img { width: 230px; margin-inline: auto; border: 7px solid #fff; border-radius: 30px; box-shadow: 0 12px 35px #24463b14; }
+  .visit-boundaries { display: grid; gap: 1.5rem; }
+  .visit-boundaries article { display: flex; align-items: flex-start; gap: 1rem; padding-bottom: 1.5rem; border-bottom: 1px solid #c7e1dd; }
+  .visit-boundaries article:last-child { padding-bottom: 0; border: 0; }
+  .visit-boundaries article > :global(svg) { flex-shrink: 0; color: var(--color-brand-dark); margin-top: .2rem; }
+  .visit-boundaries h3 { font-size: 1rem; }
+  .visit-boundaries p { font-size: .875rem; color: var(--color-text-secondary); margin-top: .6rem; }
+  .faq-grid { align-items: start; }
+  .faq-grid .text-link { display: inline-block; margin-top: 1.25rem; font-size: .875rem; }
+  .care-stores { display: flex; justify-content: center; margin-top: 1.5rem; }
+  @media (max-width: 680px) { .tracker-visual { height: 335px; padding-top: 1.5rem; } .tracker-visual img { width: 215px; } }
+</style>

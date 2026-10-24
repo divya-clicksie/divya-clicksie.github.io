@@ -1,0 +1,277 @@
+---
+import SiteIcon from './SiteIcon.astro';
+
+const steps = [
+  {
+    key: 'capture',
+    label: 'Capture',
+    title: 'Save what’s on your mind.',
+    description: 'Speak or type what you notice, whenever it comes to mind. Nubo Observations keeps your notes, while activity logs record feeds, sleep, diapers, and more.',
+    product: 'Nubo Observations',
+    access: 'Everyday capture · Free',
+    caption: 'An observation in your own words, alongside structured activity logs.',
+  },
+  {
+    key: 'prepare',
+    label: 'Prepare',
+    title: 'Turn observations into questions.',
+    description: 'Before the visit, Nubo Intelligence automatically suggests questions based on your saved observations and your baby’s age. Review the suggestions and add anything else on your mind.',
+    product: 'Nubo Intelligence + Care',
+    access: 'Visit preparation · Plus',
+    caption: 'Suggested questions to review, with room for your own.',
+  },
+  {
+    key: 'record',
+    label: 'Record',
+    title: 'Be there for the conversation.',
+    description: 'Ask everyone taking part for permission, then record the visit. You can focus on listening and come back to the conversation later.',
+    product: 'Nubo Care',
+    access: 'Visit recording · Plus',
+    caption: 'Record with permission. Original audio stays on the recording phone.',
+  },
+  {
+    key: 'revisit',
+    anchor: 'original-words',
+    label: 'Revisit',
+    title: 'Come back to the answers.',
+    description: 'Review the recap, answers, and next steps. On the recording phone, follow an answer’s timestamp to hear that part of the conversation again.',
+    product: 'Nubo Care',
+    access: 'Answers and next steps · Plus',
+    caption: 'Return to your pediatrician’s words on the phone that recorded the visit.',
+  },
+  {
+    key: 'share',
+    anchor: 'caregivers',
+    label: 'Share',
+    title: 'Help everyone catch up.',
+    description: 'Your partner couldn’t make the visit. Invited caregivers can read the synced recap, answers, and to-dos, so the next steps are there for everyone caring for your child.',
+    product: 'Nubo Care',
+    access: 'Shared visit recaps · Plus',
+    caption: 'Recaps sync to invited caregivers. Original audio stays on your phone.',
+  },
+];
+---
+
+<div class="care-walkthrough" id="care-loop" data-care-walkthrough>
+  <ol class="walkthrough-steps">
+    {steps.map((step, index) => (
+      <li>
+        <details name="nubo-care-walkthrough" open={index === 0} id={step.anchor} data-care-step={step.key}>
+          <summary>
+            <span class="step-number" aria-hidden="true">{index + 1}.</span>
+            <span class="step-heading"><span class="step-label">{step.label}</span><span class="step-title">{step.title}</span></span>
+            <svg class="step-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+          </summary>
+          <div class="step-content">
+            <p class="step-description">{step.description}</p>
+            <figure class:list={['step-preview', `preview-${step.key}`]} aria-labelledby={`care-${step.key}-caption`}>
+              <div class="preview-heading"><span>{step.product}</span><span>Illustrative example</span></div>
+              <div class="sample-app">
+                <div class="app-heading"><span class="app-mark" aria-hidden="true">n</span><div><strong>Ella’s care</strong><span>{step.access}</span></div></div>
+
+                {step.key === 'capture' && <div class="app-content">
+                  <p class="sample-label">Nubo Observations</p>
+                  <h3>The little things you notice.</h3>
+                  <div class="observation-note"><span class="note-icon"><SiteIcon name="questions" size={21} /></span><div><span class="sample-label">Today · Your observation</span><blockquote>“She’s been waking earlier this week.”</blockquote></div></div>
+                  <div class="capture-options"><span><SiteIcon name="mic" size={17} /> Speak a note</span><span><SiteIcon name="questions" size={17} /> Type a note</span></div>
+                  <div class="activity-heading"><p class="sample-label">Activity logs</p><span>Today</span></div>
+                  <div class="activity-entry sleep-entry"><SiteIcon name="moon" size={21} /><div><strong>Sleep</strong><span>6:30 AM to 7:15 AM</span></div><b>45 min</b></div>
+                  <div class="activity-entry bottle-entry"><SiteIcon name="bottle" size={21} /><div><strong>Bottle</strong><span>8:00 AM</span></div><b>90 mL</b></div>
+                </div>}
+
+                {step.key === 'prepare' && <div class="app-content">
+                  <p class="sample-label">Prepare for your visit</p>
+                  <h3>A place to start the conversation.</h3>
+                  <div class="context-chips"><span>Ella · 4 months</span><span>Saved observations</span></div>
+                  <div class="source-observation"><SiteIcon name="questions" size={18} /><p>“She’s been waking earlier this week.”</p></div>
+                  <div class="suggested-heading"><SiteIcon name="sparkles" size={18} /><span>Suggested by Nubo Intelligence</span></div>
+                  <div class="question-card"><span class="question-marker" aria-hidden="true">?</span><p>What changes in sleep are common at her age?</p></div>
+                  <div class="question-card"><span class="question-marker" aria-hidden="true">?</span><p>What would be useful to note before our next visit?</p></div>
+                  <div class="own-question"><span aria-hidden="true">+</span> Add what’s on your mind</div>
+                </div>}
+
+                {step.key === 'record' && <div class="app-content recording-content">
+                  <p class="sample-label">Ella’s pediatrician visit</p>
+                  <h3>More room to listen.</h3>
+                  <div class="permission-note"><SiteIcon name="check" size={18} /><span>Permission first. Then record.</span></div>
+                  <div class="recording-orb"><SiteIcon name="mic" size={34} /></div>
+                  <div class="recording-wave" aria-hidden="true">{[13, 23, 35, 20, 46, 30, 55, 39, 23, 44, 31, 18, 29, 14, 22].map((height) => <i style={`height: ${height}px`}></i>)}</div>
+                  <p class="recording-time">04:32</p>
+                  <p class="recording-label">Visit recording in progress</p>
+                  <div class="recording-question"><span class="sample-label">One of your questions</span><p>What changes in sleep are common at her age?</p></div>
+                </div>}
+
+                {step.key === 'revisit' && <div class="app-content">
+                  <p class="sample-label">Your visit recap</p>
+                  <h3>The answers, here to revisit.</h3>
+                  <div class="recap-question"><span class="sample-label">You asked</span><p>What would be useful to note before our next visit?</p></div>
+                  <div class="answer-card"><span class="sample-label">From the conversation</span><blockquote>“Keep a note of when she wakes and bring your observations to our next visit.”</blockquote><div class="audio-reference"><span class="play-symbol" aria-hidden="true">▶</span><div><strong>04:32 <span>in your recording</span></strong><p>Your pediatrician’s original words</p></div></div></div>
+                  <div class="next-step"><SiteIcon name="check" size={21} /><div><span class="sample-label">Next step</span><p>Save waking-time observations for the follow-up.</p></div></div>
+                </div>}
+
+                {step.key === 'share' && <div class="app-content">
+                  <p class="sample-label">For invited caregivers</p>
+                  <h3>One visit. Shared next steps.</h3>
+                  <div class="caregiver-row"><span class="caregiver-avatar">M<span>Mom</span></span><span class="caregiver-avatar dad">D<span>Dad</span></span><span class="caregiver-avatar grandma">G<span>Grandma</span></span></div>
+                  <div class="shared-recap"><div><SiteIcon name="users" size={22} /><strong>Ella’s pediatrician visit</strong></div><p>Recap, answers, and to-dos</p><span class="shared-status"><SiteIcon name="check" size={16} /> Synced to invited caregivers</span></div>
+                  <div class="next-step"><SiteIcon name="check" size={21} /><div><span class="sample-label">Shared next step</span><p>Save waking-time observations for the follow-up.</p></div></div>
+                  <div class="audio-privacy"><SiteIcon name="lock" size={17} /><p>Original audio stays on the recording phone.</p></div>
+                </div>}
+              </div>
+              <figcaption id={`care-${step.key}-caption`}>{step.caption}</figcaption>
+            </figure>
+          </div>
+        </details>
+      </li>
+    ))}
+  </ol>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-care-walkthrough]').forEach((walkthrough) => {
+    const steps = Array.from(walkthrough.querySelectorAll<HTMLDetailsElement>('[data-care-step]'));
+    const selectStep = (selected: HTMLDetailsElement) => {
+      steps.forEach((step) => { if (step !== selected) step.open = false; });
+      selected.open = true;
+    };
+
+    steps.forEach((step) => {
+      step.querySelector('summary')?.addEventListener('click', (event) => {
+        event.preventDefault();
+        if (step.open) return;
+        selectStep(step);
+        if (window.matchMedia('(max-width: 760px)').matches) {
+          requestAnimationFrame(() => step.scrollIntoView({ block: 'start', behavior: 'instant' }));
+        }
+      });
+    });
+
+    const previewObserver = new ResizeObserver((entries) => {
+      entries.forEach(({ target }) => {
+        if (target.closest('details')?.open) {
+          walkthrough.style.setProperty('--preview-height', `${Math.ceil(target.getBoundingClientRect().height)}px`);
+        }
+      });
+    });
+    walkthrough.querySelectorAll('figure').forEach((preview) => previewObserver.observe(preview));
+
+    const revealLinkedStep = () => {
+      const selected = steps.find((step) => step.id && `#${step.id}` === window.location.hash);
+      if (selected) selectStep(selected);
+    };
+    revealLinkedStep();
+    window.addEventListener('hashchange', revealLinkedStep);
+  });
+</script>
+
+<style>
+  .care-walkthrough { --preview-width: 49%; position: relative; min-height: var(--preview-height, 760px); padding-right: calc(var(--preview-width) + 3.5rem); scroll-margin-top: 96px; }
+  .walkthrough-steps { list-style: none; margin: 0; padding: 0; }
+  .walkthrough-steps li { border-top: 1px solid #dce5e2; }
+  .walkthrough-steps li:last-child { border-bottom: 1px solid #dce5e2; }
+  details { scroll-margin-top: 100px; }
+  summary { display: flex; align-items: center; gap: 1rem; padding: 1.3rem 0; cursor: pointer; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 5px; border-radius: 5px; }
+  .step-number { align-self: flex-start; min-width: 25px; margin-top: 1.2rem; color: var(--color-brand); font-size: 1.5rem; font-weight: 700; line-height: 1.2; }
+  .step-heading { flex: 1; min-width: 0; }
+  .step-label { display: block; margin-bottom: .3rem; color: var(--color-text-secondary); font-size: .6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+  .step-title { display: block; font-size: 1.2rem; font-weight: 700; line-height: 1.35; letter-spacing: -.025em; }
+  .step-chevron { flex-shrink: 0; color: var(--color-text-secondary); }
+  details[open] .step-chevron { transform: rotate(180deg); }
+  details[open] .step-label { color: var(--color-brand-dark); }
+  .step-description { margin: -.2rem 0 1.3rem 41px; color: var(--color-text-secondary); font-size: .9375rem; line-height: 1.7; }
+  .step-preview { position: absolute; top: 0; right: 0; width: var(--preview-width); min-height: 636px; margin: 0; padding: 1.6rem; border: 1px solid #eee0d2; border-radius: 28px; background: #fff2e4; display: flex; flex-direction: column; align-items: center; }
+  .preview-prepare { background: #edf7f4; border-color: #d9e8e0; }
+  .preview-record { background: #fff0e9; border-color: #efdfd8; }
+  .preview-revisit { background: var(--color-brand-light); border-color: #cfe7e8; }
+  .preview-share { background: #f1eef8; border-color: #e1dced; }
+  .preview-heading { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .35rem 1rem; width: 100%; margin-bottom: 1.35rem; color: var(--color-brand-dark); font-size: .6875rem; font-weight: 700; }
+  .preview-heading > span:last-child { color: var(--color-text-secondary); font-weight: 500; }
+  .sample-app { width: 100%; max-width: 380px; min-height: 485px; border: 1px solid #e0e5e1; border-radius: 22px; background: #fff; box-shadow: 0 14px 35px #243e3810; overflow: hidden; }
+  .app-heading { display: flex; align-items: center; gap: .7rem; padding: 1.1rem 1.25rem; border-bottom: 1px solid #edf0ee; }
+  .app-mark { display: grid; place-items: center; flex-shrink: 0; width: 34px; height: 34px; border-radius: 11px; background: var(--color-brand-light); color: var(--color-brand-dark); font-size: 1.5rem; font-weight: 700; }
+  .app-heading strong { display: block; font-size: .875rem; }
+  .app-heading div > span { display: block; margin-top: .1rem; color: var(--color-text-secondary); font-size: .625rem; }
+  .app-content { padding: 1.4rem 1.25rem; }
+  .sample-label { display: block; color: var(--color-text-secondary); font-size: .625rem; font-weight: 700; letter-spacing: .045em; text-transform: uppercase; }
+  .app-content h3 { margin-top: .45rem; font-size: 1.4rem; line-height: 1.3; letter-spacing: -.025em; }
+  .observation-note { display: flex; gap: .65rem; padding: 1rem; margin-top: 1.25rem; background: #fff8ef; border: 1px solid #f1e2cf; border-radius: 14px; }
+  .note-icon { flex-shrink: 0; color: #90613b; }
+  blockquote { margin: .45rem 0 0; font-size: 1rem; font-weight: 600; line-height: 1.5; }
+  .capture-options { display: flex; flex-wrap: wrap; gap: .5rem 1rem; margin-top: .8rem; color: #765537; font-size: .6875rem; }
+  .capture-options > span { display: flex; align-items: center; gap: .35rem; }
+  .activity-heading { display: flex; align-items: center; justify-content: space-between; margin: 1.4rem 0 .65rem; }
+  .activity-heading > span { color: var(--color-text-secondary); font-size: .625rem; }
+  .activity-entry { display: flex; align-items: center; gap: .7rem; padding: .7rem .8rem; border-radius: 12px; margin-top: .5rem; }
+  .sleep-entry { background: #f1eef8; color: #67518b; } .bottle-entry { background: #fff1e7; color: #855234; }
+  .activity-entry svg { flex-shrink: 0; }
+  .activity-entry strong { display: block; font-size: .8125rem; }
+  .activity-entry div > span { display: block; font-size: .625rem; margin-top: .1rem; }
+  .activity-entry b { margin-left: auto; font-size: .8125rem; white-space: nowrap; }
+  .context-chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
+  .context-chips span { padding: .35rem .55rem; background: #f0f7f3; border-radius: 20px; color: #3d6556; font-size: .625rem; }
+  .source-observation { display: flex; gap: .5rem; align-items: flex-start; margin-top: .8rem; padding: .75rem; border-left: 2px solid #d4b591; background: #fffaf4; border-radius: 0 9px 9px 0; }
+  .source-observation svg { color: #90613b; flex-shrink: 0; }
+  .source-observation p { font-size: .75rem; }
+  .suggested-heading { display: flex; align-items: center; gap: .4rem; margin: 1.2rem 0 .7rem; color: var(--color-brand-dark); font-size: .6875rem; font-weight: 700; }
+  .suggested-heading svg { flex-shrink: 0; }
+  .question-card { display: flex; align-items: flex-start; gap: .65rem; border: 1px solid #dde8e3; padding: .8rem; border-radius: 12px; margin-top: .5rem; }
+  .question-marker { flex-shrink: 0; display: grid; place-items: center; width: 23px; height: 23px; border-radius: 50%; background: #edf7f3; color: var(--color-brand-dark); font-size: .75rem; font-weight: 700; }
+  .question-card p { font-size: .8125rem; line-height: 1.5; }
+  .own-question { display: flex; gap: .5rem; align-items: center; padding-top: 1rem; color: var(--color-brand-dark); font-size: .75rem; font-weight: 700; }
+  .own-question > span { font-size: 1.125rem; }
+  .recording-content { text-align: center; }
+  .permission-note { display: flex; align-items: center; justify-content: center; gap: .35rem; color: var(--color-brand-dark); font-size: .6875rem; margin-top: .8rem; }
+  .recording-orb { display: grid; place-items: center; width: 74px; height: 74px; margin: 1.6rem auto .8rem; color: #a0573f; background: #fff0e9; border: 8px solid #fff8f4; border-radius: 50%; }
+  .recording-wave { display: flex; align-items: center; justify-content: center; gap: 5px; height: 56px; }
+  .recording-wave i { width: 4px; background: #ce907a; border-radius: 4px; }
+  .recording-time { margin-top: .8rem; font-size: 1.75rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .recording-label { color: var(--color-text-secondary); font-size: .6875rem; }
+  .recording-question { text-align: left; padding: .9rem; background: #faf8f5; border-radius: 12px; margin-top: 1.5rem; }
+  .recording-question > p { font-size: .8125rem; margin-top: .3rem; }
+  .recap-question { margin-top: 1.25rem; }
+  .recap-question > p { font-size: .8125rem; font-weight: 700; margin-top: .3rem; }
+  .answer-card { margin-top: .85rem; padding: 1rem; background: #f5fafa; border: 1px solid #dfeded; border-radius: 14px; }
+  .answer-card blockquote { font-size: .875rem; }
+  .audio-reference { display: flex; align-items: center; gap: .6rem; margin-top: 1rem; color: var(--color-brand-dark); }
+  .play-symbol { display: grid; place-items: center; width: 30px; height: 30px; flex-shrink: 0; border: 1px solid #c7e5e5; border-radius: 50%; background: #fff; font-size: .625rem; }
+  .audio-reference strong { font-size: .8125rem; }
+  .audio-reference strong span { font-size: .625rem; font-weight: 500; }
+  .audio-reference p { font-size: .625rem; margin-top: .1rem; }
+  .next-step { display: flex; align-items: flex-start; gap: .6rem; margin-top: 1rem; padding: .9rem 0 0; border-top: 1px solid #e5e9e6; }
+  .next-step > svg { flex-shrink: 0; color: var(--color-brand-dark); }
+  .next-step p { font-size: .8125rem; margin-top: .3rem; line-height: 1.5; }
+  .caregiver-row { display: flex; justify-content: center; gap: 1.2rem; margin: 1.6rem 0 2.5rem; }
+  .caregiver-avatar { position: relative; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: #fff0e5; color: #8b5138; font-size: .875rem; font-weight: 700; }
+  .caregiver-avatar > span { position: absolute; top: 50px; left: 50%; transform: translateX(-50%); font-size: .625rem; color: var(--color-text-secondary); font-weight: 500; }
+  .dad { background: #e6f2f1; color: var(--color-brand-dark); } .grandma { background: #eeebf7; color: #67518b; }
+  .shared-recap { padding: 1rem; border: 1px solid #e4dfee; border-radius: 14px; background: #faf8fd; }
+  .shared-recap > div, .shared-status { display: flex; align-items: center; gap: .5rem; }
+  .shared-recap > div { color: #67518b; }
+  .shared-recap strong { font-size: .8125rem; }
+  .shared-recap > p { font-size: .75rem; margin-top: .5rem; }
+  .shared-status { color: var(--color-brand-dark); font-size: .625rem; margin-top: .75rem; }
+  .audio-privacy { display: flex; align-items: center; gap: .5rem; color: var(--color-text-secondary); margin-top: 1.1rem; }
+  .audio-privacy svg { flex-shrink: 0; } .audio-privacy p { font-size: .625rem; }
+  figcaption { max-width: 380px; margin-top: 1.1rem; color: var(--color-text-secondary); font-size: .6875rem; line-height: 1.6; text-align: center; }
+  @media (max-width: 1000px) {
+    .care-walkthrough { padding-right: calc(var(--preview-width) + 2rem); }
+    .step-title { font-size: 1.1rem; } .step-preview { padding: 1.25rem; min-height: 670px; }
+    .app-content { padding: 1.25rem 1rem; } .app-heading { padding-inline: 1rem; }
+  }
+  @media (max-width: 760px) {
+    .care-walkthrough { padding: 0; min-height: 0; }
+    .step-preview { position: static; width: 100%; min-height: 0; margin-bottom: 1.25rem; padding: 1.25rem; border-radius: 22px; }
+    summary { padding-block: 1.15rem; } .step-title { font-size: 1.2rem; }
+    .step-description { margin-bottom: 1.1rem; font-size: .875rem; }
+    .sample-app { min-height: 0; } .app-content { padding: 1.25rem; }
+    .preview-heading { max-width: 380px; margin-bottom: 1rem; }
+  }
+  @media (max-width: 360px) {
+    summary { gap: .7rem; } .step-title { font-size: 1.1rem; }
+    .step-description { margin-left: 36px; } .step-preview { padding: 1rem; }
+    .app-content, .app-heading { padding: 1rem; } .app-content h3 { font-size: 1.25rem; }
+    .observation-note, .answer-card { padding: .8rem; }
+  }
+</style>

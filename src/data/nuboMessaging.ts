@@ -12,7 +12,7 @@ export const nuboProducts = [
     label: 'For doctor visits',
     description: 'Bring your questions. Record with permission. Come back to the answers and share next steps.',
     access: 'Included in Nubo Plus. Recording and recaps in English.',
-    href: '/#nubo-care',
+    href: '/care/',
     link: 'Explore Nubo Care',
   },
   {

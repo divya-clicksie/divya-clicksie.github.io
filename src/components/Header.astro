@@ -14,6 +14,14 @@ const {
 } = Astro.props;
 
 const ctaAttrs = ctaExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+const navLinks = [
+  { href: '/care/', label: 'Nubo Care' },
+  { href: '/app/', label: 'Baby Tracker' },
+  { href: '/device/', label: 'Device' },
+  { href: '/pricing/', label: 'Pricing' },
+  { href: '/resources/', label: 'Resources' },
+];
+const currentPath = Astro.url.pathname;
 ---
 
 <header class:list={['site-header', { 'photo-hero-header': photoHero }]} id="site-header">
@@ -23,32 +31,25 @@ const ctaAttrs = ctaExternal ? { target: '_blank', rel: 'noopener noreferrer' } 
     </a>
 
     <nav class="nav-links" aria-label="Main navigation">
-      <a href="/app/">App</a>
-      <a href="/device/">Device</a>
-      <a href="/pricing/">Pricing</a>
-      <a href="/compare/">Compare</a>
-      <a href="/resources/">Resources</a>
+      {navLinks.map(({ href, label }) => <a href={href} aria-current={currentPath === href ? 'page' : undefined}>{label}</a>)}
     </nav>
 
     <a href={ctaHref} class="header-cta" {...ctaAttrs}>
       {ctaLabel}
     </a>
 
-    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
     </button>
   </div>
 
-  <div class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-    <nav class="mobile-nav-links">
-      <a href="/app/">App</a>
-      <a href="/device/">Device</a>
-      <a href="/pricing/">Pricing</a>
-      <a href="/resources/">Resources</a>
+  <div class="mobile-nav" id="mobile-nav">
+    <nav class="mobile-nav-links" aria-label="Mobile navigation">
+      {navLinks.map(({ href, label }) => <a href={href} aria-current={currentPath === href ? 'page' : undefined}>{label}</a>)}
+      <a href="/privacy/" aria-current={currentPath === '/privacy/' ? 'page' : undefined}>Trust &amp; Privacy</a>
       <a href="/faq/">FAQ</a>
-      <a href="/compare/">Compare</a>
       <a href={ctaHref} class="mobile-nav-cta" {...ctaAttrs}>
         {ctaLabel}
       </a>
@@ -103,6 +104,7 @@ const ctaAttrs = ctaExternal ? { target: '_blank', rel: 'noopener noreferrer' } 
   }
 
   .nav-links a {
+    white-space: nowrap;
     font-size: 0.875rem;
     font-weight: 600;
     color: #3f4348;
@@ -112,6 +114,12 @@ const ctaAttrs = ctaExternal ? { target: '_blank', rel: 'noopener noreferrer' } 
 
   .nav-links a:hover {
     color: var(--color-brand);
+  }
+
+  .nav-links a[aria-current="page"], .mobile-nav-links a[aria-current="page"] {
+    color: var(--color-brand-dark);
+    text-decoration: underline;
+    text-underline-offset: 5px;
   }
 
   .header-cta {
@@ -184,6 +192,8 @@ const ctaAttrs = ctaExternal ? { target: '_blank', rel: 'noopener noreferrer' } 
 
     .mobile-nav {
       display: none;
+      max-height: calc(100dvh - 60px);
+      overflow-y: auto;
       background: rgba(255, 250, 247, 0.98);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
@@ -270,6 +280,13 @@ const ctaAttrs = ctaExternal ? { target: '_blank', rel: 'noopener noreferrer' } 
     const mobileNav = document.getElementById('mobile-nav');
     if (!menuBtn || !mobileNav) return;
 
+    const closeMenu = () => {
+      menuBtn.classList.remove('open');
+      mobileNav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.setAttribute('aria-label', 'Open menu');
+    };
+
     menuBtn.addEventListener('click', () => {
       const isOpen = menuBtn.classList.toggle('open');
       mobileNav.classList.toggle('open');
@@ -278,12 +295,14 @@ const ctaAttrs = ctaExternal ? { target: '_blank', rel: 'noopener noreferrer' } 
     });
 
     mobileNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        menuBtn.classList.remove('open');
-        mobileNav.classList.remove('open');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        menuBtn.setAttribute('aria-label', 'Open menu');
-      });
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menuBtn.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+        menuBtn.focus();
+      }
     });
   };
 

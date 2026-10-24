@@ -24,6 +24,12 @@ const posts = (await getCollection('blog'))
   .sort((a, b) => new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime())
   .slice(0, 6);
 
+const helpResources = [
+  { title: 'Trust & Privacy', href: '/privacy/', icon: 'lock', description: 'What’s free, why Care is paid, and how your family’s information is handled.', link: 'Read Trust & Privacy' },
+  { title: 'Compare options', href: '/compare/', icon: 'phone', description: 'Find the app and device setup that fits the care your family shares.', link: 'Compare Nubo setups' },
+  { title: 'Nubo questions', href: '/faq/', icon: 'questions', description: 'Practical answers about visits, tracking, caregiver sharing, and getting started.', link: 'Read Nubo FAQs' },
+] as const;
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
@@ -33,6 +39,7 @@ const jsonLd = {
   mainEntity: {
     '@type': 'ItemList',
     itemListElement: [
+      ...helpResources.map(({ title, href }) => ({ name: title, url: `https://www.nubotracker.com${href}` })),
       ...familyGuides.map(({ guide }) => ({
         url: `https://www.nubotracker.com/guides/${guide.slug}/`,
         name: guide.data.title,
@@ -68,6 +75,7 @@ const familyTopics = ['tracking', 'caregiver', 'feeding', 'product'];
   <section class="m-section" id="your-family"><div class="container"><div class="m-heading"><p class="overline">Your family, your stage</p><h2>Start where you are.</h2></div><div class="m-grid two">{familyGuides.map(({ guide, stage }, index) => <ResourceCard title={guide.data.title} href={`/guides/${guide.slug}/`} label={stage} category={familyTopics[index]} excerpt={familyCopy[guide.slug]} />)}</div></div></section>
   <section class="m-section m-warm"><div class="container m-split"><img class="m-photo newborn-guide-image" src="/images/hero-mother-baby-800.webp" alt="A parent holding their newborn close" width="800" height="669" loading="lazy" /><div class="m-copy"><p class="overline">New here?</p><h2>The first 12 weeks.<br />One useful place to start.</h2><p>A practical guide to keeping track of feeds, sleep, and diapers when the days blur together.</p><a href="/guides/track-feeding-sleep-diapers-first-12-weeks/" class="text-link">Read the newborn guide <span aria-hidden="true">→</span></a></div></div></section>
   <section class="m-section"><div class="container"><div class="m-heading"><p class="overline">Browse by topic</p><h2>What would help today?</h2></div><nav class="topic-links" aria-label="Resource topics">{topics.map(([label, href, icon]) => <a href={href}><SiteIcon name={icon} size={22} /><span>{label}</span><span aria-hidden="true">↗</span></a>)}</nav><div class="quick-links"><a href="/app/#app-downloads">Explore everyday tracking <span aria-hidden="true">→</span></a><a href="/pricing/">Compare Free and Plus <span aria-hidden="true">→</span></a><a href="/exclusive-pumping/">Private pumping <span aria-hidden="true">→</span></a><a href="/faq/#nubo-intelligence">Nubo questions <span aria-hidden="true">→</span></a></div></div></section>
+  <section class="m-section m-teal" aria-labelledby="nubo-help-title"><div class="container"><div class="m-heading"><p class="overline">Choosing and using Nubo</p><h2 id="nubo-help-title">A few useful answers.</h2></div><div class="m-grid three">{helpResources.map(({ title, href, icon, description, link }) => <article class="m-card"><span class="m-icon"><SiteIcon name={icon} /></span><h3>{title}</h3><p>{description}</p><a href={href} class="text-link">{link} <span aria-hidden="true">→</span></a></article>)}</div></div></section>
   <section class="m-section m-ivory"><div class="container"><div class="m-heading"><p class="overline">From the Nubo blog</p><h2>A little help for everyday care.</h2></div><div class="m-grid three">{posts.map((post) => <ResourceCard title={post.data.title} href={`/blog/${post.data.category}/${post.slug}/`} label={post.data.category} category={post.data.category} image={post.data.heroImage} />)}</div><div class="m-actions"><a href="/blog/" class="text-link">View all articles <span aria-hidden="true">→</span></a></div></div></section>
 </MarketingLayout>
 <style>

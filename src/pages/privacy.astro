@@ -1,33 +1,145 @@
 ---
 import MarketingLayout from '../layouts/MarketingLayout.astro';
 import SiteIcon from '../components/SiteIcon.astro';
-import { nuboAccess } from '../data/nuboMessaging';
+import { nuboAccess, nuboProcessing } from '../data/nuboMessaging';
 
-const title = 'Privacy | Nubo Intelligence, Nubo Care, and Sharing';
-const description = 'Your family’s words, handled with care. See how Nubo processes voice logs and visit recaps, shares with invited caregivers, and backs up your records.';
-
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: title,
-  description,
-  url: 'https://www.nubotracker.com/privacy/'
-};
+const title = 'Trust & Privacy | Free Tracking, Paid Care & Your Data | Nubo';
+const description = 'See what is free, why Nubo Care is paid, and how Nubo handles recordings, caregiver sharing, backups, and deletion. Clear answers about your family’s data.';
+const fundingQuestions = [
+  {
+    q: 'Is Nubo really free?',
+    a: 'Yes. Everyday baby tracking, in-app voice logging, observations, and unlimited caregivers are free on iPhone and Android. Nubo Plus adds paid features, including Nubo Care. Your baby history remains available in the free app when Plus access ends.',
+    icon: 'leaf',
+  },
+  {
+    q: 'Why is Nubo Care paid?',
+    a: 'Preparing for visits and turning recorded conversations into useful recaps involves ongoing processing, maintenance, and support. Nubo Care is included in Plus, our paid app plan. It is also available during your Plus preview and active device-access windows.',
+    icon: 'audio',
+  },
+  {
+    q: 'How does Nubo make money?',
+    a: 'Nubo offers Plus subscriptions and an optional physical tracker. We do not sell or rent your personal information. The app has no third-party advertising or tracking SDKs.',
+    icon: 'sparkles',
+  },
+] as const;
+const jsonLd = [
+  {
+    '@context': 'https://schema.org', '@type': 'WebPage',
+    name: title, description, url: 'https://www.nubotracker.com/privacy/',
+  },
+  {
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: fundingQuestions.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+  },
+];
 ---
 
 <MarketingLayout title={title} description={description} jsonLd={jsonLd}>
-  <section class="m-hero"><div class="container m-split"><div><p class="overline">Private by design</p><h1>Your family's data.<br />Handled with care.</h1><p class="m-lead">A spoken update. A visit conversation. Your family's words deserve care. See what stays on your phone, what is processed on the server, and what invited caregivers receive.</p><div class="m-actions"><a href="#processing" class="btn-primary">See where data goes</a><a href="/privacy-policy/" class="text-link">Read the full policy <span aria-hidden="true">→</span></a></div></div><div class="privacy-map" aria-label="Your phone at the center, with optional encrypted caregiver sharing and backup in your own cloud account"><div class="phone-node"><SiteIcon name="phone" size={45} /><strong>Your phone</strong><span>Your baby's history</span></div><div class="map-branches"><div><SiteIcon name="users" size={28} /><strong>Invited caregivers</strong><span>Encrypted sharing</span></div><div><SiteIcon name="cloud" size={28} /><strong>Your cloud account</strong><span>Optional private backup</span></div></div></div></div></section>
-  <section class="m-section" id="processing"><div class="container"><div class="m-heading center"><p class="overline">Feature by feature</p><h2>Where your information goes.</h2></div><div class="processing-cards"><article class="m-card"><span class="m-icon"><SiteIcon name="phone" /></span><p class="m-label">Everyday voice logging</p><h3>On your phone.</h3><p>Say what happened, then review and edit the events before saving. Speech recognition and event interpretation run on your phone, even offline.</p><p class="m-note">Supported Notetaker AI titles and tags also run on your phone.</p><details><summary>Notetaker device requirements</summary><p>{nuboAccess.notetaker}</p></details></article><article class="m-card care-processing"><span class="m-icon peach"><SiteIcon name="audio" /></span><p class="m-label">Nubo Care</p><h3>Processed, then cleared.</h3><p>Selected visit content goes to the server for processing. Nubo and its processing providers retain no visit data afterward.</p><div class="processing-path"><span>Selected content</span><span aria-hidden="true">→</span><span>Process</span><span aria-hidden="true">→</span><strong>Clear</strong></div><p class="m-note">Recaps sync to invited caregivers. Original audio stays on the recording phone.</p></article><article class="m-card"><span class="m-icon lilac"><SiteIcon name="cloud" /></span><p class="m-label">Alexa logging</p><h3>Through Amazon.</h3><p>Alexa requests use Amazon's Alexa systems. Resulting care events join your baby timeline.</p><a href="/alexa/" class="text-link">Explore Alexa <span aria-hidden="true">→</span></a></article></div></div></section>
-  <section class="m-section m-teal"><div class="container m-split"><div class="m-copy"><p class="overline">Clear boundaries</p><h2>Shared care.<br />Thoughtful limits.</h2><p>Share the last feed and the visit recap with invited caregivers. Your private pumping history stays separate, and original visit audio stays on the recording phone.</p><a href="/caregivers/" class="text-link">See caregiver sharing <span aria-hidden="true">→</span></a></div><dl class="privacy-boundaries"><div><dt><SiteIcon name="users" size={20} />Baby logs and recaps</dt><dd>For invited caregivers, with end-to-end encrypted sharing.</dd></div><div><dt><SiteIcon name="lock" size={20} />Private pumping</dt><dd>Your milk output stays outside the caregiver timeline.</dd></div><div><dt><SiteIcon name="audio" size={20} />Original visit audio</dt><dd>Kept on the phone that recorded it.</dd></div><div><dt><SiteIcon name="cloud" size={20} />Optional backups</dt><dd>In your own iCloud or Google Drive account.</dd></div></dl></div></section>
-  <section class="m-section"><div class="container m-grid three"><article><span class="m-icon"><SiteIcon name="check" /></span><h3>No selling baby data.</h3><p class="m-note">Your family's care history serves your family.</p></article><article><span class="m-icon peach"><SiteIcon name="leaf" /></span><h3>A quiet website.</h3><p class="m-note">Cookieless Plausible analytics. No ad pixels, retargeting, heatmaps, or session replay.</p></article><article><span class="m-icon lilac"><SiteIcon name="phone" /></span><h3>Your history stays.</h3><p class="m-note">Your baby history remains available in the free app if Plus access ends.</p></article></div></section>
-  <section class="m-cta"><div class="container"><p class="overline">The details are here when you need them</p><h2>A clear policy.<br />A team you can reach.</h2><div class="m-actions"><a href="/privacy-policy/" class="btn-primary">Read the privacy policy</a><a href="/contact/" class="text-link">Ask a privacy question <span aria-hidden="true">→</span></a></div></div></section>
+  <section class="m-hero" aria-labelledby="trust-title">
+    <div class="container m-split">
+      <div>
+        <p class="overline">Trust &amp; Privacy</p>
+        <h1 id="trust-title">Your family's data.<br />Handled with care.</h1>
+        <p class="m-lead">You have enough to think about. You deserve clear answers about what’s free, what you pay for, and where your family’s information goes.</p>
+        <div class="m-actions"><a href="#free-and-paid" class="btn-primary">What’s free, and why?</a><a href="/privacy-policy/" class="text-link">Read the full policy <span aria-hidden="true">→</span></a></div>
+      </div>
+      <div class="privacy-map" role="group" aria-label="Local records, optional encrypted sharing and private backup, and separate visit processing">
+        <div class="phone-node"><SiteIcon name="phone" size={40} /><strong>Your phone</strong><span>Activity records and original visit audio</span></div>
+        <div class="map-branches"><div><SiteIcon name="users" size={25} /><strong>Invited caregivers</strong><span>Encrypted sharing of logs and recaps</span></div><div><SiteIcon name="cloud" size={25} /><strong>Your cloud account</strong><span>Optional private backup</span></div></div>
+        <div class="server-node"><SiteIcon name="audio" size={23} /><div><strong>Separate Nubo Care processing</strong><span>Selected visit content is processed on the server, then cleared.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="trust-topics" aria-label="On this trust and privacy page"><div class="container"><a href="#your-choices">Your choices</a><a href="#free-and-paid">Free and paid</a><a href="#processing">Data handling</a><a href="#sharing">Caregiver sharing</a><a href="#retention">Retention and deletion</a></div></nav>
+
+  <section class="m-section" id="your-choices" aria-labelledby="choices-title">
+    <div class="container">
+      <div class="m-heading"><p class="overline">Choices you make</p><h2 id="choices-title">You decide what to keep<br />and who to invite.</h2></div>
+      <div class="m-grid three">
+        <article class="m-card"><span class="m-icon"><SiteIcon name="mic" /></span><h3>You choose to record.</h3><p>Visit recording is optional. Ask everyone taking part for permission and follow the clinic’s policy. You can prepare questions and take notes instead.</p></article>
+        <article class="m-card"><span class="m-icon peach"><SiteIcon name="users" /></span><h3>You invite caregivers.</h3><p>Use the app on your own or invite people caring for your child. Invited caregivers can receive synced baby logs and visit recaps. Original visit audio stays on the recording phone.</p></article>
+        <article class="m-card"><span class="m-icon lilac"><SiteIcon name="check" /></span><h3>You can delete records.</h3><p>Delete records within the Nubo app. Manage private backup copies through your iCloud or Google Drive account. Separately exported or retained copies need to be managed too.</p><a href="#retention" class="text-link">See retention and deletion details <span aria-hidden="true">→</span></a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="m-section m-warm" id="free-and-paid" aria-labelledby="funding-title">
+    <div class="container">
+      <div class="m-heading"><p class="overline">Free tracking. Paid Care.</p><h2 id="funding-title">What you pay for.<br />How Nubo is supported.</h2><p>The free tracker and paid Plus plan are parts of the same Nubo app. Care is a Plus feature, with no separate Care subscription.</p></div>
+      <div class="m-grid three">{fundingQuestions.map(({ q, a, icon }) => <article class="m-card"><span class="m-icon"><SiteIcon name={icon} /></span><h3>{q}</h3><p>{a}</p></article>)}</div>
+      <div class="funding-note"><SiteIcon name="lock" size={24} /><div><h3>The same privacy commitments, Free or Plus.</h3><p>We do not sell or rent your personal information. Choosing the free tracker does not change that commitment.</p><a href="/pricing/" class="text-link">See Free, Plus, and device access <span aria-hidden="true">→</span></a></div></div>
+    </div>
+  </section>
+
+  <section class="m-section" id="processing" aria-labelledby="processing-title">
+    <div class="container">
+      <div class="m-heading"><p class="overline">Feature by feature</p><h2 id="processing-title">Where your information goes.</h2><p>Everyday voice logging, visit processing, and Alexa use different paths. Here is what happens when you use each.</p></div>
+      <div class="processing-cards">
+        <article class="m-card"><span class="m-icon"><SiteIcon name="phone" /></span><p class="m-label">Everyday voice logging</p><h3>On your phone.</h3><p>Say what happened, then review and edit the events before saving. {nuboProcessing.voice}</p><p class="m-note">Supported Notetaker AI titles and tags also run on your phone.</p><details><summary>Notetaker device requirements</summary><p>{nuboAccess.notetaker}</p></details></article>
+        <article class="m-card care-processing"><span class="m-icon peach"><SiteIcon name="audio" /></span><p class="m-label">Nubo Care</p><h3>Processed, then cleared.</h3><p>{nuboProcessing.care}</p><div class="processing-path"><span>Selected content</span><span aria-hidden="true">→</span><span>Process</span><span aria-hidden="true">→</span><strong>Clear</strong></div><p class="m-note">Cleared from processing does not mean deleted from your phone. Saved recaps remain on phones and can sync to invited caregivers. Original audio stays on the recording phone.</p><a href="/care/" class="text-link">How Nubo Care works <span aria-hidden="true">→</span></a></article>
+        <article class="m-card"><span class="m-icon lilac"><SiteIcon name="cloud" /></span><p class="m-label">Alexa logging</p><h3>Through Amazon.</h3><p>{nuboProcessing.alexa} Resulting care events join your baby timeline.</p><a href="/alexa/" class="text-link">Explore Alexa <span aria-hidden="true">→</span></a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="m-section m-teal" id="sharing" aria-labelledby="sharing-title">
+    <div class="container m-split">
+      <div class="m-copy"><p class="overline">Caregiver sharing</p><h2 id="sharing-title">Shared care.<br />Thoughtful limits.</h2><p>Share the last feed and the visit recap with invited caregivers. Your private pumping history stays separate, and original visit audio stays on the recording phone.</p><p>Ordinary caregiver sync relays encrypted records that Nubo cannot read. Requested Care processing is a separate step, described above.</p><a href="/caregivers/" class="text-link">See caregiver sharing <span aria-hidden="true">→</span></a></div>
+      <dl class="privacy-boundaries"><div><dt><SiteIcon name="users" size={20} />Baby logs and recaps</dt><dd>For invited caregivers, with end-to-end encrypted sharing.</dd></div><div><dt><SiteIcon name="lock" size={20} />Private pumping</dt><dd>Your milk output stays outside the caregiver timeline.</dd></div><div><dt><SiteIcon name="audio" size={20} />Original visit audio</dt><dd>Kept on the phone that recorded it. Not synced to caregivers.</dd></div><div><dt><SiteIcon name="cloud" size={20} />Optional backups</dt><dd>In your own iCloud or Google Drive account. Those services have their own privacy policies.</dd></div></dl>
+    </div>
+  </section>
+
+  <section class="m-section" id="retention" aria-labelledby="retention-title">
+    <div class="container">
+      <div class="m-heading"><p class="overline">Storage, retention, and deletion</p><h2 id="retention-title">Know what stays.<br />Know what you can remove.</h2></div>
+      <div class="m-grid two">
+        <article class="m-card"><span class="m-icon"><SiteIcon name="phone" /></span><h3>Your records and backups</h3><p>Activity records and saved visit records are stored on phones. Optional backups use your own cloud account. If Plus access ends, your baby history remains available in the free app.</p><p>Delete records in the app and manage retained backups with your backup provider. Deleting a record does not remove copies you have exported or separately retained.</p></article>
+        <article class="m-card"><span class="m-icon lilac"><SiteIcon name="users" /></span><h3>Your account and sharing</h3><p>No account is required to use the app on its own. An optional account enables caregiver sharing, using the minimum information needed for collaboration.</p><p>Account information is removed from our systems within 30 days of account deletion.</p><a href="/privacy-policy/#6-data-retention-and-deletion" class="text-link">Read the retention policy <span aria-hidden="true">→</span></a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="m-section m-ivory" aria-labelledby="analytics-title">
+    <div class="container m-split"><div class="m-copy"><p class="overline">App and website analytics</p><h2 id="analytics-title">Useful counts.<br />Clear boundaries.</h2><p>The app has no third-party advertising or tracking SDKs. Anonymous, aggregated app usage statistics may help us improve features; they cannot be linked to individual users or babies.</p></div><div class="m-card"><span class="m-icon"><SiteIcon name="leaf" /></span><h3>A quiet website.</h3><p>This website uses Plausible for cookieless, aggregated analytics. No ad pixels, retargeting, heatmaps, session replay, or cookie-banner-dependent tracking.</p><a href="/privacy-policy/#5-analytics-and-tracking" class="text-link">Read about analytics <span aria-hidden="true">→</span></a></div></div>
+  </section>
+
+  <section class="m-cta" aria-labelledby="policy-title"><div class="container"><p class="overline">The details are here when you need them</p><h2 id="policy-title">A clear policy.<br />A team you can reach.</h2><p>Read the full privacy policy for the details, or ask us about how Nubo handles your family’s information.</p><div class="m-actions"><a href="/privacy-policy/" class="btn-primary">Read the privacy policy</a><a href="/contact/" class="text-link">Ask a privacy question <span aria-hidden="true">→</span></a></div></div></section>
 </MarketingLayout>
+
 <style>
-  .privacy-map { border-radius: 30px; padding: 2rem; background: #edf6f0; color: var(--color-brand-dark); } .phone-node { display: grid; justify-items: center; gap: .6rem; background: #fff; border: 1px solid #d3e3d6; border-radius: 20px; padding: 1.5rem; max-width: 230px; margin: 0 auto; } .phone-node span { font-size: .75rem; color: var(--color-text-secondary); }
-  .map-branches { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; } .map-branches > div { position: relative; display: grid; gap: .6rem; justify-items: center; text-align: center; padding: 1.25rem .75rem; border-radius: 18px; border: 1px solid #d3e3d6; background: #ffffffa6; } .map-branches > div::before { content: ''; width: 1px; height: 2rem; background: #b8d1bd; position: absolute; left: 50%; top: -2rem; } .map-branches strong { font-size: .8125rem; } .map-branches span { font-size: .6875rem; color: var(--color-text-secondary); }
-  .processing-cards { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 1.25rem; } .care-processing { background: #fff6ec !important; border-color: #ebdfd0 !important; } .processing-cards h3 { font-size: 1.3rem; } .processing-cards .m-card > .m-note { font-size: .75rem; } .processing-cards details { font-size: .75rem; color: var(--color-brand-dark); margin-top: 1rem; } .processing-cards summary { cursor: pointer; } .processing-cards details p { margin-top: .6rem; font-size: .8125rem; color: var(--color-text-secondary); }
-  .processing-path { display: flex; gap: .5rem; align-items: center; font-size: .625rem; margin-top: 1.25rem; color: #785a3f; background: #fff; padding: .7rem; border-radius: 9px; }
-  .privacy-boundaries { display: grid; gap: 1.1rem; margin: 0; } .privacy-boundaries > div { padding-bottom: 1.1rem; border-bottom: 1px solid #c7e1dd; } .privacy-boundaries > div:last-child { padding: 0; border: 0; } .privacy-boundaries dt { display: flex; align-items: center; gap: .65rem; font-size: .9375rem; font-weight: 700; } .privacy-boundaries dd { font-size: .8125rem; color: var(--color-text-secondary); margin: .35rem 0 0 2rem; }
+  .privacy-map { border-radius: 30px; padding: 1.75rem; background: #edf6f0; color: var(--color-brand-dark); }
+  .phone-node { display: grid; justify-items: center; gap: .6rem; background: #fff; border: 1px solid #d3e3d6; border-radius: 20px; padding: 1.25rem; max-width: 260px; margin: 0 auto; text-align: center; }
+  .phone-node span { font-size: .75rem; color: var(--color-text-secondary); }
+  .map-branches { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+  .map-branches > div { position: relative; display: grid; gap: .6rem; justify-items: center; text-align: center; padding: 1.1rem .75rem; border-radius: 18px; border: 1px solid #d3e3d6; background: #ffffffa6; }
+  .map-branches > div::before { content: ''; width: 1px; height: 1.5rem; background: #b8d1bd; position: absolute; left: 50%; top: -1.5rem; }
+  .map-branches strong, .server-node strong { font-size: .8125rem; }
+  .map-branches span, .server-node span { font-size: .6875rem; color: var(--color-text-secondary); }
+  .server-node { display: flex; gap: .8rem; align-items: center; margin-top: 1rem; padding: 1rem; border: 1px solid #ebdfd0; border-radius: 16px; background: #fff6ec; }
+  .server-node > :global(svg) { flex-shrink: 0; }
+  .server-node span { display: block; margin-top: .25rem; }
+  .trust-topics { border-block: 1px solid #e2e7df; background: #fff; }
+  .trust-topics .container { display: flex; flex-wrap: wrap; gap: .85rem 1.75rem; padding-block: 1.1rem; }
+  .trust-topics a { font-size: .8125rem; font-weight: 700; color: var(--color-brand-dark); }
+  .funding-note { display: flex; gap: 1rem; margin-top: 1.5rem; padding: 1.5rem; border: 1px solid #d3e3d6; border-radius: 20px; background: #edf6f0; }
+  .funding-note > :global(svg) { flex-shrink: 0; color: var(--color-brand-dark); margin-top: .2rem; }
+  .funding-note h3 { font-size: 1rem; }
+  .funding-note p { font-size: .875rem; margin-top: .5rem; color: var(--color-text-secondary); }
+  .funding-note .text-link { display: inline-block; font-size: .8125rem; margin-top: .8rem; }
+  .processing-cards { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 1.25rem; }
+  .care-processing { background: #fff6ec !important; border-color: #ebdfd0 !important; }
+  .processing-cards h3 { font-size: 1.3rem; }
+  .processing-cards .m-card > .m-note { font-size: .8125rem; }
+  .processing-cards details { font-size: .8125rem; color: var(--color-brand-dark); margin-top: 1rem; }
+  .processing-cards summary { cursor: pointer; }
+  .processing-cards details p { margin-top: .6rem; font-size: .8125rem; color: var(--color-text-secondary); }
+  .processing-path { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; font-size: .75rem; margin-top: 1.25rem; color: #785a3f; background: #fff; padding: .7rem; border-radius: 9px; }
+  .privacy-boundaries { display: grid; gap: 1.1rem; margin: 0; }
+  .privacy-boundaries > div { padding-bottom: 1.1rem; border-bottom: 1px solid #c7e1dd; }
+  .privacy-boundaries > div:last-child { padding: 0; border: 0; }
+  .privacy-boundaries dt { display: flex; align-items: center; gap: .65rem; font-size: .9375rem; font-weight: 700; }
+  .privacy-boundaries dd { font-size: .875rem; color: var(--color-text-secondary); margin: .35rem 0 0 2rem; }
   @media (max-width: 900px) { .processing-cards { grid-template-columns: 1fr; } }
-  @media (max-width: 680px) { .privacy-map { padding: 1.5rem; } .map-branches { gap: .75rem; } .map-branches strong { font-size: .75rem; } }
+  @media (max-width: 680px) { .privacy-map { padding: 1.25rem; } .map-branches { gap: .75rem; } .map-branches strong { font-size: .75rem; } .trust-topics .container { gap: .7rem 1.25rem; } .funding-note { padding: 1.25rem; } }
 </style>

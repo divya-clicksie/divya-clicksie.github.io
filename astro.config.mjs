@@ -10,7 +10,6 @@ export default defineConfig({
     sitemap({
       filter: (page) => ![
         'https://www.nubotracker.com/how-it-works/',
-        'https://www.nubotracker.com/care/',
         'https://www.nubotracker.com/blog/product/why-nubo-does-not-predict-your-baby/',
       ].includes(page),
     }),
