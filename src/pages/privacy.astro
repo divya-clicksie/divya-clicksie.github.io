@@ -1,7 +1,7 @@
 ---
 import MarketingLayout from '../layouts/MarketingLayout.astro';
 import SiteIcon from '../components/SiteIcon.astro';
-import { nuboAccess, nuboProcessing } from '../data/nuboMessaging';
+import { nuboAccess, nuboProcessing, nuboSharing } from '../data/nuboMessaging';
 
 const title = 'Trust & Privacy | Free Tracking, Paid Care & Your Data | Nubo';
 const description = 'See what is free, why Nubo Care is paid, and how Nubo handles recordings, caregiver sharing, backups, and deletion. Clear answers about your family’s data.';
@@ -45,7 +45,7 @@ const jsonLd = [
       </div>
       <div class="privacy-map" role="group" aria-label="Local records, optional encrypted sharing and private backup, and separate visit processing">
         <div class="phone-node"><SiteIcon name="phone" size={40} /><strong>Your phone</strong><span>Activity records and original visit audio</span></div>
-        <div class="map-branches"><div><SiteIcon name="users" size={25} /><strong>Invited caregivers</strong><span>Encrypted sharing of logs and recaps</span></div><div><SiteIcon name="cloud" size={25} /><strong>Your cloud account</strong><span>Optional private backup</span></div></div>
+        <div class="map-branches"><div><SiteIcon name="users" size={25} /><strong>Invited caregivers</strong><span>Only the details shared with each person</span></div><div><SiteIcon name="cloud" size={25} /><strong>Your cloud account</strong><span>Optional private backup</span></div></div>
         <div class="server-node"><SiteIcon name="audio" size={23} /><div><strong>Separate Nubo Care processing</strong><span>Selected visit content is processed on the server, then cleared.</span></div></div>
       </div>
     </div>
@@ -58,7 +58,7 @@ const jsonLd = [
       <div class="m-heading"><p class="overline">Choices you make</p><h2 id="choices-title">You decide what to keep<br />and who to invite.</h2></div>
       <div class="m-grid three">
         <article class="m-card"><span class="m-icon"><SiteIcon name="mic" /></span><h3>You choose to record.</h3><p>Visit recording is optional. Ask everyone taking part for permission and follow the clinic’s policy. You can prepare questions and take notes instead.</p></article>
-        <article class="m-card"><span class="m-icon peach"><SiteIcon name="users" /></span><h3>You invite caregivers.</h3><p>Use the app on your own or invite people caring for your child. Invited caregivers can receive synced baby logs and visit recaps. Original visit audio stays on the recording phone.</p></article>
+        <article class="m-card"><span class="m-icon peach"><SiteIcon name="users" /></span><h3>You invite caregivers.</h3><p>{nuboSharing.overview} Pumping records always stay private. Original visit audio stays on the recording phone.</p></article>
         <article class="m-card"><span class="m-icon lilac"><SiteIcon name="check" /></span><h3>You can delete records.</h3><p>Delete records within the Nubo app. Manage private backup copies through your iCloud or Google Drive account. Separately exported or retained copies need to be managed too.</p><a href="#retention" class="text-link">See retention and deletion details <span aria-hidden="true">→</span></a></article>
       </div>
     </div>
@@ -77,7 +77,7 @@ const jsonLd = [
       <div class="m-heading"><p class="overline">Feature by feature</p><h2 id="processing-title">Where your information goes.</h2><p>Everyday voice logging, visit processing, and Alexa use different paths. Here is what happens when you use each.</p></div>
       <div class="processing-cards">
         <article class="m-card"><span class="m-icon"><SiteIcon name="phone" /></span><p class="m-label">Everyday voice logging</p><h3>On your phone.</h3><p>Say what happened, then review and edit the events before saving. {nuboProcessing.voice}</p><p class="m-note">Supported Notetaker AI titles and tags also run on your phone.</p><details><summary>Notetaker device requirements</summary><p>{nuboAccess.notetaker}</p></details></article>
-        <article class="m-card care-processing"><span class="m-icon peach"><SiteIcon name="audio" /></span><p class="m-label">Nubo Care</p><h3>Processed, then cleared.</h3><p>{nuboProcessing.care}</p><div class="processing-path"><span>Selected content</span><span aria-hidden="true">→</span><span>Process</span><span aria-hidden="true">→</span><strong>Clear</strong></div><p class="m-note">Cleared from processing does not mean deleted from your phone. Saved recaps remain on phones and can sync to invited caregivers. Original audio stays on the recording phone.</p><a href="/care/" class="text-link">How Nubo Care works <span aria-hidden="true">→</span></a></article>
+        <article class="m-card care-processing"><span class="m-icon peach"><SiteIcon name="audio" /></span><p class="m-label">Nubo Care</p><h3>Processed, then cleared.</h3><p>{nuboProcessing.care}</p><div class="processing-path"><span>Selected content</span><span aria-hidden="true">→</span><span>Process</span><span aria-hidden="true">→</span><strong>Clear</strong></div><p class="m-note">Cleared from processing does not mean deleted from your phone. Saved recaps remain on phones and can sync according to the primary caregiver’s sharing choices. Original audio stays on the recording phone.</p><a href="/care/" class="text-link">How Nubo Care works <span aria-hidden="true">→</span></a></article>
         <article class="m-card"><span class="m-icon lilac"><SiteIcon name="cloud" /></span><p class="m-label">Alexa logging</p><h3>Through Amazon.</h3><p>{nuboProcessing.alexa} Resulting care events join your baby timeline.</p><a href="/alexa/" class="text-link">Explore Alexa <span aria-hidden="true">→</span></a></article>
       </div>
     </div>
@@ -85,8 +85,8 @@ const jsonLd = [
 
   <section class="m-section m-teal" id="sharing" aria-labelledby="sharing-title">
     <div class="container m-split">
-      <div class="m-copy"><p class="overline">Caregiver sharing</p><h2 id="sharing-title">Shared care.<br />Thoughtful limits.</h2><p>Share the last feed and the visit recap with invited caregivers. Your private pumping history stays separate, and original visit audio stays on the recording phone.</p><p>Ordinary caregiver sync relays encrypted records that Nubo cannot read. Requested Care processing is a separate step, described above.</p><a href="/caregivers/" class="text-link">See caregiver sharing <span aria-hidden="true">→</span></a></div>
-      <dl class="privacy-boundaries"><div><dt><SiteIcon name="users" size={20} />Baby logs and recaps</dt><dd>For invited caregivers, with end-to-end encrypted sharing.</dd></div><div><dt><SiteIcon name="lock" size={20} />Private pumping</dt><dd>Your milk output stays outside the caregiver timeline.</dd></div><div><dt><SiteIcon name="audio" size={20} />Original visit audio</dt><dd>Kept on the phone that recorded it. Not synced to caregivers.</dd></div><div><dt><SiteIcon name="cloud" size={20} />Optional backups</dt><dd>In your own iCloud or Google Drive account. Those services have their own privacy policies.</dd></div></dl>
+      <div class="m-copy"><p class="overline">Caregiver sharing</p><h2 id="sharing-title">Shared care.<br />Thoughtful limits.</h2><p>{nuboSharing.overview} Nursing details, Care Vault information, and doctor visit data each have sharing choices per caregiver.</p><p>Ordinary caregiver sync relays encrypted records that Nubo cannot read. Requested Care processing is a separate step, described above.</p><a href="/caregivers/" class="text-link">See caregiver sharing <span aria-hidden="true">→</span></a></div>
+      <dl class="privacy-boundaries"><div><dt><SiteIcon name="lock" size={20} />Pumping</dt><dd>{nuboSharing.pumping}</dd></div><div><dt><SiteIcon name="users" size={20} />Detailed nursing</dt><dd>{nuboSharing.nursing}</dd></div><div><dt><SiteIcon name="check" size={20} />Care Vault</dt><dd>{nuboSharing.vault}</dd></div><div><dt><SiteIcon name="questions" size={20} />Doctor visit data</dt><dd>{nuboSharing.visits}</dd></div><div><dt><SiteIcon name="audio" size={20} />Original visit audio</dt><dd>Kept on the phone that recorded it. Not synced to caregivers.</dd></div><div><dt><SiteIcon name="cloud" size={20} />Optional backups</dt><dd>In your own iCloud or Google Drive account. Those services have their own privacy policies.</dd></div></dl>
     </div>
   </section>
 

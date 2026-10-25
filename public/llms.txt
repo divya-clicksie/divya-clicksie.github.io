@@ -70,13 +70,24 @@ Nubo's product boundaries:
 - AI medical advisor or health chatbot: Nubo does not offer an AI chatbot for medical questions, symptom triage, or treatment recommendations. A chatbot cannot examine a child, assess breathing or hydration, or take responsibility for a missed urgent symptom. For medical concerns, Nubo directs families to qualified professionals.
 - Anxiety-driven engagement loops: Nubo is designed so that using it less can still mean it is working. Parental anxiety is not a growth strategy.
 
+## Caregiver Sharing Choices
+
+Unlimited caregivers refers to how many people can be invited. The primary caregiver decides what each person can see.
+
+- Pumping records are always private and are never shared with other caregivers.
+- Detailed nursing: the primary caregiver can share nursing side and time per side with a caregiver, or keep those details private and share only total nursing time.
+- Care Vault: the primary caregiver chooses whether to share information such as insurance and doctor details, and how much each caregiver can access.
+- Doctor visit data: the primary caregiver chooses whether to share it and how much each caregiver can access. Original visit audio stays on the recording phone and is not synced to caregivers.
+
+Sharing details: https://www.nubotracker.com/caregivers/#sharing-controls
+
 ## Privacy and Safety Notes
 
 Nubo is not a medical device and is not intended to diagnose, treat, cure, or prevent any medical condition. Families should consult a pediatrician for medical advice.
 
 Nubo's marketing website uses cookieless Plausible analytics. It does not use ad pixels, retargeting scripts, session replay, heatmaps, or cookie banners.
 
-In-app voice logging runs on the phone, including offline. Selected Nubo Care visit content is processed on the server; Nubo and its processing providers retain no visit data afterward. Recaps sync to invited caregivers, while original audio stays on the recording phone. Alexa logging uses Amazon's systems. Caregiver sharing is end-to-end encrypted across iPhone and Android. Optional backups use the user's own iCloud or Google Drive.
+In-app voice logging runs on the phone, including offline. Selected Nubo Care visit content is processed on the server; Nubo and its processing providers retain no visit data afterward. The primary caregiver chooses which visit details each caregiver can see. Original audio stays on the recording phone. Alexa logging uses Amazon's systems. Caregiver sharing is end-to-end encrypted across iPhone and Android. Optional backups use the user's own iCloud or Google Drive.
 
 ## Canonical Entity
 
@@ -95,7 +106,7 @@ Feature overview: https://www.nubotracker.com/app/#notetaker
 
 Nubo Care helps parents listen to their pediatrician without taking notes at the same time. Before the appointment, save questions. During it, tap record with permission. Afterward, return to a recap, answers to those questions, and shared next steps. It is available worldwide, with visit recording and recaps in English. Care is included in Plus, everyone's 14-day Plus preview, and device-owner Plus access.
 
-Each answer extracted from a recording refers to actual audio timestamps for playback on the recording phone. Summaries, answers, to-dos, and other visit records sync to invited caregivers; audio does not. Care processing happens on the server with zero data retention after processing. Visit records live on phones and in users' private backups.
+Each answer extracted from a recording refers to actual audio timestamps for playback on the recording phone. Summaries, answers, to-dos, and other visit records sync according to the primary caregiver’s sharing choices for each caregiver; audio does not. Care processing happens on the server with zero data retention after processing. Visit records live on phones and in users' private backups.
 
 Feature overview: https://www.nubotracker.com/#nubo-care
 

@@ -2,7 +2,7 @@
 title: "Exclusive Pumping Data Is Yours Alone"
 description: "Nubo's private pumping tracker keeps exclusive pumping output in your account, never the shared baby log. See the privacy design."
 datePublished: "2026-05-08"
-dateModified: "2026-10-19"
+dateModified: "2026-10-24"
 author: "Nubo Team"
 category: "privacy"
 primaryKeyword: "private pumping tracker"
@@ -26,11 +26,11 @@ Nubo draws a hard line between child data and user data. Pumping output is scope
 
 When you log a pumping session in Nubo, four things do not happen:
 
-**It does not appear in the shared baby log.** The baby's daily feed-sleep-diaper timeline is visible to every invited caregiver. Pumping output never shows up there.
+**It does not appear in the shared baby log.** Caregivers use the shared baby timeline for everyday care. Pumping output never shows up there. The primary caregiver also controls whether each caregiver sees nursing side and time per side, Care Vault information, and doctor visit data.
 
 **It does not flow through the caregiver sync pipeline.** Nubo's [caregiver sync uses end-to-end encryption](/blog/privacy/nubo-privacy-architecture/) with per-child keys shared at invite time. Your pumping data never enters that path. A caregiver who downloads the latest batch of synced events will not find a pumping record among them.
 
-**It is not visible to collaborators, regardless of access level.** A co-parent who shares full access to every feed, nap, and diaper change does not automatically see pumping data. The access scope for baby events does not extend to personal body data.
+**It is not visible to collaborators, regardless of access level.** A co-parent with access to baby feeds, naps, and diapers still cannot see pumping records through caregiver sharing. The access scope for baby events does not extend to personal body data.
 
 **It is structurally separate, not just filtered.** The data is not in the shared schema with a visibility flag set to "hidden." It lives in a different store entirely. There is no edge case where a future caregiver feature could accidentally surface it.
 

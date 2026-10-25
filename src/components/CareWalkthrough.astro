@@ -22,10 +22,11 @@ const steps = [
   },
   {
     key: 'record',
+    anchor: 'nubo-scribe',
     label: 'Record',
     title: 'Be there for the conversation.',
-    description: 'Ask everyone taking part for permission, then record the visit. You can focus on listening and come back to the conversation later.',
-    product: 'Nubo Care',
+    description: 'Ask everyone taking part for permission, then record the visit with Nubo Scribe, part of Nubo Intelligence. You can focus on listening and come back to the conversation later.',
+    product: 'Nubo Scribe · Nubo Intelligence',
     access: 'Visit recording · Plus',
     caption: 'Record with permission. Original audio stays on the recording phone.',
   },
@@ -35,19 +36,19 @@ const steps = [
     label: 'Revisit',
     title: 'Come back to the answers.',
     description: 'Review the recap, answers, and next steps. On the recording phone, follow an answer’s timestamp to hear that part of the conversation again.',
-    product: 'Nubo Care',
+    product: 'Nubo Scribe · Nubo Intelligence',
     access: 'Answers and next steps · Plus',
     caption: 'Return to your pediatrician’s words on the phone that recorded the visit.',
   },
   {
     key: 'share',
     anchor: 'caregivers',
-    label: 'Share',
-    title: 'Help everyone catch up.',
-    description: 'Your partner couldn’t make the visit. Invited caregivers can read the synced recap, answers, and to-dos, so the next steps are there for everyone caring for your child.',
-    product: 'Nubo Care',
-    access: 'Shared visit recaps · Plus',
-    caption: 'Recaps sync to invited caregivers. Original audio stays on your phone.',
+    label: 'Coordinate',
+    title: 'Follow through together.',
+    description: 'Your partner couldn’t make the visit. Nubo Coordinator, part of Nubo Intelligence alongside Nubo Scribe, keeps the reviewed next steps and to-dos together. The primary caregiver chooses which visit details each caregiver can see, so the people following up have the information they need.',
+    product: 'Nubo Coordinator · Nubo Intelligence',
+    access: 'Shared next steps · Plus',
+    caption: 'Visit details are shared according to caregiver permissions. Original audio stays on your phone.',
   },
 ];
 ---
@@ -110,10 +111,10 @@ const steps = [
                 </div>}
 
                 {step.key === 'share' && <div class="app-content">
-                  <p class="sample-label">For invited caregivers</p>
+                  <p class="sample-label">For caregivers given access</p>
                   <h3>One visit. Shared next steps.</h3>
                   <div class="caregiver-row"><span class="caregiver-avatar">M<span>Mom</span></span><span class="caregiver-avatar dad">D<span>Dad</span></span><span class="caregiver-avatar grandma">G<span>Grandma</span></span></div>
-                  <div class="shared-recap"><div><SiteIcon name="users" size={22} /><strong>Ella’s pediatrician visit</strong></div><p>Recap, answers, and to-dos</p><span class="shared-status"><SiteIcon name="check" size={16} /> Synced to invited caregivers</span></div>
+                  <div class="shared-recap"><div><SiteIcon name="users" size={22} /><strong>Ella’s pediatrician visit</strong></div><p>Recap, answers, and to-dos</p><span class="shared-status"><SiteIcon name="check" size={16} /> Shared with selected caregivers</span></div>
                   <div class="next-step"><SiteIcon name="check" size={21} /><div><span class="sample-label">Shared next step</span><p>Save waking-time observations for the follow-up.</p></div></div>
                   <div class="audio-privacy"><SiteIcon name="lock" size={17} /><p>Original audio stays on the recording phone.</p></div>
                 </div>}

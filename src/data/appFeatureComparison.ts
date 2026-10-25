@@ -1,7 +1,8 @@
 export const free = [
   'Track feeds, sleep, diapers, medicine, vaccines, allergens, and more',
   'One-tap in-app quick logging',
-  'Unlimited caregivers on the shared baby timeline',
+  'Unlimited caregivers with sharing controlled by the primary caregiver',
+  'Share nursing side and time per side, or only total nursing time, per caregiver',
   'Cross-platform caregiver sync for iPhone and Android',
   'Multiple child profiles',
   'WHO growth tracking',
@@ -20,13 +21,13 @@ export const free = [
   'Works with Nubo Remote'
 ];
 export const plus = [
-  'Nubo Care: doctor visits, answers, and synced next steps',
+  'Nubo Care: doctor visits, answers, and next steps with sharing choices per caregiver',
   'Nubo Noticed throughout the week',
   'Rhythm charts',
   'Live Activities for timers and recent caregiver updates (iOS)',
-  'Care Vault for standing handoff details',
+  'Care Vault for standing handoff details, with sharing choices per caregiver',
   'Allergen SafeStart for guided allergen introduction',
-  'Private pumping and milk collection tracker',
+  'Pumping and milk collection tracker: always private, never shared with caregivers',
   'Sleep Sounds Mixer',
   'Advanced growth metrics',
   'Automatic and smart reminders',

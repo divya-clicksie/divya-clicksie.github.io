@@ -1,16 +1,17 @@
 # Nubo Content Strategy — Claude Code Execution Tracker
 
-> **IMPORTANT:** This document is the single source of truth for Nubo's content strategy. Read the full file before starting any task. Update task statuses and log entries as you complete work. Never delete historical log entries. Follow the instructions in each task block exactly.
+> **IMPORTANT:** Read this file before starting content work. The current repository source and `AGENTS.md` govern product facts, feature access, frontmatter, and publishing. Use the prioritized comparison content plan below as the next writing queue. Update task statuses and append execution log entries as work is completed. Never delete historical log entries.
 
 ---
 
 ## Project Overview
 
 **Brand:** Nubo — a baby tracking ecosystem (physical device + companion app + Alexa skill)
+**Caregiver sharing:** Unlimited caregivers means unlimited invitations, with access chosen per caregiver by the primary caregiver. Pumping records are always private. Detailed nursing can include side and time per side, or only total nursing time. Care Vault information and doctor visit data can be shared to the extent each caregiver needs. Original visit audio stays on the recording phone.
 **Device name:** Nubo Remote, the optional one-tap baby tracker. Use this name for the physical product; keep `/device/` and existing article URLs.
-**Website:** https://divya-clicksie.github.io/
+**Website:** https://www.nubotracker.com/
 **Goal:** Build a blog that drives organic SEO traffic and converts new parents into buyers
-**Competitors analyzed:** Talli (talli.me) · Huckleberry (huckleberrycare.com)
+**Comparison shortlist (2026-10-24):** Apps: Huckleberry, Nara Baby, and Baby Tracker by Nighp. Devices: Talli and Cubtale.
 **Strategy created:** 2026-03-30
 
 ### The Nubo ecosystem — three ways to track with one system
@@ -23,21 +24,93 @@ Nubo is not a single product. It is three input surfaces that feed into one unif
 | **Nubo App** | iOS + Android companion app. Where all data lives. Charts, growth tracking, smart averages, reminders, caregiver sync, CSV export, Fenton preemie charts, Midnight Ember night mode, vaccine records, CDC milestones. | App Store, Google Play |
 | **Nubo Alexa Skill** | Voice-based logging. "Alexa, tell Newborn Tracker that Emma had 4 ounces of formula 20 minutes ago." Supports relative and absolute times. Events sync to all caregivers. | Amazon Alexa Skills |
 
-**The key differentiator:** No other baby tracker offers all three input methods feeding into the same dataset. Huckleberry is app-only. Talli is device + app. BabyConnect is app-only. Nubo gives parents a device for hands-free moments, an app for detailed review and analytics, and a voice skill for when both hands and eyes are occupied. The parent picks the right tool for the moment.
+**The comparison case:** Nubo combines free everyday tracking, Quick Log, on-device voice catch-up, unlimited caregivers, optional physical buttons, and Alexa support around one baby timeline. Use what fits the moment. Compare the actual workflow, feature access, and processing for each need. Other products also combine apps, devices, and voice support, so that combination alone is not an exclusivity claim.
 
 ### Product differentiators to weave into every post
 - **Ecosystem, not a single product** — three input methods (device, app, voice), one data layer
 - Multi-caregiver sync (nanny, grandparents, partner all see the same data)
-- Privacy-first: local-first architecture, end-to-end encrypted sync, no server-side data access
+- Privacy: local everyday records, end-to-end encrypted caregiver sharing, and optional private backup. Nubo Care uses separate requested server processing; Alexa uses Amazon's systems. Use the current privacy page for the boundaries.
 - Works in the dark, one-handed, at 3am (device); eyes-free from across the room (Alexa)
 - Nubo App is a full-featured tracker on its own, with smart averages, Fenton charts, vaccine tracking, and CDC milestones. Nubo Plus adds Live Activities on iPhone and Midnight Ember.
 - Coin cell battery — months of life, no charging anxiety
 
 ---
 
+## Prioritized comparison content plan (2026-10-24)
+
+**Planning status:** Added to the strategy on 2026-10-24. All article tasks below are `PENDING`; this planning update does not mean the articles have been written, revised, tested, or published.
+
+**Goal:** Publish useful comparisons for specific family needs where Nubo has a defensible case to be the top recommendation. The winner follows the evidence. Disclose that Nubo publishes the comparison, explain the criteria, and recommend another product when it fits the reader better.
+
+**Priority basis:** Strength of the product advantage, decision-stage intent, reuse of existing content, and readiness of supporting evidence. These are editorial priorities, not measured search-volume or traffic estimates. This queue supersedes the older phase order for comparison work. Keep completed historical tasks marked done; track each new revision under its CMP ID.
+
+### Comparison scope
+
+- **App comparisons:** Nubo, Huckleberry, Nara Baby, and Baby Tracker by Nighp. This is the agreed comparison set, not a claim about a measured market ranking. Keep Talli and Cubtale in device sections only.
+- **Device comparisons:** Nubo, Talli, and Cubtale only. Compare the associated app, connection, and plan when they affect using the device.
+- **Mixed comparisons:** The less-screen-time article may contain separate app and device tables using the same sets. Keep a physical button press, an in-app voice entry, a watch interaction, and an app review distinct.
+- Robin Baby is an editorial research reference, not an additional competitor in this series. Do not broaden the shortlist to Baby Connect, ParentLove, PiyoLog, or other apps without a scope change.
+
+### Writing order and reuse decisions
+
+| Priority / ID | Working title and primary keyword | Action and destination | Nubo's case and evidence needed |
+| --- | --- | --- | --- |
+| 1 / CMP-001 | **Best free baby tracker apps: what stays free**. Keyword: `best free baby tracker`. | **EXPAND** `src/content/blog/free-baby-tracker-no-paywalls.mdx`. Preserve `/blog/tracking/free-baby-tracker-no-paywalls/`. | Compare ongoing free logging, ads, caregivers, voice, offline access, history, backup, and exports. Nubo's case is the combined free feature set. Distinguish an ongoing free plan from a trial and name paid Nubo features clearly. |
+| 2 / CMP-002 | **Best baby tracker apps with voice logging**. Keyword: `best baby tracker with voice logging`. | **EXPAND** `src/content/blog/catch-up-baby-logging-after-the-fact.mdx`. Preserve `/blog/tracking/catch-up-baby-logging-after-the-fact/` and its catch-up examples. | Test the same supported present and past events, amounts, time clues, corrections, and review before saving. Compare price, device requirements, and offline operation. Nubo's case is free on-device voice logging. Keep missed-log catch-up as a substantial section here rather than creating a second overlapping comparison. |
+| 3 / CMP-003 | **Best baby tracker for sharing with caregivers**. Keyword: `best baby tracker for sharing`. | **EXPAND** `src/content/blog/co-parenting-newborn-tracking.mdx` (POST-010). Preserve `/blog/caregiver/co-parenting-newborn-tracking/` and the practical partner-handoff advice. | Compare adding and removing people, separate access or shared credentials, attribution, caregiver limits, iPhone/Android sharing, and cost for the whole group. Nubo's case is unlimited free caregivers and one shared timeline. Acknowledge competitors' free sharing where available. |
+| 4 / CMP-004 | **Best baby tracker devices: Nubo vs Talli vs Cubtale**. Keyword: `best baby tracker device`. | **NEW** `src/content/blog/best-baby-tracker-devices.mdx`, category `tracking`. Planned route: `/blog/tracking/best-baby-tracker-devices/`. | Compare event coverage, controls, number of devices needed, connection, storage away from a connection, portability, batteries, availability, and total setup cost. Nubo's case is dedicated buttons in one portable device with stored timestamped events. Explain the nearby-phone Bluetooth sync requirement alongside Wi-Fi tradeoffs. |
+| 5 / CMP-005 | **Best baby tracker for less screen time**. Keyword: `screen-free baby tracker`; secondary: `best baby tracker for less screen time`. | **EXPAND AND REFRAME** `src/content/blog/screen-free-baby-tracking-clinical-guidance.mdx`. Preserve `/blog/tracking/screen-free-baby-tracking-clinical-guidance/`. | Focus on parents' phone pickups and screen interactions during care. Compare device logging separately from the agreed apps' supported widgets, shortcuts, and watch controls. Nubo's case is phone-free event capture with later app review. Replace unsupported clinical endorsements and sleep-loss claims with measured workflow evidence. |
+| 6 / CMP-006 | **Best baby tracker for preemies**. Keyword: `best baby tracker for preemies`; secondary: `baby tracker for premature babies`. | **NEW** `src/content/blog/best-baby-tracker-for-preemies.mdx`, category `tracking`. Planned route: `/blog/tracking/best-baby-tracker-for-preemies/`. | Compare prematurity-specific growth support, birth/due dates, corrected-age handling, feeding records, caregiver sharing, and visit preparation. Nubo's case includes free preemie/Fenton growth tracking and shared everyday care. Verify each app's reference charts and age handling rather than assuming they lack preemie support. |
+| 7 / CMP-007 | **Best baby tracker for twins**. Keyword: `best baby tracker for twins`; secondary: `baby tracker for multiples`. | **NEW** `src/content/blog/best-baby-tracker-for-twins.mdx`, category `tracking`. Planned route: `/blog/tracking/best-baby-tracker-for-twins/`. | Nubo's case is multiple free child profiles, unlimited caregivers, Quick Log, and voice catch-up. Hands-on comparison must cover profile switching, overlapping timers, separate histories, corrections, caregiver access per child, and total family cost. Multiple profiles alone do not establish a winner. |
+| 8 / CMP-008 | **Best baby tracker for pediatrician visits**. Keyword: `best baby tracker for pediatrician visits`. | **NEW** `src/content/blog/best-baby-tracker-for-pediatrician-visits.mdx`, category `tracking`. Planned route: `/blog/tracking/best-baby-tracker-for-pediatrician-visits/`. | Compare questions, selected logs and observations, reports/exports, visit notes, recording, answers linked to audio, and shared next steps. Nubo Care provides the central case and requires Plus. Separate preparing a report from recording a visit and returning to what was said. Verify features before ranking. |
+| 9 / CMP-009 | **Best baby tracker for nannies and grandparents**. Keywords: `best baby tracker for nanny`, `best baby tracker for grandparents`. | **EXPAND** `src/content/blog/best-baby-tracker-for-nanny-grandparents.mdx`. Preserve `/blog/caregiver/best-baby-tracker-for-nanny-grandparents/`. | Compare Nubo, Talli, and Cubtale for caregivers who prefer physical buttons: onboarding, routine event entry, correction, last-event lookup, and how updates reach parents. Link to CMP-003 for the app comparison. Correct the existing implication that Nubo Remote entries reach remote parents without a nearby paired phone and connectivity. |
+| 10 / CMP-010 | **Best baby tracker for privacy-conscious families**. Keyword: `best baby tracker for privacy`. | **EXPAND** `src/content/blog/what-data-does-baby-tracking-app-collect.mdx` (POST-011). Preserve `/blog/privacy/what-data-does-baby-tracking-app-collect/`. | Add a sourced product comparison while retaining the practical policy-reading guide. Compare local use, voice processing, caregiver encryption, backups, advertising, retention, deletion, and exports by feature. Nubo's case is local everyday processing plus encrypted sharing. Distinguish its Care and Alexa flows; remove unsupported generalizations about free apps. |
+| 11 / CMP-011 | **Best baby tracker for keeping pumping private**. Keyword: `private pumping tracker`; secondary: `baby tracker with private pumping`. | **EXPAND** `src/content/blog/pumping-tracker-private-data.mdx`. Preserve `/blog/privacy/pumping-tracker-private-data/`. | Compare who can see personal output versus the baby's bottle intake, defaults, settings, and caregiver access. Nubo Plus keeps pumping records separate from the shared baby timeline. Test competitors' controls before claiming an advantage. Be explicit that Nubo does not currently offer freezer-stash inventory. |
+| 12 / CMP-012 | **Fastest baby tracker device: a timed comparison**. Keyword: `fastest baby tracker device`. | **NEW** `src/content/blog/fastest-baby-tracker-device.mdx`, category `tracking`. Planned route: `/blog/tracking/fastest-baby-tracker-device/`. | Benchmark Nubo, Talli, and Cubtale with identical wet-diaper, bottle-with-volume, nursing-side, and sleep start/stop tasks. Nubo's buttons are a hypothesis to test. Record repeated trials and publish task-specific results, including any tasks another device wins. Requires access to the hardware before publishing a tested verdict. |
+| 13 / CMP-013 | **Best baby tracker apps: which fits your family?**. Keyword: `best baby tracker apps`. | **RESCOPE PENDING POST-020**, then create `src/content/blog/best-baby-tracker-apps.mdx`, category `tracking`. Planned route: `/blog/tracking/best-baby-tracker-apps/`. | Publish the broader app comparison after the focused articles supply evidence. Cover Nubo, Huckleberry, Nara Baby, and Baby Tracker by Nighp, with recommendations by need. Link to CMP-004 for hardware. This replaces the old unpublished mixed-product POST-020 proposal; it is not a second general hub. |
+
+**Scope count:** Seven existing articles to expand (CMP-001, 002, 003, 005, 009, 010, 011), five new focused comparisons (CMP-004, 006, 007, 008, 012), and one new hub replacing the pending POST-020 brief (CMP-013).
+
+### Existing content to retain and cross-link
+
+- **Preemies:** Keep `src/content/guides/nubo-for-preemie-babies.mdx` as the Nubo setup and home-care workflow guide. Keep `src/content/blog/fenton-preemie-growth-charts.mdx` (POST-022) as the growth-chart explainer. CMP-006 answers which app to choose, so it needs a new comparative article, not a duplicate explanation of Fenton charts. Expand the existing pages only with useful context and links when the comparison is published.
+- **Twins:** Keep `src/content/guides/nubo-for-twins.mdx` as the Nubo setup guide. CMP-007 is the app-selection comparison. Preserve the current boundaries: select the intended child before voice logging, review before saving, and do not promise that speaking both names routes entries across profiles. Device setup is tied to a child profile; do not imply one device automatically distinguishes twins.
+- **Pediatrician visits:** Keep `src/content/blog/what-to-bring-newborn-pediatrician-visit.mdx` (POST-013) as the packing, records, and questions checklist. Add a short current Care explanation and link to CMP-008 when published. The comparison has a distinct product-selection purpose; it should not replace that checklist.
+- **Devices:** Keep `src/content/blog/physical-baby-tracker-vs-app.mdx` (POST-009) as the paper/app/device method comparison, and `src/pages/compare/talli.astro` as the specific Nubo/Talli decision page. Cross-link CMP-004 rather than creating another general devices roundup or another Talli alternative page. Use `src/content/blog/nubo-bluetooth-sync.mdx` for Nubo sync details.
+- **Caregivers:** Keep `src/content/blog/how-to-share-baby-tracking-with-nanny.mdx`, `src/content/blog/baby-tracking-for-grandparents.mdx`, and the handoff articles as practical setup resources. CMP-003 owns app sharing; CMP-009 owns the physical-button caregiver comparison.
+- **Privacy and pumping:** Keep `src/content/blog/nubo-privacy-architecture.mdx` (POST-026) as the Nubo-specific architecture explanation, and `src/content/blog/exclusive-pumping-tracker.mdx` as the what-to-log guide. Expand CMP-010 and CMP-011 instead of adding parallel privacy or pumping comparison URLs.
+- **Speed, night feeds, and one-handed use:** Keep `src/content/blog/midnight-ember-night-mode.mdx`, `src/content/blog/phone-hand-mode-one-handed.mdx`, and `src/content/blog/how-to-track-breastfeeding-without-phone.mdx` as supporting pages. Night feeds are a scenario in CMP-004/005/012, not an additional near-duplicate comparison in this queue. CMP-005 measures the need to use a phone; CMP-012 measures time to complete a device logging task.
+- **Free alternatives and catch-up:** Keep the existing Nara, Huckleberry, and Nighp alternative articles for brand-specific switching intent. CMP-001 owns the broad free-app comparison; CMP-002 owns voice and missed-log catch-up. Preserve every expanded article's existing URL and original publication date, and update `dateModified` when the actual article changes.
+
+### Evidence and writing requirements
+
+1. **Use current product facts.** Read `src/data/nuboMessaging.ts`, `src/components/AppFeatureComparison.astro`, the relevant product pages, and `AGENTS.md` before drafting. Older strategy claims do not establish current functionality, platform support, or pricing. A feature in Nubo's website copy is not evidence that a competitive hands-on test has been completed.
+2. **Name and compare products directly in this series.** The earlier implicit-comparison and no-competitor-name guidance applies to general parenting articles. It does not restrict these authorized comparisons. Start with the reader's need and an answer, then explain the evidence. Do not force a paper/app/device introduction into app-only comparisons.
+3. **Source every competitor claim.** Use official product pages, help documents, privacy policies, and US store listings. Record the check date internally and identify plan, platform, and device requirements. Treat an undocumented feature as unconfirmed, not absent. Recheck before publication. Do not claim to have tested an app based on reading its site.
+4. **Keep the value comparison complete.** Show what remains available after trials/previews, caregiver and child limits, and family-level cost. Nubo's everyday voice logging and unlimited caregivers are free; Care, private pumping, CSV export, Alexa, and additional tools belong to Plus. Verify current prices rather than copying older amounts in this file. Do not frame a refreshed device-access window as a lifetime Premium license.
+5. **Respect existing competitor capabilities.** Huckleberry documents paid AI voice/catch-up logging and free sharing. Nighp's current listing includes natural-language Siri Quick Log with device requirements. Nara documents paid family access and unlimited caregivers. Compare actual access and workflows rather than assuming voice or sharing is unique to Nubo.
+6. **Measure fairly.** Use identical tasks and declared starting states, including required amounts, side changes, confirmations, and corrections. For devices, separate event capture from arrival in the shared timeline. For screen time, count pickups, screen interactions, and time with the screen active; include the agreed apps' available shortcuts, widgets, and watch options. For speed, record versions, hardware, configuration, repeated trials, and medians/ranges. Do not reuse blanket timings such as all competing apps taking 18 seconds or claim superiority without results.
+7. **Describe screen time precisely.** Focus on the parent's phone use during care. Device capture can avoid a phone in that moment; sync, setup, review, and rich notes still involve the app. In-app voice requires phone interaction. Talli and Cubtale also provide physical logging. Do not claim pediatric endorsement, improved sleep, developmental benefit, or a measured reduction in daily screen time without relevant evidence. Clinical citations are optional here, not a substitute for workflow testing.
+8. **Keep preemie and visit claims bounded.** Verify growth references and corrected-age behavior against current authoritative sources. The clinician determines the care plan and interprets growth. Nubo is not a medical device. Care recording requires permission and clinic-policy compliance; recaps are in English, original audio stays on the recording phone, and selected visit content uses separate server processing. Do not imply clinical monitoring, diagnosis, or a replacement for medical advice.
+9. **Use specific privacy findings.** Distinguish ordinary logs, caregiver sync, backup, in-app voice, Alexa, and Care. Avoid unsupported claims that competitors sell baby data, that a free app must monetize personal data, or that every Nubo feature is fully local. Verify pumping visibility rather than inferring it from the presence of a shared baby profile.
+10. **Publish to the current repository format.** Existing articles are edited in place. New articles use `src/content/blog/*.mdx` and the collection frontmatter required by `AGENTS.md` and `src/content/config.ts`, including `datePublished` and `dateModified`. Do not show dates in the post body. Use existing images, descriptive internal links, appropriate metadata, and a comparison table that supports the verdict. Target roughly 1,200-1,800 substantive words per focused comparison; let the benchmark results determine CMP-012's length. Run the build and browser review when publishing actual article edits, then update the CMP status and append an execution log entry.
+
+### Initial source references
+
+Research starting points checked during planning on 2026-10-24. Recheck live details before drafting; these links do not replace hands-on tests.
+
+- Huckleberry: [free plan and sharing](https://huckleberrycare.com/product/free), [AI logging](https://huckleberry.zendesk.com/hc/en-us/articles/38422287914515-What-is-the-AI-logging-feature), [Plus features](https://huckleberry.zendesk.com/hc/en-us/articles/1500007717641-What-is-Huckleberry-Plus).
+- Nara Baby: [official FAQ for pricing, caregivers, exports, and Siri](https://nara.com/pages/nara-baby-app-faqs).
+- Baby Tracker by Nighp: [US App Store listing](https://apps.apple.com/us/app/baby-tracker-newborn-log/id779656557), [privacy policy](https://nighp.com/babytracker/babytracker_pp.html).
+- Talli: [device and Alexa FAQs, including hardware availability](https://talli.me/pages/faq-toc). Manufacturing was paused and inventory sold out when checked; the app remained available. Reverify availability and explain the current status without treating it as an app shutdown.
+- Cubtale: [official product overview](https://www.cubtale.com/), [Newborn Basics device bundle](https://www.cubtale.com/products/newborn-basics).
+- Nubo: current repository product pages, [app](https://www.nubotracker.com/app/), [Care](https://www.nubotracker.com/care/), [pricing](https://www.nubotracker.com/pricing/), and [processing boundaries](https://www.nubotracker.com/privacy/#processing). Use repository source for the current implementation when live copy differs.
+
+---
+
 ## The Three Ways to Track — Recurring Narrative Framework
 
-There are two narrative layers. The first is the **category-level** comparison (paper vs app vs physical device) that creates credibility by being honest about all options. The second is the **Nubo ecosystem** layer (Device + App + Alexa Skill) that shows how Nubo alone covers the full spectrum. Both should surface across the blog at different moments.
+There are two narrative layers. The first is the **category-level** comparison (paper vs app vs physical device) that creates credibility by being honest about all options. The second is the **Nubo ecosystem** layer, showing how the device, app Quick Log, in-app voice catch-up, caregiver sharing, and Alexa support fit one baby timeline. Use these layers when they answer the reader's question; the comparison plan above specifies when to keep the focus on apps or devices.
 
 ### Layer 1: Category comparison (paper / app / device)
 
@@ -51,7 +124,7 @@ Every parent who decides to track eventually lands on one of three methods. This
 
 ### Layer 2: Nubo ecosystem (Device + App + Alexa)
 
-Once the reader understands the category comparison, the Nubo ecosystem is the payoff. Most trackers force you to pick one input method. Nubo gives you three that share the same data.
+When the category comparison is relevant, explain how Nubo's logging options fit different moments and share a baby timeline. Compare competitors' actual input options without assuming they offer only one.
 
 | Surface | When to use it | The moment it solves |
 |---------|---------------|---------------------|
@@ -87,7 +160,7 @@ Once the reader understands the category comparison, the Nubo ecosystem is the p
 > **MOST IMPORTANT RULE: No AI slop.** If a post cannot provide genuine value, unique insight, or real product description, do not write it. Do not fill posts with generic filler content. Evaluate this **before** starting each post (does it have something real to say?) and **after** finishing (did it actually say it?). Do not publish weak, overlapping, or generic posts just to increase count. Kill or merge a post before publishing slop.
 
 1. **Before starting:** Read this entire file to understand context, brand voice, and which tasks are pending.
-2. **Picking a task:** Choose the next `[ ] PENDING` task in phase order. Do not skip phases.
+2. **Picking a task:** For comparison work, choose the next pending CMP task in the prioritized comparison content plan, unless the user requests a specific task. Use the original phase order for other pending content. Article revisions have their own CMP status; leave the historical original publication tasks marked done.
 3. **Quality gate (before writing):** Ask: does this post have a genuine insight, a unique angle, or real product knowledge that no competitor blog covers? If the answer is no, mark it `[!] BLOCKED — no unique value` and move on. Do not pad thin topics into full posts.
 4. **During work:** Follow the task instructions exactly. Match the brand voice guidelines below.
 5. **Quality gate (after writing):** Re-read the draft. If any section is filler, vague reassurance, or restates what every other parenting blog says without adding anything, cut it or rewrite it with specific detail. A shorter post with real substance beats a longer post with padding.
@@ -180,7 +253,7 @@ The Nubo App is a full-featured baby tracker on its own, not merely a device com
 
 - **Never list features.** Always tie a feature to a specific parenting problem in the post's context.
 - **One feature per mention** in most posts. Feature deep-dives (Phase 4) can cover one feature end-to-end.
-- **Competitor comparison is implicit.** Say what Nubo does. Don't say "unlike Huckleberry, Nubo does X." Let the reader connect the dots.
+- **General parenting articles:** Usually keep competitor comparison implicit and tie Nubo features to the scenario. The authorized comparison series names the agreed products directly and follows the evidence requirements in the prioritized plan.
 - **The app stands on its own.** Even without the device, the Nubo App is a competitive tracker. Posts should make this clear when the context is right (especially POST-020 and feature deep-dive posts).
 
 ---
@@ -301,7 +374,7 @@ Each post lists its outbound links (posts it should link TO) and the context whe
 | POST-009 | "Want a deeper comparison of physical trackers vs. apps? [Read the full breakdown.]" |
 | POST-011 | "Privacy matters when you're logging your baby's health data. [What baby apps actually collect.]" |
 | POST-013 | "The real payoff of tracking is the pediatrician visit. [Here's what to bring.]" |
-| POST-020 | "Ready to pick a specific tool? [Compare Nubo, Huckleberry, Talli, and BabyConnect.]" |
+| POST-020 / CMP-013 | "Ready to pick an app? [Compare Nubo, Huckleberry, Nara Baby, and Baby Tracker by Nighp.]" |
 
 ---
 
@@ -356,7 +429,7 @@ Each post lists its outbound links (posts it should link TO) and the context whe
 | POST-005 | "During cluster feeds, logging feels impossible. [What cluster feeding is and when it ends.]" |
 | POST-006 | "If someone else feeds the baby, the tracking system needs to work for them too. [How to share with a nanny.]" |
 | POST-009 | "For a broader comparison beyond breastfeeding, [see physical tracker vs. app]." |
-| POST-020 | "Ready to pick a product? [Compare Nubo, Huckleberry, Talli, and BabyConnect.]" |
+| POST-020 / CMP-013 | "Ready to pick an app? [Compare Nubo, Huckleberry, Nara Baby, and Baby Tracker by Nighp.]" |
 
 ---
 
@@ -1236,35 +1309,34 @@ These links are the most valuable for SEO because they connect different content
 
 ---
 
-### POST-020 · Baby tracker comparison: Nubo vs Huckleberry vs Talli
+### POST-020: Best baby tracker apps comparison hub
 **Status:** `[ ] PENDING`
-**Completed:** —
+**Completed:** Not started
+**Current queue:** CMP-013, priority 13 in the prioritized comparison content plan. The 2026-10-24 scope replaces the earlier unpublished mixed app/device brief.
 **Pillar:** Tracking
 **Tier:** Full (1,500-1,800 words)
-**URL slug:** `/blog/tracking/baby-tracker-comparison-nubo-huckleberry-talli`
-**Primary keyword:** `best baby tracker app comparison`
-**Secondary keywords:** `Huckleberry vs BabyConnect`, `baby tracker device comparison`, `best newborn tracking app`
-**Search volume:** Medium
-**Search intent:** High purchase intent — decision stage
+**Working title:** Best baby tracker apps: which fits your family?
+**URL slug:** `/blog/tracking/best-baby-tracker-apps/`
+**Primary keyword:** `best baby tracker apps`
+**Secondary keywords:** `baby tracker app comparison`, `best newborn tracking app`, `best baby tracker for families`
+**Search volume:** Not measured for the revised scope
+**Search intent:** App selection and comparison
 
 **Images:**
-- Product comparison grid (designed, not just a markdown table)
-- Side-by-side app screenshots: Nubo, Huckleberry, Talli home screens (fair representation)
-- Nubo device vs. Talli device photo
-- Alexa skill screenshot or Echo with voice command bubble overlay
+- A readable app comparison table in static HTML.
+- Fairly represented current app screenshots where permissions and assets allow.
+- Relevant existing Nubo app images; no invented competitor screens.
 
-**Instructions for Claude Code:**
-1. Write a 1,500-1,800 word honest comparison. This must be credible. Any bias will be obvious.
-2. Cover: Nubo (device + app), Huckleberry (app only), Talli (device + app), BabyConnect (app only).
-3. For each product: what it is, what it tracks, price, standout feature, biggest limitation. Keep it factual.
-4. Include a full feature comparison table: columns for each product, rows for: logging method, caregiver sync, sleep analytics, feeding tracking, diaper tracking, AI insights, price, privacy, battery/charging.
-5. Add a "who should choose each" section. Genuinely honest.
-6. Nubo recommendation: factual. "Nubo wins for: caregiver sync simplicity, privacy, hands-free logging. Consider alternatives if: you want push notifications, detailed AI sleep coaching, or you only need solo parent tracking."
-7. **App feature weave (ecosystem showcase):** In the Nubo section, highlight features competitors lack: Midnight Ember night mode, Smart Averages, Fenton preemie charts, Phone Hand mode, 88-vaccine tracker, Alexa voice logging, Live Activities, E2E encrypted sync. Present as a feature table row per item, not prose. The reader should be able to scan and compare. Link to relevant Phase 4 posts for depth.
-8. **Three ways angle (Heavy, culmination post):** Open the post by framing the choice parents face as three categories, not four products: paper, app-only, and device + app. This is the definitive articulation of the three-ways framework. After the category intro, dive into the product-by-product comparison. The feature table should include a "Paper log" column alongside the four products, showing that paper is still a real option (free, private, no battery) but loses on analytics, caregiver sync, and 3am usability. This makes the table more complete and more honest than any competitor comparison post. In the "who should choose each" section, include "Who should stick with paper" as the first entry, not a dismissive one. End the post with: "Some families use paper and a device. Some use an app and a device. The goal is the same: know what happened, share it with the people who need it, and never lose the data when it matters most." Link back to POST-003, POST-008, and POST-009.
-8. This post will likely be linked from comparison searches. Treat it as the definitive resource.
+**Instructions:**
+1. Follow CMP-013 and the shared evidence requirements. Publish after the focused comparisons provide enough evidence to support recommendations by need.
+2. Compare Nubo, Huckleberry, Nara Baby, and Baby Tracker by Nighp. Talli and Cubtale belong in CMP-004, the device comparison, not in this app table.
+3. Cover ongoing free access, paid features, logging methods, caregiver access, multiple children, offline operation, privacy, and useful history/reporting tools. Source current plans, prices, and platform requirements.
+4. Disclose that Nubo publishes the article. Give each product a specific best-fit scenario and a clear tradeoff. Do not make Nubo the winner of every category or assume competitors lack its features.
+5. Keep the general app-selection intent distinct from CMP-001's free-plan comparison. Summarize free access here and link to CMP-001 for detail rather than repeating that article.
+6. Link to published focused comparisons for voice, sharing, preemies, twins, visits, privacy, and pumping. Add links only when those destination files exist. Link to POST-009 for the paper/app/device method choice and CMP-004 when the reader wants hardware.
+7. **Three ways angle (Light):** Acknowledge other tracking methods briefly where useful, then answer the app-selection question directly. Do not add a paper column or a device column to the app table.
 
-**Output file:** `post-020-baby-tracker-comparison.md`
+**Output file:** `src/content/blog/best-baby-tracker-apps.mdx`
 
 ---
 
@@ -1545,25 +1617,23 @@ These are natural minis (500-700 words). Interleave between full posts for publi
 
 ## Output File Naming Convention
 
-All post files should be named: `post-NNN-short-description.md`
-All posts should be saved to: `/outputs/blog-posts/`
+New blog articles are saved as `src/content/blog/kebab-case-slug.mdx`. Use the destination listed in the current task. Existing articles are edited in place with their indexed routes preserved. Older task blocks' `post-NNN-*.md` names describe the original planning outputs; do not create new publishable files in `/outputs/blog-posts/`.
 
-Each file should begin with this frontmatter block:
+Use the current content collection schema in `src/content/config.ts` and `AGENTS.md`. Blog frontmatter starts with:
 
 ```yaml
 ---
 title: "Full Post Title Here"
-slug: "/blog/pillar/url-slug-here"
-pillar: "sleep | feeding | tracking | caregiver | privacy | product"
+description: "Unique meta description for this article."
+datePublished: "YYYY-MM-DD"
+dateModified: "YYYY-MM-DD"
+author: "Nubo Team"
+category: "tracking"
 primaryKeyword: "primary keyword here"
-metaDescription: "150-160 char meta description with keyword and soft CTA."
-targetWordCount: 1400
-actualWordCount: 0
-status: "draft | review | published"
 ---
 ```
 
-**No published date in frontmatter or rendered output.** Do not add `date`, `publishedDate`, `completedDate`, or any date field to post frontmatter. Do not render a date on the page.
+Required publication and modification dates belong in frontmatter. Keep an existing article's original `datePublished` when expanding it. Do not display dates in the article body. Optional fields include `heroImage`, `ogImage`, `excerpt`, and `tags`; choose a valid collection category. Keep task status and word-count tracking in this strategy rather than inventing frontmatter fields.
 
 ---
 
@@ -1663,9 +1733,19 @@ status: "draft | review | published"
 
 [2026-10-19] GUIDES: DONE. Added nubo-for-preemie-babies, nubo-for-twins, nubo-for-toddlers, and nubo-for-young-kids in src/content/guides/. Reworked the Resources introduction around family and stage, added guide discovery links, and updated public AI resource lists. Checked product details against the app source and linked verified AAP and CDC guidance for corrected age, preterm growth references, and developmental monitoring. Preserved the distinction between Nubo Intelligence, Nubo Care, and the Nubo Plus plan. Fixed guide mobile body padding, text-only index cards, and date formatting. Build and desktop/390px browser review: pass.
 
+[2026-10-24] CONTENT PLAN: DONE. Consolidated the comparison series into 13 pending priorities (CMP-001 through CMP-013): seven existing-article expansions, five new focused comparisons, and one app hub replacing pending POST-020. Included free tracking, voice, sharing, devices, reduced parent screen use, preemies, twins, pediatrician visits, caregiver buttons, privacy, private pumping, and measured speed. Fixed the comparison sets to Huckleberry, Nara Baby, and Baby Tracker by Nighp for apps, and Talli and Cubtale for devices. Recorded destination files, preserved-URL decisions, supporting guides, source references, and evidence needed for fair verdicts. Updated conflicting task-order, comparison, and MDX publishing instructions. All article work remains pending. Plan/path checks and historical-log preservation: pass. Build: pass (77 static pages). Documentation-only update; no articles published or page copy changed.
+
+[2026-10-24] MESSAGING: DONE. Simplified the Nubo Intelligence definition to a built-in suite of AI systems at the user's request. Removed statistics and automation from the product explanation, simplified the app processing overview, and aligned existing blog and policy definitions. Updated modification dates for the four revised posts. Build: pass (77 static pages). Desktop and 390px app review: pass.
+
+[2026-10-24] MESSAGING: DONE. Expanded Nubo Intelligence to explicitly include Nubo Scribe doctor recordings and follow-up coordination. Updated the shared definition, app capabilities, Care walkthrough, FAQs, metadata, and existing blog and policy descriptions. Kept Scribe and follow-up within Nubo Care and Plus, with recording permission, local audio, and caregiver sharing boundaries. Build: pass (77 static pages). Desktop and 390px browser review, walkthrough links, and FAQ structured data: pass.
+
+[2026-10-24] MESSAGING: DONE. Named follow-up coordination Nubo Coordinator and listed it alongside Nubo Scribe within Nubo Intelligence. Aligned shared copy, app capabilities, the Care walkthrough, FAQs, metadata, and existing blog and policy descriptions. Build: pass (77 static pages). Desktop and 390px browser review, Coordinator link, and FAQ structured data: pass.
+
 ---
 
 ## Summary Tracker
+
+The table below tracks original publication tasks. The prioritized comparison content plan tracks the pending CMP revisions and new comparisons separately; its order governs the next comparison writing sessions.
 
 | Post | Title | Phase | Tier | Words | Status | Completed |
 |------|-------|-------|------|-------|--------|-----------|
@@ -1688,7 +1768,7 @@ status: "draft | review | published"
 | POST-017 | Diaper output | 3* | Mini | 700-900 | `DONE` | 2026-03-30 |
 | POST-018 | Return to work handoff | 3 | Medium | 900-1,100 | `DONE` | 2026-03-30 |
 | POST-019 | Contact napping | 3 | Mini | 600-800 | `DONE` | 2026-03-30 |
-| POST-020 | Baby tracker comparison | 3 | Full | 1,500-1,800 | `PENDING` | — |
+| POST-020 / CMP-013 | Best baby tracker apps hub, priority 13 | 3 | Full | 1,500-1,800 | `PENDING` | Not started |
 | POST-021 | Midnight Ember night mode | 4 | Mini | 600-800 | `DONE` | 2026-03-30 |
 | POST-022 | Fenton preemie growth charts | 4 | Full | 1,400-1,700 | `DONE` | 2026-03-30 |
 | POST-023 | Smart Averages | 4 | Mini | 600-800 | `DONE` | 2026-03-30 |
@@ -1703,8 +1783,12 @@ status: "draft | review | published"
 
 ---
 
-*Document version: 3.3 · Updated: 2026-04-03 · Added What To Expect strategy guidance, drafted the bonus feature spotlight post, and codified the no free/premium tier language rule for blog posts.*
+*Document version: 4.0. Updated: 2026-10-24. Added the prioritized comparison plan, existing-content reuse decisions, agreed app/device shortlists, evidence requirements, and revised POST-020 scope. Aligned publishing instructions with the current MDX collection.*
 
 ### 2026-10-24: Nubo Remote naming
 
 - Renamed the physical product to Nubo Remote across site navigation, product copy, FAQs, existing articles and guides, metadata, structured data, and public AI summaries. Kept `/device/`, article URLs, and actual app control labels. Updated naming guidance for future content.
+
+### 2026-10-24: Caregiver sharing boundaries
+
+- Clarified that unlimited caregivers does not grant everyone the same access. The primary caregiver controls detailed nursing, Care Vault information, and doctor visit data per caregiver; pumping always stays private. Updated product, privacy, FAQ, feature, article, and public AI summary copy, with one shared source for product wording.

@@ -1,7 +1,17 @@
+export const nuboSharing = {
+  overview: 'Invite as many caregivers as you need. The primary caregiver decides what each person can see.',
+  pumping: 'Pumping records are always private and are never shared with other caregivers.',
+  nursing: 'For each caregiver, the primary caregiver can share nursing side and time per side, or keep those details private and share only total nursing time.',
+  vault: 'The primary caregiver chooses whether to share Care Vault information, including insurance and doctor details, and how much each caregiver can access.',
+  visits: 'The primary caregiver chooses whether to share doctor visit data, and how much each caregiver can access.',
+};
+
 export const nuboStory = {
   description: "Nubo helps parents keep track of everyday care, save what they notice, and return to their pediatrician's answers, with shared details for invited caregivers.",
-  intelligence: 'Nubo Intelligence helps turn speech into logs, organize observations, and highlight supported patterns in recorded care. Features are available across Free and Plus.',
-  care: 'Nubo Care helps you prepare questions, record pediatrician visits with permission, and return to answers and next steps. Included in Nubo Plus.',
+  intelligence: 'Nubo Intelligence is a built-in suite of AI systems that makes care easier to record, understand, and coordinate. It supports everyday logging, observations, recorded patterns, and visit preparation. Nubo Scribe turns doctor recordings into recaps, and Nubo Coordinator keeps next steps together for invited caregivers, all within the Nubo app.',
+  care: 'Nubo Care helps you prepare questions, record doctor visits with Nubo Scribe, and follow through together with Nubo Coordinator. Record with permission, then return to answers and next steps. Included in Nubo Plus.',
+  scribe: 'Nubo Scribe helps you record doctor visits with permission and turns the conversation into a recap, answers, and next steps. Answers from recordings link to the original audio on the recording phone.',
+  coordinator: 'Nubo Coordinator keeps reviewed next steps and to-dos together for caregivers with access. The primary caregiver decides which visit details each caregiver can see.',
   plus: 'Nubo Plus is the paid app plan. It includes Nubo Care, Nubo Noticed all week, and additional tools such as reminders, charts, and exports.',
   device: 'Nubo Remote is an optional one-tap baby tracker with dedicated buttons for feeds, sleep, and diapers. It syncs with the app over Bluetooth.',
 };
@@ -17,8 +27,8 @@ export const nuboProducts = [
   },
   {
     name: 'Nubo Intelligence',
-    label: 'Between visits',
-    description: 'Say what happened. Save what you notice. See what is changing in the days you have recorded.',
+    label: 'Everyday care and doctor visits',
+    description: 'Built-in AI for everyday logging, observations, recorded patterns, visit preparation, Nubo Scribe doctor recordings, and Nubo Coordinator follow-up.',
     access: 'Voice logging and observations stay free. More tools with Plus.',
     href: '/app/#intelligence',
     link: 'Explore Nubo Intelligence',
@@ -35,7 +45,7 @@ export const nuboAccess = {
 export const nuboProcessing = {
   voice: 'In-app speech recognition and voice event interpretation run on your phone, including offline.',
   care: 'Nubo Care sends selected visit content for requested server processing. Nubo and its processing providers retain no visit data after processing.',
-  careRecords: 'Visit summaries, answers, and to-dos sync to invited caregivers. Original visit audio stays on the recording phone and is not synced to caregivers.',
+  careRecords: `${nuboSharing.visits} Visit summaries, answers, and to-dos sync according to those permissions. Original visit audio stays on the recording phone and is not synced to caregivers.`,
   backup: 'Optional backups use your own iCloud or Google Drive account.',
   alexa: "Alexa voice requests use Amazon's Alexa systems, separately from in-app voice logging.",
 };

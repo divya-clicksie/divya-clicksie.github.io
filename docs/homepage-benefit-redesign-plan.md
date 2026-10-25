@@ -47,7 +47,7 @@ Its central weakness was treating an attractive, simpler homepage as the main so
 | Keep the homepage very short | Removing every detail can make the site less useful to a parent evaluating an unfamiliar app. | Keep the hero concise, then provide specific demonstrations, limitations, pricing boundaries, and useful deeper links. Do not impose an arbitrary word count. |
 | Voice visualizer and animation | A waveform shows sound, not a successful baby log. It can become decoration or delay shipping. | Show the spoken input, the resulting entry, and its timestamp. Begin with real static frames and text; add video when available. |
 | Conversion baseline before launch | Store clicks alone cannot tell us whether Nubo has become discoverable. Waiting for a two-week baseline should not hold up obvious repairs. | Capture available historical data immediately, fix defects, and track both organic acquisition and store outbound clicks. |
-| Forecasts as the future third major benefit | Sensible roadmap thinking, but too much product design detail in the immediate website plan can distract from current proof. | Preserve the forecast principles in an internal appendix. Current app clarity and evidence ship first. |
+| Forecasts as the future third major benefit | Sensible roadmap thinking, but too much product design detail in the immediate website plan can distract from current proof. | Use the [canonical Coming Up plan](../../NuboIOS/plans/future/nubo-coming-up-product-and-implementation-plan.md) for product requirements. Current app clarity and evidence ship first. |
 
 ## Critique of the current positioning
 
@@ -302,7 +302,7 @@ Timing is a proposed work sequence, not a ranking promise. Capture available his
 | Weeks 2–4: support the decision | Rework `/compare/`; improve the existing specific comparisons and catch-up/caregiver articles; publish methodology and product evidence; correct bylines and related CTAs. | Source and hands-on claims are distinguished. No fabricated wins, unsupported exclusivity, or duplicated broad comparison article. |
 | Days 30–60: learn from search | Review query/page pairs, countries, indexing status, store click rates, and discovered mismatches. Improve pages with relevant impressions; address confirmed technical problems. | Choose changes from evidence. New pages require distinct intent and proof. |
 | Days 60–90: broaden if justified | Extend original comparison or use-case evidence where demand and product fit warrant it; integrate genuine external recognition as it becomes available. | Assess both qualified acquisition and conversion. Reconsider assumptions if visibility remains weak. |
-| After forecast release | Update the relevant app proof, comparisons, homepage, stores, and metadata from real released functionality. Write the public forecast article then. | Product release gate in the appendix is met. No public promise based solely on the roadmap. |
+| After forecast release | Update the relevant app proof, comparisons, homepage, stores, and metadata from real released functionality. Write the public forecast article then. | Release criteria in the [canonical Coming Up plan](../../NuboIOS/plans/future/nubo-coming-up-product-and-implementation-plan.md) are met. No public promise based solely on the roadmap. |
 
 During implementation, add a short current-priorities note to the architecture and content strategies, reconcile the old companion-app and exclusivity wording, and append a strategy execution entry. Preserve historical logs. Do not mark unpublished comparisons or forecasts done merely because this proposal exists.
 
@@ -344,7 +344,7 @@ Set numerical growth targets after the baseline is available. At low volume, rep
 
 ## Internal appendix: forecast principles retained for later release
 
-The prior conversation's product direction remains intact below. It is internal guidance, not a present feature, an SEO prerequisite, or a public launch announcement.
+> **Forecast appendix deprecated October 21, 2026.** The [Coming Up product and implementation plan in NuboIOS](../../NuboIOS/plans/future/nubo-coming-up-product-and-implementation-plan.md) supersedes this appendix as the product and implementation authority. Its UX, preparation actions, learning loop, correction behavior, and release requirements have been consolidated there with Nap Planner and feeding forecasts. The text below is historical context only. The rest of this website plan retains its own scope. Forecast marketing remains gated on the released product.
 
 
 Feed and nap forecasting is now part of Nubo's roadmap. It should become the third major homepage outcome after release: **record the moment, share the day, prepare for what may come next**. Until release, the current homepage can promise patterns, last-event context, and reminders where the appropriate plan includes them. Keep forecast copy and visuals in this internal plan until the app supports them. Write the public article after implementation, using the released experience and real screenshots.

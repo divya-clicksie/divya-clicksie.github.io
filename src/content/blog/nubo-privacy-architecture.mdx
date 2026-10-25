@@ -2,7 +2,7 @@
 title: "Your Data Stays Yours: How Nubo's Privacy Architecture Works"
 description: "How Nubo handles baby tracker privacy: local records, encrypted caregiver sharing, private backups, and separate Nubo Care visit processing."
 datePublished: "2026-03-28"
-dateModified: "2026-10-19"
+dateModified: "2026-10-24"
 author: "Nubo Team"
 category: "privacy"
 primaryKeyword: "baby tracker privacy data security"
@@ -46,6 +46,8 @@ With Nubo, your phone holds the everyday history you record. Ordinary caregiver 
 
 When you invite a caregiver (partner, nanny, grandparent) to share your baby's data, the app uses a unique symmetric encryption key for that child. This key never leaves the devices that need it.
 
+An invitation does not grant access to every record. The primary caregiver controls sharing separately for each caregiver: nursing side and time per side can be shared, or kept private with only total nursing time shown; Care Vault information and doctor visit data can be shared to the extent that person needs. Pumping records are always private. The [caregiver sharing choices](/caregivers/#sharing-controls) explain these boundaries.
+
 Here is the flow:
 
 1. **Key generation.** When you create a child profile, the app generates a per-child AES symmetric key and stores it in the iOS Keychain, the hardware-backed secure enclave on your iPhone.
@@ -88,11 +90,11 @@ The device adds a hardware input surface without adding a network attack surface
 
 Alexa logging is included with Nubo Plus. Amazon's Alexa systems process the voice request, and the resulting event joins your baby timeline. This is a separate flow from Nubo Intelligence's everyday in-app speech recognition and event interpretation, which run on your phone, including offline.
 
-## Nubo Intelligence and Nubo Care use different processing flows
+## Everyday AI and doctor recordings use different processing flows
 
-[Nubo Intelligence](/app/#intelligence) brings together machine learning, on-device AI, statistics, and useful automation across everyday care. In-app voice logging is free. Nubo Notetaker preserves spoken or typed observations; AI titles and tags require iOS 26 or later with Apple Intelligence available. Other devices keep the note text with a simpler title and no AI tags. Saving an observation and choosing to share or back it up are separate from local interpretation.
+[Nubo Intelligence](/app/#intelligence) is a built-in suite of AI systems that makes care easier to record, understand, and coordinate in the Nubo app. It supports everyday care, visit preparation, Nubo Scribe doctor recordings, and Nubo Coordinator follow-up. In-app voice logging is free. Nubo Notetaker preserves spoken or typed observations; AI titles and tags require iOS 26 or later with Apple Intelligence available. Other devices keep the note text with a simpler title and no AI tags. Saving an observation and choosing to share or back it up are separate from local interpretation.
 
-[Nubo Care](/#nubo-care) is included in Nubo Plus. When you choose visit processing, selected visit content goes to the server to produce a recap, answers, and next steps. Nubo and its processing providers retain no visit data after processing. Saved visit records live on phones and in private backups; summaries, answers, and to-dos sync to invited caregivers. Original visit audio stays on the recording phone and is not synced to caregivers.
+[Nubo Care](/#nubo-care) is included in Nubo Plus. Within Care, Nubo Scribe organizes doctor recordings into recaps, answers, and next steps. When you choose visit processing, selected visit content goes to the server. Nubo and its processing providers retain no visit data after processing. Saved visit records live on phones and in private backups; summaries, answers, and to-dos sync according to the primary caregiver’s choices for each caregiver, supporting follow-up with Nubo Coordinator. Original visit audio stays on the recording phone and is not synced to caregivers.
 
 You can compare these flows in the [feature-by-feature privacy overview](/privacy/#processing). Local everyday tracking, encrypted sharing, private backup, Alexa, and visit processing each have a specific role.
 

@@ -127,6 +127,7 @@ Blog quality gates:
 
 - Call the physical baby tracking device **Nubo Remote** in product copy, navigation, metadata, and structured data. Keep the existing `/device/` route. Generic references to phones, on-device processing, and actual app control labels remain unchanged.
 - Position Nubo as an ecosystem: Nubo Remote tap, app Quick Log, in-app voice catch-up, caregiver sync, and Alexa support all feed one baby timeline.
+- Unlimited caregivers refers to the number of people a family can invite. Sharing is on a need-to-know basis: the primary caregiver decides whether and how much detailed nursing, Care Vault information, and doctor visit data each caregiver can see. Nursing side and time per side can be shared or kept private with only total nursing time shown. Pumping records are always private and never shared with other caregivers. Original visit audio stays on the recording phone.
 - Avoid hard-coding the number of ways to log. Use flexible language such as "use what fits the moment" or "tap as it happens, talk to catch up".
 - The app is free on iOS and Android. It includes routine tracking, unlimited caregivers, cloud backup, offline mode, quick logs, and in-app voice logging.
 - Premium is an app upgrade for advanced tools such as reminders, exports, Alexa, Live Activities, private pumping, and advanced views. Current site copy uses `$59.99/year`. Subscriptions are billed through the App Store on iPhone or Google Play billing on Android. Prices may vary by region.

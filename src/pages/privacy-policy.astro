@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ArticleContents from '../components/ArticleContents.astro';
-import { nuboAccess, nuboProcessing } from '../data/nuboMessaging';
+import { nuboAccess, nuboProcessing, nuboSharing } from '../data/nuboMessaging';
 
 const policySections = [
   {
@@ -156,13 +156,21 @@ const jsonLd = {
             When you invite a caregiver, a secure sharing link is generated. Activity data shared between caregivers can sync across iOS and Android devices and is encrypted end-to-end. Nubo servers act only as a relay and cannot decrypt or access the content of shared data.
           </p>
 
+          <p>{nuboSharing.overview} Unlimited caregivers refers to the number of people you can invite, not unrestricted access to every record.</p>
+          <ul>
+            <li><strong>Pumping:</strong> {nuboSharing.pumping}</li>
+            <li><strong>Detailed nursing:</strong> {nuboSharing.nursing}</li>
+            <li><strong>Care Vault:</strong> {nuboSharing.vault}</li>
+            <li><strong>Doctor visit data:</strong> {nuboSharing.visits}</li>
+          </ul>
+
           <h2 id="nubo-care">Nubo Care</h2>
-          <p>Nubo Care is included in Nubo Plus, including the preview and active device-access windows. It produces visit summaries, answers to your questions, and to-dos. {nuboProcessing.care} This is separate from everyday in-app voice logging.</p>
-          <p>Visit records are stored on phones and backed up to users' private backups. Summaries, answers, to-dos, and other visit records sync to invited caregivers. Audio is available on the recording phone and is not synced to caregivers. Each answer extracted from a recording refers to its actual audio timestamps.</p>
+          <p>Nubo Care is included in Nubo Plus, including the preview and active device-access windows. Nubo Scribe, part of Nubo Intelligence within Care, turns doctor recordings into visit summaries, answers to your questions, and to-dos. Nubo Coordinator keeps reviewed next steps together for invited caregivers. {nuboProcessing.care} This is separate from everyday in-app voice logging.</p>
+          <p>Visit records are stored on phones and backed up to users' private backups. {nuboProcessing.careRecords} Each answer extracted from a recording refers to its actual audio timestamps.</p>
           <p>Recording is optional. Obtain permission from everyone participating and follow the clinic's policy. You can take notes instead. Processing providers are subject to the same zero-retention-after-processing requirement.</p>
 
           <h2 id="nubo-intelligence-and-alexa">Nubo Intelligence and Alexa</h2>
-          <p>Nubo Intelligence describes the machine learning, on-device AI, statistics, and automation used across everyday tracking. It is not a separate subscription. {nuboProcessing.voice} Generated events can be reviewed and edited before saving, then follow the storage, optional sharing, and backup practices described above.</p>
+          <p>Nubo Intelligence is a built-in suite of AI systems in the Nubo app that makes care easier to record, understand, and coordinate. It includes everyday logging, observations, recorded patterns, visit preparation, Nubo Scribe doctor recordings, and Nubo Coordinator follow-up. It is not a separate subscription. {nuboProcessing.voice} Generated events can be reviewed and edited before saving, then follow the storage, optional sharing, and backup practices described above.</p>
           <p>Nubo Notetaker preserves the text of spoken or typed observations. {nuboAccess.notetaker} Supported title and tag generation runs on the device. Saved observations can be part of the history shared with invited caregivers.</p>
           <p>Nubo Noticed and other statistics describe recorded care. Missing logs are not treated as proof that no care occurred. These features do not establish diagnoses, causes, or relationships between symptoms and care patterns.</p>
           <p>{nuboProcessing.alexa} If you choose Alexa logging with Plus, Amazon processes the voice request and the resulting care event joins your baby timeline. This flow is separate from in-app on-device voice interpretation.</p>

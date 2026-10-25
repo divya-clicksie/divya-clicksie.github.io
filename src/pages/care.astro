@@ -5,11 +5,19 @@ import CareWalkthrough from '../components/CareWalkthrough.astro';
 import FaqList from '../components/FaqList.astro';
 import SiteIcon from '../components/SiteIcon.astro';
 import StoreLinks from '../components/StoreLinks.astro';
-import { nuboAccess, nuboProcessing, nuboStory } from '../data/nuboMessaging';
+import { nuboAccess, nuboProcessing, nuboSharing, nuboStory } from '../data/nuboMessaging';
 
 const title = 'Nubo Care | Pediatrician Visit Questions, Recording & Recaps';
-const description = 'Prepare pediatrician questions, record visits with permission, and revisit answers with invited caregivers. Nubo Care is included in the paid Nubo Plus plan.';
+const description = 'Prepare visit questions, record with Nubo Scribe, and share follow-up with Nubo Coordinator. Both are part of Nubo Intelligence within Care, included in Plus.';
 const faqItems = [
+  {
+    q: 'What is Nubo Scribe?',
+    a: `${nuboStory.scribe} It is part of Nubo Intelligence within Nubo Care, included in Plus.`,
+  },
+  {
+    q: 'What is Nubo Coordinator?',
+    a: `${nuboStory.coordinator} Like Nubo Scribe, it is part of Nubo Intelligence within Nubo Care, included in Plus. ${nuboProcessing.careRecords}`,
+  },
   {
     q: 'Is Nubo Care free?',
     a: 'Nubo Care is included in Nubo Plus, the paid app plan. It is also available during your 14-day Plus preview and active device-access windows. Everyday baby tracking, voice logging, observations, and unlimited caregivers stay free.',
@@ -32,7 +40,7 @@ const faqItems = [
   },
   {
     q: 'Where is visit content processed?',
-    a: `${nuboProcessing.care} Saved visit records stay on phones, can sync to invited caregivers, and can be backed up to your own iCloud or Google Drive.`,
+    a: `${nuboProcessing.care} Saved visit records stay on phones, can sync to caregivers according to the primary caregiver’s sharing choices, and can be backed up to your own iCloud or Google Drive.`,
   },
   {
     q: 'What languages does Nubo Care support?',
@@ -70,7 +78,7 @@ const jsonLd = [
 
   <section class="m-section" id="how-care-works" aria-labelledby="walkthrough-title">
     <div class="container">
-      <div class="m-heading"><p class="overline">Before, during, and after the visit</p><h2 id="walkthrough-title">From what you notice<br />to what you want to ask.</h2><p>Keep the little things between appointments. Bring the questions that matter to you. Then revisit the conversation and share the next steps.</p></div>
+      <div class="m-heading"><p class="overline">Before, during, and after the visit</p><h2 id="walkthrough-title">From what you notice<br />to what you do next.</h2><p>Nubo Intelligence helps you prepare questions, revisit doctor recordings with Nubo Scribe, and coordinate follow-up with Nubo Coordinator. All within Nubo Care.</p></div>
       <CareWalkthrough />
       <p class="m-note">Illustrative examples. Observations and activity logging stay free. Visit preparation, recording, and recaps are included in Plus.</p>
     </div>
@@ -101,8 +109,8 @@ const jsonLd = [
 
   <section class="m-section m-teal" aria-labelledby="care-privacy-title">
     <div class="container m-split">
-      <div class="m-copy"><p class="overline">Your visit information</p><h2 id="care-privacy-title">Share the recap.<br />Keep the audio on your phone.</h2><p>Your partner couldn’t make the appointment. Invited caregivers can read the synced recap, answers, and to-dos. Original visit audio stays on the phone that recorded it.</p><a href="/privacy/#processing" class="text-link">See how visit data is handled <span aria-hidden="true">→</span></a></div>
-      <div class="visit-boundaries"><article><SiteIcon name="cloud" /><div><h3>Selected content is processed, then cleared.</h3><p>{nuboProcessing.care}</p></div></article><article><SiteIcon name="users" /><div><h3>Saved records stay useful together.</h3><p>Recaps sync to invited caregivers with end-to-end encrypted sharing. Optional backups use your own iCloud or Google Drive.</p></div></article></div>
+      <div class="m-copy"><p class="overline">Your visit information</p><h2 id="care-privacy-title">Choose what to share.<br />Keep the audio on your phone.</h2><p>Your partner couldn’t make the appointment. Share the visit details they need to help with follow-up. {nuboSharing.visits} Original visit audio stays on the phone that recorded it.</p><a href="/privacy/#processing" class="text-link">See how visit data is handled <span aria-hidden="true">→</span></a></div>
+      <div class="visit-boundaries"><article><SiteIcon name="cloud" /><div><h3>Selected content is processed, then cleared.</h3><p>{nuboProcessing.care}</p></div></article><article><SiteIcon name="users" /><div><h3>Saved records stay useful together.</h3><p>Visit records sync only as permitted by the primary caregiver, with end-to-end encrypted sharing. Optional backups use your own iCloud or Google Drive.</p></div></article></div>
     </div>
   </section>
 

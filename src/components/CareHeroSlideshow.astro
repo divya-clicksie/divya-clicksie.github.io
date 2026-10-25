@@ -1,17 +1,12 @@
 ---
-const scenes = [
-  { key: 'hospital-phone-v7', width: 3840, short: 'Newborn', label: 'First days at the hospital', alt: 'Concept photo of a tired mother smiling lovingly at her sleeping newborn while a woman doctor offers reassurance beside her, with an iPhone on her lap' },
-  { key: 'baby-visit-v7', width: 3840, short: 'Baby', label: 'A visit with an unwell baby', alt: 'Concept photo of a concerned father securely holding his baby and listening to a calm man doctor, with an iPhone nearby' },
-  { key: 'toddler-visit-v7', width: 3840, short: 'Toddler', label: 'A cheerful toddler checkup', alt: 'Concept photo of a curious toddler holding a bunny toy and sharing a cheerful moment with their mother and a smiling woman doctor, with an iPhone on the exam bed' },
-  { key: 'child-visit-v7', width: 3840, short: 'Child', label: 'Growing through childhood', alt: 'Concept photo of a young child and both parents listening attentively to a man doctor, with an iPhone on the exam bed' },
-];
+import { careHeroScenes as scenes } from '../data/careHeroScenes';
 ---
 
 <div class="care-gallery" data-care-gallery role="region" aria-roledescription="carousel" aria-label="Care conversations as your child grows">
   {scenes.map((scene, index) => {
     const src = `/images/nubo-care-${scene.key}.webp`;
     const srcset = `/images/nubo-care-${scene.key}-960.webp 960w, /images/nubo-care-${scene.key}-1920.webp 1920w, ${src} ${scene.width}w`;
-    return <div class:list={['care-scene', { 'is-active': index === 0 }]} data-scene data-label={scene.label} data-short={scene.short} aria-hidden={index === 0 ? 'false' : 'true'}>
+    return <div class:list={['care-scene', { 'is-active': index === 0 }]} data-scene={scene.key} data-label={scene.label} data-short={scene.short} aria-hidden={index === 0 ? 'false' : 'true'}>
       <img src={index === 0 ? src : undefined} srcset={index === 0 ? srcset : undefined} data-src={src} data-srcset={srcset} sizes="100vw" alt={scene.alt} width={scene.width} height={scene.width / 2} fetchpriority={index === 0 ? 'high' : 'low'} decoding="async" />
     </div>;
   })}
@@ -19,13 +14,16 @@ const scenes = [
 
 <script>
   document.querySelectorAll<HTMLElement>('[data-care-gallery]').forEach((gallery) => {
+    const hero = gallery.closest<HTMLElement>('.hero');
     const scenes = Array.from(gallery.querySelectorAll<HTMLElement>('[data-scene]'));
-    if (scenes.length < 2) return;
+    const headlines = Array.from(hero?.querySelectorAll<HTMLElement>('[data-care-headline]') || []);
+    const toggle = hero?.querySelector<HTMLButtonElement>('[data-care-toggle]');
+    if (!hero || scenes.length < 2) return;
 
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const hover = window.matchMedia('(hover: hover)');
     let current = 0;
-    let paused = motion.matches;
+    let paused = false;
     let inView = true;
     let pointerInside = false;
     let timer: number | undefined;
@@ -50,6 +48,11 @@ const scenes = [
       if (!await load(index) || selectedRequest !== request) return;
       scenes[current].classList.remove('is-active');
       scenes[current].setAttribute('aria-hidden', 'true');
+      headlines.forEach((headline) => {
+        const active = headline.dataset.careHeadline === scenes[index].dataset.scene;
+        headline.classList.toggle('is-active', active);
+        headline.setAttribute('aria-hidden', String(!active));
+      });
       current = index;
       scenes[current].classList.add('is-active');
       scenes[current].setAttribute('aria-hidden', 'false');
@@ -57,21 +60,27 @@ const scenes = [
     };
     const schedule = () => {
       stop();
-      if (!paused && inView && !document.hidden && !pointerInside) {
+      if (!motion.matches && !paused && inView && !document.hidden && !pointerInside) {
         timer = window.setInterval(() => { void select((current + 1) % scenes.length); }, 8000);
       }
     };
-    gallery.addEventListener('mouseenter', () => {
+    hero.addEventListener('mouseenter', () => {
       if (!hover.matches) return;
       pointerInside = true;
       ++request;
       stop();
     });
-    gallery.addEventListener('mouseleave', () => { pointerInside = false; schedule(); });
+    hero.addEventListener('mouseleave', () => { pointerInside = false; schedule(); });
+    toggle?.addEventListener('click', () => {
+      ++request;
+      paused = !paused;
+      toggle.textContent = paused ? 'Play slideshow' : 'Pause slideshow';
+      schedule();
+    });
     document.addEventListener('visibilitychange', () => { ++request; schedule(); });
     motion.addEventListener('change', () => {
       ++request;
-      paused = motion.matches;
+      if (toggle) toggle.hidden = motion.matches;
       schedule();
     });
     const observer = new IntersectionObserver(([entry]) => {
@@ -79,7 +88,8 @@ const scenes = [
       if (!inView) ++request;
       schedule();
     }, { threshold: [0, 0.3] });
-    observer.observe(gallery);
+    observer.observe(hero);
+    if (toggle) toggle.hidden = motion.matches;
     schedule();
     const firstImage = scenes[0].querySelector<HTMLImageElement>('img');
     if (firstImage?.complete) void load(1);

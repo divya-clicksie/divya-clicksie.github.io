@@ -7,10 +7,10 @@ import CareRecapPreview from '../components/CareRecapPreview.astro';
 import NaraImportVideo from '../components/NaraImportVideo.astro';
 import AppFeatureComparison from '../components/AppFeatureComparison.astro';
 import SiteIcon from '../components/SiteIcon.astro';
-import { nuboAccess, nuboStory } from '../data/nuboMessaging';
+import { nuboAccess, nuboProcessing, nuboSharing, nuboStory } from '../data/nuboMessaging';
 
 const title = 'Free Baby Tracker App with Nubo Intelligence | Nubo';
-const description = 'Long days, short nights. Keep feeds, sleep, observations, and caregivers together with the free Nubo baby tracker app on iPhone and Android.';
+const description = 'Meet Nubo Intelligence: built-in AI for everyday logs, Nubo Scribe doctor recordings, and shared follow-up with Nubo Coordinator. Free app, more with Plus.';
 const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
 const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
 const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
@@ -30,11 +30,23 @@ const routineFeatures = [
   { icon: 'check', title: 'The everyday essentials', copy: 'Feeds, sleep, diapers, medicine, vaccines, allergens, and milestones.' },
   { icon: 'leaf', title: 'Room to grow', copy: 'Multiple child profiles, measurements, and WHO and preemie/Fenton growth charts.' },
   { icon: 'sparkles', title: 'A little help from Plus', copy: 'Auto Reminders, Rhythm charts, advanced growth views, and exports.' },
-  { icon: 'lock', title: 'Your pumping, private', copy: "With Plus, your pumping record stays yours. Caregivers see your baby's intake.", href: '/exclusive-pumping/' },
+  { icon: 'lock', title: 'Your pumping, private', copy: "Pumping records are always private. With Plus, track your output separately from your baby's shared bottle feeds.", href: '/exclusive-pumping/' },
+] as const;
+const intelligenceCapabilities = [
+  { icon: 'mic', title: 'Log care in your own words', copy: 'Say a feed, nap, or diaper update, including what happened earlier. Review and edit the events before saving.', href: '#voice-logging', link: 'See voice logging examples', access: 'Free' },
+  { icon: 'questions', title: 'Keep what you notice', copy: 'Speak or type an observation. Notetaker preserves your words, with AI titles and tags on supported iPhones.', href: '#notetaker', link: 'Explore Nubo Notetaker', access: 'Observations stay free' },
+  { icon: 'sparkles', title: 'See changes in recorded routines', copy: 'Nubo Noticed compares recorded days and highlights supported changes in sleep, feeds, nursing, and diapers.', href: '#insights', link: 'See a Nubo Noticed example', access: 'Plus · Free on Mondays' },
+  { icon: 'check', title: 'Prepare questions for your visit', copy: 'In Nubo Care, Intelligence suggests questions using saved observations and your baby’s age. Review them and add your own.', href: '#care', link: 'Explore visit preparation', access: 'Nubo Care · Included in Plus' },
+  { icon: 'audio', title: 'Revisit doctor recordings with Nubo Scribe', copy: 'Record with permission. Scribe turns the conversation into a recap, answers, and next steps, with answers linked to the original audio.', href: '/care/#nubo-scribe', link: 'Explore Nubo Scribe', access: 'Nubo Care · Included in Plus' },
+  { icon: 'users', title: 'Coordinate follow-up with Nubo Coordinator', copy: nuboStory.coordinator, href: '/care/#caregivers', link: 'Explore Nubo Coordinator', access: 'Nubo Care · Included in Plus' },
 ] as const;
 const faqItems = [
+  { q: 'Does unlimited caregiver sharing mean everyone sees everything?', a: `${nuboSharing.overview} ${nuboSharing.pumping} ${nuboSharing.nursing} ${nuboSharing.vault} ${nuboSharing.visits}` },
   { q: 'What is Nubo Intelligence?', a: nuboStory.intelligence },
-  { q: 'How do Nubo Intelligence, Care, and Plus fit together?', a: 'Nubo Intelligence helps with everyday logging, observations, and recorded patterns. Nubo Care helps with pediatrician visits and is included in Plus. Both are part of the Nubo app. Plus is the paid plan; voice logging, observations, and unlimited caregivers stay free.' },
+  { q: 'How do Nubo Intelligence, Care, and Plus fit together?', a: 'Nubo Intelligence is the built-in AI across everyday logging, observations, recorded patterns, visit preparation, Nubo Scribe doctor recordings, and Nubo Coordinator follow-up. Nubo Care brings this AI to doctor visits and shared next steps. Nubo Plus is the paid plan, including Care and additional tools. All are part of one Nubo app. Voice logging, observations, and unlimited caregivers stay free.' },
+  { q: 'Is Nubo Scribe part of Nubo Intelligence?', a: `${nuboStory.scribe} Scribe is part of Nubo Intelligence, available within Nubo Care with Plus.` },
+  { q: 'How does Nubo Coordinator help after a visit?', a: `${nuboStory.coordinator} Like Nubo Scribe, it is part of Nubo Intelligence within Nubo Care, included in Plus. ${nuboProcessing.careRecords}` },
+  { q: 'How does Nubo Intelligence work?', a: 'Nubo Intelligence uses AI built into the app. In-app voice logging runs on your phone, including offline. Supported Notetaker AI titles and tags also run on the device. Nubo Care sends selected visit content for server processing, with no visit data retained afterward. Sharing and backup are separate choices.' },
   { q: 'What stays free?', a: 'Everyday baby tracking, in-app voice logging, observations, unlimited caregivers, offline mode, and private backup stay free. Nubo Noticed is included with Plus and is free for everyone on Mondays. Nubo Plus adds tools such as Nubo Care, Auto Reminders, Rhythm charts, Live Activities on iPhone, and private pumping.' },
   { q: 'How can Nubo Notetaker help me prepare for a doctor visit?', a: 'Keep what you notice between appointments in your own words: when sleep changed, how feeding went, or a question you want to ask. Review those observations before the visit and choose the details to bring up with your pediatrician. Observations stay free. Nubo Care, included in Plus, adds visit questions, recordings with permission, and recaps.' },
   { q: 'Does Nubo Notetaker work on every phone?', a: 'You can keep observations without AI enrichment. On supported iPhones, on-device AI adds titles and tags to help organize your observations while preserving your words. This requires iOS 26 or later with Apple Intelligence available. Otherwise, your note keeps its text and receives a simpler title without AI tags. Typed observations can receive the same enrichment on supported devices.' },
@@ -49,7 +61,7 @@ const jsonLd = [
     operatingSystem: 'iOS, Android', applicationCategory: 'HealthApplication',
     url: 'https://www.nubotracker.com/app/', description: `${nuboStory.description} Everyday tracking, voice logging, and unlimited caregivers are free on iPhone and Android.`,
     image: 'https://www.nubotracker.com/images/appscreens/quick-actions-current.webp',
-    featureList: ['Nubo Intelligence for easier logging and useful context', 'Free on-device voice logging with event review', 'Nubo Notetaker keeps everyday observations ready for conversations with your pediatrician, with AI titles and tags on supported iPhones', 'Nubo Noticed recorded-pattern insights with Plus, free for everyone on Mondays', 'Unlimited caregivers across iPhone and Android', 'Offline tracking and private backup', 'Nubo Care visit preparation and audio-linked answers with Plus'],
+    featureList: ['Nubo Intelligence built-in AI for everyday care, doctor visits, and follow-up', 'Free on-device voice logging with event review', 'Nubo Notetaker keeps everyday observations ready for conversations with your pediatrician, with AI titles and tags on supported iPhones', 'Nubo Noticed recorded-pattern insights with Plus, free for everyone on Mondays', 'Unlimited caregivers across iPhone and Android', 'Offline tracking and private backup', 'Nubo Care visit preparation with Plus', 'Nubo Scribe doctor recordings, recaps, and audio-linked answers with Plus', 'Nubo Coordinator shared next steps and caregiver to-dos with Plus'],
     offers: [
       { '@type': 'Offer', name: 'Nubo free app', price: '0', priceCurrency: 'USD', url: appStoreURL },
       { '@type': 'Offer', name: 'Nubo Plus annual subscription', price: '59.99', priceCurrency: 'USD', url: appStoreURL },
@@ -80,7 +92,11 @@ const jsonLd = [
 
     <section class="intelligence-section section-space" id="intelligence" aria-labelledby="intelligence-title">
       <div class="container">
-        <div class="section-heading"><p class="overline">Nubo Intelligence · Everyday care</p><h2 id="intelligence-title">A little less<br /><span>to keep in your head.</span></h2><p>Say what happened. Save what you notice. See what's changing in the days you've recorded.</p><details class="intelligence-details"><summary>How Nubo Intelligence helps</summary><p>Voice logging interprets speech on your phone. On supported iPhones, on-device AI gives observations titles and tags. Statistics add context to your recorded days. Suggested values are yours to edit, and you review voice events before saving.</p><p>Voice logging and observations stay free. Nubo Noticed is included in Plus and is free for everyone on Mondays.</p></details></div>
+        <div class="section-heading intelligence-heading"><p class="overline">A little less to keep in your head</p><h2 id="intelligence-title">What is<br /><span>Nubo Intelligence?</span></h2><p>{nuboStory.intelligence}</p><p class="intelligence-access">Part of one app, with features across Free and Plus.</p></div>
+        <section class="capabilities" aria-labelledby="capabilities-title">
+          <h3 id="capabilities-title">What can Nubo Intelligence do?</h3>
+          <ul class="capability-list" role="list">{intelligenceCapabilities.map((feature) => <li><span class="capability-icon"><SiteIcon name={feature.icon} size={23} /></span><div><p class="eyebrow">{feature.access}</p><h4>{feature.title}</h4><p>{feature.copy}</p><a href={feature.href} class="text-link">{feature.link} <span aria-hidden="true">→</span></a></div></li>)}</ul>
+        </section>
         <div class="intelligence-grid">
           <article class="feature-card quick-card" id="one-tap-logging"><div class="card-copy"><p class="eyebrow">Quick Log · Free</p><h3>Tap as it happens.<br />Back to your baby.</h3><p>A bottle, a nap, a fresh diaper. Your logging buttons sit beside the last event and today's totals. Adjust a suggested amount, then save.</p></div><figure class="quick-image"><figcaption>Sample app data · Noticed is included in Plus and free on Mondays.</figcaption><div class="quick-screen-crop"><img src="/images/appscreens/quick-actions-current.webp" alt="Nubo Quick Actions showing sleep, pumped milk, nursing, and Nubo Noticed" width="1284" height="2778" loading="lazy" decoding="async" /></div></figure></article>
           <article class="feature-card note-card" id="notetaker" aria-labelledby="notetaker-title">
@@ -96,12 +112,21 @@ const jsonLd = [
           </article>
           <article class="feature-card noticed-card" id="insights"><div class="card-copy"><p class="eyebrow">Nubo Noticed · Plus</p><h3>See what's changing<br />in your recorded days.</h3><p>More milk from bottles this week? Compare recent and earlier recorded days, with findings for sleep, feeds, nursing, and diapers when your history supports them.</p></div><figure class="noticed-image"><div class="noticed-crop"><img src="/images/appscreens/nubo-noticed.webp" alt="Nubo Noticed sample finding: More milk from bottles, about 10.5 oz a day compared with 8 oz a day" width="1284" height="2778" loading="lazy" decoding="async" /></div><figcaption>Sample app data. Patterns describe records, not causes or diagnoses.</figcaption></figure><p class="access-pill">Included in Plus. Free for everyone on Mondays.</p></article>
         </div>
+        <section class="intelligence-how" id="how-intelligence-works" aria-labelledby="intelligence-how-title">
+          <div class="section-heading"><p class="overline">Built-in AI, private by design</p><h3 id="intelligence-how-title">How does Nubo Intelligence work?</h3><p>Everyday voice logging runs on your phone. Nubo Care uses separate processing for selected visit content.</p></div>
+          <div class="processing-grid">
+            <article><span class="processing-icon"><SiteIcon name="phone" /></span><h4>On-device AI</h4><p>{nuboProcessing.voice} On supported iPhones, Notetaker also creates note titles and tags on the device.</p><p class="processing-note">AI titles and tags require iOS 26 or later with Apple Intelligence available. Other devices keep your note text with a simpler title and no AI tags.</p></article>
+            <article><span class="processing-icon"><SiteIcon name="cloud" /></span><h4>Nubo Scribe and visit processing</h4><p>Scribe organizes doctor recordings into recaps, answers, and next steps. {nuboProcessing.care}</p><p class="processing-note">{nuboStory.coordinator} Original visit audio stays on the recording phone.</p></article>
+          </div>
+          <p class="processing-footer">Caregiver sharing and optional backups are separate from processing. <a href="/privacy/#processing" class="text-link">See how each feature handles your data <span aria-hidden="true">→</span></a></p>
+          <aside class="intelligence-plan" aria-label="Nubo Intelligence, Care, and Plus"><p><strong>Intelligence is the built-in AI, from everyday logs to visits and follow-up. Care brings it to doctor visits. Plus is the paid plan.</strong> Voice logging and observations stay free. Plus includes Nubo Care with Nubo Scribe and Nubo Coordinator, and Nubo Noticed all week, with Noticed free for everyone on Mondays.</p><a href="/pricing/" class="text-link">Compare Free and Plus <span aria-hidden="true">→</span></a></aside>
+        </section>
       </div>
     </section>
 
-    <section class="shared-section" id="caregivers" aria-labelledby="shared-title"><div class="container shared-grid"><div><p class="overline">Unlimited caregivers · Free</p><h2 id="shared-title">Your turn.<br />The details are here.</h2><p class="section-sub">Your partner logged the bottle. You can see the amount, the time, and who added it.</p><a href="/caregivers/" class="text-link">Explore shared care <span aria-hidden="true">→</span></a><p class="feature-note">Works across iPhone and Android. Plus adds Live Activities on iPhone.</p></div><figure class="timeline"><div class="timeline-heading"><SiteIcon name="users" size={20} /><strong>Sam's shared timeline</strong><span>Sample day</span></div><div class="timeline-event"><span class="avatar">D</span><div><strong>Dad logged a formula feed</strong><span>90 mL · 8:00 AM</span></div><span class="event-check"><SiteIcon name="check" size={20} /></span></div><div class="timeline-event"><span class="avatar second">M</span><div><strong>Mom logged a wet diaper</strong><span>8:20 AM</span></div><span class="event-check"><SiteIcon name="check" size={20} /></span></div><figcaption>Shared when phones sync and have connectivity.</figcaption></figure></div></section>
+    <section class="shared-section" id="caregivers" aria-labelledby="shared-title"><div class="container shared-grid"><div><p class="overline">Unlimited caregivers · Free</p><h2 id="shared-title">Your turn.<br />The details are here.</h2><p class="section-sub">Your partner logged the bottle. You can see the amount, the time, and who added it.</p><p class="feature-note">{nuboSharing.overview} Choose access to nursing details, Care Vault information, and doctor visit data for each caregiver. Pumping records always stay private.</p><a href="/caregivers/#sharing-controls" class="text-link">See sharing choices <span aria-hidden="true">→</span></a><p class="feature-note">Works across iPhone and Android. Plus adds Live Activities on iPhone.</p></div><figure class="timeline"><div class="timeline-heading"><SiteIcon name="users" size={20} /><strong>Sam's shared timeline</strong><span>Sample day</span></div><div class="timeline-event"><span class="avatar">D</span><div><strong>Dad logged a formula feed</strong><span>90 mL · 8:00 AM</span></div><span class="event-check"><SiteIcon name="check" size={20} /></span></div><div class="timeline-event"><span class="avatar second">M</span><div><strong>Mom logged a wet diaper</strong><span>8:20 AM</span></div><span class="event-check"><SiteIcon name="check" size={20} /></span></div><figcaption>Shared when phones sync and have connectivity.</figcaption></figure></div></section>
 
-    <section class="care-section section-space" id="care" aria-labelledby="care-title"><div class="container split-grid"><CareRecapPreview id="app-care-recap" childName="Sam" /><div class="care-copy"><p class="overline">Nubo Care · Included in Plus</p><h2 id="care-title">Bring your questions.<br />Take the answers home.</h2><p class="section-sub">The things you notice at home can be hard to recall at a checkup. Choose what to discuss, prepare your questions, and record with permission. Come back to your pediatrician's answers and share the next steps.</p><div class="care-stages" aria-label="Before, during, and after your visit"><span><SiteIcon name="questions" />Prepare</span><span><SiteIcon name="mic" />Record</span><span><SiteIcon name="check" />Recap</span></div><a href="/care/" class="text-link">Explore Nubo Care <span aria-hidden="true">→</span></a><p class="feature-note">Recaps sync to invited caregivers. Audio stays on the recording phone. Recording and recaps in English.</p></div></div></section>
+    <section class="care-section section-space" id="care" aria-labelledby="care-title"><div class="container split-grid"><CareRecapPreview id="app-care-recap" childName="Sam" /><div class="care-copy"><p class="overline">Nubo Care · Included in Plus</p><h2 id="care-title">Bring your questions.<br />Take the answers home.</h2><p class="section-sub">The things you notice at home can be hard to recall at a checkup. Choose what to discuss, prepare your questions, and record with permission. Come back to your pediatrician's answers and share the next steps.</p><div class="care-stages" aria-label="Before, during, and after your visit"><span><SiteIcon name="questions" />Prepare</span><span><SiteIcon name="mic" />Record</span><span><SiteIcon name="check" />Recap</span></div><a href="/care/" class="text-link">Explore Nubo Care <span aria-hidden="true">→</span></a><p class="feature-note">The primary caregiver controls which visit details each caregiver can see. Audio stays on the recording phone. Recording and recaps in English.</p></div></div></section>
 
     <section class="routine-section section-space" id="growth" aria-labelledby="routine-title"><div class="container"><div class="section-heading"><p class="overline">Room for your whole routine</p><h2 id="routine-title">The essentials.<br />And the things unique to you.</h2></div><div class="routine-grid">{routineFeatures.map((feature) => <article><span class="routine-icon"><SiteIcon name={feature.icon} /></span><h3>{feature.title}</h3><p>{feature.copy}</p>{'href' in feature && <a href={feature.href} class="text-link">Explore private pumping <span aria-hidden="true">→</span></a>}</article>)}</div><a href="/resources/#your-family" class="text-link family-link">Find a guide for your family <span aria-hidden="true">→</span></a></div></section>
 
@@ -165,9 +190,33 @@ const jsonLd = [
   .noticed-image figcaption { margin-top: .6rem; font-size: .625rem; color: var(--color-text-secondary); }
   .access-pill { display: inline-block; margin: .9rem 2rem 0; padding: .4rem .65rem; border: 1px solid #bfdddd; color: var(--color-brand-dark); border-radius: 20px; font-size: .6875rem; }
   .voice-title { font-size: clamp(1.35rem,2.2vw,1.7rem); line-height: 1.3; margin-bottom: 1.25rem; color: var(--color-brand-dark); }
-  .intelligence-details { max-width: 560px; margin: 1.25rem auto 0; text-align: left; border-block: 1px solid #dce7df; padding-block: .85rem; }
-  .intelligence-details summary { cursor: pointer; color: var(--color-brand-dark); font-weight: 700; font-size: .8125rem; }
-  .intelligence-details p { color: var(--color-text-secondary); font-size: .875rem; line-height: 1.7; margin-top: .75rem; }
+  .intelligence-heading { max-width: 720px; margin-inline: auto; }
+  .intelligence-heading > p:not(.overline) { color: var(--color-text-secondary); margin-top: 1.1rem; }
+  .intelligence-heading .intelligence-access { font-size: .8125rem; color: var(--color-brand-dark); font-weight: 700; }
+  .capabilities { margin-bottom: 2.5rem; }
+  .capabilities > h3 { text-align: center; margin-bottom: 1.5rem; }
+  .capability-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.75rem 2.5rem; list-style: none; padding: 0; }
+  .capability-list > li { display: flex; gap: 1rem; min-width: 0; border-top: 1px solid #dce7df; padding-top: 1.25rem; }
+  .capability-icon, .processing-icon { display: inline-grid; place-items: center; color: var(--color-brand-dark); background: #edf6f2; border-radius: 14px; width: 44px; height: 44px; flex-shrink: 0; }
+  .capability-list h4 { font-size: 1.0625rem; line-height: 1.4; }
+  .capability-list p:not(.eyebrow) { color: var(--color-text-secondary); font-size: .875rem; margin-top: .5rem; }
+  .capability-list .eyebrow { margin-bottom: .35rem; }
+  .capability-list .text-link { display: inline-block; font-size: .8125rem; margin-top: .75rem; }
+  .intelligence-how { margin-top: 3.5rem; }
+  .intelligence-how .section-heading { margin-bottom: 1.5rem; }
+  .intelligence-how .section-heading > p:last-child { font-size: .875rem; }
+  .processing-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.25rem; }
+  .processing-grid > article { min-width: 0; border: 1px solid #dce7df; border-radius: 22px; padding: 1.5rem; }
+  .processing-icon { margin-bottom: 1rem; }
+  .processing-grid h4 { font-size: 1.0625rem; line-height: 1.4; }
+  .processing-grid p { color: var(--color-text-secondary); font-size: .875rem; margin-top: .75rem; }
+  .processing-grid .processing-note { font-size: .75rem; }
+  .processing-footer { font-size: .75rem; color: var(--color-text-secondary); margin-top: 1.25rem; }
+  .processing-footer .text-link { font-size: inherit; }
+  .intelligence-plan { display: flex; align-items: center; gap: 2rem; background: #f0f6f2; border-radius: 20px; padding: 1.5rem; margin-top: 1.5rem; }
+  .intelligence-plan p { color: var(--color-text-secondary); font-size: .8125rem; }
+  .intelligence-plan strong { display: block; color: var(--color-text); margin-bottom: .5rem; }
+  .intelligence-plan .text-link { flex-shrink: 0; font-size: .8125rem; }
   .shared-section { background: var(--color-bg-warm); padding-block: 3.5rem; }
   .shared-grid, .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
   .section-sub { color: var(--color-text-secondary); font-size: .9375rem; margin-top: 1.2rem; }
@@ -227,6 +276,9 @@ const jsonLd = [
     .benefit-links { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; text-align: center; }
     .section-space { padding-block: 3rem; } .section-heading { margin-bottom: 2rem; } .section-heading > p:last-child:not(.overline) { font-size: .9375rem; }
     .intelligence-grid, .shared-grid, .split-grid, .device-grid, .plan-grid, .faq-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .capability-list, .processing-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .capabilities { margin-bottom: 2rem; } .intelligence-how { margin-top: 2.5rem; }
+    .intelligence-plan { flex-direction: column; align-items: flex-start; gap: 1rem; }
     .quick-card { grid-row: auto; } .quick-image { width: min(72%,270px); max-height: 400px; overflow: hidden; margin-bottom: 0; margin-top: 1rem; }
     .card-copy { padding: 1.5rem 1.5rem 0; } .card-copy > p:last-child:not(.eyebrow) { font-size: .875rem; } .quick-card h3 { font-size: 1.6rem; }
     .note-sheet, .note-purpose, .noticed-image { margin-inline: 1.5rem; } .feature-requirements { margin-inline: 1.5rem; } .access-pill { margin-inline: 1.5rem; }

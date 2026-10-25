@@ -2,13 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import CareRecapPreview from '../components/CareRecapPreview.astro';
+import CareWalkthrough from '../components/CareWalkthrough.astro';
 import CareHeroSlideshow from '../components/CareHeroSlideshow.astro';
 import SiteIcon from '../components/SiteIcon.astro';
 import { nuboStory } from '../data/nuboMessaging';
+import { careHeroScenes } from '../data/careHeroScenes';
 
 const title = 'Nubo Care | Bring Your Pediatrician’s Answers Home';
-const description = 'There’s a lot to take in at a pediatrician visit. Prepare questions, record with permission, and revisit the answers with Nubo Care, included in Plus.';
+const description = 'Nubo Intelligence helps you prepare questions, record with Nubo Scribe, and follow through with Nubo Coordinator. Nubo Care is included in Plus.';
 const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
 const stores = [
   { href: 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158', image: '/images/appstore-badge.webp', label: 'Download on the App Store' },
@@ -31,7 +32,7 @@ const jsonLd = {
       image: 'https://www.nubotracker.com/images/appscreens/01_onetouch.webp',
       publisher: { '@id': 'https://www.nubotracker.com/#organization' },
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-      featureList: ['Nubo Care visit questions, recording, and recaps with Nubo Plus', 'Answers linked to the original visit audio', 'Shared visit summaries and next steps', 'Nubo Intelligence for easier logging and useful context', 'Free in-app voice logging with on-device processing', 'Nubo Notetaker keeps everyday observations ready for conversations with your pediatrician, with AI titles and tags on supported iPhones', 'Nubo Noticed recorded-pattern insights with Plus, free for everyone on Mondays', 'Quick logs for feeds, sleep, and diapers', 'Unlimited caregivers across iPhone and Android', 'Offline tracking and private backup'],
+      featureList: ['Nubo Care suggested visit questions, recording, and recaps with Nubo Plus', 'Nubo Scribe doctor recordings and answers linked to the original audio', 'Nubo Coordinator follow-up with shared visit next steps and to-dos', 'Nubo Intelligence built-in AI across everyday care and doctor visits', 'Free in-app voice logging with on-device processing', 'Nubo Observations keeps everyday notes alongside structured activity logs', 'Nubo Intelligence suggests pediatrician questions using saved observations and your baby’s age', 'Nubo Noticed recorded-pattern insights with Plus, free for everyone on Mondays', 'Quick logs for feeds, sleep, and diapers', 'Unlimited caregivers across iPhone and Android', 'Offline tracking and private backup'],
       installUrl: stores.map((store) => store.href), downloadUrl: stores.map((store) => store.href),
     },
     {
@@ -52,12 +53,15 @@ const jsonLd = {
       <div class="container hero-inner">
         <div class="hero-content">
           <p class="overline">Nubo Care · From newborn days to growing years</p>
-          <h1 id="hero-title">Bring the<br />answers home.</h1>
+          <h1 id="hero-title" aria-live="off">
+            {careHeroScenes.map((scene, index) => <span class:list={['hero-headline', { 'is-active': index === 0 }]} data-care-headline={scene.key} aria-hidden={index === 0 ? 'false' : 'true'}>{scene.headline.map((line) => <span class="hero-headline-line">{line}{' '}</span>)}</span>)}
+          </h1>
           <p class="hero-sub">There's a lot to take in at a pediatrician visit. Prepare questions, record with permission, and come back to the answers together.</p>
           <div class="store-links hero-actions" aria-label="Download the free Nubo app">
             {stores.map((store) => <a href={store.href} target="_blank" rel="noopener noreferrer" aria-label={store.label}><img src={store.image} alt={store.label} width="160" height="56" /></a>)}
           </div>
           <p class="hero-note">Nubo Care · Included in Plus. Free app on iPhone and Android.</p>
+          <button class="hero-playback" type="button" data-care-toggle hidden>Pause slideshow</button>
         </div>
       </div>
     </section>
@@ -65,55 +69,42 @@ const jsonLd = {
     <aside class="trust-strip" aria-label="Your visit, kept private">
       <div class="container trust-inner">
         <span><SiteIcon name="phone" size={19} />Audio stays on your phone</span>
-        <span><SiteIcon name="users" size={19} />Share recaps with invited caregivers</span>
+        <span><SiteIcon name="users" size={19} />Choose who can see visit details</span>
         <a href="#care-privacy"><SiteIcon name="lock" size={19} />Private by design <span aria-hidden="true">↗</span></a>
       </div>
     </aside>
 
-    <section class="care-section section-space" id="nubo-care" aria-labelledby="care-title">
-      <div class="container">
-        <div class="section-heading"><p class="overline">Listen at the appointment. Remember at home.</p><h2 id="care-title">Less to remember.<br />More room to listen.</h2></div>
-        <div class="care-grid" id="care-loop">
-          <ol class="visit-steps">
-            <li><span class="step-icon"><SiteIcon name="questions" /></span><div><p class="eyebrow">Before</p><h3>Bring your questions.</h3><p>Save what's on your mind. Choose the observations and daily logs you want to discuss.</p><span class="question-chip">“What should we track before the follow-up?”</span></div></li>
-            <li><span class="step-icon peach"><SiteIcon name="mic" /></span><div><p class="eyebrow">During</p><h3>Record. Stay present.</h3><p>Ask your care team's permission, then focus on the conversation.</p></div></li>
-            <li><span class="step-icon lilac"><SiteIcon name="check" /></span><div><p class="eyebrow">After</p><h3>Come back to the answers.</h3><p>Review the recap and next steps. Invited caregivers can catch up, too.</p></div></li>
-          </ol>
-          <CareRecapPreview id="homepage-care-recap" />
+    <section class="mental-load-section section-space" id="baby-care-details" aria-labelledby="mental-load-title">
+      <div class="container mental-load-grid">
+        <div class="mental-load-copy">
+          <p class="overline">Everyday care. Doctor visits.</p>
+          <h2 id="mental-load-title">Caring for a baby comes with a lot to remember.</h2>
+          <p>Between short nights and busy days, there’s a lot to keep in your head. The last feed. Today’s naps. Something new you noticed. A question for the pediatrician.</p>
+          <p><strong>Nubo helps you keep track of it all.</strong> Log daily activities, save your observations, and come back to the answers from your child’s visits. The details stay together, ready for you and the people caring alongside you.</p>
+          <a class="text-link" href="#care-loop">See how Nubo helps <span aria-hidden="true">→</span></a>
         </div>
-        <p class="section-footnote">No tracking history needed. Recording and recaps in English. <a href="/care/">Explore Nubo Care <span aria-hidden="true">→</span></a></p>
+        <div class="care-moments-visual">
+          <img src="/images/hero-mother-baby-800.webp" srcset="/images/hero-mother-baby-800.webp 800w, /images/hero-mother-baby.webp 1500w" sizes="(max-width: 760px) calc(100vw - 40px), 488px" alt="A mother holding her sleeping baby close" width="800" height="669" loading="lazy" decoding="async" />
+          <ul class="care-details-list" aria-label="Baby care details, kept together">
+            <li><span class="care-detail-icon"><SiteIcon name="bottle" size={21} /></span><div><strong>Daily activities</strong><span>Feeds, sleep, diapers, and more</span></div></li>
+            <li><span class="care-detail-icon observation"><SiteIcon name="questions" size={21} /></span><div><strong>Your observations</strong><span>The little things you notice</span></div></li>
+            <li><span class="care-detail-icon visit"><SiteIcon name="audio" size={21} /></span><div><strong>Pediatrician visits</strong><span>Questions, answers, and next steps</span></div></li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section class="details-section section-space" id="original-words" aria-labelledby="details-title">
+    <section class="care-section section-space" id="nubo-care" aria-labelledby="care-title">
       <div class="container">
-        <div class="section-heading"><p class="overline">From the conversation to the next step</p><h2 id="details-title">The words you heard.<br />The details you can return to.</h2></div>
-        <div class="details-grid">
-          <article class="detail-card audio-card">
-            <div class="card-heading"><SiteIcon name="audio" /><h3>Hear the original words.</h3></div>
-            <p>Tap an answer's timestamp on the recording phone to hear that part of the conversation again.</p>
-            <figure class="audio-example">
-              <blockquote>“Keep a note of the feeding changes you notice.”</blockquote>
-              <div class="audio-track"><span class="play-mark" aria-hidden="true">▶</span><div class="waveform" aria-hidden="true">{Array.from({ length: 27 }, (_, i) => <i style={`--bar: ${[16, 28, 20, 38, 24, 32, 12][i % 7]}px`}></i>)}</div><strong>04:32</strong></div>
-              <figcaption>Sample answer · Replay on the recording phone.</figcaption>
-            </figure>
-          </article>
-          <article class="detail-card sharing-card" id="caregivers">
-            <div class="card-heading"><SiteIcon name="users" /><h3>The next step, shared.</h3></div>
-            <p>Your partner couldn't make the visit. The recap, answers, and to-dos are there for invited caregivers to read.</p>
-            <div class="sharing-visual" aria-label="Visit recap shared with parents and a grandparent">
-              <div class="avatar-row"><span class="avatar">M<span>Mom</span></span><span class="connection" aria-hidden="true"></span><span class="recap-icon"><SiteIcon name="check" size={30} /></span><span class="connection" aria-hidden="true"></span><span class="avatar dad">D<span>Dad</span></span><span class="avatar grandma">G<span>Grandma</span></span></div>
-              <div class="shared-task"><SiteIcon name="check" size={20} /><span>Save feeding observations for the follow-up.</span></div>
-            </div>
-            <p class="visual-caption">Sample shared next step. Original audio stays on your phone.</p>
-          </article>
-        </div>
+        <div class="section-heading"><p class="overline">How Nubo Care works</p><h2 id="care-title">From everyday moments<br />to your next conversation.</h2><p class="walkthrough-intro">Save what you notice, prepare for the visit, and bring the answers home together.</p></div>
+        <CareWalkthrough />
+        <p class="section-footnote">Observations and activity logging stay free. Nubo Care is included in Plus.<br />No tracking history needed. Recording and recaps in English. <a href="/care/">Explore Nubo Care <span aria-hidden="true">→</span></a></p>
       </div>
     </section>
 
     <section class="everyday-section section-space" id="everyday-care" aria-labelledby="everyday-title">
       <div class="container">
-        <div class="heading-row"><div><p class="overline">Between visits · Nubo Intelligence</p><h2 id="everyday-title">The little things.<br />Ready for the next conversation.</h2><p class="section-sub">Tap as it happens. Talk to catch up. Save what you notice, then choose what to bring up at the next visit.</p></div><a href="/app/#intelligence" class="text-link">Explore Nubo Intelligence <span aria-hidden="true">↗</span></a></div>
+        <div class="heading-row"><div><p class="overline">Built into the Nubo app</p><h2 id="everyday-title">What is<br />Nubo Intelligence?</h2><p class="section-sub intelligence-intro">{nuboStory.intelligence}</p></div><a href="/app/#intelligence" class="text-link">See what it can do <span aria-hidden="true">↗</span></a></div>
         <div class="everyday-grid">
           <article class="everyday-card quick-card" id="one-tap-logging">
             <div class="everyday-copy"><p class="eyebrow">Quick Log · Free</p><h3>Tap as it happens.</h3><p>A feed. A nap. A fresh diaper.<br />Log it and get back to your baby.</p></div>
@@ -123,7 +114,7 @@ const jsonLd = {
             <div class="everyday-copy"><p class="eyebrow">Voice logging · Free</p><h3>A busy morning.<br />Caught up in a sentence.</h3><p>Say what happened. Review and edit the events before saving.</p></div>
             <div class="voice-example"><span class="mic-orb"><SiteIcon name="mic" size={28} /></span><blockquote>“She had 90 mL at eight, then a wet diaper.”</blockquote><div class="event-chips"><span>90 mL · 8:00 AM</span><span>Wet diaper</span></div><p>Illustrative example · Processed on your phone</p></div>
           </article>
-          <a class="everyday-card small-card notes-card" href="/app/#notetaker"><div class="small-card-top"><SiteIcon name="questions" /><span aria-hidden="true">↗</span></div><p class="eyebrow">Nubo Notetaker · Free</p><h3>Keep the little things<br />you want to bring up.</h3><p>Speak or type what you've noticed. Your own words are here when it's time to talk with your pediatrician.</p><div class="note-fragment">“Waking earlier for three nights.”<span>Sample observation · For the next visit</span></div></a>
+          <a class="everyday-card small-card notes-card" href="/app/#notetaker"><div class="small-card-top"><SiteIcon name="questions" /><span aria-hidden="true">↗</span></div><p class="eyebrow">Nubo Observations · Free</p><h3>Keep the little things<br />you want to bring up.</h3><p>Speak or type what you notice, whenever it comes to mind. Your own words are here when it’s time to prepare for your next visit.</p><div class="note-fragment">“Waking earlier for three nights.”<span>Sample observation · For the next visit</span></div></a>
           <a class="everyday-card small-card noticed-card" href="/app/#insights"><div class="small-card-top"><SiteIcon name="sparkles" /><span aria-hidden="true">↗</span></div><p class="eyebrow">Nubo Noticed · Plus</p><h3>See what's changing<br />in your recorded days.</h3><p>More milk from bottles this week? See supported changes in the care you've logged.</p><div class="mini-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="access-label">Illustrative pattern · Free for everyone on Mondays</span></a>
         </div>
         <p class="section-footnote">Everyday tracking, voice logging, and unlimited caregivers stay free. <a href="/app/#plans">See feature access and device requirements <span aria-hidden="true">→</span></a></p>
@@ -133,7 +124,7 @@ const jsonLd = {
     <section class="privacy-section" id="care-privacy" aria-labelledby="privacy-title">
       <div class="container privacy-grid">
         <div class="privacy-heading"><span class="privacy-icon"><SiteIcon name="lock" size={32} /></span><div><p class="overline">Private by design</p><h2 id="privacy-title">Your family's words.<br />Handled with care.</h2><a href="/privacy/" class="text-link">Trust &amp; Privacy <span aria-hidden="true">→</span></a></div></div>
-        <ul class="privacy-list"><li><strong>You choose to record.</strong><span>Ask your care team before you start.</span></li><li><strong>Processed, then cleared.</strong><span>Selected visit content is processed on the server. Nubo and its processing providers retain no visit data afterward.</span></li><li><strong>Share the recap. Keep the audio.</strong><span>Recaps sync to invited caregivers. Original audio stays on the recording phone.</span></li></ul>
+        <ul class="privacy-list"><li><strong>You choose to record.</strong><span>Ask your care team before you start.</span></li><li><strong>Processed, then cleared.</strong><span>Selected visit content is processed on the server. Nubo and its processing providers retain no visit data afterward.</span></li><li><strong>Share the recap. Keep the audio.</strong><span>The primary caregiver chooses which visit details each caregiver can see. Original audio stays on the recording phone.</span></li></ul>
       </div>
     </section>
 
@@ -159,13 +150,18 @@ const jsonLd = {
   .hero-inner { position: relative; z-index: 2; pointer-events: none; padding-block: 140px 100px; min-height: 690px; display: flex; align-items: center; }
   .hero-content { width: 52%; max-width: 550px; pointer-events: auto; }
   .hero .overline { font-size: .6875rem; letter-spacing: .1em; }
-  h1 { font-size: clamp(2.6rem,4.2vw,3.75rem); line-height: 1.08; letter-spacing: -.035em; text-wrap: balance; }
+  h1 { display: grid; align-items: center; font-size: clamp(2.6rem,4.2vw,3.75rem); line-height: 1.08; letter-spacing: -.035em; text-wrap: balance; }
+  .hero-headline { grid-area: 1 / 1; min-width: 0; opacity: 0; visibility: hidden; transition: opacity 1s ease, visibility 1s; }
+  .hero-headline.is-active { opacity: 1; visibility: visible; }
+  .hero-headline-line { display: block; }
   .hero-sub { margin-top: 1.5rem; color: var(--color-text-secondary); font-size: 1.0625rem; max-width: 420px; line-height: 1.7; }
   .store-links { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; }
   .store-links a { display: inline-flex; border-radius: 9px; }
   .store-links img { width: 160px; height: 56px; object-fit: contain; }
   .hero-actions { margin-top: 1.75rem; }
   .hero-note { margin-top: .7rem; color: var(--color-text-secondary); font-size: .75rem; }
+  .hero-playback { margin-top: .75rem; padding: .25rem 0; border: 0; background: none; color: var(--color-brand-dark); font-size: .75rem; text-decoration: underline; text-underline-offset: 3px; }
+  .hero-playback:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 5px; }
   .trust-strip { background: var(--color-brand-light); color: var(--color-brand-dark); }
   .trust-inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-block: 1.1rem; }
   .trust-inner > * { display: flex; align-items: center; gap: .65rem; font-size: .75rem; font-weight: 700; }
@@ -174,43 +170,41 @@ const jsonLd = {
   .section-heading { text-align: center; margin-bottom: 2.75rem; }
   h2 { font-size: clamp(2rem,3.5vw,2.9rem); line-height: 1.15; letter-spacing: -.03em; text-wrap: balance; }
   h3 { font-size: 1.35rem; line-height: 1.3; letter-spacing: -.02em; }
-  .care-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: center; }
-  .care-grid > *, .details-grid > *, .everyday-grid > *, .start-grid > * { min-width: 0; }
-  .visit-steps { list-style: none; display: grid; gap: 2.25rem; }
-  .visit-steps li { position: relative; display: flex; gap: 1.25rem; }
-  .visit-steps li:not(:last-child)::after { content: ''; position: absolute; left: 25px; top: 62px; bottom: -24px; width: 1px; background: #d9e7e5; }
-  .step-icon { display: grid; place-items: center; width: 52px; height: 52px; flex-shrink: 0; border-radius: 17px; background: var(--color-brand-light); color: var(--color-brand-dark); }
-  .peach { background: #fff0e5; color: #8b5138; } .lilac { background: #f0edfa; color: #67518b; }
+  .mental-load-section { background: var(--color-bg-ivory); }
+  .mental-load-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .mental-load-grid > * { min-width: 0; }
+  .mental-load-copy h2 { max-width: 460px; }
+  .mental-load-copy > p:not(.overline) { margin-top: 1.4rem; color: var(--color-text-secondary); font-size: 1rem; line-height: 1.8; }
+  .mental-load-copy strong { display: block; margin-bottom: .35rem; color: var(--color-text); font-weight: 700; }
+  .mental-load-copy .text-link { display: inline-block; margin-top: 1.5rem; font-size: .875rem; }
+  .care-moments-visual { position: relative; padding-bottom: 1.5rem; }
+  .care-moments-visual > img { width: 100%; height: 470px; object-fit: cover; object-position: 63% center; border-radius: 32px; }
+  .care-details-list { position: absolute; left: -1.5rem; bottom: 0; width: 305px; margin: 0; padding: 1.1rem 1.25rem; list-style: none; background: #fff; border: 1px solid #eae5dd; border-radius: 22px; box-shadow: 0 12px 35px #41301c0d; }
+  .care-details-list li { display: flex; align-items: center; gap: .8rem; padding-block: .55rem; }
+  .care-detail-icon { display: grid; place-items: center; width: 38px; height: 38px; flex-shrink: 0; color: var(--color-brand-dark); background: var(--color-brand-light); border-radius: 12px; }
+  .care-detail-icon.observation { background: #fff0e2; color: #895b34; }
+  .care-detail-icon.visit { background: #eeebf7; color: #67518b; }
+  .care-details-list strong { display: block; font-size: .8125rem; }
+  .care-details-list div > span { display: block; margin-top: .1rem; font-size: .6875rem; color: var(--color-text-secondary); }
+  @media (max-width: 1000px) { .mental-load-grid { gap: 3rem; } .care-details-list { left: -1rem; } }
+  @media (max-width: 760px) {
+    .mental-load-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .mental-load-copy h2 { max-width: 540px; }
+    .mental-load-copy > p:not(.overline) { font-size: .9375rem; margin-top: 1.15rem; }
+    .care-moments-visual { width: 100%; max-width: 520px; justify-self: center; padding-bottom: 0; }
+    .care-moments-visual > img { height: auto; max-height: 350px; object-position: center; border-radius: 24px; }
+    .care-details-list { position: relative; left: auto; bottom: auto; width: auto; margin: -1.5rem 1rem 0; padding: .75rem 1rem; border-radius: 18px; }
+    .care-details-list li { padding-block: .45rem; }
+  }
+  .walkthrough-intro { max-width: 520px; margin: 1rem auto 0; color: var(--color-text-secondary); font-size: 1rem; }
+  .everyday-grid > *, .start-grid > * { min-width: 0; }
   .eyebrow { color: var(--color-brand-dark); font-size: .6875rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; margin-bottom: .45rem; }
-  .visit-steps p:not(.eyebrow) { color: var(--color-text-secondary); font-size: .9375rem; margin-top: .55rem; max-width: 340px; }
-  .question-chip { display: inline-block; border: 1px solid #e6e5df; border-radius: 4px 14px 14px; background: var(--color-bg-ivory); padding: .7rem .85rem; font-size: .75rem; margin-top: 1rem; }
   .section-footnote { color: var(--color-text-secondary); font-size: .75rem; text-align: center; margin-top: 2rem; }
   .section-footnote a { text-decoration: underline; text-underline-offset: 3px; color: var(--color-brand-dark); }
-  .details-section { background: var(--color-bg-warm); }
-  .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-  .detail-card { background: #fff; border: 1px solid #e8e8e1; border-radius: 26px; padding: 2rem; }
-  .card-heading { display: flex; gap: .8rem; align-items: center; } .card-heading svg { color: var(--color-brand-dark); flex-shrink: 0; }
-  .detail-card > p { color: var(--color-text-secondary); font-size: .9375rem; margin-top: .8rem; }
-  .audio-example { margin-top: 1.75rem; padding: 1.5rem; background: #f1f8f7; border-radius: 16px; }
-  .audio-example blockquote { font-size: 1rem; font-weight: 600; line-height: 1.6; }
-  .audio-track { display: flex; gap: 1rem; align-items: center; margin-top: 1.2rem; color: var(--color-brand-dark); }
-  .play-mark { background: var(--color-brand); color: white; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0; font-size: .75rem; }
-  .waveform { display: flex; align-items: center; gap: 4px; height: 40px; flex: 1; overflow: hidden; }
-  .waveform i { width: 3px; height: var(--bar); background: #7dbbb5; border-radius: 3px; flex-shrink: 0; }
-  .audio-track strong { font-size: .8125rem; }
-  figcaption, .detail-card > .visual-caption { font-size: .6875rem; line-height: 1.6; margin-top: 1rem; color: var(--color-text-secondary); }
-  .sharing-visual { margin-top: 2rem; }
-  .avatar-row { display: flex; align-items: center; justify-content: center; gap: .6rem; padding-bottom: 2rem; }
-  .avatar { position: relative; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #fff0e5; color: #8b5138; font-size: .8125rem; font-weight: 700; flex-shrink: 0; }
-  .avatar > span { position: absolute; top: 47px; left: 50%; transform: translateX(-50%); font-size: .625rem; color: var(--color-text-secondary); font-weight: 500; }
-  .dad { background: #e6f2f1; color: var(--color-brand-dark); } .grandma { background: #eeebf7; color: #67518b; }
-  .connection { height: 1px; background: #c8dcd8; width: 24px; }
-  .recap-icon { background: #f1f8f7; color: var(--color-brand); display: grid; place-items: center; width: 60px; height: 60px; border-radius: 17px; }
-  .shared-task { display: flex; gap: .65rem; align-items: center; padding: .9rem 1rem; border: 1px solid #dce9e5; border-radius: 12px; font-size: .8125rem; color: var(--color-brand-dark); }
-  .shared-task svg { flex-shrink: 0; }
   .heading-row { display: flex; justify-content: space-between; gap: 2rem; align-items: end; margin-bottom: 2rem; }
   .heading-row > .text-link { flex-shrink: 0; font-size: .875rem; margin-bottom: .4rem; }
   .section-sub { color: var(--color-text-secondary); margin-top: 1rem; }
+  .intelligence-intro { max-width: 650px; }
   .everyday-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
   .everyday-card { border-radius: 26px; overflow: hidden; position: relative; }
   .quick-card { background: #f1f7f4; display: grid; grid-template-columns: 1fr .85fr; min-height: 340px; }
@@ -271,8 +265,8 @@ const jsonLd = {
   .final-cta .final-note { font-size: .75rem; }
   .final-cta .text-link { display: inline-block; margin-top: 1rem; font-size: .8125rem; }
   a:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 5px; }
-  @media (max-width: 1000px) { .care-grid { gap: 2rem; } .hero-inner { min-height: 650px; } .detail-card { padding: 1.5rem; } .quick-card { grid-template-columns: 1fr .7fr; } .phone-screen { width: 200px; } .everyday-copy { padding: 1.5rem; } .privacy-grid { gap: 2rem; } }
-  @media (max-width: 760px) { .hero-content { width: 57%; } .hero-inner { min-height: 620px; } .hero h1 { font-size: 2.7rem; } .trust-inner { flex-wrap: wrap; justify-content: center; gap: .75rem 1.5rem; } .care-grid { gap: 1.5rem; } .visit-steps li { gap: .8rem; } .visit-steps h3 { font-size: 1.15rem; } .step-icon { width: 42px; height: 42px; border-radius: 14px; } .visit-steps li:not(:last-child)::after { left: 21px; top: 52px; } .quick-card { display: block; } .quick-image { height: 195px; margin-left: 2rem; } .phone-screen { width: 220px; top: 0; } .privacy-heading { display: block; } .privacy-icon { margin-bottom: 1rem; } }
+  @media (max-width: 1000px) { .hero-inner { min-height: 650px; } .quick-card { grid-template-columns: 1fr .7fr; } .phone-screen { width: 200px; } .everyday-copy { padding: 1.5rem; } .privacy-grid { gap: 2rem; } }
+  @media (max-width: 760px) { .hero-content { width: 57%; } .hero-inner { min-height: 620px; } .hero h1 { font-size: 2.7rem; } .trust-inner { flex-wrap: wrap; justify-content: center; gap: .75rem 1.5rem; } .quick-card { display: block; } .quick-image { height: 195px; margin-left: 2rem; } .phone-screen { width: 220px; top: 0; } .privacy-heading { display: block; } .privacy-icon { margin-bottom: 1rem; } }
   @media (max-width: 680px) {
     .container { padding-inline: 1.25rem; }
     .hero { padding-top: 60px; } .hero-scrim { display: none; }
@@ -281,18 +275,16 @@ const jsonLd = {
     .hero-sub { font-size: .9375rem; margin-top: 1rem; max-width: 430px; } .hero-actions { margin-top: 1.25rem; }
     .trust-inner { justify-content: start; padding-block: 1rem; gap: .65rem; } .trust-inner > * { font-size: .6875rem; flex-basis: 100%; }
     .section-space { padding-block: 3.25rem; } .section-heading { margin-bottom: 2rem; } .section-heading .overline { font-size: .6875rem; }
-    h2 { font-size: clamp(1.8rem,7vw,2.3rem); } .care-grid, .details-grid, .everyday-grid, .privacy-grid, .start-grid { grid-template-columns: 1fr; }
-    .care-grid { gap: 2rem; } .visit-steps { gap: 1.75rem; } .visit-steps li { gap: 1rem; } .visit-steps h3 { font-size: 1.25rem; } .visit-steps p:not(.eyebrow) { max-width: none; font-size: .875rem; }
-    .question-chip { font-size: .6875rem; } .section-footnote { font-size: .6875rem; line-height: 1.7; }
-    .detail-card { padding: 1.5rem; border-radius: 22px; } .card-heading h3 { font-size: 1.25rem; } .detail-card > p { font-size: .875rem; }
-    .audio-example { padding: 1.25rem; } .heading-row { display: block; } .heading-row .text-link { display: inline-block; margin-top: 1rem; }
-    .section-sub { font-size: .9375rem; } .quick-card { display: grid; grid-template-columns: 1fr .75fr; min-height: 310px; } .quick-image { height: 100%; margin: 0; } .phone-screen { top: 1.5rem; width: 195px; }
+    h2 { font-size: clamp(1.8rem,7vw,2.3rem); } .everyday-grid, .privacy-grid, .start-grid { grid-template-columns: 1fr; }
+    .section-footnote { font-size: .6875rem; line-height: 1.7; }
+    .heading-row { display: block; } .heading-row .text-link { display: inline-block; margin-top: 1rem; }
+    .walkthrough-intro, .section-sub { font-size: .9375rem; } .quick-card { display: grid; grid-template-columns: 1fr .75fr; min-height: 310px; } .quick-image { height: 100%; margin: 0; } .phone-screen { top: 1.5rem; width: 195px; }
     .everyday-copy { padding: 1.5rem; } .everyday-card h3 { font-size: 1.35rem; } .voice-example { padding: 1.5rem; }
     .small-card { padding: 1.5rem; } .privacy-section { padding-block: 2.5rem; } .privacy-grid { gap: 2rem; } .privacy-heading { display: flex; gap: 1rem; } .privacy-icon { width: 48px; height: 56px; border-radius: 16px; }
     .privacy-heading .overline { font-size: .625rem; } .privacy-heading h2 { font-size: 1.7rem; }
     .start-card { border-radius: 22px; } .app-start { padding: 1.5rem; } .device-photo { height: 210px; } .device-copy { padding: 1.5rem; }
     .final-cta { padding-block: 3rem; } .store-links { gap: .5rem; } .store-links img { width: 148px; height: 52px; }
   }
-  @media (prefers-reduced-motion: reduce) { .small-card { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { .hero-headline, .small-card { transition: none; } }
   @media (max-width: 360px) { .store-links img { width: 134px; height: 47px; } }
 </style>

@@ -1,11 +1,11 @@
 ---
 import MarketingLayout from '../layouts/MarketingLayout.astro';
 import SiteIcon from '../components/SiteIcon.astro';
-import { nuboStory } from '../data/nuboMessaging';
+import { nuboStory, nuboSharing, nuboProcessing } from '../data/nuboMessaging';
 
 
 const title = 'FAQ | Nubo Care, Nubo Intelligence, App, and Device';
-const description = 'Answers about Nubo Care visits, Nubo Intelligence, voice logging, Notetaker, Noticed, privacy, Free and Plus access, and the optional baby tracker device.';
+const description = 'Answers about Nubo Intelligence, Nubo Scribe doctor recordings, Nubo Coordinator follow-up, everyday logging, privacy, Free and Plus, and the device.';
 
 const careFaqs = [
   {
@@ -38,7 +38,7 @@ const careFaqs = [
   },
   {
     "q": "What do caregivers see?",
-    "a": "Invited caregivers receive synced summaries, question answers, to-dos, and other visit records. The audio recording is available on the recording phone and is not synced to caregivers."
+    "a": nuboProcessing.careRecords
   },
   {
     "q": "Where does processing happen, and what is retained?",
@@ -61,7 +61,19 @@ const intelligenceFaqs = [
   },
   {
     q: "How do Nubo Intelligence, Nubo Care, and Nubo Plus fit together?",
-    a: `Intelligence helps with everyday logging, observations, and recorded patterns. Care helps you prepare for pediatrician visits and come back to the answers. Both are part of the Nubo app. ${nuboStory.plus} Voice logging and observations stay free. See <a href="/pricing/">Free and Plus access details</a>.`
+    a: `Intelligence is the built-in AI across everyday logging, observations, recorded patterns, visit preparation, Nubo Scribe doctor recordings, and Nubo Coordinator follow-up. Care brings this AI to doctor visits and shared next steps. All are part of one Nubo app. ${nuboStory.plus} Voice logging and observations stay free. See <a href="/pricing/">Free and Plus access details</a>.`
+  },
+  {
+    q: "Is Nubo Scribe part of Nubo Intelligence?",
+    a: `${nuboStory.scribe} Scribe is part of Nubo Intelligence within Nubo Care, included in Plus. <a href="/care/#nubo-scribe">Explore Nubo Scribe</a>.`
+  },
+  {
+    q: "How does Nubo Coordinator help after a visit?",
+    a: `${nuboStory.coordinator} It is part of Nubo Intelligence within Nubo Care, included in Plus. ${nuboProcessing.careRecords} <a href="/care/#caregivers">Explore Nubo Coordinator</a>.`
+  },
+  {
+    q: "How does Nubo Intelligence work?",
+    a: "Nubo Intelligence uses AI built into the app. In-app voice logging runs on your phone, including offline. Supported Notetaker AI titles and tags also run on the device. Nubo Care uses server processing for selected visit content, with no visit data retained afterward. See <a href=\"/app/#how-intelligence-works\">how Nubo Intelligence works</a> or the <a href=\"/privacy/#processing\">feature-by-feature privacy explanation</a>."
   },
   {
     q: "Can I log by voice in the app?",
@@ -94,6 +106,13 @@ const intelligenceFaqs = [
 ];
 
 const trackerFaqs = [
+  {
+    q: "Does unlimited caregiver sharing mean everyone sees everything?",
+    a: `${nuboSharing.overview} ${nuboSharing.pumping} See <a href="/caregivers/#sharing-controls">sharing choices for each caregiver</a>.`
+  },
+  { q: "Can nursing side and time per side stay private?", a: nuboSharing.nursing },
+  { q: "Who can see Care Vault information?", a: nuboSharing.vault },
+  { q: "Who can see doctor visit data?", a: nuboProcessing.careRecords },
   {
     q: "Who is Nubo best for?",
     a: "Nubo is best for families who want baby tracking to be fast, shared, and forgiving. It works well for newborn parents managing night feeds, forgotten logs, hands-full moments, and multiple caregivers. You can use the free app on its own, add Nubo Plus for advanced tools, or add the quick-log device when opening your phone is inconvenient."
@@ -212,7 +231,7 @@ const trackerFaqs = [
   },
   {
     q: "Can caregivers see my pumping data?",
-    a: "No. Nubo Plus includes a private pumping tracker for milk output. Pumping data is not in the shared baby log, not in caregiver sync, and not visible to partners, nannies, grandparents, or other collaborators. Read the <a href=\"/blog/privacy/pumping-tracker-private-data/\">exclusive pumping privacy guide</a> for the full design."
+    a: "No. Pumping records are always private and are never shared with other caregivers. Nubo Plus includes the pumping tracker for milk output, kept separate from the shared baby log. Read the <a href=\"/blog/privacy/pumping-tracker-private-data/\">exclusive pumping privacy guide</a> for the full design."
   },
   {
     q: "How can Nubo help me see my baby's routine?",
@@ -269,9 +288,9 @@ const jsonLd = {
 
 <MarketingLayout title={title} description={description} jsonLd={jsonLd}>
   <section class="m-hero m-title"><div class="container"><p class="overline">Nubo FAQ</p><h1>A few answers.<br />A little less to figure out.</h1><p class="m-lead">Keeping track at home, bringing answers back from a visit, or choosing Free and Plus. Start with your question.</p></div></section>
-  <nav class="topic-nav" aria-label="FAQ topics"><div class="container m-grid three"><a href="#doctor-visits"><span class="m-icon peach"><SiteIcon name="questions" /></span><div><p class="m-label">Nubo Care</p><strong>Doctor visits</strong></div><span aria-hidden="true">↓</span></a><a href="#nubo-intelligence"><span class="m-icon lilac"><SiteIcon name="sparkles" /></span><div><p class="m-label">Nubo Intelligence</p><strong>Everyday logging</strong></div><span aria-hidden="true">↓</span></a><a href="#app-and-device"><span class="m-icon"><SiteIcon name="phone" /></span><div><p class="m-label">App and Nubo Remote</p><strong>Plans and setup</strong></div><span aria-hidden="true">↓</span></a></div></nav>
+  <nav class="topic-nav" aria-label="FAQ topics"><div class="container m-grid three"><a href="#doctor-visits"><span class="m-icon peach"><SiteIcon name="questions" /></span><div><p class="m-label">Nubo Care</p><strong>Doctor visits</strong></div><span aria-hidden="true">↓</span></a><a href="#nubo-intelligence"><span class="m-icon lilac"><SiteIcon name="sparkles" /></span><div><p class="m-label">Nubo Intelligence</p><strong>Built-in AI</strong></div><span aria-hidden="true">↓</span></a><a href="#app-and-device"><span class="m-icon"><SiteIcon name="phone" /></span><div><p class="m-label">App and Nubo Remote</p><strong>Plans and setup</strong></div><span aria-hidden="true">↓</span></a></div></nav>
   <section class="m-section" id="doctor-visits" aria-labelledby="care-faq-title"><div class="container faq-section"><div class="m-heading"><p class="overline">Nubo Care</p><h2 id="care-faq-title">Doctor visits.</h2><p>Prepare, record with permission, and come back to the answers.</p></div><div class="faq-list">{careFaqs.map((faq) => <details><summary>{faq.q}<span aria-hidden="true">+</span></summary><div class="faq-answer"><p set:html={faq.a} /></div></details>)}</div></div></section>
-  <section class="m-section m-warm" id="nubo-intelligence" aria-labelledby="intelligence-faq-title"><div class="container faq-section"><div class="m-heading"><p class="overline">Nubo Intelligence</p><h2 id="intelligence-faq-title">Everyday logging.</h2><p>Say what happened. Save what you notice. See supported patterns in your recorded days.</p></div><div class="faq-list">{intelligenceFaqs.map((faq) => <details><summary>{faq.q}<span aria-hidden="true">+</span></summary><div class="faq-answer"><p set:html={faq.a} /></div></details>)}</div></div></section>
+  <section class="m-section m-warm" id="nubo-intelligence" aria-labelledby="intelligence-faq-title"><div class="container faq-section"><div class="m-heading"><p class="overline">Nubo Intelligence</p><h2 id="intelligence-faq-title">Everyday care.<br />Visits. Follow-up.</h2><p>Built-in AI for logs, observations, recorded patterns, visit questions, Nubo Scribe doctor recordings, and Nubo Coordinator follow-up.</p></div><div class="faq-list">{intelligenceFaqs.map((faq) => <details><summary>{faq.q}<span aria-hidden="true">+</span></summary><div class="faq-answer"><p set:html={faq.a} /></div></details>)}</div></div></section>
   <section class="m-section" id="app-and-device" aria-labelledby="tracker-faq-title"><div class="container faq-section"><div class="m-heading"><p class="overline">App and Nubo Remote</p><h2 id="tracker-faq-title">Plans and setup.</h2><p>Free and Plus, shared care, and your first tap with Nubo Remote.</p></div><div class="faq-list">{trackerFaqs.map((faq) => <details><summary>{faq.q}<span aria-hidden="true">+</span></summary><div class="faq-answer"><p set:html={faq.a} /></div></details>)}</div></div></section>
   <section class="m-cta"><div class="container"><h2>Still have a question?</h2><div class="m-actions"><a href="/contact/" class="btn-primary">Contact us</a></div></div></section>
 </MarketingLayout>
