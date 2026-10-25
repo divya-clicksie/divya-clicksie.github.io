@@ -12,7 +12,7 @@ interface Props {
 const {
   eyebrow = 'Faster than the alternatives',
   title = '42 seconds with a diary. 18 seconds with an app. 1 second with Nubo.',
-  intro = 'Every app-based log starts with a phone pickup. The Nubo device logs the moment without unlocking your phone.',
+  intro = 'Every app-based log starts with a phone pickup. The Nubo Remote logs the moment without unlocking your phone.',
   expanded = false,
   compact = false,
   ctaHref,
@@ -22,7 +22,7 @@ const {
 const summaryRows = [
   ['Pen-and-paper diary', '42 sec', '25 hrs', 'No phone required'],
   ['Other apps', '18 sec', '11 hrs', 'Every log requires unlocking the phone'],
-  ['Nubo device', '1 sec', '40 mins', 'No phone unlock'],
+  ['Nubo Remote', '1 sec', '40 mins', 'No phone unlock'],
 ];
 
 const expandedRows = [
@@ -30,7 +30,7 @@ const expandedRows = [
   ['Other apps', '18 sec', 'Unlock phone, open app, navigate, enter, save'],
   ['Nubo voice', '8 sec', 'Open app and speak one sentence for catch-up'],
   ['Nubo Quick Log', '4 sec', 'Open app and tap the right quick-log card'],
-  ['Nubo device', '1 sec', 'Tap the matching event button without unlocking a phone'],
+  ['Nubo Remote', '1 sec', 'Tap the matching event button without unlocking a phone'],
 ];
 
 const methodology = expanded
@@ -59,7 +59,7 @@ const methodology = expanded
           </thead>
           <tbody>
             {expandedRows.map(([method, time, requirement]) => (
-              <tr class:list={{ 'speed-row-highlight': method === 'Nubo device' }}>
+              <tr class:list={{ 'speed-row-highlight': method === 'Nubo Remote' }}>
                 <th scope="row">{method}</th>
                 <td>{time}</td>
                 <td>{requirement}</td>
@@ -80,7 +80,7 @@ const methodology = expanded
           </thead>
           <tbody>
             {summaryRows.map(([method, time, total, pickup]) => (
-              <tr class:list={{ 'speed-row-highlight': method === 'Nubo device' }}>
+              <tr class:list={{ 'speed-row-highlight': method === 'Nubo Remote' }}>
                 <th scope="row">{method}</th>
                 <td>{time}</td>
                 <td>{total}</td>

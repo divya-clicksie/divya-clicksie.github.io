@@ -2,8 +2,8 @@
 import MarketingLayout from '../../layouts/MarketingLayout.astro';
 import SiteIcon from '../../components/SiteIcon.astro';
 import FaqList from '../../components/FaqList.astro';
-const title = 'Talli Alternative: Nubo vs Talli Baby Tracker Device';
-const description = 'Looking for a Talli alternative? Compare Nubo and Talli baby tracker devices by sync style, app model, caregiver fit, portability, and phone-light newborn logging.';
+const title = 'Talli Alternative: Nubo Remote vs Talli Baby Tracker';
+const description = 'Looking for a Talli alternative? Compare Nubo Remote and Talli baby tracker devices by sync style, app model, caregiver fit, portability, and phone-light newborn logging.';
 const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
 const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
 const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
@@ -12,8 +12,8 @@ const talliProductURL = 'https://talli.me/products/talli-baby-tracker-event-logg
 const talliAmazonURL = 'https://www.amazon.com/Talli-Daily-One-Touch-Baby-Tracker/dp/B0DJN6B1HB';
 
 const faqItems = [
- { q: 'How do the devices send logs?', a: 'Nubo stores timestamped events and syncs over Bluetooth to a nearby paired phone. Talli sends events over Wi-Fi to its app account.' },
- { q: 'Does Nubo require Wi-Fi?', a: 'No. The Nubo device uses Bluetooth. Caregiver phones need connectivity to share updates with other caregivers.' },
+ { q: 'How do the devices send logs?', a: 'Nubo Remote stores timestamped events and syncs over Bluetooth to a nearby paired phone. Talli sends events over Wi-Fi to its app account.' },
+ { q: 'Does Nubo Remote require Wi-Fi?', a: 'No. The Nubo Remote uses Bluetooth. Caregiver phones need connectivity to share updates with other caregivers.' },
  { q: 'Can I start without a physical device?', a: 'Yes. The Nubo app works on its own, with free everyday tracking, voice logging, and unlimited caregivers on iPhone and Android.' },
 ];
 const comparisons = [
@@ -31,7 +31,7 @@ const jsonLd = {
   description,
   url: 'https://www.nubotracker.com/compare/talli/',
   about: [
-    { '@type': 'Product', name: 'Nubo Baby Tracker Device' },
+    { '@type': 'Product', name: 'Nubo Remote' },
     { '@type': 'Product', name: 'Talli Baby One-Touch Baby Tracker' }
   ],
   mainEntity: {
@@ -49,10 +49,10 @@ const jsonLd = {
 ---
 
 <MarketingLayout title={title} description={description} jsonLd={jsonLd}>
-  <section class="m-hero"><div class="container m-split"><div><p class="overline">Comparing physical baby trackers</p><h1>Nubo and Talli,<br />side by side.</h1><p class="m-lead">Look at connection, portability, and the button routine that fits your home.</p><div class="m-actions"><a href="/device/" class="btn-primary">Explore the Nubo device</a><a href="/compare/" class="text-link">All setup options <span aria-hidden="true">→</span></a></div></div><img class="m-photo" src="/images/nubo-oneclick.webp" alt="Nubo handheld baby tracker with dedicated care buttons" width="740" height="554" fetchpriority="high" /></div></section>
-  <section class="m-section"><div class="container"><div class="m-heading"><p class="overline">The practical differences</p><h2>A button is the start.<br />Connection shapes the routine.</h2></div><div class="table-wrap"><table><caption>Nubo and Talli device workflows</caption><thead><tr><th scope="col">Compare</th><th scope="col">Nubo</th><th scope="col">Talli</th></tr></thead><tbody>{comparisons.map(([feature,nubo,talli]) => <tr><th scope="row">{feature}</th><td>{nubo}</td><td>{talli}</td></tr>)}</tbody></table></div><aside class="availability-note"><SiteIcon name="questions" size={21} /><p><strong>Buying a Talli device?</strong> Talli says hardware manufacturing is paused and current inventory is sold out. Its app remains available. Check the <a href={talliHomeURL} target="_blank" rel="noopener noreferrer">official Talli site</a> for the latest.</p></aside><p class="source-note">Talli details checked against its <a href={talliHomeURL} target="_blank" rel="noopener noreferrer">official product overview and FAQs</a> on October 19, 2026.</p></div></section>
+  <section class="m-hero"><div class="container m-split"><div><p class="overline">Comparing physical baby trackers</p><h1>Nubo Remote and Talli,<br />side by side.</h1><p class="m-lead">Look at connection, portability, and the button routine that fits your home.</p><div class="m-actions"><a href="/device/" class="btn-primary">Explore the Nubo Remote</a><a href="/compare/" class="text-link">All setup options <span aria-hidden="true">→</span></a></div></div><img class="m-photo" src="/images/nubo-oneclick.webp" alt="Nubo Remote with dedicated care buttons" width="740" height="554" fetchpriority="high" /></div></section>
+  <section class="m-section"><div class="container"><div class="m-heading"><p class="overline">The practical differences</p><h2>A button is the start.<br />Connection shapes the routine.</h2></div><div class="table-wrap"><table><caption>Nubo Remote and Talli workflows</caption><thead><tr><th scope="col">Compare</th><th scope="col">Nubo Remote</th><th scope="col">Talli</th></tr></thead><tbody>{comparisons.map(([feature,nubo,talli]) => <tr><th scope="row">{feature}</th><td>{nubo}</td><td>{talli}</td></tr>)}</tbody></table></div><aside class="availability-note"><SiteIcon name="questions" size={21} /><p><strong>Buying a Talli device?</strong> Talli says hardware manufacturing is paused and current inventory is sold out. Its app remains available. Check the <a href={talliHomeURL} target="_blank" rel="noopener noreferrer">official Talli site</a> for the latest.</p></aside><p class="source-note">Talli details checked against its <a href={talliHomeURL} target="_blank" rel="noopener noreferrer">official product overview and FAQs</a> on October 19, 2026.</p></div></section>
   <section class="m-section m-teal"><div class="container m-grid three"><article><span class="m-icon"><SiteIcon name="phone" /></span><h3>Start with a free app.</h3><p class="m-note">Nubo includes voice logging and unlimited caregivers on iPhone and Android.</p></article><article><span class="m-icon peach"><SiteIcon name="bluetooth" /></span><h3>Add the tap.</h3><p class="m-note">Dedicated buttons for feeds, sleep, and diapers when your phone is out of reach.</p></article><article><span class="m-icon lilac"><SiteIcon name="sparkles" /></span><h3>Keep Plus refreshed.</h3><p class="m-note">Each phone that syncs with Nubo gets a refreshed 30-day Plus window, including Nubo Care for pediatrician visits.</p></article></div></section>
-  <section class="m-section"><div class="container m-split"><div class="m-heading"><p class="overline">Device questions</p><h2>Before you choose.</h2></div><FaqList items={faqItems} /></div></section>
+  <section class="m-section"><div class="container m-split"><div class="m-heading"><p class="overline">Nubo Remote questions</p><h2>Before you choose.</h2></div><FaqList items={faqItems} /></div></section>
   <section class="m-cta"><div class="container"><h2>Keep a button close.<br />Keep the day together.</h2><div class="m-actions"><a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a><a href="/pricing/" class="text-link">See Nubo pricing <span aria-hidden="true">→</span></a></div></div></section>
 </MarketingLayout>
 <style>

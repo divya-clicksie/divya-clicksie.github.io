@@ -7,6 +7,7 @@
 ## Project Overview
 
 **Brand:** Nubo — a baby tracking ecosystem (physical device + companion app + Alexa skill)
+**Device name:** Nubo Remote, the optional one-tap baby tracker. Use this name for the physical product; keep `/device/` and existing article URLs.
 **Website:** https://divya-clicksie.github.io/
 **Goal:** Build a blog that drives organic SEO traffic and converts new parents into buyers
 **Competitors analyzed:** Talli (talli.me) · Huckleberry (huckleberrycare.com)
@@ -18,7 +19,7 @@ Nubo is not a single product. It is three input surfaces that feed into one unif
 
 | Product | What it does | Where to get it |
 |---------|-------------|-----------------|
-| **Nubo Device** | Physical one-touch BLE tracker. Tap to log feeds, sleep, diapers. Syncs to the app via Bluetooth. Coin cell battery, months of life, no charging. | Amazon |
+| **Nubo Remote** | Physical one-touch BLE tracker. Tap to log feeds, sleep, diapers. Syncs to the app via Bluetooth. Coin cell battery, months of life, no charging. | Amazon |
 | **Nubo App** | iOS + Android companion app. Where all data lives. Charts, growth tracking, smart averages, reminders, caregiver sync, CSV export, Fenton preemie charts, Midnight Ember night mode, vaccine records, CDC milestones. | App Store, Google Play |
 | **Nubo Alexa Skill** | Voice-based logging. "Alexa, tell Newborn Tracker that Emma had 4 ounces of formula 20 minutes ago." Supports relative and absolute times. Events sync to all caregivers. | Amazon Alexa Skills |
 
@@ -46,7 +47,7 @@ Every parent who decides to track eventually lands on one of three methods. This
 |--------|--------------------|-----------|------------|
 | **Pen & paper** | Fridge chart, hospital worksheet, notebook on the nightstand | Zero learning curve, no batteries, familiar | Illegible at 3am, only one person sees it, impossible to total or trend, gets lost |
 | **Phone app** | Huckleberry, BabyConnect, or similar | Rich analytics, reminders, history graphs, AI sleep predictions | Requires unlocking phone mid-feed, screen time guilt, blue light at night, login-sharing friction for caregivers, most collect data |
-| **Physical device** | Nubo device (one-tap tracker that syncs to a companion app) | One-handed, works in the dark, no phone needed, caregiver sync built in, privacy-first | No push notifications, less granular manual input, requires the companion app for review |
+| **Physical device** | Nubo Remote (one-tap tracker that syncs to a companion app) | One-handed, works in the dark, no phone needed, caregiver sync built in, privacy-first | No push notifications, less granular manual input, requires the companion app for review |
 
 ### Layer 2: Nubo ecosystem (Device + App + Alexa)
 
@@ -54,7 +55,7 @@ Once the reader understands the category comparison, the Nubo ecosystem is the p
 
 | Surface | When to use it | The moment it solves |
 |---------|---------------|---------------------|
-| **Nubo Device** | Hands full, dark room, baby in arms | 3am diaper change, mid-feed logging, contact nap start/stop |
+| **Nubo Remote** | Hands full, dark room, baby in arms | 3am diaper change, mid-feed logging, contact nap start/stop |
 | **Nubo App** | Reviewing data, detailed input, charts, pediatrician visits | Adding notes, checking daily totals, viewing growth charts, exporting CSV |
 | **Nubo Alexa Skill** | Both hands occupied, across the room, multitasking | Cooking dinner with baby on hip: "Alexa, tell Newborn Tracker that Mila had a wet diaper just now" |
 
@@ -1703,3 +1704,7 @@ status: "draft | review | published"
 ---
 
 *Document version: 3.3 · Updated: 2026-04-03 · Added What To Expect strategy guidance, drafted the bonus feature spotlight post, and codified the no free/premium tier language rule for blog posts.*
+
+### 2026-10-24: Nubo Remote naming
+
+- Renamed the physical product to Nubo Remote across site navigation, product copy, FAQs, existing articles and guides, metadata, structured data, and public AI summaries. Kept `/device/`, article URLs, and actual app control labels. Updated naming guidance for future content.

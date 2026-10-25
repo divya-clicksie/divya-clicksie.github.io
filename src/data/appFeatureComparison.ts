@@ -17,7 +17,7 @@ export const free = [
   'Child-specific What To Expect guide',
   'Dark mode',
   'No ads or selling baby data',
-  'Works with Nubo screen-free tracker'
+  'Works with Nubo Remote'
 ];
 export const plus = [
   'Nubo Care: doctor visits, answers, and synced next steps',

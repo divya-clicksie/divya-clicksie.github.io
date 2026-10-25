@@ -2,7 +2,7 @@
 title: "What Data Does Your Baby Tracking App Collect?"
 description: "Baby app data privacy matters more than most parents realize. What tracking apps collect, where it goes, and how to protect your child's information."
 datePublished: "2026-02-12"
-dateModified: "2026-10-19"
+dateModified: "2026-10-24"
 author: "Nubo Team"
 category: "privacy"
 primaryKeyword: "baby app data privacy"
@@ -48,7 +48,7 @@ The tracking method you choose affects your data exposure more than most parents
 
 **Phone apps.** The privacy spectrum here is wide. On one end, paid apps with transparent privacy policies that store data locally or in your own cloud account. On the other end, free apps that monetize your baby's health data through advertising networks and data brokers. Most apps fall somewhere in the middle: they collect more than they disclose, share more than you expect, and make it difficult to delete your data when you leave. The critical question is whether the app's business model depends on your data or on your subscription.
 
-**Physical device with a local-first app.** The privacy picture depends entirely on the implementation. A device that syncs to a cloud server has the same exposure as a cloud-based app. A device that syncs only to a local app on your phone, like Nubo, keeps data on your device and off external servers. The Nubo device communicates exclusively via Bluetooth. It has no internet connection. Events travel from the device to your phone and stay there unless you choose to share with a caregiver, at which point the data is end-to-end encrypted with a per-child AES key. The server relays encrypted blobs it cannot read.
+**Physical device with a local-first app.** The privacy picture depends entirely on the implementation. A device that syncs to a cloud server has the same exposure as a cloud-based app. A device that syncs only to a local app on your phone, like Nubo, keeps data on your device and off external servers. The Nubo Remote communicates exclusively via Bluetooth. It has no internet connection. Events travel from the device to your phone and stay there unless you choose to share with a caregiver, at which point the data is end-to-end encrypted with a per-child AES key. The server relays encrypted blobs it cannot read.
 
 Privacy is not binary. The right question is not "is tracking safe?" but "where does my data go after I log it, and who can read it when it gets there?" For a broader comparison of paper, apps, and devices beyond just privacy, [see the full tracking method guide](/blog/tracking/physical-baby-tracker-vs-app/).
 
@@ -86,7 +86,7 @@ Nubo's everyday baby tracking works without a required account. Logs start on yo
 
 Ordinary caregiver sharing is end-to-end encrypted for invited people. The relay cannot read those shared records. Optional backups use your own iCloud or Google Drive. Sharing and backup are separate from the local interpretation that turns spoken updates into entries.
 
-Backups use AES encryption with per-child keys stored in the iOS Keychain. SHA-256 checksums verify integrity. The Nubo device itself communicates only via Bluetooth. It has no Wi-Fi, no cellular radio, and no way to connect to the internet.
+Backups use AES encryption with per-child keys stored in the iOS Keychain. SHA-256 checksums verify integrity. The Nubo Remote itself communicates only via Bluetooth. It has no Wi-Fi, no cellular radio, and no way to connect to the internet.
 
 Nubo Care, included in Plus, has a separate flow: selected visit content is sent for requested server processing, with no visit data retained by Nubo or its processing providers afterward. Saved recaps, answers, and next steps live on phones and sync to invited caregivers. Original visit audio stays on the recording phone and is not synced to caregivers. Alexa logging also has its own processing through Amazon's systems.
 

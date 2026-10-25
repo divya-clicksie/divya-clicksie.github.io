@@ -4,18 +4,18 @@ import SiteIcon from '../components/SiteIcon.astro';
 import FaqList from '../components/FaqList.astro';
 import PlusFollowsDevice from '../components/PlusFollowsDevice.astro';
 
-const title = 'Physical Baby Tracker Device for Night Feeds | Nubo';
-const description = 'Hands full? Tap dedicated buttons for bottles, nursing, sleep, and diapers. The optional Nubo baby tracker device syncs with your shared app over Bluetooth.';
+const title = 'Nubo Remote | One-Tap Baby Tracker for Night Feeds';
+const description = 'Hands full? Nubo Remote is a one-tap baby tracker for bottles, nursing, sleep, and diapers. Sync with your shared Nubo app over Bluetooth.';
 
 const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
 
 const faqItems = [
   {
     q: 'What is a physical baby tracker?',
-    a: 'A physical baby tracker is a dedicated device for logging baby events without opening your phone. With Nubo, you tap buttons for bottles, nursing, sleep, and diapers, then the events sync to the free app.'
+    a: 'A physical baby tracker is a dedicated device for logging baby events without opening your phone. With Nubo Remote, you tap buttons for bottles, nursing, sleep, and diapers, then the events sync to the free app.'
   },
   {
-    q: 'Does the device work for grandparents or nannies?',
+    q: 'Does Nubo Remote work for grandparents or nannies?',
     a: 'Yes. The buttons are designed to be simple for parents, grandparents, nannies, and other caregivers, even when they do not want to learn an app workflow in the moment.'
   },
   {
@@ -23,7 +23,7 @@ const faqItems = [
     a: 'The device stores the timestamped event. When a caregiver phone with the Nubo app is nearby again, Bluetooth sync sends the event into the shared baby timeline.'
   },
   {
-    q: 'Does the device require a Nubo Plus subscription?',
+    q: 'Does Nubo Remote require a Nubo Plus subscription?',
     a: 'No. The device works with the free app, and device sync refreshes a 30-day Nubo Plus access window for active phones.'
   }
 ];
@@ -32,7 +32,7 @@ const jsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: 'Nubo Baby Tracker Device',
+    name: 'Nubo Remote',
     alternateName: ['One-tap baby tracker', 'Physical baby tracker device', 'Screen-free baby tracker'],
     image: [
       'https://www.nubotracker.com/images/nubo-instant-tracker.webp',
@@ -75,13 +75,13 @@ const jsonLd = [
 ---
 
 <MarketingLayout title={title} description={description} jsonLd={jsonLd} ctaHref={amazonURL} ctaLabel="Buy on Amazon" ctaExternal>
-  <section class="m-hero"><div class="container m-split"><div><p class="overline">The one-tap Nubo device</p><h1>A tap. Then back<br />to your baby.</h1><p class="m-lead">A feed in the dark. A diaper change with your hands full. Tap a dedicated button, then find the details in your shared Nubo app.</p><div class="m-actions"><a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a><span class="device-price"><del>$109</del> $89</span></div><p class="m-note">Optional device. Everyday tracking and unlimited caregivers stay free on iPhone and Android.</p></div><div class="device-stage"><div class="device-halo" aria-hidden="true"></div><img src="/images/hero-device.webp" alt="Nubo device with dedicated buttons for nursing, bottles, sleep, and diapers" width="520" height="1077" fetchpriority="high" /><span class="stage-label feeds"><SiteIcon name="bottle" size={19} />Feeds</span><span class="stage-label sleep"><SiteIcon name="moon" size={19} />Sleep</span><span class="stage-label diapers"><SiteIcon name="drop" size={19} />Diapers</span></div></div></section>
-  <aside class="m-strip" aria-label="Device essentials"><div class="container"><span><SiteIcon name="bluetooth" size={19} />Bluetooth sync</span><span><SiteIcon name="phone" size={19} />Free Nubo app</span><span><SiteIcon name="users" size={19} />One shared baby timeline</span></div></aside>
-  <section class="m-section" id="device-logs"><div class="container m-split"><img class="m-photo button-photo" src="/images/nubo-oneclick.webp" alt="A finger pressing the sleep button on the Nubo device" width="740" height="554" loading="lazy" /><div><div class="m-heading"><p class="overline">Buttons you can get to know by touch</p><h2>Less phone.<br />A familiar little habit.</h2></div><div class="m-grid two button-key"><article><span class="m-icon peach"><SiteIcon name="bottle" /></span><h3>Bottles</h3><p>Formula or pumped milk, with quick volume taps.</p></article><article><span class="m-icon"><SiteIcon name="users" /></span><h3>Nursing</h3><p>Left and right sessions, without opening your phone.</p></article><article><span class="m-icon lilac"><SiteIcon name="moon" /></span><h3>Sleep</h3><p>Start and end naps and nighttime sleep.</p></article><article><span class="m-icon"><SiteIcon name="drop" /></span><h3>Diapers</h3><p>Separate buttons for wet and dirty changes.</p></article></div></div></div></section>
+  <section class="m-hero"><div class="container m-split"><div><p class="overline">Nubo Remote</p><h1>A tap. Then back<br />to your baby.</h1><p class="m-lead">A feed in the dark. A diaper change with your hands full. Nubo Remote puts dedicated baby care buttons close at hand. Tap to log, then find the details in your shared Nubo app.</p><div class="m-actions"><a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a><span class="device-price"><del>$109</del> $89</span></div><p class="m-note">Optional one-tap baby tracker. Everyday tracking and unlimited caregivers stay free on iPhone and Android.</p></div><div class="device-stage"><div class="device-halo" aria-hidden="true"></div><img src="/images/hero-device.webp" alt="Nubo Remote with dedicated buttons for nursing, bottles, sleep, and diapers" width="520" height="1077" fetchpriority="high" /><span class="stage-label feeds"><SiteIcon name="bottle" size={19} />Feeds</span><span class="stage-label sleep"><SiteIcon name="moon" size={19} />Sleep</span><span class="stage-label diapers"><SiteIcon name="drop" size={19} />Diapers</span></div></div></section>
+  <aside class="m-strip" aria-label="Nubo Remote essentials"><div class="container"><span><SiteIcon name="bluetooth" size={19} />Bluetooth sync</span><span><SiteIcon name="phone" size={19} />Free Nubo app</span><span><SiteIcon name="users" size={19} />One shared baby timeline</span></div></aside>
+  <section class="m-section" id="device-logs"><div class="container m-split"><img class="m-photo button-photo" src="/images/nubo-oneclick.webp" alt="A finger pressing the sleep button on the Nubo Remote" width="740" height="554" loading="lazy" /><div><div class="m-heading"><p class="overline">Buttons you can get to know by touch</p><h2>Less phone.<br />A familiar little habit.</h2></div><div class="m-grid two button-key"><article><span class="m-icon peach"><SiteIcon name="bottle" /></span><h3>Bottles</h3><p>Formula or pumped milk, with quick volume taps.</p></article><article><span class="m-icon"><SiteIcon name="users" /></span><h3>Nursing</h3><p>Left and right sessions, without opening your phone.</p></article><article><span class="m-icon lilac"><SiteIcon name="moon" /></span><h3>Sleep</h3><p>Start and end naps and nighttime sleep.</p></article><article><span class="m-icon"><SiteIcon name="drop" /></span><h3>Diapers</h3><p>Separate buttons for wet and dirty changes.</p></article></div></div></div></section>
   <section class="m-section m-warm" aria-labelledby="sync-title"><div class="container"><div class="m-heading center"><p class="overline">From the changing table to the shared timeline</p><h2 id="sync-title">Tap now. The details travel with you.</h2></div><div class="sync-picture" aria-hidden="true"><img src="/images/hero-device.webp" alt="" width="520" height="1077" loading="lazy" /><span class="sync-line"></span><SiteIcon name="bluetooth" size={32} /><span class="sync-line"></span><SiteIcon name="phone" size={54} /><span class="sync-line"></span><SiteIcon name="users" size={46} /></div><ol class="m-grid three m-steps"><li><h3>Tap the event.</h3><p>The matching button records what happened and when.</p></li><li><h3>Keep caring.</h3><p>The device stores timestamped events while your phone is away.</p></li><li><h3>Sync nearby.</h3><p>A paired phone receives logs over Bluetooth. Connected caregivers can follow the same day.</p></li></ol><p class="sync-link"><a href="/blog/product/nubo-bluetooth-sync/" class="text-link">How Bluetooth sync works <span aria-hidden="true">→</span></a></p></div></section>
   <PlusFollowsDevice />
   <section class="m-section"><div class="container m-grid three"><article class="detail-tile"><span class="m-icon"><SiteIcon name="leaf" /></span><h3>Keep it close.</h3><p>Magnetic mount and lanyard included.</p></article><article class="detail-tile"><span class="m-icon peach"><SiteIcon name="check" /></span><h3>Ready for the routine.</h3><p>Battery included, designed for months of everyday use.</p></article><article class="detail-tile"><span class="m-icon lilac"><SiteIcon name="users" /></span><h3>Made for helping hands.</h3><p>A familiar button for parents, grandparents, and nannies.</p><a href="/caregivers/" class="text-link">Explore shared care <span aria-hidden="true">→</span></a></article></div></section>
-  <section class="m-section m-warm"><div class="container m-split faq-split"><div class="m-heading"><p class="overline">A few practical answers</p><h2>Before your first tap.</h2><p>Comparing physical trackers? <a href="/compare/talli/" class="text-link">See Nubo and Talli.</a></p></div><FaqList items={faqItems} /></div></section>
+  <section class="m-section m-warm"><div class="container m-split faq-split"><div class="m-heading"><p class="overline">A few practical answers</p><h2>Before your first tap.</h2><p>Comparing physical trackers? <a href="/compare/talli/" class="text-link">See Nubo Remote and Talli.</a></p></div><FaqList items={faqItems} /></div></section>
   <section class="m-cta"><div class="container"><p class="overline">For the moments your hands are full</p><h2>Keep the moment.<br />Skip the phone pickup.</h2><div class="m-actions"><a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a><a href="/app/" class="text-link">Explore the free app <span aria-hidden="true">→</span></a></div></div></section>
 </MarketingLayout>
 <style>

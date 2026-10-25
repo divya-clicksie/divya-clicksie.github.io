@@ -2,21 +2,21 @@
 title: "How Nubo Syncs Over Bluetooth: The Buttons, the Range, and the Caregiver Hub"
 description: "How the Nubo baby tracker syncs button presses to your phone over Bluetooth, why range matters in a real home, and why every caregiver should pair their own phone."
 datePublished: "2026-06-01"
-dateModified: "2026-06-01"
+dateModified: "2026-10-24"
 author: "Nubo Team"
 category: "product"
 primaryKeyword: "nubo bluetooth sync"
-excerpt: "You pressed a button. Where did it go? How the Nubo device queues events, syncs over Bluetooth, and shares them with every caregiver, without Wi-Fi, without the internet, and without you doing a thing."
-tags: ["nubo bluetooth sync", "nubo device sync", "how nubo works", "baby tracker bluetooth", "nubo caregiver hub", "nubo buttons"]
+excerpt: "You pressed a button. Where did it go? How the Nubo Remote queues events, syncs over Bluetooth, and shares them with every caregiver, without Wi-Fi, without the internet, and without you doing a thing."
+tags: ["nubo bluetooth sync", "Nubo Remote sync", "how nubo works", "baby tracker bluetooth", "nubo caregiver hub", "nubo buttons"]
 ---
 
-You pressed a button on the Nubo device. Maybe the Sleep button at 3am. Maybe a Pee diaper change while half asleep. The tap took less than a second. Your phone was charging in the next room. And somehow, when you opened the app later, the event was there, timestamped to the second, synced to your partner's phone too.
+You pressed a button on the Nubo Remote. Maybe the Sleep button at 3am. Maybe a Pee diaper change while half asleep. The tap took less than a second. Your phone was charging in the next room. And somehow, when you opened the app later, the event was there, timestamped to the second, synced to your partner's phone too.
 
 That is not magic. It is Bluetooth Low Energy, a small event queue, and a sync design built for how homes actually work: phones in different rooms, multiple caregivers coming and going, and nobody thinking about "connecting" anything.
 
 ## What each button does
 
-The Nubo device has nine buttons, each mapped to a specific baby care event. You press once. The event is queued. Here is the full map, including the multi-click behaviors that make the device more than a simple counter.
+The Nubo Remote has nine buttons, each mapped to a specific baby care event. You press once. The event is queued. Here is the full map, including the multi-click behaviors that make the device more than a simple counter.
 
 | Button | What one press logs | Extra behavior |
 |---|---|---|
@@ -46,11 +46,11 @@ If no phone is in range, the events stay queued. The device will periodically ad
 
 The device has no Wi-Fi. No internet connection. No cloud ping. It speaks only Bluetooth to the phones it has been paired with. [Your baby's data never leaves your home through the device itself](/blog/privacy/nubo-privacy-architecture/).
 
-![Caregiver Hub diagram showing one Nubo device syncing to multiple phones](/images/caregiver-hub.webp)
+![Caregiver Hub diagram showing one Nubo Remote syncing to multiple phones](/images/caregiver-hub.webp)
 
 ## The caregiver hub: one device, many phones
 
-The Nubo device can be paired with multiple phones. Mom's phone. Dad's phone. The nanny's phone. Grandma's phone. Any phone running the Nubo app that completed the initial pairing.
+The Nubo Remote can be paired with multiple phones. Mom's phone. Dad's phone. The nanny's phone. Grandma's phone. Any phone running the Nubo app that completed the initial pairing.
 
 When the device has events to sync, whichever paired phone happens to be in Bluetooth range will collect them first. That phone then shares the events with every other caregiver through the app's encrypted sync pipeline. Dad, at work, sees the nap Mom logged at home within seconds. The nanny, in the kitchen, sees the bottle Grandma logged in the nursery.
 
@@ -60,13 +60,13 @@ For more on how caregiver sharing works in practice, from QR-code invitations to
 
 ## Real-world range: what 20 to 40 feet actually means
 
-Bluetooth range in a real home is not a clean circle. The Nubo device uses Bluetooth Low Energy at a transmit power designed for reliable indoor coverage. In an open room with no walls, you can expect about 40 feet of range. Through one interior wall, about 30 feet. Through two walls, or a floor, closer to 20 feet.
+Bluetooth range in a real home is not a clean circle. The Nubo Remote uses Bluetooth Low Energy at a transmit power designed for reliable indoor coverage. In an open room with no walls, you can expect about 40 feet of range. Through one interior wall, about 30 feet. Through two walls, or a floor, closer to 20 feet.
 
 In practice, this means the device on the nursery changing table reliably reaches a phone in the master bedroom next door, or a phone in the living room one wall away. It will probably not reach a phone in the basement if the device is on the second floor. That is fine. The events queue. The next time a paired phone walks past the nursery, the sync happens.
 
 The range is short by design. Short-range Bluetooth means the device only talks to phones that are physically in your home. It cannot be reached from outside. It cannot be scanned by a neighbor's phone. Pairing itself requires physical proximity: the device transmits at very low power during pairing to ensure only someone holding it can connect.
 
-There is another reason Bluetooth Low Energy was the right choice, and it is the one you will appreciate after week three of newborn life: the device runs on a single CR2032 coin cell battery for months. No charging cable. No "did I plug it in?" anxiety at midnight. No adding yet another thing to the nightstand power strip that already services two phones, a baby monitor, and a white noise machine. BLE is efficient enough that the Nubo device sips from that tiny battery for months of daily use. When the battery eventually runs low, the app tells you. You swap in the spare coin cell that came in the box, and you are good for months more.
+There is another reason Bluetooth Low Energy was the right choice, and it is the one you will appreciate after week three of newborn life: the device runs on a single CR2032 coin cell battery for months. No charging cable. No "did I plug it in?" anxiety at midnight. No adding yet another thing to the nightstand power strip that already services two phones, a baby monitor, and a white noise machine. BLE is efficient enough that the Nubo Remote sips from that tiny battery for months of daily use. When the battery eventually runs low, the app tells you. You swap in the spare coin cell that came in the box, and you are good for months more.
 
 ## Why you want every caregiver's phone paired
 
@@ -80,7 +80,7 @@ Pairing a new phone takes under a minute. Open the Nubo app, scan the QR code fr
 
 ## The device stays out of your way
 
-The whole point of the Nubo device is that you do not think about the sync. You press a button. You go back to your baby, or back to sleep. The device handles the rest: queue the event, wait for a phone, authenticate, deliver, and share.
+The whole point of the Nubo Remote is that you do not think about the sync. You press a button. You go back to your baby, or back to sleep. The device handles the rest: queue the event, wait for a phone, authenticate, deliver, and share.
 
 No Wi-Fi to configure. No Bluetooth menu to open. No "syncing" spinner. The best sync is the one you never see.
 

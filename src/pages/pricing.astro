@@ -7,8 +7,8 @@ import AppFeatureComparison from '../components/AppFeatureComparison.astro';
 import SiteIcon from '../components/SiteIcon.astro';
 import { nuboAccess, nuboStory } from '../data/nuboMessaging';
 
-const title = 'Pricing | Nubo Free App, Plus, and Device';
-const description = 'Everyday tracking and caregivers stay free. Compare Nubo Plus for pediatrician visits and more app tools, plus the optional device for hands-full days.';
+const title = 'Pricing | Nubo Free App, Plus, and Nubo Remote';
+const description = 'Everyday tracking and caregivers stay free. Compare Nubo Plus for pediatrician visits and more app tools, plus the optional Nubo Remote for hands-full days.';
 
 const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
 const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
@@ -48,15 +48,15 @@ const jsonLd = {
     },
     {
       '@type': 'Product',
-      name: 'Nubo Baby Tracker Device',
+      name: 'Nubo Remote',
       alternateName: ['One-tap baby tracker', 'Physical baby tracker device', 'Screen-free baby tracker'],
-      description: 'A physical one-tap baby tracker device for screen-free logging, caregiver handoffs, and shared baby routines.',
+      description: 'Nubo Remote is a one-tap baby tracker for screen-free logging, caregiver handoffs, and shared baby routines.',
       image: 'https://www.nubotracker.com/images/nubo-instant-tracker.webp',
       sku: 'B0CJLNBG4P',
       brand: { '@type': 'Brand', name: 'Nubo' },
       offers: {
         '@type': 'Offer',
-        name: 'Nubo Device',
+        name: 'Nubo Remote',
         price: '89.00',
         priceCurrency: 'USD',
         availability: 'https://schema.org/InStock',
@@ -99,11 +99,11 @@ const jsonLd = {
         },
         {
           '@type': 'Offer',
-          name: 'Nubo device',
+          name: 'Nubo Remote',
           price: '89.00',
           priceCurrency: 'USD',
           url: amazonURL,
-          itemOffered: { '@type': 'Product', name: 'Nubo Baby Tracker Device' }
+          itemOffered: { '@type': 'Product', name: 'Nubo Remote' }
         }
       ]
     }
@@ -114,18 +114,18 @@ const jsonLd = {
 <BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <Header />
   <main id="main-content">
-    <section class="page-hero pricing-hero" aria-labelledby="pricing-title"><div class="container"><p class="overline">Nubo pricing</p><h1 id="pricing-title">Start free.<br />Add what helps.</h1><p class="page-hero-sub">Quick Log, voice logging, observations, and unlimited caregivers stay free. Add Plus for Nubo Care and more app tools, or the optional device for hands-full moments.</p></div></section>
+    <section class="page-hero pricing-hero" aria-labelledby="pricing-title"><div class="container"><p class="overline">Nubo pricing</p><h1 id="pricing-title">Start free.<br />Add what helps.</h1><p class="page-hero-sub">Quick Log, voice logging, observations, and unlimited caregivers stay free. Add Plus for Nubo Care and more app tools, or the optional Nubo Remote for hands-full moments.</p></div></section>
 
-    <section class="plans-section" id="plans" aria-label="Nubo plans and optional device"><div class="container">
+    <section class="plans-section" id="plans" aria-label="Nubo plans and Nubo Remote"><div class="container">
       <div class="pricing-grid">
         <article class="pricing-card"><span class="plan-mark"><SiteIcon name="leaf" size={30} /></span><p class="plan-label">The everyday app</p><h2>Nubo Free</h2><p class="price">$0</p><p class="price-context">Free on iPhone and Android</p><p class="tagline">Keep the day's care together.</p><ul class="feature-list" aria-label="Free app features">{appFeatures.map((feature) => <li><SiteIcon name="check" size={17} /><span>{feature}</span></li>)}</ul><div class="card-actions"><a href={appStoreURL} target="_blank" rel="noopener noreferrer"><img src="/images/appstore-badge.webp" alt="Download on the App Store" width="160" height="56" /></a><a href={playStoreURL} target="_blank" rel="noopener noreferrer"><img src="/images/playstore-badge.webp" alt="Get it on Google Play" width="160" height="56" /></a></div></article>
         <article class="pricing-card featured-card"><span class="plan-mark"><SiteIcon name="sparkles" size={30} /></span><p class="plan-label">The paid app plan</p><h2>Nubo Plus</h2><p class="price">$4.99<span>/month</span></p><p class="price-context">$59.99 billed annually</p><p class="tagline">Pediatrician visits, recorded patterns, and more.</p><ul class="feature-list" aria-label="Nubo Plus features">{plusFeatures.map((feature) => <li><SiteIcon name="check" size={17} /><span>{feature}</span></li>)}</ul><div class="card-actions"><a href={appStoreURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Upgrade in the iPhone app</a><a href={playStoreURL} class="text-link" target="_blank" rel="noopener noreferrer">Upgrade in the Android app <span aria-hidden="true">↗</span></a></div></article>
-        <article class="pricing-card device-card"><span class="device-mark"><img src="/images/hero-device.webp" alt="Nubo device with dedicated care buttons" width="520" height="1077" loading="lazy" decoding="async" /></span><p class="plan-label">Optional physical tracker</p><h2>Nubo Device</h2><p class="price"><del>$109</del> $89</p><p class="price-context">One-time purchase on Amazon</p><p class="tagline">Screen-free logging, close at hand.</p><ul class="feature-list" aria-label="Nubo device features">{deviceFeatures.map((feature) => <li><SiteIcon name="check" size={17} /><span>{feature}</span></li>)}</ul><div class="card-actions"><a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a><a href="/device/" class="text-link">Explore the device <span aria-hidden="true">→</span></a></div></article>
+        <article class="pricing-card device-card"><span class="device-mark"><img src="/images/hero-device.webp" alt="Nubo Remote with dedicated care buttons" width="520" height="1077" loading="lazy" decoding="async" /></span><p class="plan-label">Optional physical tracker</p><h2>Nubo Remote</h2><p class="price"><del>$109</del> $89</p><p class="price-context">One-time purchase on Amazon</p><p class="tagline">Screen-free logging, close at hand.</p><ul class="feature-list" aria-label="Nubo Remote features">{deviceFeatures.map((feature) => <li><SiteIcon name="check" size={17} /><span>{feature}</span></li>)}</ul><div class="card-actions"><a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a><a href="/device/" class="text-link">Explore Nubo Remote <span aria-hidden="true">→</span></a></div></article>
       </div>
-      <p class="billing-note">Plus subscriptions use App Store or Google Play billing. Prices may vary by region. Device price, shipping, availability, and returns follow the current Amazon listing.</p>
+      <p class="billing-note">Plus subscriptions use App Store or Google Play billing. Prices may vary by region. Nubo Remote price, shipping, availability, and returns follow the current Amazon listing.</p>
       <nav class="pricing-links" aria-label="More about Nubo plans"><a href="/care/">Explore Nubo Care <span aria-hidden="true">→</span></a><a href="/privacy/#free-and-paid">Trust &amp; Privacy: why Care is paid <span aria-hidden="true">→</span></a><a href="/compare/">Compare Nubo setups <span aria-hidden="true">→</span></a></nav>
       <details class="comparison-details"><summary>Compare every Free and Plus feature <span aria-hidden="true">+</span></summary><AppFeatureComparison heading="Find the tools that fit your day." intro="Feature access and device requirements, all in one place." /></details>
-      <div class="access-grid" aria-label="Other ways to explore Plus"><article><div class="access-number">14<span>days</span></div><div><h3>Explore Plus for 14 days.</h3><p>Starts when you confirm your child is here. Downloading early won't use it up. The preview is separate from a subscription.</p></div></article><article><div class="access-number">30<span>days</span></div><div><h3>Plus follows your device.</h3><p>Each phone that syncs with the Nubo device gets a refreshed 30-day Plus window, including Nubo Care.</p></div></article></div>
+      <div class="access-grid" aria-label="Other ways to explore Plus"><article><div class="access-number">14<span>days</span></div><div><h3>Explore Plus for 14 days.</h3><p>Starts when you confirm your child is here. Downloading early won't use it up. The preview is separate from a subscription.</p></div></article><article><div class="access-number">30<span>days</span></div><div><h3>Plus follows your Nubo Remote.</h3><p>Each phone that syncs with the Nubo Remote gets a refreshed 30-day Plus window, including Nubo Care.</p></div></article></div>
       <details class="access-details"><summary>Feature availability and access questions <span aria-hidden="true">+</span></summary><div><p>{nuboAccess.noticed}</p><p>{nuboAccess.notetaker}</p><p>Nubo Care is included in Plus, the preview, and active device access. It supports recording and recaps in English.</p><a href="/faq/#nubo-intelligence" class="text-link">Intelligence and access FAQs <span aria-hidden="true">→</span></a></div></details>
     </div></section>
     <NuboProductGuide />

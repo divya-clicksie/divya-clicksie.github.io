@@ -3,7 +3,7 @@ export const nuboStory = {
   intelligence: 'Nubo Intelligence helps turn speech into logs, organize observations, and highlight supported patterns in recorded care. Features are available across Free and Plus.',
   care: 'Nubo Care helps you prepare questions, record pediatrician visits with permission, and return to answers and next steps. Included in Nubo Plus.',
   plus: 'Nubo Plus is the paid app plan. It includes Nubo Care, Nubo Noticed all week, and additional tools such as reminders, charts, and exports.',
-  device: 'The optional Nubo device adds dedicated buttons for feeds, sleep, and diapers, then syncs with the app over Bluetooth.',
+  device: 'Nubo Remote is an optional one-tap baby tracker with dedicated buttons for feeds, sleep, and diapers. It syncs with the app over Bluetooth.',
 };
 
 export const nuboProducts = [
@@ -29,7 +29,7 @@ export const nuboAccess = {
   noticed: 'Nubo Noticed is included with Nubo Plus and is free for everyone on Mondays.',
   notetaker: 'Nubo Notetaker AI titles and tags require iOS 26 or later with Apple Intelligence available. Other devices preserve the note text with a simpler title and no AI tags.',
   preview: 'Your 14-day Nubo Plus preview starts when you confirm your child is here. Downloading and creating a profile do not start it. The preview is separate from a subscription.',
-  device: 'Each phone that syncs with a Nubo device receives a refreshed 30-day Nubo Plus access window, including Nubo Care.',
+  device: 'Each phone that syncs with a Nubo Remote receives a refreshed 30-day Nubo Plus access window, including Nubo Care.',
 };
 
 export const nuboProcessing = {

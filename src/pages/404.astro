@@ -2,12 +2,12 @@
 import MarketingLayout from '../layouts/MarketingLayout.astro';
 import SiteIcon from '../components/SiteIcon.astro';
 const title = 'Page not found | Nubo Baby Tracker';
-const description = 'This page does not exist. Find the Nubo app, device, pricing, and more from the links below.';
+const description = 'This page does not exist. Find the Nubo app, Nubo Remote, pricing, and more from the links below.';
 ---
 
 <MarketingLayout title={title} description={description}>
   <section class="m-hero m-title"><div class="container"><span class="lost-mark"><SiteIcon name="leaf" size={44} /></span><p class="overline">404 · Page not found</p><h1>Let's find your way<br />back to Nubo.</h1><p class="m-lead">The page you're looking for isn't here. These are good places to start.</p><div class="m-actions"><a href="/" class="btn-primary">Back to home</a></div></div></section>
-  <section class="m-section"><nav class="container m-grid three" aria-label="Find a Nubo page"><a class="m-card" href="/app/"><span class="m-icon"><SiteIcon name="phone" /></span><h2>The free app</h2><p>Keep the day's care together.</p></a><a class="m-card" href="/device/"><span class="m-icon peach"><SiteIcon name="bluetooth" /></span><h2>The device</h2><p>A button for hands-full moments.</p></a><a class="m-card" href="/contact/"><span class="m-icon lilac"><SiteIcon name="mail" /></span><h2>Get some help</h2><p>Reach the Nubo team.</p></a></nav></section>
+  <section class="m-section"><nav class="container m-grid three" aria-label="Find a Nubo page"><a class="m-card" href="/app/"><span class="m-icon"><SiteIcon name="phone" /></span><h2>The free app</h2><p>Keep the day's care together.</p></a><a class="m-card" href="/device/"><span class="m-icon peach"><SiteIcon name="bluetooth" /></span><h2>Nubo Remote</h2><p>A button for hands-full moments.</p></a><a class="m-card" href="/contact/"><span class="m-icon lilac"><SiteIcon name="mail" /></span><h2>Get some help</h2><p>Reach the Nubo team.</p></a></nav></section>
 </MarketingLayout>
 <style>.lost-mark { display: inline-block; color: var(--color-brand); margin-bottom: 1rem; } .m-card h2 { font-size: 1.3rem; }</style>
 <script>

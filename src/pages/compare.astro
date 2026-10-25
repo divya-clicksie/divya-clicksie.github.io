@@ -2,8 +2,8 @@
 import MarketingLayout from '../layouts/MarketingLayout.astro';
 import SiteIcon from '../components/SiteIcon.astro';
 import FaqList from '../components/FaqList.astro';
-const title = 'Compare Baby Tracker App, Device, Plus, and Paper Logs | Nubo';
-const description = 'Find what fits your care routine. Compare the free Nubo app, Plus visit tools, the optional device, paper logs, and shared notes.';
+const title = 'Compare Nubo App, Plus, Nubo Remote, and Paper Logs';
+const description = 'Find what fits your care routine. Compare the free Nubo app, Plus visit tools, Nubo Remote, paper logs, and shared notes.';
 const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
 const appStoreURL = 'https://apps.apple.com/us/app/nubo-baby-tracker/id1667461158';
 const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie.nuboapp';
@@ -11,12 +11,12 @@ const playStoreURL = 'https://play.google.com/store/apps/details?id=com.clicksie
 const setupOptions = [
  { title: 'Nubo Free', label: 'Start with the app', icon: 'phone', body: 'Quick Log, voice logging, observations, and unlimited caregivers.', href: '/app/', cta: 'Explore the app' },
  { title: 'Nubo Plus', label: 'The paid app plan', icon: 'sparkles', body: 'Nubo Care for pediatrician visits, Noticed all week, reminders, private pumping, and more.', href: '/pricing/#plans', cta: 'Explore Plus' },
- { title: 'Nubo Device', label: 'Keep a button close', icon: 'bluetooth', body: 'Physical buttons for hands-full care, with Plus refreshed for each syncing phone.', href: '/device/', cta: 'Meet the device' },
+ { title: 'Nubo Remote', label: 'Keep a button close', icon: 'bluetooth', body: 'Physical buttons for hands-full care, with Plus refreshed for each syncing phone.', href: '/device/', cta: 'Meet Nubo Remote' },
 ] as const;
 const decisionRows = [
  ['Your phone is usually in hand', 'Free app'],
  ['You want doctor visit recaps and more tools', 'Nubo Plus'],
- ['You want to log without picking up a phone', 'Nubo device'],
+ ['You want to log without picking up a phone', 'Nubo Remote'],
  ['You want to share with caregivers', 'Free with every setup'],
  ['You want private pumping or exports', 'Nubo Plus'],
 ];
@@ -26,13 +26,13 @@ const alternatives = [
  { title: 'Baby tracker apps', icon: 'phone', body: 'A practical starting point for people comfortable logging on a phone.' },
  { title: 'Sleep-focused apps', icon: 'moon', body: 'Consider these when sleep coaching is your main goal.' },
  { title: 'Physical trackers', icon: 'bluetooth', body: 'A button for the moments a phone is out of reach.' },
- { title: 'Nubo and Talli', icon: 'check', body: 'Compare connection, portability, and the way a device fits your routine.', href: '/compare/talli/' },
+ { title: 'Nubo Remote and Talli', icon: 'check', body: 'Compare connection, portability, and the way a device fits your routine.', href: '/compare/talli/' },
 ] as const;
 
 const faqItems = [
   {
     q: 'What is the best baby tracker for most families?',
-    a: 'For most families, the best first step is a free baby tracker app that works on iPhone and Android. Nubo starts there, then lets families add Nubo Plus or the physical tracker device if their routine needs more.'
+    a: 'For most families, the best first step is a free baby tracker app that works on iPhone and Android. Nubo starts there, then lets families add Nubo Plus or Nubo Remote if their routine needs more.'
   },
   {
     q: 'Is a physical baby tracker worth it?',
@@ -48,7 +48,7 @@ const faqItems = [
   },
   {
     q: 'What should I choose if grandparents or a nanny help?',
-    a: 'Start with the free app if helpers are comfortable logging from a phone. Add the physical device when simple buttons would be easier than teaching everyone an app workflow.'
+    a: 'Start with the free app if helpers are comfortable logging from a phone. Add Nubo Remote when simple buttons would be easier than teaching everyone an app workflow.'
   },
   {
     q: 'Does Nubo replace medical advice?',
@@ -65,7 +65,7 @@ const jsonLd = [
     url: 'https://www.nubotracker.com/compare/',
     about: [
       { '@type': 'MobileApplication', name: 'Nubo Baby Tracker App' },
-      { '@type': 'Product', name: 'Nubo Baby Tracker Device' }
+      { '@type': 'Product', name: 'Nubo Remote' }
     ]
   },
   {
@@ -88,7 +88,7 @@ const jsonLd = [
   <section class="m-section setup-section"><div class="container m-grid three">{setupOptions.map((option) => <article class="m-card setup-card"><span class="m-icon"><SiteIcon name={option.icon} size={28} /></span><p class="m-label">{option.label}</p><h2>{option.title}</h2><p>{option.body}</p><a href={option.href} class="text-link">{option.cta} <span aria-hidden="true">→</span></a></article>)}</div></section>
   <section class="m-section m-warm"><div class="container m-split"><div class="m-copy"><p class="overline">Start with your routine</p><h2>What would make<br />today easier?</h2><p>The most useful setup is the one your household can reach for when everyone is tired.</p><a href="/pricing/" class="text-link">See prices and feature access <span aria-hidden="true">→</span></a></div><div class="decision-list" role="table" aria-label="Nubo setup by daily need"><div class="decision-heading" role="row"><span role="columnheader">If you want…</span><span role="columnheader">Start with</span></div>{decisionRows.map(([need, recommendation]) => <div role="row"><span role="cell">{need}</span><strong role="cell">{recommendation}</strong></div>)}</div></div></section>
   <section class="m-section"><div class="container"><div class="m-heading center"><p class="overline">Other ways to keep a record</p><h2>Choose for the care you do.</h2></div><div class="m-grid three">{alternatives.map((item) => <article class="option-card"><span class="m-icon"><SiteIcon name={item.icon} /></span><h3>{item.title}</h3><p>{item.body}</p>{'href' in item && <a href={item.href} class="text-link">Compare devices <span aria-hidden="true">→</span></a>}</article>)}</div></div></section>
-  <section class="m-section m-teal"><div class="container m-split"><img src="/images/caregiver-hub.webp" alt="Nubo app and device connected across caregiver phones" width="1940" height="1173" loading="lazy" /><div class="m-copy"><p class="overline">For everyone lending a hand</p><h2>Shared care is<br />part of every setup.</h2><p>Unlimited caregivers on iPhone and Android stay free. Add a device when physical buttons make handoffs easier.</p><a href="/caregivers/" class="text-link">See shared care <span aria-hidden="true">→</span></a></div></div></section>
+  <section class="m-section m-teal"><div class="container m-split"><img src="/images/caregiver-hub.webp" alt="Nubo app and Nubo Remote connected across caregiver phones" width="1940" height="1173" loading="lazy" /><div class="m-copy"><p class="overline">For everyone lending a hand</p><h2>Shared care is<br />part of every setup.</h2><p>Unlimited caregivers on iPhone and Android stay free. Add Nubo Remote when physical buttons make handoffs easier.</p><a href="/caregivers/" class="text-link">See shared care <span aria-hidden="true">→</span></a></div></div></section>
   <section class="m-section"><div class="container m-split"><div class="m-heading"><p class="overline">Before you choose</p><h2>A few practical answers.</h2></div><FaqList items={faqItems} /></div></section>
 </MarketingLayout>
 <style>

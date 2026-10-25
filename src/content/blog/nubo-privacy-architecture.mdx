@@ -76,9 +76,9 @@ When two caregivers log events on different devices and sync, conflicts are inev
 
 Nubo resolves ordinary shared-log conflicts on participating phones after decryption. The sync relay does not need to read the events to resolve their order. This sharing flow is separate from requested Nubo Care visit processing.
 
-## The Nubo device: Bluetooth only
+## The Nubo Remote: Bluetooth only
 
-The physical Nubo device communicates with your phone over Bluetooth Low Energy (BLE). It has no Wi-Fi chip, no cellular radio, and no way to connect to the internet.
+Nubo Remote communicates with your phone over Bluetooth Low Energy (BLE). It has no Wi-Fi chip, no cellular radio, and no way to connect to the internet.
 
 When you tap the device, the event transmits over BLE to the paired phone and enters the same local SQLite database as app-logged events. From there, it follows the same encrypted sync pipeline.
 
@@ -119,7 +119,7 @@ When evaluating any baby tracking app, the relevant questions are not "does it h
 4. **What is the business model?** If the app is free, what funds it?
 5. **Can I export and delete my data?** Completely, with verification?
 
-For Nubo, start with the feature you use. Everyday logs live on your phone, shared records are encrypted for invited caregivers, and backups use your own cloud account. Nubo Care deliberately sends selected content for processing with no retention afterward. Nubo is funded by the optional device and Plus plan, without selling baby data. CSV export is a Plus tool; your baby timeline remains available in the free app.
+For Nubo, start with the feature you use. Everyday logs live on your phone, shared records are encrypted for invited caregivers, and backups use your own cloud account. Nubo Care deliberately sends selected content for processing with no retention afterward. Nubo is funded by the optional Nubo Remote and Plus plan, without selling baby data. CSV export is a Plus tool; your baby timeline remains available in the free app.
 
 For a broader comparison of how different tracking methods handle your information, the [physical tracker vs. app comparison](/blog/tracking/physical-baby-tracker-vs-app/) covers the practical trade-offs. If you want to understand what typical baby apps collect and why, start with [what data baby tracking apps actually gather](/blog/privacy/what-data-does-baby-tracking-app-collect/).
 

@@ -6,7 +6,7 @@ These instructions apply to the entire repository. Treat the current source code
 
 ## Project Overview
 
-This is the static marketing site for `www.nubotracker.com`, the public-facing site for the Nubo baby tracking ecosystem: the free iOS and Android app, Premium app features, the one-tap Nubo device with dedicated event buttons, and the Nubo Alexa skill.
+This is the static marketing site for `www.nubotracker.com`, the public-facing site for the Nubo baby tracking ecosystem: the free iOS and Android app, Premium app features, Nubo Remote, the one-tap baby tracker with dedicated event buttons, and the Nubo Alexa skill.
 
 The site is informational. It should send visitors directly to Amazon, the App Store, Google Play, and the Alexa skill page. Do not build local commerce flows.
 
@@ -125,11 +125,12 @@ Blog quality gates:
 
 ## Product Messaging
 
-- Position Nubo as an ecosystem: device tap, app Quick Log, in-app voice catch-up, caregiver sync, and Alexa support all feed one baby timeline.
+- Call the physical baby tracking device **Nubo Remote** in product copy, navigation, metadata, and structured data. Keep the existing `/device/` route. Generic references to phones, on-device processing, and actual app control labels remain unchanged.
+- Position Nubo as an ecosystem: Nubo Remote tap, app Quick Log, in-app voice catch-up, caregiver sync, and Alexa support all feed one baby timeline.
 - Avoid hard-coding the number of ways to log. Use flexible language such as "use what fits the moment" or "tap as it happens, talk to catch up".
 - The app is free on iOS and Android. It includes routine tracking, unlimited caregivers, cloud backup, offline mode, quick logs, and in-app voice logging.
 - Premium is an app upgrade for advanced tools such as reminders, exports, Alexa, Live Activities, private pumping, and advanced views. Current site copy uses `$59.99/year`. Subscriptions are billed through the App Store on iPhone or Google Play billing on Android. Prices may vary by region.
-- The Nubo device is sold through Amazon. Current site copy uses `$89.99` and says each phone that syncs with the device receives a refreshed 30-day Premium window.
+- Nubo Remote is sold through Amazon. Current site copy uses `$89.99` and says each phone that syncs with the device receives a refreshed 30-day Premium window.
 - Nubo is not a medical device. Do not imply diagnosis, treatment, cure, prevention, or clinical monitoring.
 - Use reassuring wording. Avoid copy that plants doubt about app or device reliability.
 
