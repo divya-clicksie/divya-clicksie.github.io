@@ -1,6 +1,6 @@
 ---
 import MarketingLayout from '../layouts/MarketingLayout.astro';
-import CareRecapPreview from '../components/CareRecapPreview.astro';
+import CareHero from '../components/CareHero.astro';
 import CareWalkthrough from '../components/CareWalkthrough.astro';
 import FaqList from '../components/FaqList.astro';
 import SiteIcon from '../components/SiteIcon.astro';
@@ -60,19 +60,8 @@ const jsonLd = [
 ];
 ---
 
-<MarketingLayout title={title} description={description} jsonLd={jsonLd} ogImage="/images/nubo-care-baby-visit-v7-960.webp" ctaHref="#care-downloads" ctaLabel="Get the Nubo app">
-  <section class="m-hero" aria-labelledby="care-title">
-    <div class="container m-split">
-      <div>
-        <p class="overline">Nubo Care · Included in Plus</p>
-        <h1 id="care-title">Bring your questions.<br />Take the answers home.</h1>
-        <p class="m-lead">Between short nights and a busy appointment, there’s a lot to remember. Prepare your questions, record with permission, and come back to your pediatrician’s answers together.</p>
-        <div class="m-actions"><a href="#how-care-works" class="btn-primary">See how Care works</a><a href="/pricing/" class="text-link">See Plus pricing <span aria-hidden="true">→</span></a></div>
-        <p class="m-note">Part of the Nubo app on iPhone and Android. No Nubo Remote or tracking history needed. Recording and recaps in English.</p>
-      </div>
-      <CareRecapPreview id="care-hero-recap" />
-    </div>
-  </section>
+<MarketingLayout title={title} description={description} jsonLd={jsonLd} ogImage="/images/nubo-care-hospital-phone-v7-1920.webp" ctaHref="#care-downloads" photoHero>
+  <CareHero />
 
   <aside class="m-strip" aria-label="Nubo Care essentials"><div class="container"><span><SiteIcon name="mic" size={19} />Record with permission</span><span><SiteIcon name="phone" size={19} />Original audio stays on the recording phone</span><a href="/privacy/"><SiteIcon name="lock" size={19} />Trust &amp; Privacy <span aria-hidden="true">→</span></a></div></aside>
 
@@ -99,7 +88,7 @@ const jsonLd = [
       <div class="tracker-visual"><img src="/images/appscreens/quick-actions-current.webp" alt="Nubo baby tracker Quick Actions with sleep, feeding, and nursing logs" width="1284" height="2778" loading="lazy" decoding="async" /></div>
       <div class="m-copy">
         <p class="overline">One Nubo app</p><h2 id="one-app-title">The everyday details.<br />Ready for the next visit.</h2>
-        <p>The free baby tracker keeps feeds, sleep, diapers, and observations in one shared timeline. Tap as it happens or talk to catch up. With Care, review what you’ve noticed and prepare questions for your pediatrician.</p>
+        <p>The free baby tracker keeps feeds, sleep, and diapers in one shared timeline. Nubo Observations gives you room for anything that does not fit a button or form. Speak or type what you notice. Nubo Intelligence follows up on symptoms you describe and, with Care, summarizes relevant observations for your pediatrician visit.</p>
         <p>Care is a feature of the same app, included in Plus. {nuboStory.device} It is optional for both tracking and visits.</p>
         <a href="/app/" class="text-link">Explore the free baby tracker <span aria-hidden="true">→</span></a>
         <p class="m-note">Sample app data. Nubo Noticed is included in Plus and is free for everyone on Mondays.</p>
@@ -127,7 +116,7 @@ const jsonLd = [
 
   <section class="m-section m-ivory" id="care-questions" aria-labelledby="questions-title"><div class="container m-split faq-grid"><div class="m-heading"><p class="overline">A few practical answers</p><h2 id="questions-title">Before your next visit.</h2><p>Nubo helps you keep and revisit information. It is not a medical device or a substitute for your care team’s advice.</p><a href="/faq/#doctor-visits" class="text-link">More Nubo Care questions <span aria-hidden="true">→</span></a></div><FaqList items={faqItems} /></div></section>
 
-  <section class="m-cta" id="care-downloads" aria-labelledby="download-title"><div class="container"><p class="overline">On iPhone and Android</p><h2 id="download-title">Bring one question.<br />Keep the answers close.</h2><p>Download the free Nubo app. Nubo Care is included in Plus, your preview, and active device access.</p><div class="care-stores"><StoreLinks /></div><div class="m-actions"><a href="/pricing/" class="text-link">See pricing and access details <span aria-hidden="true">→</span></a></div></div></section>
+  <section class="m-cta" id="care-downloads" aria-labelledby="download-title"><div class="container"><p class="overline">On iPhone and Android</p><h2 id="download-title">Record and review<br />your pediatrician visits.</h2><p>Download the Nubo app for iPhone or Android. Nubo Care is included with Plus.</p><div class="care-stores"><StoreLinks /></div><div class="m-actions"><a href="/pricing/" class="text-link">See pricing and access details <span aria-hidden="true">→</span></a></div></div></section>
 </MarketingLayout>
 
 <style>

@@ -8,7 +8,8 @@ export const nuboSharing = {
 
 export const nuboStory = {
   description: "Nubo helps parents keep track of everyday care, save what they notice, and return to their pediatrician's answers, with shared details for invited caregivers.",
-  intelligence: 'Nubo Intelligence is a built-in suite of AI systems that makes care easier to record, understand, and coordinate. It supports everyday logging, observations, recorded patterns, and visit preparation. Nubo Scribe turns doctor recordings into recaps, and Nubo Coordinator keeps next steps together for invited caregivers, all within the Nubo app.',
+  intelligence: 'Nubo Intelligence is the built-in AI across the Nubo app. It helps you log everyday care, understands observations in your own words, follows up on symptoms you describe, and summarizes relevant observations for doctor visits. It also highlights recorded patterns. Nubo Scribe turns doctor recordings into recaps, and Nubo Coordinator keeps reviewed next steps together for invited caregivers.',
+  observations: 'Nubo Observations is a place for anything you notice about your baby that does not fit a button or form. Speak or type in your own words. Nubo Intelligence understands the context, follows up on symptoms you describe, and summarizes relevant observations for your doctor visit.',
   care: 'Nubo Care helps you prepare questions, record doctor visits with Nubo Scribe, and follow through together with Nubo Coordinator. Record with permission, then return to answers and next steps. Included in Nubo Plus.',
   scribe: 'Nubo Scribe helps you record doctor visits with permission and turns the conversation into a recap, answers, and next steps. Answers from recordings link to the original audio on the recording phone.',
   coordinator: 'Nubo Coordinator keeps reviewed next steps and to-dos together for caregivers with access. The primary caregiver decides which visit details each caregiver can see.',
@@ -28,7 +29,7 @@ export const nuboProducts = [
   {
     name: 'Nubo Intelligence',
     label: 'Everyday care and doctor visits',
-    description: 'Built-in AI for everyday logging, observations, recorded patterns, visit preparation, Nubo Scribe doctor recordings, and Nubo Coordinator follow-up.',
+    description: 'Built-in AI for everyday logging, symptom follow-ups, observation summaries for doctor visits, recorded patterns, Nubo Scribe recordings, and Nubo Coordinator next steps.',
     access: 'Voice logging and observations stay free. More tools with Plus.',
     href: '/app/#intelligence',
     link: 'Explore Nubo Intelligence',
@@ -37,7 +38,7 @@ export const nuboProducts = [
 
 export const nuboAccess = {
   noticed: 'Nubo Noticed is included with Nubo Plus and is free for everyone on Mondays.',
-  notetaker: 'Nubo Notetaker AI titles and tags require iOS 26 or later with Apple Intelligence available. Other devices preserve the note text with a simpler title and no AI tags.',
+  observations: 'Nubo Observations AI titles and tags require iOS 26 or later with Apple Intelligence available. Other devices preserve the note text with a simpler title and no AI tags.',
   preview: 'Your 14-day Nubo Plus preview starts when you confirm your child is here. Downloading and creating a profile do not start it. The preview is separate from a subscription.',
   device: 'Each phone that syncs with a Nubo Remote receives a refreshed 30-day Nubo Plus access window, including Nubo Care.',
 };

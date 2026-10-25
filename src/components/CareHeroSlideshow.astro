@@ -18,6 +18,8 @@ import { careHeroScenes as scenes } from '../data/careHeroScenes';
     const scenes = Array.from(gallery.querySelectorAll<HTMLElement>('[data-scene]'));
     const headlines = Array.from(hero?.querySelectorAll<HTMLElement>('[data-care-headline]') || []);
     const toggle = hero?.querySelector<HTMLButtonElement>('[data-care-toggle]');
+    const controls = hero?.querySelector<HTMLElement>('[data-care-controls]');
+    const choices = Array.from(hero?.querySelectorAll<HTMLButtonElement>('[data-care-choice]') || []);
     if (!hero || scenes.length < 2) return;
 
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -26,6 +28,7 @@ import { careHeroScenes as scenes } from '../data/careHeroScenes';
     let paused = false;
     let inView = true;
     let pointerInside = false;
+    let focusInside = false;
     let timer: number | undefined;
     let request = 0;
 
@@ -54,13 +57,14 @@ import { careHeroScenes as scenes } from '../data/careHeroScenes';
         headline.setAttribute('aria-hidden', String(!active));
       });
       current = index;
+      choices.forEach((choice, index) => choice.setAttribute('aria-pressed', String(index === current)));
       scenes[current].classList.add('is-active');
       scenes[current].setAttribute('aria-hidden', 'false');
       void load((current + 1) % scenes.length);
     };
     const schedule = () => {
       stop();
-      if (!motion.matches && !paused && inView && !document.hidden && !pointerInside) {
+      if (!motion.matches && !paused && inView && !document.hidden && !pointerInside && !focusInside) {
         timer = window.setInterval(() => { void select((current + 1) % scenes.length); }, 8000);
       }
     };
@@ -71,6 +75,17 @@ import { careHeroScenes as scenes } from '../data/careHeroScenes';
       stop();
     });
     hero.addEventListener('mouseleave', () => { pointerInside = false; schedule(); });
+    hero.addEventListener('focusin', () => { focusInside = true; ++request; stop(); });
+    hero.addEventListener('focusout', (event) => {
+      focusInside = event.relatedTarget instanceof Node && hero.contains(event.relatedTarget);
+      schedule();
+    });
+    choices.forEach((choice, index) => choice.addEventListener('click', () => {
+      paused = true;
+      stop();
+      if (toggle) toggle.textContent = 'Play slideshow';
+      void select(index);
+    }));
     toggle?.addEventListener('click', () => {
       ++request;
       paused = !paused;
@@ -89,6 +104,7 @@ import { careHeroScenes as scenes } from '../data/careHeroScenes';
       schedule();
     }, { threshold: [0, 0.3] });
     observer.observe(hero);
+    if (controls) controls.hidden = false;
     if (toggle) toggle.hidden = motion.matches;
     schedule();
     const firstImage = scenes[0].querySelector<HTMLImageElement>('img');

@@ -1,0 +1,70 @@
+---
+import StoreLinks from './StoreLinks.astro';
+---
+
+<section class="home-hero" aria-labelledby="home-title">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="overline">Baby care app for iPhone and Android</p>
+      <h1 id="home-title">Your second brain for baby care</h1>
+      <p class="hero-sub">Feeds, sleep, observations, questions, concerns, and your doctor’s answers. When you’re short on sleep, that’s a lot to remember. Let Nubo help you keep the details together.</p>
+      <div class="hero-actions"><StoreLinks eager /></div>
+      <p class="hero-note">Free to download. Some features require Plus.</p>
+      <a class="hero-more text-link" href="#one-app">See what’s in the app <span aria-hidden="true">↓</span></a>
+    </div>
+
+    <div class="hero-photos" role="group" aria-label="Everyday care and conversations with your doctor">
+      <figure class="hero-photo photo-feeding">
+        <img src="/images/nubo-home-feeding-v1-960.webp" srcset="/images/nubo-home-feeding-v1-640.webp 640w, /images/nubo-home-feeding-v1-960.webp 960w, /images/nubo-home-feeding-v1-1536.webp 1536w" sizes="(max-width: 760px) calc((100vw - 52px) / 2), (max-width: 1120px) calc((100vw - 96px) / 2), 536px" alt="Concept photo of a mother feeding her baby at home" width="1536" height="1024" loading="eager" fetchpriority="high" decoding="async" />
+      </figure>
+      <figure class="hero-photo photo-comforting">
+        <img src="/images/nubo-home-comforting-v1-768.webp" srcset="/images/nubo-home-comforting-v1-480.webp 480w, /images/nubo-home-comforting-v1-768.webp 768w" sizes="(max-width: 1120px) 25vw, 260px" alt="Concept photo of a father gently comforting his baby against his shoulder" width="1536" height="1024" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="hero-photo photo-doctor">
+        <img src="/images/nubo-home-doctor-v1-768.webp" srcset="/images/nubo-home-doctor-v1-480.webp 480w, /images/nubo-home-doctor-v1-768.webp 768w" sizes="(max-width: 760px) calc((100vw - 52px) / 2), (max-width: 1120px) 25vw, 260px" alt="Concept photo of a mother holding her newborn while listening to a doctor" width="1920" height="960" loading="lazy" decoding="async" />
+      </figure>
+    </div>
+  </div>
+</section>
+
+<style>
+  .home-hero { background: var(--color-bg-ivory); padding-block: 128px 64px; }
+  .hero-grid { display: grid; grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr); gap: 3rem; align-items: center; }
+  .hero-copy { min-width: 0; }
+  .overline { font-size: .6875rem; }
+  h1 { font-size: clamp(2.4rem,4.2vw,3.25rem); line-height: 1.12; letter-spacing: -.035em; text-wrap: balance; }
+  .hero-sub { margin-top: 1.5rem; max-width: 460px; color: var(--color-text-secondary); font-size: 1.0625rem; line-height: 1.7; }
+  .hero-actions { margin-top: 1.75rem; }
+  .hero-note { margin-top: .7rem; color: var(--color-text-secondary); font-size: .8125rem; line-height: 1.7; }
+  .hero-more { display: inline-block; margin-top: 1.25rem; font-size: .8125rem; }
+  .hero-photos { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; min-width: 0; }
+  .hero-photo { margin: 0; min-width: 0; overflow: hidden; border-radius: 22px; background: #e9eee5; aspect-ratio: 3 / 2; }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .photo-feeding { grid-column: 1 / -1; aspect-ratio: 1.9; border-radius: 28px; }
+  .photo-feeding img { object-position: 50% 45%; }
+  .photo-comforting img { object-position: 50% 40%; }
+  .photo-doctor img { object-position: 82% 50%; }
+  a:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 4px; }
+  @media (max-width: 1000px) {
+    .hero-grid { gap: 2rem; }
+    h1 { font-size: clamp(2.25rem,4.4vw,2.85rem); }
+    .hero-sub { font-size: 1rem; }
+  }
+  @media (max-width: 760px) {
+    .home-hero { padding-block: 84px 40px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+    .hero-photos { grid-row: 1; width: 100%; max-width: 560px; justify-self: center; gap: 10px; }
+    .hero-photo { border-radius: 18px; aspect-ratio: 1.2; }
+    .photo-feeding { grid-column: auto; }
+    .photo-comforting { display: none; }
+    .photo-doctor img { object-position: 90% 50%; }
+    .hero-copy { width: 100%; max-width: 560px; justify-self: center; }
+    h1 { max-width: 520px; font-size: clamp(2.1rem,8vw,2.8rem); }
+    .hero-sub { max-width: 480px; margin-top: 1rem; font-size: .9375rem; }
+    .hero-actions { margin-top: 1.25rem; }
+  }
+  @media (max-width: 680px) {
+    .container { padding-inline: 1.25rem; }
+    .overline { font-size: .625rem; }
+  }
+</style>

@@ -1,6 +1,9 @@
 # build output
 dist/
 
+# local generated images, review screenshots, and source snapshots
+/output/
+
 # dependencies
 node_modules/
 

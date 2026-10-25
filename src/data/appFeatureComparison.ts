@@ -13,7 +13,7 @@ export const free = [
   'Private backup with your own cloud account',
   'Account-free logging',
   'Offline in-app voice logging',
-  'Nubo Notetaker: observations to bring up with your pediatrician, with AI titles and tags on supported iPhones',
+  'Nubo Observations: speak or type anything you notice about your baby, beyond buttons and forms',
   'Nubo Noticed on Mondays',
   'Child-specific What To Expect guide',
   'Dark mode',
@@ -21,7 +21,7 @@ export const free = [
   'Works with Nubo Remote'
 ];
 export const plus = [
-  'Nubo Care: doctor visits, answers, and next steps with sharing choices per caregiver',
+  'Nubo Care: observation summaries, visit questions, recordings, answers, and next steps with sharing choices per caregiver',
   'Nubo Noticed throughout the week',
   'Rhythm charts',
   'Live Activities for timers and recent caregiver updates (iOS)',

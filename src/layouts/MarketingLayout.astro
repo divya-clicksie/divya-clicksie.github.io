@@ -8,12 +8,13 @@ type Props = ComponentProps<typeof BaseLayout> & {
   ctaHref?: string;
   ctaLabel?: string;
   ctaExternal?: boolean;
+  photoHero?: boolean;
 };
-const { ctaHref, ctaLabel, ctaExternal, ...layoutProps } = Astro.props;
+const { ctaHref, ctaLabel, ctaExternal, photoHero, ...layoutProps } = Astro.props;
 ---
 
 <BaseLayout {...layoutProps}>
-  <Header ctaHref={ctaHref} ctaLabel={ctaLabel} ctaExternal={ctaExternal} />
+  <Header ctaHref={ctaHref} ctaLabel={ctaLabel} ctaExternal={ctaExternal} photoHero={photoHero} />
   <main id="main-content" class="marketing-page"><slot /></main>
   <Footer />
 </BaseLayout>

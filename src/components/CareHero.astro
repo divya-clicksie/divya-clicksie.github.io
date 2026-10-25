@@ -1,0 +1,81 @@
+---
+import CareHeroSlideshow from './CareHeroSlideshow.astro';
+import StoreLinks from './StoreLinks.astro';
+import { careHeroScenes } from '../data/careHeroScenes';
+
+interface Props {
+  variant?: 'care' | 'home';
+  headingId?: string;
+  headline?: string;
+  moreHref?: string;
+}
+
+const { variant = 'care', headingId = 'care-title', headline, moreHref = '#how-care-works' } = Astro.props;
+const isHome = variant === 'home';
+---
+
+<section class:list={['hero', 'care-hero', { 'home-hero': isHome }]} aria-labelledby={headingId}>
+  <CareHeroSlideshow />
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <p class="overline">{isHome ? 'Baby care app for iPhone and Android' : 'Nubo Care · From newborn days to growing years'}</p>
+      <h1 id={headingId} aria-live="off">
+        {headline ? <span class="hero-fixed-headline">{headline}</span> : careHeroScenes.map((scene, index) => <span class:list={['hero-headline', { 'is-active': index === 0 }]} data-care-headline={scene.key} aria-hidden={index === 0 ? 'false' : 'true'}>{scene.headline.map((line) => <span class="hero-headline-line">{line}{' '}</span>)}</span>)}
+      </h1>
+      {isHome ? <p class="hero-sub">Feeds, sleep, observations, questions, concerns, and your doctor’s answers. When you’re short on sleep, that’s a lot to remember. Let Nubo help you keep the details together.</p> : <p class="hero-sub">There's a lot to take in at a pediatrician visit. Prepare questions, record with permission, and come back to the answers together.</p>}
+      <div class="hero-actions"><StoreLinks eager /></div>
+      {isHome ? <p class="hero-note">Free to download. Some features require Plus.</p> : <p class="hero-note">Nubo Care · Included in Plus. Free app on iPhone and Android.</p>}
+      <div class="hero-controls" data-care-controls hidden>
+        {!isHome && <div class="scene-choices" role="group" aria-label="Choose a care conversation">
+          {careHeroScenes.map((scene, index) => <button type="button" data-care-choice={index} aria-pressed={index === 0 ? 'true' : 'false'} aria-label={scene.label}>{scene.short}</button>)}
+        </div>}
+        <button class="hero-playback" type="button" data-care-toggle>Pause slideshow</button>
+      </div>
+      <a class="hero-more text-link" href={moreHref}>{isHome ? 'See what’s in the app' : 'See how Nubo Care works'} <span aria-hidden="true">↓</span></a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .care-hero { position: relative; overflow: hidden; background: var(--color-bg-ivory); }
+  .hero-scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg,rgba(255,250,247,.98),rgba(255,250,247,.96) 31%,rgba(255,250,247,.78) 49%,rgba(255,250,247,0) 77%); }
+  .hero-inner { position: relative; z-index: 2; pointer-events: none; padding-block: 140px 80px; min-height: 730px; display: flex; align-items: center; }
+  .hero-content { width: 52%; max-width: 550px; pointer-events: auto; }
+  .care-hero .overline { font-size: .6875rem; letter-spacing: .1em; }
+  .care-hero h1 { display: grid; align-items: center; font-size: clamp(2.6rem,4.2vw,3.75rem); line-height: 1.08; letter-spacing: -.035em; }
+  .hero-headline { grid-area: 1 / 1; min-width: 0; opacity: 0; visibility: hidden; transition: opacity 1s ease, visibility 1s; }
+  .hero-headline.is-active { opacity: 1; visibility: visible; }
+  .hero-headline-line { display: block; }
+  .hero-fixed-headline { text-wrap: balance; }
+  .home-hero h1 { font-size: clamp(2.6rem,4.2vw,3.25rem); line-height: 1.12; }
+  .hero-sub { margin-top: 1.5rem; color: var(--color-text-secondary); font-size: 1.0625rem; max-width: 420px; line-height: 1.7; }
+  .home-hero .hero-sub { max-width: 460px; }
+  .hero-actions { margin-top: 1.75rem; }
+  .hero-note { margin-top: .7rem; color: var(--color-text-secondary); font-size: .75rem; }
+  .home-hero .hero-note { font-size: .8125rem; line-height: 1.7; }
+  .hero-controls { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; margin-top: 1rem; }
+  .hero-controls[hidden], .hero-playback[hidden] { display: none; }
+  .scene-choices { display: flex; flex-wrap: wrap; gap: .25rem; }
+  .scene-choices button { min-height: 36px; padding: .4rem .65rem; border: 1px solid transparent; background: #fff9; color: var(--color-text-secondary); border-radius: 20px; font-size: .6875rem; }
+  .scene-choices button[aria-pressed="true"] { border-color: #99c9cb; color: var(--color-brand-dark); background: var(--color-brand-light); }
+  .hero-playback { min-height: 36px; padding: .25rem 0; border: 0; background: none; color: var(--color-brand-dark); font-size: .6875rem; text-decoration: underline; text-underline-offset: 3px; }
+  .hero-more { display: inline-block; margin-top: .9rem; font-size: .8125rem; }
+  button:focus-visible, a:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 4px; }
+  @media (max-width: 1000px) { .hero-inner { min-height: 710px; } }
+  @media (max-width: 760px) { .hero-content { width: 57%; } .care-hero h1 { font-size: 2.7rem; } }
+  @media (max-width: 680px) {
+    .care-hero { padding-top: 60px; }
+    .container { padding-inline: 1.25rem; }
+    .hero-scrim { display: none; }
+    .hero-inner { min-height: 0; padding-block: 1.75rem 2.25rem; }
+    .hero-content { width: 100%; max-width: none; }
+    .care-hero .overline { font-size: .625rem; }
+    .care-hero h1 { font-size: clamp(2.25rem,8.5vw,3.2rem); max-width: 520px; }
+    .home-hero h1 { font-size: clamp(2.1rem,8vw,2.8rem); }
+    .hero-sub { font-size: .9375rem; margin-top: 1rem; max-width: 430px; }
+    .hero-actions { margin-top: 1.25rem; }
+    .hero-controls { gap: .3rem .8rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .hero-headline { transition: none; } }
+</style>

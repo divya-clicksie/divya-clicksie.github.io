@@ -10,12 +10,12 @@ const task = hospital ? 'Note questions for the first checkup.' : 'Save feeding 
 <figure class="recap-preview" aria-labelledby={`${id}-caption`}>
   <div class="preview-label"><span>Nubo Care</span><span>Sample visit</span></div>
   <div class="recap-sheet">
-    <div class="visit-heading"><span class="visit-mark" aria-hidden="true">N</span><div><p>{visit}</p><span>Your visit, remembered.</span></div></div>
+    <div class="visit-heading"><span class="visit-mark" aria-hidden="true">N</span><div><p>{visit}</p><span>Visit summary and next steps</span></div></div>
     <div class="answer-note"><span class="small-label">You asked</span><h3>{question}</h3><p class="answer-copy">{answer}</p><div class="audio-reference"><span class="play-symbol" aria-hidden="true">▶</span><div><strong>04:32 <span>in your recording</span></strong><p>Your pediatrician's original words</p></div></div></div>
     <div class="next-step"><span class="check-mark" aria-hidden="true">✓</span><div><span class="small-label">Reviewed next step</span><p>{task}</p></div></div>
   </div>
-  <div class="caregiver-recap"><span class="sync-mark" aria-hidden="true">↗</span><div><strong>Shared with caregivers given access. Audio kept on your phone.</strong></div></div>
-  <figcaption id={`${id}-caption`}>Illustrative visit recap. Audio replay is on the recording phone.</figcaption>
+  <div class="caregiver-recap"><span class="sync-mark" aria-hidden="true">↗</span><div><strong>Visit details shared with selected caregivers. Audio stays on the recording phone.</strong></div></div>
+  <figcaption id={`${id}-caption`}>Example visit summary. Original audio is available only on the recording phone.</figcaption>
 </figure>
 
 <style>

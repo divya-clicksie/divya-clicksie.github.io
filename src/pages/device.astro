@@ -3,9 +3,10 @@ import MarketingLayout from '../layouts/MarketingLayout.astro';
 import SiteIcon from '../components/SiteIcon.astro';
 import FaqList from '../components/FaqList.astro';
 import PlusFollowsDevice from '../components/PlusFollowsDevice.astro';
+import RemoteHowItWorks from '../components/RemoteHowItWorks.astro';
 
-const title = 'Nubo Remote | One-Tap Baby Tracker for Night Feeds';
-const description = 'Hands full? Nubo Remote is a one-tap baby tracker for bottles, nursing, sleep, and diapers. Sync with your shared Nubo app over Bluetooth.';
+const title = 'Nubo Remote | Screen-Free Baby Tracking';
+const description = 'Less screen time, more time with your baby. Tap Nubo Remote to log feeds, sleep, and diapers without opening your phone. Sync updates with every caregiver.';
 
 const amazonURL = 'https://www.amazon.com/nubo-Newborn-Activity-Tracker-Color/dp/B0CJLNBG4P?maas=maas_adg_465D5CB69C73F660B7AD38831E2D680B_afap_abs&ref_=aa_maas&tag=maas';
 
@@ -35,8 +36,8 @@ const jsonLd = [
     name: 'Nubo Remote',
     alternateName: ['One-tap baby tracker', 'Physical baby tracker device', 'Screen-free baby tracker'],
     image: [
-      'https://www.nubotracker.com/images/nubo-instant-tracker.webp',
-      'https://www.nubotracker.com/images/nubo-oneclick.webp'
+      'https://www.nubotracker.com/images/hero-device.webp',
+      'https://www.nubotracker.com/images/caregiver-hub.webp'
     ],
     description,
     sku: 'B0CJLNBG4P',
@@ -75,30 +76,28 @@ const jsonLd = [
 ---
 
 <MarketingLayout title={title} description={description} jsonLd={jsonLd} ctaHref={amazonURL} ctaLabel="Buy on Amazon" ctaExternal>
-  <section class="m-hero"><div class="container m-split"><div><p class="overline">Nubo Remote</p><h1>A tap. Then back<br />to your baby.</h1><p class="m-lead">A feed in the dark. A diaper change with your hands full. Nubo Remote puts dedicated baby care buttons close at hand. Tap to log, then find the details in your shared Nubo app.</p><div class="m-actions"><a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a><span class="device-price"><del>$109</del> $89</span></div><p class="m-note">Optional one-tap baby tracker. Everyday tracking and unlimited caregivers stay free on iPhone and Android.</p></div><div class="device-stage"><div class="device-halo" aria-hidden="true"></div><img src="/images/hero-device.webp" alt="Nubo Remote with dedicated buttons for nursing, bottles, sleep, and diapers" width="520" height="1077" fetchpriority="high" /><span class="stage-label feeds"><SiteIcon name="bottle" size={19} />Feeds</span><span class="stage-label sleep"><SiteIcon name="moon" size={19} />Sleep</span><span class="stage-label diapers"><SiteIcon name="drop" size={19} />Diapers</span></div></div></section>
-  <aside class="m-strip" aria-label="Nubo Remote essentials"><div class="container"><span><SiteIcon name="bluetooth" size={19} />Bluetooth sync</span><span><SiteIcon name="phone" size={19} />Free Nubo app</span><span><SiteIcon name="users" size={19} />One shared baby timeline</span></div></aside>
-  <section class="m-section" id="device-logs"><div class="container m-split"><img class="m-photo button-photo" src="/images/nubo-oneclick.webp" alt="A finger pressing the sleep button on the Nubo Remote" width="740" height="554" loading="lazy" /><div><div class="m-heading"><p class="overline">Buttons you can get to know by touch</p><h2>Less phone.<br />A familiar little habit.</h2></div><div class="m-grid two button-key"><article><span class="m-icon peach"><SiteIcon name="bottle" /></span><h3>Bottles</h3><p>Formula or pumped milk, with quick volume taps.</p></article><article><span class="m-icon"><SiteIcon name="users" /></span><h3>Nursing</h3><p>Left and right sessions, without opening your phone.</p></article><article><span class="m-icon lilac"><SiteIcon name="moon" /></span><h3>Sleep</h3><p>Start and end naps and nighttime sleep.</p></article><article><span class="m-icon"><SiteIcon name="drop" /></span><h3>Diapers</h3><p>Separate buttons for wet and dirty changes.</p></article></div></div></div></section>
-  <section class="m-section m-warm" aria-labelledby="sync-title"><div class="container"><div class="m-heading center"><p class="overline">From the changing table to the shared timeline</p><h2 id="sync-title">Tap now. The details travel with you.</h2></div><div class="sync-picture" aria-hidden="true"><img src="/images/hero-device.webp" alt="" width="520" height="1077" loading="lazy" /><span class="sync-line"></span><SiteIcon name="bluetooth" size={32} /><span class="sync-line"></span><SiteIcon name="phone" size={54} /><span class="sync-line"></span><SiteIcon name="users" size={46} /></div><ol class="m-grid three m-steps"><li><h3>Tap the event.</h3><p>The matching button records what happened and when.</p></li><li><h3>Keep caring.</h3><p>The device stores timestamped events while your phone is away.</p></li><li><h3>Sync nearby.</h3><p>A paired phone receives logs over Bluetooth. Connected caregivers can follow the same day.</p></li></ol><p class="sync-link"><a href="/blog/product/nubo-bluetooth-sync/" class="text-link">How Bluetooth sync works <span aria-hidden="true">→</span></a></p></div></section>
+  <section class="m-hero remote-hero" aria-labelledby="remote-title">
+    <div class="container">
+      <p class="overline">Nubo Remote</p>
+      <h1 id="remote-title">Screen-free baby tracking.</h1>
+      <p class="m-lead">For the night feeds and hands-full days when you want less time on screens. Tap a physical button to log care, without unlocking your phone or opening an app.</p>
+      <div class="m-actions"><a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a><span class="device-price"><del>$109</del> $89</span></div>
+      <p class="m-note">Works with the free Nubo app on iPhone and Android.</p>
+    </div>
+  </section>
+  <RemoteHowItWorks compactHeading />
+  <aside class="m-strip" aria-label="Nubo Remote essentials"><div class="container"><span><SiteIcon name="check" size={19} />Screen-free logging</span><span><SiteIcon name="bluetooth" size={19} />Bluetooth sync</span><span><SiteIcon name="users" size={19} />Unlimited caregivers, free</span></div></aside>
   <PlusFollowsDevice />
   <section class="m-section"><div class="container m-grid three"><article class="detail-tile"><span class="m-icon"><SiteIcon name="leaf" /></span><h3>Keep it close.</h3><p>Magnetic mount and lanyard included.</p></article><article class="detail-tile"><span class="m-icon peach"><SiteIcon name="check" /></span><h3>Ready for the routine.</h3><p>Battery included, designed for months of everyday use.</p></article><article class="detail-tile"><span class="m-icon lilac"><SiteIcon name="users" /></span><h3>Made for helping hands.</h3><p>A familiar button for parents, grandparents, and nannies.</p><a href="/caregivers/" class="text-link">Explore shared care <span aria-hidden="true">→</span></a></article></div></section>
   <section class="m-section m-warm"><div class="container m-split faq-split"><div class="m-heading"><p class="overline">A few practical answers</p><h2>Before your first tap.</h2><p>Comparing physical trackers? <a href="/compare/talli/" class="text-link">See Nubo Remote and Talli.</a></p></div><FaqList items={faqItems} /></div></section>
   <section class="m-cta"><div class="container"><p class="overline">For the moments your hands are full</p><h2>Keep the moment.<br />Skip the phone pickup.</h2><div class="m-actions"><a href={amazonURL} class="btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon</a><a href="/app/" class="text-link">Explore the free app <span aria-hidden="true">→</span></a></div></div></section>
 </MarketingLayout>
 <style>
-  .device-stage { position: relative; min-height: 480px; border-radius: 30px; background: #eef5ef; display: grid; place-items: center; overflow: hidden; }
-  .device-halo { position: absolute; width: 320px; height: 320px; border-radius: 50%; background: #dcece1; }
-  .device-stage > img { position: relative; height: 385px; width: auto; filter: drop-shadow(0 18px 24px #25483922); transform: rotate(8deg); }
-  .stage-label { position: absolute; display: inline-flex; gap: .5rem; align-items: center; background: #fff; border: 1px solid #dce6d9; padding: .65rem .85rem; border-radius: 14px; font-size: .75rem; font-weight: 700; color: var(--color-brand-dark); }
-  .feeds { top: 19%; left: 5%; } .sleep { top: 49%; right: 4%; background: #f6f1fb; color: #67518b; } .diapers { bottom: 15%; left: 5%; background: #fff6eb; color: #8b5138; }
-  @media (max-width: 680px) { .device-stage { min-height: 395px; } .device-stage > img { height: 320px; } .stage-label { padding: .6rem; font-size: .6875rem; gap: .4rem; } .device-halo { width: 270px; height: 270px; } .feeds, .diapers { left: 3%; } .sleep { right: 3%; } }
-
+  .remote-hero.m-hero { text-align: center; padding-block: 112px 2rem; }
+  .remote-hero .m-lead { max-width: 710px; margin-inline: auto; }
+  .remote-hero .m-actions { justify-content: center; }
   .device-price { font-size: 1.6rem; font-weight: 700; } .device-price del { color: var(--color-text-secondary); font-size: 1rem; font-weight: 500; margin-right: .35rem; }
-  .button-photo { background: #f5f5f3; } .button-key { gap: 1.5rem; } .button-key h3 { font-size: 1.1rem; }
-  .button-key p, .detail-tile p { font-size: .8125rem; color: var(--color-text-secondary); margin-top: .5rem; }
-  .button-key .m-icon { width: 42px; height: 42px; margin-bottom: .6rem; }
-  .sync-picture { display: flex; justify-content: center; align-items: center; gap: 1.25rem; color: var(--color-brand-dark); padding-block: .5rem 2.5rem; }
-  .sync-picture img { width: 38px; height: auto; } .sync-line { width: 70px; height: 1px; background: #b6d2c5; }
-  .sync-link { text-align: center; margin-top: 2rem; font-size: .8125rem; }
+  .detail-tile p { font-size: .8125rem; color: var(--color-text-secondary); margin-top: .5rem; }
   .detail-tile { padding: .5rem; } .detail-tile .text-link { display: inline-block; font-size: .8125rem; margin-top: .8rem; }
-  @media (max-width: 680px) { .button-key { grid-template-columns: 1fr 1fr !important; } .sync-picture { gap: .75rem; } .sync-line { width: 24px; } .faq-split { align-items: start; } }
+  @media (max-width: 680px) { .remote-hero.m-hero { padding-top: 100px; } .faq-split { align-items: start; } }
 </style>

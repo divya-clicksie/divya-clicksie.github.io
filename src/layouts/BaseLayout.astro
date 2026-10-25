@@ -107,8 +107,8 @@ const jsonLdGraph = {
     <link rel="canonical" href={canonicalHref} />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <!-- Preload LCP image on the home page -->
-    {Astro.url.pathname === '/' && (
+    <!-- Preload the Care page photo hero -->
+    {Astro.url.pathname === '/care/' && (
       <link rel="preload" as="image" href="/images/nubo-care-hospital-phone-v7.webp" imagesrcset="/images/nubo-care-hospital-phone-v7-960.webp 960w, /images/nubo-care-hospital-phone-v7-1920.webp 1920w, /images/nubo-care-hospital-phone-v7.webp 3840w" imagesizes="100vw" fetchpriority="high" />
     )}
 

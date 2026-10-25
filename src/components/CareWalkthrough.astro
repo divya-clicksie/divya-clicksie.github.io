@@ -6,19 +6,19 @@ const steps = [
     key: 'capture',
     label: 'Capture',
     title: 'Save what’s on your mind.',
-    description: 'Speak or type what you notice, whenever it comes to mind. Nubo Observations keeps your notes, while activity logs record feeds, sleep, diapers, and more.',
+    description: 'After a long night, it can be hard to remember the details. Speak or type anything you notice about your baby, even when it does not fit a button or form. Nubo Observations keeps your words. Nubo Intelligence understands the context and follows up on symptoms you describe.',
     product: 'Nubo Observations',
     access: 'Everyday capture · Free',
-    caption: 'An observation in your own words, alongside structured activity logs.',
+    caption: 'Your original observation and an illustrative follow-up from Nubo Intelligence.',
   },
   {
     key: 'prepare',
     label: 'Prepare',
-    title: 'Turn observations into questions.',
-    description: 'Before the visit, Nubo Intelligence automatically suggests questions based on your saved observations and your baby’s age. Review the suggestions and add anything else on your mind.',
+    title: 'Bring the context to your visit.',
+    description: 'Before the visit, Nubo Intelligence summarizes relevant observations and suggests questions based on your notes and your baby’s age. Review the summary, edit the questions, and add anything else on your mind.',
     product: 'Nubo Intelligence + Care',
     access: 'Visit preparation · Plus',
-    caption: 'Suggested questions to review, with room for your own.',
+    caption: 'An observation summary and suggested questions for you to review.',
   },
   {
     key: 'record',
@@ -72,21 +72,20 @@ const steps = [
 
                 {step.key === 'capture' && <div class="app-content">
                   <p class="sample-label">Nubo Observations</p>
-                  <h3>The little things you notice.</h3>
-                  <div class="observation-note"><span class="note-icon"><SiteIcon name="questions" size={21} /></span><div><span class="sample-label">Today · Your observation</span><blockquote>“She’s been waking earlier this week.”</blockquote></div></div>
+                  <h3>Anything you notice.<br />In your own words.</h3>
+                  <div class="observation-note"><span class="note-icon"><SiteIcon name="questions" size={21} /></span><div><span class="sample-label">Today · Your observation</span><blockquote>“She cries after feeds and only settles when I hold her upright. We’re up most of the night.”</blockquote></div></div>
                   <div class="capture-options"><span><SiteIcon name="mic" size={17} /> Speak a note</span><span><SiteIcon name="questions" size={17} /> Type a note</span></div>
-                  <div class="activity-heading"><p class="sample-label">Activity logs</p><span>Today</span></div>
-                  <div class="activity-entry sleep-entry"><SiteIcon name="moon" size={21} /><div><strong>Sleep</strong><span>6:30 AM to 7:15 AM</span></div><b>45 min</b></div>
-                  <div class="activity-entry bottle-entry"><SiteIcon name="bottle" size={21} /><div><strong>Bottle</strong><span>8:00 AM</span></div><b>90 mL</b></div>
+                  <div class="suggested-heading"><SiteIcon name="sparkles" size={18} /><span>Nubo Intelligence follows up</span></div>
+                  <div class="question-card"><span class="question-marker" aria-hidden="true">?</span><p>Has the crying after feeds changed since you last noted it?</p></div>
                 </div>}
 
                 {step.key === 'prepare' && <div class="app-content">
                   <p class="sample-label">Prepare for your visit</p>
                   <h3>A place to start the conversation.</h3>
-                  <div class="context-chips"><span>Ella · 4 months</span><span>Saved observations</span></div>
-                  <div class="source-observation"><SiteIcon name="questions" size={18} /><p>“She’s been waking earlier this week.”</p></div>
+                  <div class="context-chips"><span>Ella · 4 months</span><span>Observation summary</span></div>
+                  <div class="source-observation"><SiteIcon name="questions" size={18} /><p>Parent reports crying after feeds, settling when held upright, and difficulty sleeping at night.</p></div>
                   <div class="suggested-heading"><SiteIcon name="sparkles" size={18} /><span>Suggested by Nubo Intelligence</span></div>
-                  <div class="question-card"><span class="question-marker" aria-hidden="true">?</span><p>What changes in sleep are common at her age?</p></div>
+                  <div class="question-card"><span class="question-marker" aria-hidden="true">?</span><p>What should we discuss about the crying after feeds?</p></div>
                   <div class="question-card"><span class="question-marker" aria-hidden="true">?</span><p>What would be useful to note before our next visit?</p></div>
                   <div class="own-question"><span aria-hidden="true">+</span> Add what’s on your mind</div>
                 </div>}
@@ -99,15 +98,15 @@ const steps = [
                   <div class="recording-wave" aria-hidden="true">{[13, 23, 35, 20, 46, 30, 55, 39, 23, 44, 31, 18, 29, 14, 22].map((height) => <i style={`height: ${height}px`}></i>)}</div>
                   <p class="recording-time">04:32</p>
                   <p class="recording-label">Visit recording in progress</p>
-                  <div class="recording-question"><span class="sample-label">One of your questions</span><p>What changes in sleep are common at her age?</p></div>
+                  <div class="recording-question"><span class="sample-label">One of your questions</span><p>What should we discuss about the crying after feeds?</p></div>
                 </div>}
 
                 {step.key === 'revisit' && <div class="app-content">
                   <p class="sample-label">Your visit recap</p>
                   <h3>The answers, here to revisit.</h3>
                   <div class="recap-question"><span class="sample-label">You asked</span><p>What would be useful to note before our next visit?</p></div>
-                  <div class="answer-card"><span class="sample-label">From the conversation</span><blockquote>“Keep a note of when she wakes and bring your observations to our next visit.”</blockquote><div class="audio-reference"><span class="play-symbol" aria-hidden="true">▶</span><div><strong>04:32 <span>in your recording</span></strong><p>Your pediatrician’s original words</p></div></div></div>
-                  <div class="next-step"><SiteIcon name="check" size={21} /><div><span class="sample-label">Next step</span><p>Save waking-time observations for the follow-up.</p></div></div>
+                  <div class="answer-card"><span class="sample-label">From the conversation</span><blockquote>“Keep a note of when the crying happens and bring your observations to our next visit.”</blockquote><div class="audio-reference"><span class="play-symbol" aria-hidden="true">▶</span><div><strong>04:32 <span>in your recording</span></strong><p>Your pediatrician’s original words</p></div></div></div>
+                  <div class="next-step"><SiteIcon name="check" size={21} /><div><span class="sample-label">Next step</span><p>Save observations about crying after feeds for the follow-up.</p></div></div>
                 </div>}
 
                 {step.key === 'share' && <div class="app-content">
@@ -115,7 +114,7 @@ const steps = [
                   <h3>One visit. Shared next steps.</h3>
                   <div class="caregiver-row"><span class="caregiver-avatar">M<span>Mom</span></span><span class="caregiver-avatar dad">D<span>Dad</span></span><span class="caregiver-avatar grandma">G<span>Grandma</span></span></div>
                   <div class="shared-recap"><div><SiteIcon name="users" size={22} /><strong>Ella’s pediatrician visit</strong></div><p>Recap, answers, and to-dos</p><span class="shared-status"><SiteIcon name="check" size={16} /> Shared with selected caregivers</span></div>
-                  <div class="next-step"><SiteIcon name="check" size={21} /><div><span class="sample-label">Shared next step</span><p>Save waking-time observations for the follow-up.</p></div></div>
+                  <div class="next-step"><SiteIcon name="check" size={21} /><div><span class="sample-label">Shared next step</span><p>Save observations about crying after feeds for the follow-up.</p></div></div>
                   <div class="audio-privacy"><SiteIcon name="lock" size={17} /><p>Original audio stays on the recording phone.</p></div>
                 </div>}
               </div>
@@ -202,14 +201,6 @@ const steps = [
   blockquote { margin: .45rem 0 0; font-size: 1rem; font-weight: 600; line-height: 1.5; }
   .capture-options { display: flex; flex-wrap: wrap; gap: .5rem 1rem; margin-top: .8rem; color: #765537; font-size: .6875rem; }
   .capture-options > span { display: flex; align-items: center; gap: .35rem; }
-  .activity-heading { display: flex; align-items: center; justify-content: space-between; margin: 1.4rem 0 .65rem; }
-  .activity-heading > span { color: var(--color-text-secondary); font-size: .625rem; }
-  .activity-entry { display: flex; align-items: center; gap: .7rem; padding: .7rem .8rem; border-radius: 12px; margin-top: .5rem; }
-  .sleep-entry { background: #f1eef8; color: #67518b; } .bottle-entry { background: #fff1e7; color: #855234; }
-  .activity-entry svg { flex-shrink: 0; }
-  .activity-entry strong { display: block; font-size: .8125rem; }
-  .activity-entry div > span { display: block; font-size: .625rem; margin-top: .1rem; }
-  .activity-entry b { margin-left: auto; font-size: .8125rem; white-space: nowrap; }
   .context-chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
   .context-chips span { padding: .35rem .55rem; background: #f0f7f3; border-radius: 20px; color: #3d6556; font-size: .625rem; }
   .source-observation { display: flex; gap: .5rem; align-items: flex-start; margin-top: .8rem; padding: .75rem; border-left: 2px solid #d4b591; background: #fffaf4; border-radius: 0 9px 9px 0; }

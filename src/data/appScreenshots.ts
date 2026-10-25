@@ -6,6 +6,6 @@ export const appScreenshots = [
   ['Growth charts', '/images/appscreens/05_growth.webp', 'Nubo app screenshot showing baby growth charts'],
   ['Midnight Ember', '/images/appscreens/06_midnightember.webp', 'Nubo app screenshot showing Midnight Ember night mode'],
   ['Privacy controls', '/images/appscreens/07_privacy.webp', 'Nubo app screenshot showing privacy controls and sharing settings'],
-  ['Nubo Notetaker', '/images/appscreens/08_voicenotes.webp', 'Nubo observations screen for keeping spoken baby care notes'],
+  ['Nubo Observations', '/images/appscreens/08_voicenotes.webp', 'Nubo Observations screen for keeping baby care observations in your own words'],
   ['Allergen SafeStart', '/images/appscreens/09_allergensafestart.webp', 'Nubo app screenshot showing allergen introduction tracking']
 ] as const;
